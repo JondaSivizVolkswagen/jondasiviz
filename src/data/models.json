@@ -1,0 +1,85 @@
+{
+  "version": "0.1.0",
+  "modelos": [
+    {
+      "id": "golf-gti-mk5",
+      "nombre": "Golf GTI Mk5",
+      "alias": ["mk5", "golf 5 gti", "golf v gti", "1k gti", "gti mk5"],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 200 CV (BWA / AXX)",
+      "traccion": "delantera",
+      "anios": [2004, 2009]
+    },
+    {
+      "id": "golf-gti-mk7",
+      "nombre": "Golf GTI Mk7",
+      "alias": ["mk7", "golf 7 gti", "golf vii gti", "5g gti", "gti mk7"],
+      "chasis": "MQB",
+      "motor": "EA888",
+      "motorDetalle": "2.0 TSI 220-230 CV (EA888 gen3)",
+      "traccion": "delantera",
+      "anios": [2013, 2020]
+    },
+    {
+      "id": "golf-r-mk7",
+      "nombre": "Golf R Mk7",
+      "alias": ["golf r", "r mk7", "5g r", "golf 7 r"],
+      "chasis": "MQB",
+      "motor": "EA888",
+      "motorDetalle": "2.0 TSI 300-310 CV (EA888 gen3)",
+      "traccion": "total",
+      "anios": [2014, 2020]
+    },
+    {
+      "id": "scirocco-r",
+      "nombre": "Scirocco R",
+      "alias": ["scirocco", "roc r", "scirocco 2.0"],
+      "chasis": "PQ35",
+      "motor": "EA888",
+      "motorDetalle": "2.0 TSI 265 CV (EA888 gen2)",
+      "traccion": "delantera",
+      "anios": [2009, 2017]
+    },
+    {
+      "id": "polo-gti-6c",
+      "nombre": "Polo GTI 6C",
+      "alias": ["polo gti", "6c gti", "polo 1.8"],
+      "chasis": "PQ25",
+      "motor": "EA888",
+      "motorDetalle": "1.8 TSI 192 CV (EA888)",
+      "traccion": "delantera",
+      "anios": [2015, 2017]
+    },
+    {
+      "id": "golf-mk4-1-8t",
+      "nombre": "Golf Mk4 1.8T",
+      "alias": ["mk4", "golf 4 1.8t", "golf iv 1.8t", "1j 1.8t"],
+      "chasis": "PQ34",
+      "motor": "1.8T-20v",
+      "motorDetalle": "1.8 Turbo 20v 150-180 CV (AGU / AUM / AUQ)",
+      "traccion": "delantera",
+      "anios": [1997, 2004]
+    },
+    {
+      "id": "corrado-vr6",
+      "nombre": "Corrado VR6",
+      "alias": ["corrado", "vr6", "corrado 2.9"],
+      "chasis": "A2",
+      "motor": "VR6",
+      "motorDetalle": "2.8 / 2.9 VR6 174-190 CV (AAA / ABV)",
+      "traccion": "delantera",
+      "anios": [1991, 1995]
+    },
+    {
+      "id": "golf-gtd-mk6",
+      "nombre": "Golf GTD Mk6",
+      "alias": ["gtd", "golf 6 gtd", "mk6 gtd", "5k gtd"],
+      "chasis": "PQ35",
+      "motor": "TDI",
+      "motorDetalle": "2.0 TDI 170 CV (CBBB)",
+      "traccion": "delantera",
+      "anios": [2009, 2013]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "version": "0.1.0",
+  "_comment": "Nivel de marca por defecto y bandas de precio por categoria, para inferir la gama de una pieza cuando no viene declarada.",
+  "marcas": {
+    "raceland": "baja",
+    "fk": "baja",
+    "ta technix": "baja",
+    "ta-technix": "baja",
+    "jom": "baja",
+    "generico": "baja",
+    "replica": "baja",
+    "bc racing": "media",
+    "kw v1": "media",
+    "airtec": "media",
+    "forge": "media",
+    "racingline": "media",
+    "quaife": "media",
+    "wagner": "media",
+    "sachs": "media",
+    "kw clubsport": "alta",
+    "ohlins": "alta",
+    "wavetrac": "alta",
+    "syvecs": "alta",
+    "maxxecu": "alta",
+    "sadev": "alta",
+    "brembo gt": "alta",
+    "bbs": "alta"
+  },
+  "bandasPrecio": {
+    "admision": { "baja": 250, "media": 550 },
+    "escape": { "baja": 300, "media": 700 },
+    "turbo": { "baja": 500, "media": 1500 },
+    "gestion": { "baja": 450, "media": 1000 },
+    "suspension": { "baja": 450, "media": 1400 },
+    "transmision": { "baja": 500, "media": 1200 },
+    "frenos": { "baja": 250, "media": 700 },
+    "direccion": { "baja": 250, "media": 500 },
+    "seguridad": { "baja": 200, "media": 700 },
+    "ruedas": { "baja": 450, "media": 1200 },
+    "estetica": { "baja": 300, "media": 1000 }
+  }
+}

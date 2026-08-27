@@ -50,6 +50,41 @@ export interface Catalogo {
   piezas: Pieza[];
 }
 
+export type Traccion = "delantera" | "total";
+
+export interface ModeloVW {
+  id: string;
+  nombre: string;
+  /** Formas alternativas de escribir el modelo, en minúsculas. */
+  alias: string[];
+  /** Plataforma de chasis (PQ35, MQB, ...). Informativo por ahora. */
+  chasis: string;
+  /** Plataforma de motor, la que enlaza con las piezas del catálogo. */
+  motor: Plataforma;
+  motorDetalle: string;
+  traccion: Traccion;
+  /** [primer año, último año]. */
+  anios: [number, number];
+}
+
+export interface CatalogoModelos {
+  version: string;
+  modelos: ModeloVW[];
+}
+
+export interface ClasificacionGama {
+  gama: Gama;
+  /** 0..1, cuánto de segura es la clasificación. */
+  confianza: number;
+  motivo: string;
+}
+
+export interface GruposPorGama {
+  baja: Pieza[];
+  media: Pieza[];
+  alta: Pieza[];
+}
+
 export interface PeticionPresupuesto {
   plataforma: Plataforma;
   gama: Gama;

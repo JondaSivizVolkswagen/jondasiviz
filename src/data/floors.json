@@ -1,0 +1,11 @@
+{
+  "version": "0.1.0",
+  "moneda": "EUR",
+  "_comment": "Gasto minimo orientativo para que un proyecto de cada tipo tenga sentido en cada gama.",
+  "suelos": {
+    "drift": { "baja": 1200, "media": 3000, "alta": 8000 },
+    "drag": { "baja": 1500, "media": 4000, "alta": 12000 },
+    "mas-cv": { "baja": 500, "media": 1500, "alta": 5000 },
+    "estetica": { "baja": 400, "media": 1500, "alta": 5000 }
+  }
+}
