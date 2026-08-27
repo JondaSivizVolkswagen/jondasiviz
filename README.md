@@ -17,7 +17,7 @@ para poder cambiarlos más adelante.
 - [x] Fase 0 — Esqueleto: Vite + React + TypeScript, tooling y build.
 - [x] Fase 1 — Motor de recomendación + catálogo + tests + CLI.
 - [x] Fase 1.5 — Capa relacional por modelo (Obsidian), clasificador de gama y selector con suelo de gasto.
-- [ ] Fase 2 — Interfaz: formulario y vista de resultados.
+- [x] Fase 2 — Interfaz React: formulario y vista de resultados (`src/ui/`, `npm run dev`).
 - [ ] Fase 3 — Guardar builds y exportar a PDF / CSV.
 - [ ] Fase 4 — Empaquetado de escritorio (Tauri) y build web; conectar la descarga en la landing.
 - [ ] Más adelante — capa de embeddings para inferir compatibilidad en modelos con pocos datos.
@@ -71,10 +71,12 @@ Dada una petición (modelo, gama, presupuesto, objetivo):
 2. Comprueba el suelo de gasto para esa gama y objetivo. Si el presupuesto no llega,
    avisa y sugiere la gama que sí encajaría.
 3. Puntúa cada pieza por aporte al objetivo (`peso × impacto`) y por aporte por euro.
-4. Paso de esenciales: cubre una pieza de cada categoría prioritaria del objetivo,
-   resolviendo sus dependencias, mientras quepa en el presupuesto.
+4. Paso de esenciales: cubre una pieza de cada categoría prioritaria del objetivo
+   (la de más aporte técnico), resolviendo sus dependencias, mientras quepa.
 5. Paso de relleno: añade el resto de piezas por mejor relación aporte/precio.
-6. Devuelve las líneas agrupadas por categoría, total, sobrante, avisos y hasta tres
+6. Nunca monta dos piezas del mismo `grupoExclusivo` (dos intercoolers, coilovers
+   y air ride, remap y standalone, etc.).
+7. Devuelve las líneas agrupadas por categoría, total, sobrante, avisos y hasta tres
    mejoras siguientes.
 
 El motor es determinista: ante la misma entrada devuelve siempre el mismo resultado.
@@ -83,7 +85,7 @@ El motor es determinista: ante la misma entrada devuelve siempre el mismo result
 
 ```bash
 npm install
-npm test                 # 37 tests
+npm test                 # 40 tests
 npm run plan -- --listar-modelos
 npm run plan -- --modelo "Golf GTI Mk5" --gama media --presupuesto 4000 --objetivo drag
 npm run vault:ingest     # vault/ -> src/data/*.json
