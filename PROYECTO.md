@@ -325,9 +325,15 @@ coma, de `drift|drag|mas-cv|estetica`.
 
 ## 10. Estado de git
 
-Repositorio **local** en `C:\Users\alexa\Desktop\JondaSiviz`, sin remoto. 9 commits:
+- Local: `C:\Users\alexa\Desktop\JondaSiviz`, rama `main`.
+- Remoto: **https://github.com/JondaSivizVolkswagen/jondasiviz** (privado), cuenta de
+  GitHub `JondaSivizVolkswagen`. `origin/main` al día.
+
+Commits (de más nuevo a más viejo):
 
 ```
+chore: backup portable de la config de Claude Code (~/.claude)
+docs: PROYECTO.md, dossier completo para retomar sin contexto previo
 docs: README con objetivos multiples y suelo combinado
 Objetivos multiples + suelo de gasto combinado
 docs: README al dia (Fase 2, 40 tests, grupoExclusivo)
@@ -339,13 +345,13 @@ Capa relacional por modelo + subagentes offline
 Fase 0 y 1: esqueleto y motor de presupuestos
 ```
 
-Para no perderlo al cambiar de máquina o cuenta, subir a un remoto privado:
+Trabajo normal: `git add -A && git commit -m "..." && git push`.
 
-```bash
-gh repo create jondasiviz --private --source=. --push
-# o
-git remote add origin <url> && git push -u origin main
-```
+Autenticación de GitHub en esta máquina: `gh` (GitHub CLI, instalado por winget en
+`~\AppData\Local\Microsoft\WinGet\Packages\GitHub.cli_*\bin\gh.exe`) autenticado con
+un token clásico de la cuenta `JondaSivizVolkswagen`. `gh auth setup-git` dejó
+configurado el credential helper de git para `https://github.com`. Si en una máquina
+nueva no hay auth: `gh auth login` (interactivo) o `gh auth login --with-token`.
 
 ---
 

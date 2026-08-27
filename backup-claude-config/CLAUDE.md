@@ -136,6 +136,11 @@ Cuando el usuario escriba algo tipo "quiero cerrar terminal" (o equivalente), an
 
 ### `C:\Users\alexa\Desktop\JondaSiviz` — Volkswagen Build Planner
 
+Remoto GitHub: **https://github.com/JondaSivizVolkswagen/jondasiviz** (privado, rama `main`, cuenta
+`JondaSivizVolkswagen`). `gh` CLI autenticado en la máquina con token clásico; `gh auth setup-git`
+hecho. Dossier completo del proyecto en `PROYECTO.md` (en el repo), y backup portable de la config
+de `~/.claude` en `backup-claude-config/` del repo.
+
 Herramienta que planifica la preparación de un Volkswagen: entras modelo + plataforma de motor
 (`1.8T-20v` | `EA113` | `EA888` | `VR6` | `TDI`), gama (`baja` | `media` | `alta`), presupuesto y
 objetivo (`drift` | `drag` | `mas-cv` | `estetica`), y devuelve un presupuesto de piezas que cabe
