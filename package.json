@@ -12,7 +12,9 @@
     "typecheck": "tsc -b --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "plan": "tsx src/cli/plan.ts"
+    "plan": "tsx src/cli/plan.ts",
+    "vault:export": "tsx src/ingest/run.ts export",
+    "vault:ingest": "tsx src/ingest/run.ts ingest"
   },
   "dependencies": {
     "react": "^19.2.8",
@@ -23,6 +25,7 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
     "@vitejs/plugin-react": "^6.1.0",
+    "gray-matter": "^4.0.3",
     "oxlint": "^1.79.0",
     "tsx": "^4.23.12",
     "typescript": "~6.0.2",
