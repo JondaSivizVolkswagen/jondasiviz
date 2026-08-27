@@ -1,4 +1,5 @@
-// Formulario de entrada: modelo con autocompletado, gama segmentada, presupuesto y objetivo.
+// Formulario de entrada: modelo con autocompletado, gama segmentada, presupuesto
+// y uno o varios objetivos. El gasto mínimo se recalcula al vuelo.
 
 import type { FormEvent } from "react";
 import type { Gama, ModeloVW, Objetivo } from "../engine/types";
@@ -15,8 +16,10 @@ interface Props {
   onGama: (valor: Gama) => void;
   presupuesto: number;
   onPresupuesto: (valor: number) => void;
-  objetivo: Objetivo;
-  onObjetivo: (valor: Objetivo) => void;
+  objetivos: Objetivo[];
+  onAlternarObjetivo: (valor: Objetivo) => void;
+  /** Gasto mínimo recomendado para los objetivos y la gama actuales. */
+  suelo: number;
   onCalcular: () => void;
 }
 
@@ -27,6 +30,8 @@ export function Formulario(p: Props) {
   };
 
   const hayTexto = p.modeloTexto.trim() !== "";
+  const sinObjetivos = p.objetivos.length === 0;
+  const llegaAlSuelo = !sinObjetivos && p.presupuesto >= p.suelo;
 
   return (
     <form className="tarjeta formulario" onSubmit={enviar}>
@@ -117,26 +122,47 @@ export function Formulario(p: Props) {
 
       <div className="campo">
         <span className="campo-titulo">Objetivo</span>
-        <div className="objetivos" role="group" aria-label="Objetivo de la preparación">
-          {OBJETIVOS.map((o) => (
-            <button
-              type="button"
-              key={o.valor}
-              className={"objetivo" + (p.objetivo === o.valor ? " activo" : "")}
-              aria-pressed={p.objetivo === o.valor}
-              onClick={() => p.onObjetivo(o.valor)}
-            >
-              <span className="objetivo-cab">
-                <Icono nombre={o.icono} className="objetivo-icono" />
-                <span className="objetivo-nombre">{o.etiqueta}</span>
+        <p className="campo-ayuda">Marca todos los que quieras. El mínimo sube al combinarlos.</p>
+        <div className="objetivos" role="group" aria-label="Objetivos de la preparación">
+          {OBJETIVOS.map((o) => {
+            const activo = p.objetivos.includes(o.valor);
+            return (
+              <button
+                type="button"
+                key={o.valor}
+                className={"objetivo" + (activo ? " activo" : "")}
+                aria-pressed={activo}
+                onClick={() => p.onAlternarObjetivo(o.valor)}
+              >
+                <span className="objetivo-cab">
+                  <Icono nombre={o.icono} className="objetivo-icono" />
+                  <span className="objetivo-nombre">{o.etiqueta}</span>
+                </span>
+                <span className="objetivo-frase">{o.frase}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        <div className={"suelo-vista" + (llegaAlSuelo ? " ok" : sinObjetivos ? "" : " corto")}>
+          {sinObjetivos ? (
+            <span>Elige al menos un objetivo.</span>
+          ) : (
+            <>
+              <span>
+                Gasto mínimo recomendado: <strong>{euros(p.suelo)}</strong>
               </span>
-              <span className="objetivo-frase">{o.frase}</span>
-            </button>
-          ))}
+              <span className="suelo-estado">
+                {llegaAlSuelo
+                  ? "tu presupuesto llega"
+                  : `te faltan ${euros(p.suelo - p.presupuesto)}`}
+              </span>
+            </>
+          )}
         </div>
       </div>
 
-      <button type="submit" className="btn btn-primario">
+      <button type="submit" className="btn btn-primario" disabled={sinObjetivos}>
         Calcular presupuesto
       </button>
     </form>

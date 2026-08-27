@@ -66,7 +66,7 @@ describe("selector de presupuesto", () => {
       modelo: "Golf GTI Mk5",
       gama: "alta",
       presupuesto: 3000,
-      objetivo: "drift",
+      objetivos: ["drift"],
     });
     expect(r.cumpleSuelo).toBe(false);
     expect(r.suelo).toBe(8000);
@@ -74,12 +74,24 @@ describe("selector de presupuesto", () => {
     expect(r.avisos.join(" ")).toMatch(/al menos 8000/);
   });
 
+  it("con varios objetivos el suelo es la suma de los suyos", () => {
+    const r = selector.seleccionar({
+      modelo: "mk5",
+      gama: "alta",
+      presupuesto: 15000,
+      objetivos: ["drift", "drag"],
+    });
+    expect(r.suelo).toBe(8000 + 12000);
+    expect(r.cumpleSuelo).toBe(false);
+    expect(r.gamaSugerida).toBe("media"); // 3000 + 3500 = 6500 <= 15000
+  });
+
   it("marca cumpleSuelo cuando el presupuesto llega", () => {
     const r = selector.seleccionar({
       modelo: "mk5",
       gama: "media",
       presupuesto: 4000,
-      objetivo: "drift",
+      objetivos: ["drift"],
     });
     expect(r.cumpleSuelo).toBe(true);
     expect(r.presupuesto).not.toBeNull();
@@ -91,7 +103,7 @@ describe("selector de presupuesto", () => {
       modelo: "Golf GTI Mk5",
       gama: "media",
       presupuesto: 15000,
-      objetivo: "drag",
+      objetivos: ["drag"],
     });
     for (const linea of r.presupuesto!.lineas) {
       expect(linea.pieza.plataformas).toContain("EA113");
@@ -104,7 +116,7 @@ describe("selector de presupuesto", () => {
       modelo: "Subaru WRX",
       gama: "media",
       presupuesto: 5000,
-      objetivo: "drag",
+      objetivos: ["drag"],
     });
     expect(r.modelo).toBeNull();
     expect(r.presupuesto).toBeNull();

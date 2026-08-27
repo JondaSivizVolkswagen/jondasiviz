@@ -43,7 +43,10 @@ export function Resultado({ resultado, onProbarGama }: Props) {
         <div className="chips">
           <span className="chip">Gama {pet.gama}</span>
           <span className="chip">{euros(tope)}</span>
-          <span className="chip">Objetivo {NOMBRE_OBJETIVO[pet.objetivo]}</span>
+          <span className="chip">
+            {pet.objetivos.length > 1 ? "Objetivos" : "Objetivo"}{" "}
+            {pet.objetivos.map((o) => NOMBRE_OBJETIVO[o]).join(" + ")}
+          </span>
         </div>
       </header>
 

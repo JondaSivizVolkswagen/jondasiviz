@@ -1,5 +1,5 @@
-// Motor de recomendación: a partir de plataforma, gama, presupuesto y objetivo
-// arma una lista de piezas que cabe en el dinero disponible.
+// Motor de recomendación: a partir de plataforma, gama, presupuesto y uno o más
+// objetivos, arma una lista de piezas que cabe en el dinero disponible.
 
 import { cargarCatalogo } from "./catalog";
 import type {
@@ -27,6 +27,9 @@ const ORDEN_CATEGORIAS: Categoria[] = [
   "seguridad",
   "estetica",
 ];
+
+/** Orden canónico de objetivos, para que el resultado no dependa del orden de clic. */
+const ORDEN_OBJETIVOS: Objetivo[] = ["drift", "drag", "mas-cv", "estetica"];
 
 /** Categorías prioritarias por objetivo, de más a menos importante. */
 const ESENCIALES: Record<Objetivo, Categoria[]> = {
@@ -57,6 +60,43 @@ const NOMBRE_OBJETIVO: Record<Objetivo, string> = {
   estetica: "estética",
 };
 
+/** Objetivos en orden canónico y sin repetidos. */
+function normalizarObjetivos(objetivos: Objetivo[]): Objetivo[] {
+  return ORDEN_OBJETIVOS.filter((o) => objetivos.includes(o));
+}
+
+function nombreObjetivos(objetivos: Objetivo[]): string {
+  return normalizarObjetivos(objetivos).map((o) => NOMBRE_OBJETIVO[o]).join(" + ");
+}
+
+/** Suma de pesos de la pieza para los objetivos elegidos (0..5 por objetivo). */
+function peso(pieza: Pieza, objetivos: Objetivo[]): number {
+  return objetivos.reduce((s, o) => s + pieza.objetivos[o], 0);
+}
+
+function valor(pieza: Pieza, objetivos: Objetivo[]): number {
+  return peso(pieza, objetivos) * pieza.impacto;
+}
+
+function valorPorEuro(pieza: Pieza, objetivos: Objetivo[]): number {
+  return valor(pieza, objetivos) / pieza.precio.estimado;
+}
+
+/** Categorías esenciales combinadas de todos los objetivos, sin repetir. */
+function categoriasEsenciales(objetivos: Objetivo[]): Categoria[] {
+  const vistas = new Set<Categoria>();
+  const salida: Categoria[] = [];
+  for (const o of normalizarObjetivos(objetivos)) {
+    for (const c of ESENCIALES[o]) {
+      if (!vistas.has(c)) {
+        vistas.add(c);
+        salida.push(c);
+      }
+    }
+  }
+  return salida;
+}
+
 export function piezasCompatibles(
   catalogo: Catalogo,
   peticion: Pick<PeticionPresupuesto, "plataforma" | "gama">,
@@ -64,14 +104,6 @@ export function piezasCompatibles(
   return catalogo.piezas.filter(
     (p) => p.plataformas.includes(peticion.plataforma) && p.gama === peticion.gama,
   );
-}
-
-function valor(pieza: Pieza, objetivo: Objetivo): number {
-  return pieza.objetivos[objetivo] * pieza.impacto;
-}
-
-function valorPorEuro(pieza: Pieza, objetivo: Objetivo): number {
-  return valor(pieza, objetivo) / pieza.precio.estimado;
 }
 
 /**
@@ -83,8 +115,13 @@ export function generarPresupuesto(
   catalogo: Catalogo = cargarCatalogo(),
 ): Presupuesto {
   const avisos: string[] = [];
-  const { objetivo } = peticion;
+  const objetivos = normalizarObjetivos(peticion.objetivos);
   const presupuesto = Number.isFinite(peticion.presupuesto) ? peticion.presupuesto : 0;
+
+  if (objetivos.length === 0) {
+    avisos.push("Elige al menos un objetivo para el proyecto.");
+    return armarResultado(peticion, [], catalogo, presupuesto, avisos);
+  }
 
   if (presupuesto <= 0) {
     avisos.push("Indica un presupuesto mayor que 0.");
@@ -146,21 +183,21 @@ export function generarPresupuesto(
 
   const cabe = (coste: number): boolean => gastado + coste <= presupuesto;
 
-  // Paso 1: cubrir una pieza de cada categoría esencial del objetivo.
+  // Paso 1: cubrir una pieza de cada categoría esencial de los objetivos.
   const categoriasSinCubrir: Categoria[] = [];
-  for (const categoria of ESENCIALES[objetivo]) {
+  for (const categoria of categoriasEsenciales(objetivos)) {
     const candidatas = pool
       .filter(
         (p) =>
           p.categoria === categoria &&
-          p.objetivos[objetivo] > 0 &&
+          peso(p, objetivos) > 0 &&
           !elegidas.has(p.id) &&
           grupoLibre(p),
       )
       .sort(
         (a, b) =>
-          valor(b, objetivo) - valor(a, objetivo) ||
-          valorPorEuro(b, objetivo) - valorPorEuro(a, objetivo) ||
+          valor(b, objetivos) - valor(a, objetivos) ||
+          valorPorEuro(b, objetivos) - valorPorEuro(a, objetivos) ||
           a.precio.estimado - b.precio.estimado ||
           a.id.localeCompare(b.id),
       );
@@ -180,11 +217,11 @@ export function generarPresupuesto(
 
   // Paso 2: rellenar con lo que más aporta por euro mientras quede dinero.
   const relleno = pool
-    .filter((p) => !elegidas.has(p.id) && p.objetivos[objetivo] > 0)
+    .filter((p) => !elegidas.has(p.id) && peso(p, objetivos) > 0)
     .sort(
       (a, b) =>
-        valorPorEuro(b, objetivo) - valorPorEuro(a, objetivo) ||
-        b.objetivos[objetivo] - a.objetivos[objetivo] ||
+        valorPorEuro(b, objetivos) - valorPorEuro(a, objetivos) ||
+        peso(b, objetivos) - peso(a, objetivos) ||
         a.precio.estimado - b.precio.estimado ||
         a.id.localeCompare(b.id),
     );
@@ -203,13 +240,13 @@ export function generarPresupuesto(
   if (lineas.length === 0) {
     avisos.push(
       `El presupuesto de ${presupuesto} ${catalogo.moneda} no llega para ninguna pieza de gama ` +
-        `${peticion.gama} orientada a ${NOMBRE_OBJETIVO[objetivo]}.`,
+        `${peticion.gama} orientada a ${nombreObjetivos(objetivos)}.`,
     );
   } else {
     for (const categoria of categoriasSinCubrir.slice(0, 3)) {
       avisos.push(
         `Con este presupuesto no entra nada de ${NOMBRE_CATEGORIA[categoria]}, ` +
-          `prioritario para un proyecto de ${NOMBRE_OBJETIVO[objetivo]}.`,
+          `prioritario para un proyecto de ${nombreObjetivos(objetivos)}.`,
       );
     }
   }
@@ -257,14 +294,15 @@ function calcularMejoras(
   restante: number,
 ): MejoraSugerida[] {
   const yaElegidas = new Set(lineas.map((l) => l.pieza.id));
-  const { objetivo } = peticion;
+  const objetivos = normalizarObjetivos(peticion.objetivos);
+  if (objetivos.length === 0) return [];
 
   return piezasCompatibles(catalogo, peticion)
-    .filter((p) => !yaElegidas.has(p.id) && p.objetivos[objetivo] > 0)
+    .filter((p) => !yaElegidas.has(p.id) && peso(p, objetivos) > 0)
     .sort(
       (a, b) =>
-        valor(b, objetivo) - valor(a, objetivo) ||
-        valorPorEuro(b, objetivo) - valorPorEuro(a, objetivo) ||
+        valor(b, objetivos) - valor(a, objetivos) ||
+        valorPorEuro(b, objetivos) - valorPorEuro(a, objetivos) ||
         a.precio.estimado - b.precio.estimado ||
         a.id.localeCompare(b.id),
     )
@@ -276,4 +314,4 @@ function calcularMejoras(
     }));
 }
 
-export { NOMBRE_CATEGORIA, NOMBRE_OBJETIVO };
+export { NOMBRE_CATEGORIA, NOMBRE_OBJETIVO, normalizarObjetivos, nombreObjetivos };

@@ -94,7 +94,8 @@ export interface PeticionPresupuesto {
   plataforma: Plataforma;
   gama: Gama;
   presupuesto: number;
-  objetivo: Objetivo;
+  /** Uno o más objetivos del proyecto. Sus pesos se suman al puntuar las piezas. */
+  objetivos: Objetivo[];
   modelo?: string;
 }
 

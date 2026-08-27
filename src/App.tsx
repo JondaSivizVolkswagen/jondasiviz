@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { buscarModelo, listarModelos } from "./engine/graph";
-import { crearSelector } from "./agents";
+import { crearSelector, sueloDe } from "./agents";
 import type { ResultadoSelector } from "./agents";
 import type { Gama, Objetivo } from "./engine/types";
 import { useTema } from "./ui/theme";
@@ -18,7 +18,7 @@ function App() {
   const [modeloTexto, setModeloTexto] = useState("Golf GTI Mk5");
   const [gama, setGama] = useState<Gama>("media");
   const [presupuesto, setPresupuesto] = useState(4000);
-  const [objetivo, setObjetivo] = useState<Objetivo>("drag");
+  const [objetivos, setObjetivos] = useState<Objetivo[]>(["drag"]);
   const [resultado, setResultado] = useState<ResultadoSelector | null>(null);
 
   const modeloResuelto = useMemo(
@@ -28,9 +28,15 @@ function App() {
 
   const calcular = (conGama: Gama = gama) => {
     setResultado(
-      selector.seleccionar({ modelo: modeloTexto, gama: conGama, presupuesto, objetivo }),
+      selector.seleccionar({ modelo: modeloTexto, gama: conGama, presupuesto, objetivos }),
     );
   };
+
+  const alternarObjetivo = (o: Objetivo) => {
+    setObjetivos((prev) => (prev.includes(o) ? prev.filter((x) => x !== o) : [...prev, o]));
+  };
+
+  const sueloVista = sueloDe(objetivos, gama);
 
   const probarGama = (nueva: Gama) => {
     setGama(nueva);
@@ -72,8 +78,9 @@ function App() {
           onGama={setGama}
           presupuesto={presupuesto}
           onPresupuesto={setPresupuesto}
-          objetivo={objetivo}
-          onObjetivo={setObjetivo}
+          objetivos={objetivos}
+          onAlternarObjetivo={alternarObjetivo}
+          suelo={sueloVista}
           onCalcular={() => calcular()}
         />
 

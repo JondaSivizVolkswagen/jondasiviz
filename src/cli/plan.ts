@@ -1,5 +1,6 @@
 // CLI para probar el motor sin interfaz.
 //   npm run plan -- --modelo "Golf GTI Mk5" --gama media --presupuesto 4000 --objetivo drag
+//   npm run plan -- --modelo mk5 --gama alta --presupuesto 12000 --objetivo drift,estetica
 //   npm run plan -- --listar-modelos
 
 import { cargarCatalogo } from "../engine/catalog";
@@ -34,7 +35,7 @@ function salirConAyuda(mensaje: string): never {
     "\nUso:\n  npm run plan -- --modelo <texto> --gama <g> --presupuesto <n> --objetivo <o>\n  npm run plan -- --listar-modelos\n",
   );
   console.error(`  gama:     ${GAMAS.join(" | ")}`);
-  console.error(`  objetivo: ${OBJETIVOS.join(" | ")}`);
+  console.error(`  objetivo: ${OBJETIVOS.join(" | ")}  (uno o varios separados por coma)`);
   console.error(`  modelos:  ${listarModelos().map((m) => m.nombre).join(", ")}`);
   process.exit(1);
 }
@@ -51,19 +52,24 @@ if (args["listar-modelos"]) {
 }
 
 const gama = args.gama as Gama;
-const objetivo = args.objetivo as Objetivo;
+const objetivos = (args.objetivo ?? "")
+  .split(",")
+  .map((o) => o.trim())
+  .filter(Boolean) as Objetivo[];
 const presupuesto = Number(args.presupuesto);
 
 if (!args.modelo) salirConAyuda("Falta --modelo");
 if (!GAMAS.includes(gama)) salirConAyuda(`Gama inválida: "${args.gama ?? ""}"`);
-if (!OBJETIVOS.includes(objetivo)) salirConAyuda(`Objetivo inválido: "${args.objetivo ?? ""}"`);
+if (objetivos.length === 0 || objetivos.some((o) => !OBJETIVOS.includes(o))) {
+  salirConAyuda(`Objetivo inválido: "${args.objetivo ?? ""}" (uno o varios separados por coma)`);
+}
 if (!Number.isFinite(presupuesto) || presupuesto <= 0) {
   salirConAyuda(`Presupuesto inválido: "${args.presupuesto ?? ""}"`);
 }
 
 const catalogo = cargarCatalogo();
 const selector = crearSelector(catalogo);
-const res = selector.seleccionar({ modelo: args.modelo, gama, presupuesto, objetivo });
+const res = selector.seleccionar({ modelo: args.modelo, gama, presupuesto, objetivos });
 
 if (!res.modelo) {
   for (const aviso of res.avisos) console.error(aviso);
@@ -74,14 +80,16 @@ const modelo = res.modelo;
 const clasificador = crearClasificadorReglas();
 const grupos = clasificador.agrupar(piezasDeModelo(modelo, catalogo));
 
+const etiquetaObjetivos = objetivos.map((o) => NOMBRE_OBJETIVO[o]).join(" + ");
+
 console.log(`\n${modelo.nombre}  ·  ${modelo.motorDetalle}  ·  chasis ${modelo.chasis}`);
-console.log(`gama ${gama}  ·  ${eur(presupuesto)}  ·  ${NOMBRE_OBJETIVO[objetivo]}`);
+console.log(`gama ${gama}  ·  ${eur(presupuesto)}  ·  ${etiquetaObjetivos}`);
 console.log(
   `Piezas compatibles: ${grupos.baja.length} baja / ${grupos.media.length} media / ${grupos.alta.length} alta\n`,
 );
 
 console.log(
-  `Gasto mínimo recomendado (${NOMBRE_OBJETIVO[objetivo]} / gama ${gama}): ${eur(res.suelo)}` +
+  `Gasto mínimo recomendado (${etiquetaObjetivos} / gama ${gama}): ${eur(res.suelo)}` +
     (res.cumpleSuelo ? "  [cumple]" : "  [por debajo]"),
 );
 for (const aviso of res.avisos) console.log(`[aviso] ${aviso}`);

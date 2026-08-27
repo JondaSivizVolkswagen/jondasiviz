@@ -103,6 +103,44 @@
   color: var(--text-muted);
 }
 
+.campo-ayuda {
+  margin: -2px 0 2px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.suelo-vista {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  margin-top: 10px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--bg-alt, var(--accent-suave));
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  transition: border-color 0.18s ease-out, background 0.18s ease-out;
+}
+
+.suelo-vista.ok {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+
+.suelo-vista.corto {
+  background: var(--accent-suave);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+}
+
+.suelo-estado {
+  color: var(--text-muted);
+}
+
+.suelo-vista.corto .suelo-estado {
+  color: var(--accent);
+}
+
 .entrada {
   width: 100%;
   padding: 10px 12px;

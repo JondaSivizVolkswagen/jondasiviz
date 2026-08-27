@@ -8,18 +8,31 @@ const base: PeticionPresupuesto = {
   plataforma: "EA113",
   gama: "media",
   presupuesto: 4000,
-  objetivo: "drag",
+  objetivos: ["drag"],
 };
 
 describe("generarPresupuesto con el catálogo real", () => {
   it("nunca se pasa del presupuesto", () => {
-    for (const objetivo of ["drift", "drag", "mas-cv", "estetica"] as const) {
+    const combos = [["drift"], ["drag"], ["mas-cv"], ["estetica"], ["drift", "estetica"]] as const;
+    for (const objetivos of combos) {
       for (const presupuesto of [500, 1500, 4000, 12000]) {
-        const res = generarPresupuesto({ ...base, objetivo, presupuesto });
+        const res = generarPresupuesto({ ...base, objetivos: [...objetivos], presupuesto });
         expect(res.total).toBeLessThanOrEqual(presupuesto);
         expect(res.restante).toBe(presupuesto - res.total);
       }
     }
+  });
+
+  it("con varios objetivos entran categorías de todos ellos", () => {
+    const res = generarPresupuesto({
+      ...base,
+      gama: "media",
+      objetivos: ["drift", "estetica"],
+      presupuesto: 12000,
+    });
+    const categorias = new Set(res.porCategoria.map((g) => g.categoria));
+    expect(categorias.has("direccion")).toBe(true); // esencial de drift
+    expect(categorias.has("estetica")).toBe(true); // esencial de estética
   });
 
   it("solo incluye piezas compatibles con la plataforma y la gama pedidas", () => {
@@ -39,14 +52,14 @@ describe("generarPresupuesto con el catálogo real", () => {
   });
 
   it("un proyecto de drift con presupuesto amplio cubre suspensión y dirección", () => {
-    const res = generarPresupuesto({ ...base, objetivo: "drift", presupuesto: 12000 });
+    const res = generarPresupuesto({ ...base, objetivos: ["drift"], presupuesto: 12000 });
     const categorias = new Set(res.porCategoria.map((g) => g.categoria));
     expect(categorias.has("suspension")).toBe(true);
     expect(categorias.has("direccion")).toBe(true);
   });
 
   it("un proyecto de drag con presupuesto amplio mete el K04 con su FMIC y downpipe", () => {
-    const res = generarPresupuesto({ ...base, gama: "alta", objetivo: "drag", presupuesto: 20000 });
+    const res = generarPresupuesto({ ...base, gama: "alta", objetivos: ["drag"], presupuesto: 20000 });
     const ids = new Set(res.lineas.map((l) => l.pieza.id));
     expect(ids.has("turbo-k04-alta")).toBe(true);
     // dependencias de otras gamas que el motor arrastra igualmente
@@ -108,7 +121,7 @@ describe("generarPresupuesto con catálogo controlado", () => {
         precio: { min: 190, estimado: 200, max: 220 },
       }),
     ]);
-    const res = generarPresupuesto({ ...base, objetivo: "drag", presupuesto: 250 }, c);
+    const res = generarPresupuesto({ ...base, objetivos: ["drag"], presupuesto: 250 }, c);
     expect(res.lineas.map((l) => l.pieza.id)).toEqual(["barata-buena"]);
   });
 
@@ -131,7 +144,7 @@ describe("generarPresupuesto con catálogo controlado", () => {
         precio: { min: 700, estimado: 800, max: 950 },
       }),
     ]);
-    const res = generarPresupuesto({ ...base, objetivo: "drag", presupuesto: 5000 }, c);
+    const res = generarPresupuesto({ ...base, objetivos: ["drag"], presupuesto: 5000 }, c);
     const ids = res.lineas.map((l) => l.pieza.id);
     expect(ids).toContain("fmic-alta");
     expect(ids).not.toContain("fmic-media");
@@ -167,7 +180,7 @@ describe("generarPresupuesto con catálogo controlado", () => {
         requiere: ["fmic-media"],
       }),
     ]);
-    const res = generarPresupuesto({ ...base, objetivo: "mas-cv", presupuesto: 5000 }, c);
+    const res = generarPresupuesto({ ...base, objetivos: ["mas-cv"], presupuesto: 5000 }, c);
     const ids = res.lineas.map((l) => l.pieza.id).sort();
     expect(ids).toContain("turbo");
     expect(ids).toContain("fmic-alta");
@@ -191,7 +204,7 @@ describe("generarPresupuesto con catálogo controlado", () => {
         precio: { min: 150, estimado: 200, max: 260 },
       }),
     ]);
-    const res = generarPresupuesto({ ...base, objetivo: "drift", presupuesto: 1200 }, c);
+    const res = generarPresupuesto({ ...base, objetivos: ["drift"], presupuesto: 1200 }, c);
     expect(res.lineas.find((l) => l.motivo === "esencial")?.pieza.id).toBe("coilovers");
   });
 
@@ -213,7 +226,7 @@ describe("generarPresupuesto con catálogo controlado", () => {
         precio: { min: 380, estimado: 400, max: 420 },
       }),
     ]);
-    const res = generarPresupuesto({ ...base, objetivo: "drag", presupuesto: 1200 }, c);
+    const res = generarPresupuesto({ ...base, objetivos: ["drag"], presupuesto: 1200 }, c);
     expect(res.lineas.map((l) => l.pieza.id)).not.toContain("turbo");
   });
 
@@ -235,7 +248,7 @@ describe("generarPresupuesto con catálogo controlado", () => {
         precio: { min: 380, estimado: 400, max: 420 },
       }),
     ]);
-    const res = generarPresupuesto({ ...base, objetivo: "drag", presupuesto: 1500 }, c);
+    const res = generarPresupuesto({ ...base, objetivos: ["drag"], presupuesto: 1500 }, c);
     const fmic = res.lineas.find((l) => l.pieza.id === "fmic");
     expect(fmic?.motivo).toBe("dependencia");
     expect(res.lineas.map((l) => l.pieza.id).sort()).toEqual(["fmic", "turbo"]);
