@@ -1,19 +1,19 @@
 ---
 tipo: pieza
-id: fren-pastillas-baja
-nombre: Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1
-categoria: frenos
+id: adm-filtro-baja
+nombre: Filtro de aire de altas prestaciones (BMC / Pipercross)
+categoria: admision
 gama: baja
 precio:
-  min: 120
-  estimado: 180
-  max: 260
+  min: 45
+  estimado: 65
+  max: 90
 objetivos:
-  drift: 2
-  drag: 2
-  mas-cv: 1
+  drift: 0
+  drag: 1
+  mas-cv: 2
   estetica: 0
-impacto: 2
+impacto: 1
 requiere: []
 plataformas:
   - 1.8T-20v

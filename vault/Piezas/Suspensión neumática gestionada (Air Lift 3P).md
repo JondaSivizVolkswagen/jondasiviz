@@ -1,19 +1,19 @@
 ---
 tipo: pieza
-id: dir-angulo-media
-nombre: Kit de ángulo de dirección + espaciadores
-categoria: direccion
-gama: media
+id: est-airride-alta
+nombre: Suspensión neumática gestionada (Air Lift 3P)
+categoria: estetica
+gama: alta
 precio:
-  min: 250
-  estimado: 350
-  max: 480
+  min: 1900
+  estimado: 2600
+  max: 3600
 objetivos:
-  drift: 5
+  drift: 0
   drag: 0
   mas-cv: 0
-  estetica: 0
-impacto: 4
+  estetica: 5
+impacto: 3
 requiere: []
 plataformas:
   - 1.8T-20v

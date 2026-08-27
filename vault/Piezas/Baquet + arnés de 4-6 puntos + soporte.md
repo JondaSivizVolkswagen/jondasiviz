@@ -1,18 +1,18 @@
 ---
 tipo: pieza
-id: fren-pastillas-baja
-nombre: Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1
-categoria: frenos
-gama: baja
+id: seg-baquet-media
+nombre: Baquet + arnés de 4/6 puntos + soporte
+categoria: seguridad
+gama: media
 precio:
-  min: 120
-  estimado: 180
-  max: 260
+  min: 300
+  estimado: 450
+  max: 650
 objetivos:
   drift: 2
   drag: 2
-  mas-cv: 1
-  estetica: 0
+  mas-cv: 0
+  estetica: 2
 impacto: 2
 requiere: []
 plataformas:

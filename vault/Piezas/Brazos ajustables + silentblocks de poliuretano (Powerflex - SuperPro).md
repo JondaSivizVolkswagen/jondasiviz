@@ -1,19 +1,19 @@
 ---
 tipo: pieza
-id: dir-angulo-media
-nombre: Kit de ángulo de dirección + espaciadores
-categoria: direccion
+id: susp-brazos-media
+nombre: Brazos ajustables + silentblocks de poliuretano (Powerflex / SuperPro)
+categoria: suspension
 gama: media
 precio:
-  min: 250
-  estimado: 350
-  max: 480
+  min: 280
+  estimado: 400
+  max: 560
 objetivos:
-  drift: 5
-  drag: 0
+  drift: 3
+  drag: 2
   mas-cv: 0
-  estetica: 0
-impacto: 4
+  estetica: 1
+impacto: 3
 requiere: []
 plataformas:
   - 1.8T-20v

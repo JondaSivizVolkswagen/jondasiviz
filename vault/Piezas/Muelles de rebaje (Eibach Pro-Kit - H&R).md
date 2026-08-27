@@ -1,18 +1,18 @@
 ---
 tipo: pieza
-id: fren-pastillas-baja
-nombre: Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1
-categoria: frenos
+id: susp-muelles-baja
+nombre: Muelles de rebaje (Eibach Pro-Kit / H&R)
+categoria: suspension
 gama: baja
 precio:
-  min: 120
-  estimado: 180
-  max: 260
+  min: 150
+  estimado: 210
+  max: 290
 objetivos:
-  drift: 2
-  drag: 2
-  mas-cv: 1
-  estetica: 0
+  drift: 1
+  drag: 1
+  mas-cv: 0
+  estetica: 3
 impacto: 2
 requiere: []
 plataformas:

@@ -1,19 +1,19 @@
 ---
 tipo: pieza
-id: fren-pastillas-baja
-nombre: Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1
-categoria: frenos
-gama: baja
+id: seg-jaula-alta
+nombre: Jaula completa soldada homologada FIA
+categoria: seguridad
+gama: alta
 precio:
-  min: 120
-  estimado: 180
-  max: 260
+  min: 1100
+  estimado: 1600
+  max: 2400
 objetivos:
-  drift: 2
-  drag: 2
-  mas-cv: 1
+  drift: 4
+  drag: 3
+  mas-cv: 0
   estetica: 0
-impacto: 2
+impacto: 3
 requiere: []
 plataformas:
   - 1.8T-20v

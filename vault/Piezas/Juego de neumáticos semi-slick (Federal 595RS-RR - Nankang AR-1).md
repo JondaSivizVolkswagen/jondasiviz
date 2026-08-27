@@ -1,19 +1,19 @@
 ---
 tipo: pieza
-id: fren-pastillas-baja
-nombre: Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1
-categoria: frenos
-gama: baja
+id: rueda-semislick-media
+nombre: Juego de neumáticos semi-slick (Federal 595RS-RR / Nankang AR-1)
+categoria: ruedas
+gama: media
 precio:
-  min: 120
-  estimado: 180
-  max: 260
+  min: 380
+  estimado: 500
+  max: 680
 objetivos:
-  drift: 2
-  drag: 2
+  drift: 3
+  drag: 3
   mas-cv: 1
-  estetica: 0
-impacto: 2
+  estetica: 1
+impacto: 3
 requiere: []
 plataformas:
   - 1.8T-20v

@@ -22,9 +22,7 @@ plataformas:
   - VR6
   - TDI
 stage: null
-nota: >-
-  Bloquea la barra de torsión trasera para forzar el sobreviraje en tracción
-  delantera.
+nota: Bloquea la barra de torsión trasera para forzar el sobreviraje.
 ---
 
 Compatible con [[1.8T-20v]], [[EA113]], [[EA888]], [[VR6]], [[TDI]].

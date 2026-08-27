@@ -1,19 +1,19 @@
 ---
 tipo: pieza
-id: fren-pastillas-baja
-nombre: Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1
-categoria: frenos
-gama: baja
+id: trans-lsd-media
+nombre: Diferencial autoblocante ATB (Quaife / Peloquin)
+categoria: transmision
+gama: media
 precio:
-  min: 120
-  estimado: 180
-  max: 260
+  min: 750
+  estimado: 1000
+  max: 1350
 objetivos:
-  drift: 2
-  drag: 2
+  drift: 4
+  drag: 4
   mas-cv: 1
   estetica: 0
-impacto: 2
+impacto: 4
 requiere: []
 plataformas:
   - 1.8T-20v

@@ -45,12 +45,16 @@ describe("generarPresupuesto con el catálogo real", () => {
     expect(categorias.has("direccion")).toBe(true);
   });
 
-  it("un proyecto de drag con presupuesto amplio mete turbo con su FMIC y downpipe", () => {
-    const res = generarPresupuesto({ ...base, objetivo: "drag", presupuesto: 12000 });
+  it("un proyecto de drag con presupuesto amplio mete el K04 con su FMIC y downpipe", () => {
+    const res = generarPresupuesto({ ...base, gama: "alta", objetivo: "drag", presupuesto: 20000 });
     const ids = new Set(res.lineas.map((l) => l.pieza.id));
-    expect(ids.has("turbo-hibrido-media")).toBe(true);
-    expect(ids.has("fmic-media")).toBe(true);
+    expect(ids.has("turbo-k04-alta")).toBe(true);
+    // dependencias de otras gamas que el motor arrastra igualmente
+    expect(ids.has("adm-fmic-media")).toBe(true);
     expect(ids.has("esc-dp-media")).toBe(true);
+    for (const linea of res.lineas) {
+      for (const dep of linea.pieza.requiere) expect(ids.has(dep)).toBe(true);
+    }
   });
 
   it("con presupuesto muy bajo devuelve poco y avisa", () => {

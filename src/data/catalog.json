@@ -1,10 +1,85 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "moneda": "EUR",
   "piezas": [
     {
-      "id": "adm-intake-alta",
-      "nombre": "Turbo inlet + airbox de competición",
+      "id": "adm-catchcan-baja",
+      "nombre": "Sistema de recogida de aceite (catch can) Forge",
+      "categoria": "admision",
+      "plataformas": [
+        "1.8T-20v",
+        "EA113",
+        "EA888"
+      ],
+      "gama": "baja",
+      "precio": {
+        "min": 90,
+        "estimado": 130,
+        "max": 190
+      },
+      "objetivos": {
+        "drift": 1,
+        "drag": 2,
+        "mas-cv": 1,
+        "estetica": 0
+      },
+      "impacto": 2,
+      "requiere": [],
+      "nota": "Mantiene limpia la admisión en motores de inyección directa exigidos."
+    },
+    {
+      "id": "adm-dv-baja",
+      "nombre": "Válvula de descarga reforzada (Forge DV+)",
+      "categoria": "admision",
+      "plataformas": [
+        "1.8T-20v",
+        "EA113",
+        "EA888"
+      ],
+      "gama": "baja",
+      "precio": {
+        "min": 70,
+        "estimado": 100,
+        "max": 140
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 2,
+        "mas-cv": 1,
+        "estetica": 0
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
+      "id": "adm-filtro-baja",
+      "nombre": "Filtro de aire de altas prestaciones (BMC / Pipercross)",
+      "categoria": "admision",
+      "plataformas": [
+        "1.8T-20v",
+        "EA113",
+        "EA888",
+        "VR6",
+        "TDI"
+      ],
+      "gama": "baja",
+      "precio": {
+        "min": 45,
+        "estimado": 65,
+        "max": 90
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 1,
+        "mas-cv": 2,
+        "estetica": 0
+      },
+      "impacto": 1,
+      "requiere": []
+    },
+    {
+      "id": "adm-fmic-alta",
+      "nombre": "Intercooler barra y placa Stage 3 (Airtec / do88) + hard pipes",
       "categoria": "admision",
       "plataformas": [
         "EA113",
@@ -12,9 +87,101 @@
       ],
       "gama": "alta",
       "precio": {
-        "min": 300,
-        "estimado": 420,
-        "max": 560
+        "min": 620,
+        "estimado": 800,
+        "max": 1050
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": []
+    },
+    {
+      "id": "adm-fmic-media",
+      "nombre": "Intercooler frontal (Forge / Wagner Competition)",
+      "categoria": "admision",
+      "plataformas": [
+        "1.8T-20v",
+        "EA113",
+        "EA888"
+      ],
+      "gama": "media",
+      "precio": {
+        "min": 380,
+        "estimado": 500,
+        "max": 680
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": []
+    },
+    {
+      "id": "adm-inlet-media",
+      "nombre": "Tubo turbo inlet de alto flujo (Forge)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA113"
+      ],
+      "gama": "media",
+      "precio": {
+        "min": 90,
+        "estimado": 130,
+        "max": 180
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 2,
+        "estetica": 0
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
+      "id": "adm-intake-media",
+      "nombre": "Kit de admisión cerrada (Forge / Neuspeed P-Flo)",
+      "categoria": "admision",
+      "plataformas": [
+        "1.8T-20v",
+        "EA113",
+        "EA888"
+      ],
+      "gama": "media",
+      "precio": {
+        "min": 180,
+        "estimado": 250,
+        "max": 340
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 3,
+        "estetica": 1
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
+      "id": "comb-inyectores-media",
+      "nombre": "Inyectores de mayor caudal + bomba de gasolina en depósito",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA113"
+      ],
+      "gama": "media",
+      "precio": {
+        "min": 350,
+        "estimado": 500,
+        "max": 700
       },
       "objetivos": {
         "drift": 0,
@@ -26,51 +193,25 @@
       "requiere": []
     },
     {
-      "id": "adm-intake-baja",
-      "nombre": "Kit admisión abierta genérico",
-      "categoria": "admision",
+      "id": "comb-stage3-alta",
+      "nombre": "Kit de alimentación Stage 3 (rieles, inyectores 1000cc, bomba externa)",
+      "categoria": "turbo",
       "plataformas": [
-        "1.8T-20v",
-        "EA113",
-        "EA888"
+        "EA113"
       ],
-      "gama": "baja",
+      "gama": "alta",
       "precio": {
-        "min": 90,
-        "estimado": 120,
-        "max": 160
+        "min": 700,
+        "estimado": 950,
+        "max": 1300
       },
       "objetivos": {
         "drift": 0,
-        "drag": 2,
+        "drag": 4,
         "mas-cv": 3,
-        "estetica": 1
+        "estetica": 0
       },
-      "impacto": 2,
-      "requiere": []
-    },
-    {
-      "id": "adm-intake-media",
-      "nombre": "Admisión con airbox cerrado (Forge / Racingline)",
-      "categoria": "admision",
-      "plataformas": [
-        "1.8T-20v",
-        "EA113",
-        "EA888"
-      ],
-      "gama": "media",
-      "precio": {
-        "min": 180,
-        "estimado": 240,
-        "max": 320
-      },
-      "objetivos": {
-        "drift": 0,
-        "drag": 3,
-        "mas-cv": 3,
-        "estetica": 1
-      },
-      "impacto": 2,
+      "impacto": 4,
       "requiere": []
     },
     {
@@ -96,7 +237,7 @@
         "mas-cv": 0,
         "estetica": 0
       },
-      "impacto": 3,
+      "impacto": 4,
       "requiere": []
     },
     {
@@ -124,7 +265,7 @@
       },
       "impacto": 4,
       "requiere": [],
-      "nota": "Bloquea la barra de torsión trasera para forzar el sobreviraje en tracción delantera."
+      "nota": "Bloquea la barra de torsión trasera para forzar el sobreviraje."
     },
     {
       "id": "dir-hidraulico-media",
@@ -149,93 +290,12 @@
         "mas-cv": 0,
         "estetica": 0
       },
-      "impacto": 3,
+      "impacto": 4,
       "requiere": []
     },
     {
-      "id": "ecu-stage1-baja",
-      "nombre": "Remap Stage 1 (por OBD)",
-      "categoria": "gestion",
-      "plataformas": [
-        "1.8T-20v",
-        "EA113",
-        "EA888",
-        "TDI"
-      ],
-      "gama": "baja",
-      "precio": {
-        "min": 300,
-        "estimado": 380,
-        "max": 500
-      },
-      "objetivos": {
-        "drift": 0,
-        "drag": 3,
-        "mas-cv": 5,
-        "estetica": 0
-      },
-      "impacto": 4,
-      "requiere": [],
-      "stage": "stage1"
-    },
-    {
-      "id": "ecu-stage2-media",
-      "nombre": "Remap Stage 2",
-      "categoria": "gestion",
-      "plataformas": [
-        "1.8T-20v",
-        "EA113",
-        "EA888",
-        "TDI"
-      ],
-      "gama": "media",
-      "precio": {
-        "min": 400,
-        "estimado": 500,
-        "max": 650
-      },
-      "objetivos": {
-        "drift": 0,
-        "drag": 4,
-        "mas-cv": 5,
-        "estetica": 0
-      },
-      "impacto": 4,
-      "requiere": [
-        "esc-dp-media"
-      ],
-      "stage": "stage2"
-    },
-    {
-      "id": "ecu-stage3-alta",
-      "nombre": "Calibración Stage 3 para turbo híbrido",
-      "categoria": "gestion",
-      "plataformas": [
-        "1.8T-20v",
-        "EA113",
-        "EA888"
-      ],
-      "gama": "alta",
-      "precio": {
-        "min": 600,
-        "estimado": 800,
-        "max": 1100
-      },
-      "objetivos": {
-        "drift": 0,
-        "drag": 5,
-        "mas-cv": 5,
-        "estetica": 0
-      },
-      "impacto": 5,
-      "requiere": [
-        "fmic-media"
-      ],
-      "stage": "stage3"
-    },
-    {
       "id": "esc-catback-media",
-      "nombre": "Línea cat-back inox 76 mm",
+      "nombre": "Línea cat-back inox 76 mm (Milltek / Scorpion)",
       "categoria": "escape",
       "plataformas": [
         "1.8T-20v",
@@ -245,13 +305,13 @@
       ],
       "gama": "media",
       "precio": {
-        "min": 350,
-        "estimado": 480,
-        "max": 650
+        "min": 420,
+        "estimado": 620,
+        "max": 850
       },
       "objetivos": {
         "drift": 0,
-        "drag": 3,
+        "drag": 2,
         "mas-cv": 2,
         "estetica": 3
       },
@@ -259,8 +319,8 @@
       "requiere": []
     },
     {
-      "id": "esc-dp-baja",
-      "nombre": "Downpipe decat genérico",
+      "id": "esc-decat-baja",
+      "nombre": "Downpipe descatalizado genérico",
       "categoria": "escape",
       "plataformas": [
         "1.8T-20v",
@@ -270,8 +330,8 @@
       "gama": "baja",
       "precio": {
         "min": 140,
-        "estimado": 190,
-        "max": 260
+        "estimado": 200,
+        "max": 280
       },
       "objetivos": {
         "drift": 0,
@@ -284,7 +344,7 @@
     },
     {
       "id": "esc-dp-media",
-      "nombre": "Downpipe inox 3\" con catalizador deportivo 200 cpi",
+      "nombre": "Downpipe 3\" descatalizado o con cat deportivo (AWE / Milltek)",
       "categoria": "escape",
       "plataformas": [
         "1.8T-20v",
@@ -293,9 +353,9 @@
       ],
       "gama": "media",
       "precio": {
-        "min": 280,
-        "estimado": 360,
-        "max": 460
+        "min": 320,
+        "estimado": 420,
+        "max": 560
       },
       "objetivos": {
         "drift": 0,
@@ -303,12 +363,12 @@
         "mas-cv": 4,
         "estetica": 0
       },
-      "impacto": 3,
+      "impacto": 4,
       "requiere": []
     },
     {
       "id": "esc-turboback-alta",
-      "nombre": "Escape turbo-back completo inox de competición",
+      "nombre": "Escape turbo-back completo inox (Milltek Race)",
       "categoria": "escape",
       "plataformas": [
         "EA113",
@@ -316,9 +376,9 @@
       ],
       "gama": "alta",
       "precio": {
-        "min": 700,
-        "estimado": 950,
-        "max": 1300
+        "min": 750,
+        "estimado": 1000,
+        "max": 1400
       },
       "objetivos": {
         "drift": 0,
@@ -331,7 +391,7 @@
     },
     {
       "id": "est-airride-alta",
-      "nombre": "Suspensión neumática (air ride) gestionada",
+      "nombre": "Suspensión neumática gestionada (Air Lift 3P)",
       "categoria": "estetica",
       "plataformas": [
         "1.8T-20v",
@@ -342,9 +402,9 @@
       ],
       "gama": "alta",
       "precio": {
-        "min": 1800,
-        "estimado": 2500,
-        "max": 3500
+        "min": 1900,
+        "estimado": 2600,
+        "max": 3600
       },
       "objetivos": {
         "drift": 0,
@@ -356,58 +416,8 @@
       "requiere": []
     },
     {
-      "id": "est-body-alta",
-      "nombre": "Kit ancho + alerón GT + capó de fibra",
-      "categoria": "estetica",
-      "plataformas": [
-        "1.8T-20v",
-        "EA113",
-        "EA888"
-      ],
-      "gama": "alta",
-      "precio": {
-        "min": 1200,
-        "estimado": 1800,
-        "max": 2800
-      },
-      "objetivos": {
-        "drift": 1,
-        "drag": 1,
-        "mas-cv": 0,
-        "estetica": 5
-      },
-      "impacto": 3,
-      "requiere": []
-    },
-    {
-      "id": "est-body-baja",
-      "nombre": "Faldones + splitter ABS genérico",
-      "categoria": "estetica",
-      "plataformas": [
-        "1.8T-20v",
-        "EA113",
-        "EA888",
-        "VR6",
-        "TDI"
-      ],
-      "gama": "baja",
-      "precio": {
-        "min": 150,
-        "estimado": 220,
-        "max": 320
-      },
-      "objetivos": {
-        "drift": 0,
-        "drag": 0,
-        "mas-cv": 0,
-        "estetica": 4
-      },
-      "impacto": 1,
-      "requiere": []
-    },
-    {
-      "id": "est-body-media",
-      "nombre": "Kit de carrocería Votex / R-line completo",
+      "id": "est-bodykit-media",
+      "nombre": "Kit de carrocería Votex / RVA completo",
       "categoria": "estetica",
       "plataformas": [
         "1.8T-20v",
@@ -429,6 +439,32 @@
         "estetica": 5
       },
       "impacto": 2,
+      "requiere": []
+    },
+    {
+      "id": "est-detalles-baja",
+      "nombre": "Rejilla sin logos + molduras en negro brillo + vinilo de techo",
+      "categoria": "estetica",
+      "plataformas": [
+        "1.8T-20v",
+        "EA113",
+        "EA888",
+        "VR6",
+        "TDI"
+      ],
+      "gama": "baja",
+      "precio": {
+        "min": 120,
+        "estimado": 200,
+        "max": 320
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 3
+      },
+      "impacto": 1,
       "requiere": []
     },
     {
@@ -459,7 +495,7 @@
     },
     {
       "id": "est-tapiceria-media",
-      "nombre": "Tapicería a cuadros GTI + pomo + volante",
+      "nombre": "Retapizado a cuadros GTI + volante de base plana",
       "categoria": "estetica",
       "plataformas": [
         "1.8T-20v",
@@ -484,79 +520,32 @@
       "requiere": []
     },
     {
-      "id": "fmic-alta",
-      "nombre": "Intercooler de competición + kit de tubos rígidos",
-      "categoria": "admision",
+      "id": "est-widebody-alta",
+      "nombre": "Kit de aletas anchas + alerón GT + capó de fibra",
+      "categoria": "estetica",
       "plataformas": [
+        "1.8T-20v",
         "EA113",
         "EA888"
       ],
       "gama": "alta",
       "precio": {
-        "min": 550,
-        "estimado": 700,
-        "max": 900
+        "min": 1200,
+        "estimado": 1800,
+        "max": 2800
       },
       "objetivos": {
-        "drift": 0,
-        "drag": 5,
-        "mas-cv": 3,
-        "estetica": 0
-      },
-      "impacto": 4,
-      "requiere": []
-    },
-    {
-      "id": "fmic-baja",
-      "nombre": "Intercooler frontal de aluminio genérico",
-      "categoria": "admision",
-      "plataformas": [
-        "1.8T-20v",
-        "EA113",
-        "EA888"
-      ],
-      "gama": "baja",
-      "precio": {
-        "min": 150,
-        "estimado": 210,
-        "max": 280
-      },
-      "objetivos": {
-        "drift": 0,
-        "drag": 5,
-        "mas-cv": 2,
-        "estetica": 0
+        "drift": 1,
+        "drag": 1,
+        "mas-cv": 0,
+        "estetica": 5
       },
       "impacto": 3,
       "requiere": []
     },
     {
-      "id": "fmic-media",
-      "nombre": "Intercooler frontal barra y placa (Airtec Stage 2)",
-      "categoria": "admision",
-      "plataformas": [
-        "1.8T-20v",
-        "EA113",
-        "EA888"
-      ],
-      "gama": "media",
-      "precio": {
-        "min": 300,
-        "estimado": 380,
-        "max": 480
-      },
-      "objetivos": {
-        "drift": 0,
-        "drag": 5,
-        "mas-cv": 3,
-        "estetica": 0
-      },
-      "impacto": 4,
-      "requiere": []
-    },
-    {
       "id": "fren-bbk-alta",
-      "nombre": "Kit big brake 4/6 pistones (330-355 mm)",
+      "nombre": "Kit big brake 4/6 pistones 330-355 mm (Stoptech / HISPEC)",
       "categoria": "frenos",
       "plataformas": [
         "1.8T-20v",
@@ -566,9 +555,9 @@
       ],
       "gama": "alta",
       "precio": {
-        "min": 900,
-        "estimado": 1300,
-        "max": 1900
+        "min": 950,
+        "estimado": 1350,
+        "max": 1950
       },
       "objetivos": {
         "drift": 3,
@@ -581,7 +570,7 @@
     },
     {
       "id": "fren-discos-media",
-      "nombre": "Discos ranurados + pastillas racing (eje delantero)",
+      "nombre": "Discos de dos piezas + pastillas racing eje delantero (DBA / Brembo)",
       "categoria": "frenos",
       "plataformas": [
         "1.8T-20v",
@@ -592,9 +581,9 @@
       ],
       "gama": "media",
       "precio": {
-        "min": 250,
-        "estimado": 350,
-        "max": 480
+        "min": 280,
+        "estimado": 400,
+        "max": 560
       },
       "objetivos": {
         "drift": 3,
@@ -619,8 +608,8 @@
       "gama": "baja",
       "precio": {
         "min": 120,
-        "estimado": 170,
-        "max": 240
+        "estimado": 180,
+        "max": 260
       },
       "objetivos": {
         "drift": 2,
@@ -632,31 +621,190 @@
       "requiere": []
     },
     {
-      "id": "hpfp-alta",
-      "nombre": "Bomba de alta presión reforzada (EA888)",
-      "categoria": "turbo",
+      "id": "fren-traseros-baja",
+      "nombre": "Discos y pastillas traseras de altas prestaciones",
+      "categoria": "frenos",
       "plataformas": [
-        "EA888"
+        "1.8T-20v",
+        "EA113",
+        "EA888",
+        "VR6",
+        "TDI"
       ],
-      "gama": "alta",
+      "gama": "baja",
       "precio": {
-        "min": 350,
-        "estimado": 480,
-        "max": 650
+        "min": 130,
+        "estimado": 190,
+        "max": 280
+      },
+      "objetivos": {
+        "drift": 2,
+        "drag": 2,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
+      "id": "gestion-stage1-baja",
+      "nombre": "Reprogramación Stage 1 genérica",
+      "categoria": "gestion",
+      "plataformas": [
+        "1.8T-20v",
+        "EA113",
+        "EA888",
+        "TDI"
+      ],
+      "gama": "baja",
+      "precio": {
+        "min": 220,
+        "estimado": 300,
+        "max": 420
       },
       "objetivos": {
         "drift": 0,
         "drag": 3,
-        "mas-cv": 2,
+        "mas-cv": 4,
         "estetica": 0
       },
       "impacto": 3,
       "requiere": [],
-      "nota": "Necesaria para Stage 2+ en EA888."
+      "stage": "stage1"
     },
     {
-      "id": "rue-drift-media",
-      "nombre": "Set de llantas + neumáticos sacrificables para drift",
+      "id": "gestion-stage1-media",
+      "nombre": "Reprogramación Stage 1 de marca (APR / Revo / Unitronic)",
+      "categoria": "gestion",
+      "plataformas": [
+        "1.8T-20v",
+        "EA113",
+        "EA888",
+        "TDI"
+      ],
+      "gama": "media",
+      "precio": {
+        "min": 380,
+        "estimado": 480,
+        "max": 620
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "stage": "stage1"
+    },
+    {
+      "id": "gestion-stage2-media",
+      "nombre": "Reprogramación Stage 2",
+      "categoria": "gestion",
+      "plataformas": [
+        "1.8T-20v",
+        "EA113",
+        "EA888",
+        "TDI"
+      ],
+      "gama": "media",
+      "precio": {
+        "min": 420,
+        "estimado": 540,
+        "max": 700
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [
+        "esc-dp-media"
+      ],
+      "stage": "stage2"
+    },
+    {
+      "id": "gestion-stage2plus-alta",
+      "nombre": "Calibración Stage 2+ / archivo K04",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA113"
+      ],
+      "gama": "alta",
+      "precio": {
+        "min": 550,
+        "estimado": 720,
+        "max": 950
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "adm-fmic-media"
+      ],
+      "stage": "stage3"
+    },
+    {
+      "id": "gestion-standalone-alta",
+      "nombre": "Gestión standalone (Syvecs / Emerald)",
+      "categoria": "gestion",
+      "plataformas": [
+        "1.8T-20v",
+        "EA113",
+        "EA888",
+        "VR6"
+      ],
+      "gama": "alta",
+      "precio": {
+        "min": 1900,
+        "estimado": 2600,
+        "max": 3600
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": []
+    },
+    {
+      "id": "rueda-calle-baja",
+      "nombre": "Llantas réplica 18\" + neumáticos de calle (tipo BBS LM)",
+      "categoria": "ruedas",
+      "plataformas": [
+        "1.8T-20v",
+        "EA113",
+        "EA888",
+        "VR6",
+        "TDI"
+      ],
+      "gama": "baja",
+      "precio": {
+        "min": 500,
+        "estimado": 700,
+        "max": 950
+      },
+      "objetivos": {
+        "drift": 1,
+        "drag": 1,
+        "mas-cv": 0,
+        "estetica": 5
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
+      "id": "rueda-drift-media",
+      "nombre": "Set de llantas y neumáticos sacrificables para drift",
       "categoria": "ruedas",
       "plataformas": [
         "1.8T-20v",
@@ -667,9 +815,9 @@
       ],
       "gama": "media",
       "precio": {
-        "min": 350,
-        "estimado": 480,
-        "max": 650
+        "min": 300,
+        "estimado": 450,
+        "max": 620
       },
       "objetivos": {
         "drift": 4,
@@ -681,8 +829,8 @@
       "requiere": []
     },
     {
-      "id": "rue-llantas-alta",
-      "nombre": "Llantas forjadas 18\" de competición (OZ / BBS)",
+      "id": "rueda-forjada-alta",
+      "nombre": "Llantas forjadas 18\" (BBS CH-R / OZ Ultraleggera)",
       "categoria": "ruedas",
       "plataformas": [
         "1.8T-20v",
@@ -706,8 +854,8 @@
       "requiere": []
     },
     {
-      "id": "rue-llantas-media",
-      "nombre": "Llantas 18\" ligeras réplica (tipo BBS LM)",
+      "id": "rueda-semislick-media",
+      "nombre": "Juego de neumáticos semi-slick (Federal 595RS-RR / Nankang AR-1)",
       "categoria": "ruedas",
       "plataformas": [
         "1.8T-20v",
@@ -718,35 +866,9 @@
       ],
       "gama": "media",
       "precio": {
-        "min": 600,
-        "estimado": 800,
-        "max": 1100
-      },
-      "objetivos": {
-        "drift": 2,
-        "drag": 2,
-        "mas-cv": 0,
-        "estetica": 5
-      },
-      "impacto": 2,
-      "requiere": []
-    },
-    {
-      "id": "rue-neumaticos-baja",
-      "nombre": "Juego de neumáticos deportivos (Federal RSR / 595)",
-      "categoria": "ruedas",
-      "plataformas": [
-        "1.8T-20v",
-        "EA113",
-        "EA888",
-        "VR6",
-        "TDI"
-      ],
-      "gama": "baja",
-      "precio": {
-        "min": 280,
-        "estimado": 360,
-        "max": 460
+        "min": 380,
+        "estimado": 500,
+        "max": 680
       },
       "objetivos": {
         "drift": 3,
@@ -758,8 +880,34 @@
       "requiere": []
     },
     {
+      "id": "rueda-track-media",
+      "nombre": "Llantas ligeras 17\" para circuito (Team Dynamics Pro Race)",
+      "categoria": "ruedas",
+      "plataformas": [
+        "1.8T-20v",
+        "EA113",
+        "EA888",
+        "VR6",
+        "TDI"
+      ],
+      "gama": "media",
+      "precio": {
+        "min": 450,
+        "estimado": 620,
+        "max": 850
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 3,
+        "mas-cv": 0,
+        "estetica": 2
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
       "id": "seg-baquet-media",
-      "nombre": "Baquet + arnés de 4 puntos + soporte",
+      "nombre": "Baquet + arnés de 4/6 puntos + soporte",
       "categoria": "seguridad",
       "plataformas": [
         "1.8T-20v",
@@ -784,8 +932,34 @@
       "requiere": []
     },
     {
+      "id": "seg-corte-baja",
+      "nombre": "Corte de batería + extintor homologado",
+      "categoria": "seguridad",
+      "plataformas": [
+        "1.8T-20v",
+        "EA113",
+        "EA888",
+        "VR6",
+        "TDI"
+      ],
+      "gama": "baja",
+      "precio": {
+        "min": 80,
+        "estimado": 130,
+        "max": 200
+      },
+      "objetivos": {
+        "drift": 2,
+        "drag": 2,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
       "id": "seg-jaula-alta",
-      "nombre": "Jaula completa soldada homologada + baquet + arnés",
+      "nombre": "Jaula completa soldada homologada FIA",
       "categoria": "seguridad",
       "plataformas": [
         "1.8T-20v",
@@ -796,9 +970,9 @@
       ],
       "gama": "alta",
       "precio": {
-        "min": 900,
-        "estimado": 1400,
-        "max": 2200
+        "min": 1100,
+        "estimado": 1600,
+        "max": 2400
       },
       "objetivos": {
         "drift": 4,
@@ -838,7 +1012,7 @@
     },
     {
       "id": "seg-strutbar-baja",
-      "nombre": "Barra superior de torretas (strut bar)",
+      "nombre": "Barra superior de torretas delantera",
       "categoria": "seguridad",
       "plataformas": [
         "1.8T-20v",
@@ -850,8 +1024,8 @@
       "gama": "baja",
       "precio": {
         "min": 60,
-        "estimado": 90,
-        "max": 130
+        "estimado": 95,
+        "max": 150
       },
       "objetivos": {
         "drift": 1,
@@ -863,33 +1037,35 @@
       "requiere": []
     },
     {
-      "id": "standalone-alta",
-      "nombre": "Gestión standalone (Syvecs / MaxxECU)",
-      "categoria": "gestion",
+      "id": "susp-barra-baja",
+      "nombre": "Barra estabilizadora trasera regulable (Whiteline / H&R)",
+      "categoria": "suspension",
       "plataformas": [
         "1.8T-20v",
         "EA113",
         "EA888",
-        "VR6"
+        "VR6",
+        "TDI"
       ],
-      "gama": "alta",
+      "gama": "baja",
       "precio": {
-        "min": 1800,
-        "estimado": 2500,
-        "max": 3500
+        "min": 130,
+        "estimado": 190,
+        "max": 270
       },
       "objetivos": {
-        "drift": 0,
-        "drag": 4,
-        "mas-cv": 3,
+        "drift": 3,
+        "drag": 1,
+        "mas-cv": 0,
         "estetica": 0
       },
-      "impacto": 4,
-      "requiere": []
+      "impacto": 3,
+      "requiere": [],
+      "nota": "Reduce el subviraje del tren delantero, muy efectivo por poco dinero."
     },
     {
       "id": "susp-brazos-media",
-      "nombre": "Kit de brazos ajustables + silentblocks de poliuretano",
+      "nombre": "Brazos ajustables + silentblocks de poliuretano (Powerflex / SuperPro)",
       "categoria": "suspension",
       "plataformas": [
         "1.8T-20v",
@@ -900,12 +1076,12 @@
       ],
       "gama": "media",
       "precio": {
-        "min": 300,
-        "estimado": 420,
+        "min": 280,
+        "estimado": 400,
         "max": 560
       },
       "objetivos": {
-        "drift": 4,
+        "drift": 3,
         "drag": 2,
         "mas-cv": 0,
         "estetica": 1
@@ -915,7 +1091,7 @@
     },
     {
       "id": "susp-coil-alta",
-      "nombre": "Coilovers de competición 2/3 vías (KW Clubsport)",
+      "nombre": "Coilovers ajustables 3 vías (KW Clubsport / Bilstein B16)",
       "categoria": "suspension",
       "plataformas": [
         "1.8T-20v",
@@ -925,9 +1101,9 @@
       ],
       "gama": "alta",
       "precio": {
-        "min": 1600,
-        "estimado": 2200,
-        "max": 3000
+        "min": 1700,
+        "estimado": 2400,
+        "max": 3200
       },
       "objetivos": {
         "drift": 5,
@@ -940,7 +1116,7 @@
     },
     {
       "id": "susp-coil-baja",
-      "nombre": "Coilovers roscados de entrada (FK / Raceland)",
+      "nombre": "Coilovers de entrada (FK / Raceland / TA Technix)",
       "categoria": "suspension",
       "plataformas": [
         "1.8T-20v",
@@ -953,20 +1129,20 @@
       "precio": {
         "min": 250,
         "estimado": 330,
-        "max": 430
+        "max": 440
       },
       "objetivos": {
         "drift": 3,
         "drag": 2,
         "mas-cv": 0,
-        "estetica": 3
+        "estetica": 4
       },
       "impacto": 3,
       "requiere": []
     },
     {
       "id": "susp-coil-media",
-      "nombre": "Coilovers roscados (BC Racing BR / KW V1)",
+      "nombre": "Coilovers roscados (KW V1 / ST X / BC Racing BR)",
       "categoria": "suspension",
       "plataformas": [
         "1.8T-20v",
@@ -978,21 +1154,46 @@
       "gama": "media",
       "precio": {
         "min": 700,
-        "estimado": 900,
-        "max": 1200
+        "estimado": 950,
+        "max": 1250
       },
       "objetivos": {
         "drift": 4,
         "drag": 3,
         "mas-cv": 0,
-        "estetica": 3
+        "estetica": 4
       },
       "impacto": 4,
       "requiere": []
     },
     {
+      "id": "susp-dogbone-baja",
+      "nombre": "Inserto de soporte de motor trasero (dogbone) 034 / VF",
+      "categoria": "suspension",
+      "plataformas": [
+        "1.8T-20v",
+        "EA113",
+        "EA888",
+        "TDI"
+      ],
+      "gama": "baja",
+      "precio": {
+        "min": 40,
+        "estimado": 65,
+        "max": 100
+      },
+      "objetivos": {
+        "drift": 2,
+        "drag": 3,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
       "id": "susp-geometria-alta",
-      "nombre": "Kit de geometría completo de competición (rótulas uniball)",
+      "nombre": "Kit de geometría completo con rótulas uniball",
       "categoria": "suspension",
       "plataformas": [
         "1.8T-20v",
@@ -1001,9 +1202,9 @@
       ],
       "gama": "alta",
       "precio": {
-        "min": 700,
-        "estimado": 950,
-        "max": 1300
+        "min": 650,
+        "estimado": 900,
+        "max": 1250
       },
       "objetivos": {
         "drift": 5,
@@ -1016,7 +1217,7 @@
     },
     {
       "id": "susp-muelles-baja",
-      "nombre": "Muelles de rebaje -35 mm",
+      "nombre": "Muelles de rebaje (Eibach Pro-Kit / H&R)",
       "categoria": "suspension",
       "plataformas": [
         "1.8T-20v",
@@ -1027,12 +1228,12 @@
       ],
       "gama": "baja",
       "precio": {
-        "min": 120,
-        "estimado": 170,
-        "max": 230
+        "min": 150,
+        "estimado": 210,
+        "max": 290
       },
       "objetivos": {
-        "drift": 2,
+        "drift": 1,
         "drag": 1,
         "mas-cv": 0,
         "estetica": 3
@@ -1041,34 +1242,33 @@
       "requiere": []
     },
     {
-      "id": "trans-atb-media",
-      "nombre": "Autoblocante ATB (Quaife / Wavetrac)",
-      "categoria": "transmision",
+      "id": "susp-subframe-media",
+      "nombre": "Casquillos rígidos de subchasis y eje trasero (poliuretano/aluminio)",
+      "categoria": "suspension",
       "plataformas": [
         "1.8T-20v",
         "EA113",
         "EA888",
-        "VR6",
         "TDI"
       ],
       "gama": "media",
       "precio": {
-        "min": 800,
-        "estimado": 1050,
-        "max": 1400
+        "min": 180,
+        "estimado": 260,
+        "max": 380
       },
       "objetivos": {
         "drift": 4,
-        "drag": 4,
-        "mas-cv": 1,
+        "drag": 2,
+        "mas-cv": 0,
         "estetica": 0
       },
-      "impacto": 4,
+      "impacto": 3,
       "requiere": []
     },
     {
       "id": "trans-embrague-alta",
-      "nombre": "Embrague multidisco de competición + volante aligerado",
+      "nombre": "Embrague de competición + volante aligerado",
       "categoria": "transmision",
       "plataformas": [
         "1.8T-20v",
@@ -1077,9 +1277,9 @@
       ],
       "gama": "alta",
       "precio": {
-        "min": 1100,
-        "estimado": 1500,
-        "max": 2100
+        "min": 1000,
+        "estimado": 1400,
+        "max": 1950
       },
       "objetivos": {
         "drift": 3,
@@ -1092,7 +1292,7 @@
     },
     {
       "id": "trans-embrague-media",
-      "nombre": "Kit de embrague reforzado + volante rígido",
+      "nombre": "Embrague reforzado Stage 2 + volante rígido (Sachs / Spec)",
       "categoria": "transmision",
       "plataformas": [
         "1.8T-20v",
@@ -1115,8 +1315,8 @@
       "requiere": []
     },
     {
-      "id": "trans-plato-alta",
-      "nombre": "Autoblocante de discos (embragues) 1.5 way",
+      "id": "trans-lsd-alta",
+      "nombre": "Autoblocante de discos / Wavetrac con precarga ajustable",
       "categoria": "transmision",
       "plataformas": [
         "1.8T-20v",
@@ -1125,9 +1325,9 @@
       ],
       "gama": "alta",
       "precio": {
-        "min": 900,
-        "estimado": 1200,
-        "max": 1600
+        "min": 950,
+        "estimado": 1250,
+        "max": 1700
       },
       "objetivos": {
         "drift": 5,
@@ -1139,8 +1339,34 @@
       "requiere": []
     },
     {
-      "id": "trans-semiejes-alta",
-      "nombre": "Semiejes reforzados",
+      "id": "trans-lsd-media",
+      "nombre": "Diferencial autoblocante ATB (Quaife / Peloquin)",
+      "categoria": "transmision",
+      "plataformas": [
+        "1.8T-20v",
+        "EA113",
+        "EA888",
+        "VR6",
+        "TDI"
+      ],
+      "gama": "media",
+      "precio": {
+        "min": 750,
+        "estimado": 1000,
+        "max": 1350
+      },
+      "objetivos": {
+        "drift": 4,
+        "drag": 4,
+        "mas-cv": 1,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": []
+    },
+    {
+      "id": "trans-palieres-alta",
+      "nombre": "Palieres reforzados",
       "categoria": "transmision",
       "plataformas": [
         "1.8T-20v",
@@ -1150,8 +1376,8 @@
       "gama": "alta",
       "precio": {
         "min": 400,
-        "estimado": 550,
-        "max": 750
+        "estimado": 560,
+        "max": 780
       },
       "objetivos": {
         "drift": 2,
@@ -1161,75 +1387,97 @@
       },
       "impacto": 3,
       "requiere": [],
-      "nota": "Recomendado por encima de 350 CV en tracción delantera."
+      "nota": "Recomendados por encima de 350 CV en tracción delantera."
     },
     {
-      "id": "turbo-hibrido-18t-media",
-      "nombre": "Turbo híbrido K04-023 (1.8T 20v)",
-      "categoria": "turbo",
+      "id": "trans-shifter-baja",
+      "nombre": "Kit de recorrido corto de cambio (034 / Forge)",
+      "categoria": "transmision",
       "plataformas": [
-        "1.8T-20v"
+        "1.8T-20v",
+        "EA113",
+        "EA888",
+        "VR6"
       ],
-      "gama": "media",
+      "gama": "baja",
       "precio": {
-        "min": 850,
-        "estimado": 1100,
-        "max": 1500
+        "min": 90,
+        "estimado": 150,
+        "max": 230
       },
       "objetivos": {
-        "drift": 0,
-        "drag": 5,
-        "mas-cv": 4,
-        "estetica": 0
+        "drift": 1,
+        "drag": 2,
+        "mas-cv": 0,
+        "estetica": 1
       },
-      "impacto": 5,
-      "requiere": [
-        "fmic-media",
-        "esc-dp-media"
-      ],
-      "stage": "stage3"
+      "impacto": 1,
+      "requiere": []
     },
     {
-      "id": "turbo-hibrido-alta",
-      "nombre": "Turbo híbrido frame grande IS38 / G25 + kit",
+      "id": "turbo-bigturbo-alta",
+      "nombre": "Kit big turbo top-mount (Garrett GTX / Precision)",
       "categoria": "turbo",
       "plataformas": [
-        "EA113",
-        "EA888"
+        "EA113"
       ],
       "gama": "alta",
       "precio": {
-        "min": 1600,
-        "estimado": 2200,
-        "max": 3000
+        "min": 3200,
+        "estimado": 4200,
+        "max": 5800
       },
       "objetivos": {
         "drift": 0,
         "drag": 5,
-        "mas-cv": 4,
+        "mas-cv": 3,
         "estetica": 0
       },
       "impacto": 5,
       "requiere": [
-        "fmic-alta",
+        "adm-fmic-alta",
         "esc-turboback-alta",
-        "hpfp-alta"
+        "comb-stage3-alta",
+        "gestion-standalone-alta"
       ],
-      "stage": "stage3"
+      "stage": "stage3",
+      "nota": "Pide bloque preparado para fiabilidad a más de 400 CV."
     },
     {
-      "id": "turbo-hibrido-media",
-      "nombre": "Turbo híbrido K04 (EA113 / EA888)",
+      "id": "turbo-hpfp-media",
+      "nombre": "Kit de bomba de alta presión reforzada (Autotech / APR)",
       "categoria": "turbo",
       "plataformas": [
-        "EA113",
-        "EA888"
+        "EA113"
       ],
       "gama": "media",
       "precio": {
-        "min": 900,
-        "estimado": 1200,
-        "max": 1600
+        "min": 320,
+        "estimado": 430,
+        "max": 580
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "nota": "En el EA113 la HPFP es de leva. Necesaria para Stage 2+ y para el K04."
+    },
+    {
+      "id": "turbo-k04-alta",
+      "nombre": "Turbo híbrido K04-064 (clásico del Mk5 GTI)",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA113"
+      ],
+      "gama": "alta",
+      "precio": {
+        "min": 1200,
+        "estimado": 1550,
+        "max": 2100
       },
       "objetivos": {
         "drift": 0,
@@ -1239,8 +1487,11 @@
       },
       "impacto": 5,
       "requiere": [
-        "fmic-media",
-        "esc-dp-media"
+        "adm-fmic-media",
+        "adm-intake-media",
+        "esc-dp-media",
+        "turbo-hpfp-media",
+        "gestion-stage2plus-alta"
       ],
       "stage": "stage3"
     }

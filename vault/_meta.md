@@ -1,6 +1,6 @@
 ---
 tipo: meta
-catalogoVersion: 0.1.0
+catalogoVersion: 0.2.0
 modelosVersion: 0.1.0
 moneda: EUR
 ---

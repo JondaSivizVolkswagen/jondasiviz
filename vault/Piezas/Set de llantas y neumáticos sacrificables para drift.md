@@ -1,18 +1,18 @@
 ---
 tipo: pieza
-id: fren-pastillas-baja
-nombre: Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1
-categoria: frenos
-gama: baja
+id: rueda-drift-media
+nombre: Set de llantas y neumáticos sacrificables para drift
+categoria: ruedas
+gama: media
 precio:
-  min: 120
-  estimado: 180
-  max: 260
+  min: 300
+  estimado: 450
+  max: 620
 objetivos:
-  drift: 2
-  drag: 2
-  mas-cv: 1
-  estetica: 0
+  drift: 4
+  drag: 0
+  mas-cv: 0
+  estetica: 1
 impacto: 2
 requiere: []
 plataformas:

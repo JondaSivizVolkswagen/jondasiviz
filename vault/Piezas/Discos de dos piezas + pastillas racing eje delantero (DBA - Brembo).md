@@ -1,19 +1,19 @@
 ---
 tipo: pieza
-id: fren-pastillas-baja
-nombre: Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1
+id: fren-discos-media
+nombre: Discos de dos piezas + pastillas racing eje delantero (DBA / Brembo)
 categoria: frenos
-gama: baja
+gama: media
 precio:
-  min: 120
-  estimado: 180
-  max: 260
+  min: 280
+  estimado: 400
+  max: 560
 objetivos:
-  drift: 2
-  drag: 2
-  mas-cv: 1
+  drift: 3
+  drag: 3
+  mas-cv: 0
   estetica: 0
-impacto: 2
+impacto: 3
 requiere: []
 plataformas:
   - 1.8T-20v

@@ -1,19 +1,19 @@
 ---
 tipo: pieza
-id: fren-pastillas-baja
-nombre: Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1
-categoria: frenos
+id: susp-coil-baja
+nombre: Coilovers de entrada (FK / Raceland / TA Technix)
+categoria: suspension
 gama: baja
 precio:
-  min: 120
-  estimado: 180
-  max: 260
+  min: 250
+  estimado: 330
+  max: 440
 objetivos:
-  drift: 2
+  drift: 3
   drag: 2
-  mas-cv: 1
-  estetica: 0
-impacto: 2
+  mas-cv: 0
+  estetica: 4
+impacto: 3
 requiere: []
 plataformas:
   - 1.8T-20v

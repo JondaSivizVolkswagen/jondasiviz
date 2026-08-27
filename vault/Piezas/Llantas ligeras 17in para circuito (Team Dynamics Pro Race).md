@@ -1,18 +1,18 @@
 ---
 tipo: pieza
-id: fren-pastillas-baja
-nombre: Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1
-categoria: frenos
-gama: baja
+id: rueda-track-media
+nombre: Llantas ligeras 17" para circuito (Team Dynamics Pro Race)
+categoria: ruedas
+gama: media
 precio:
-  min: 120
-  estimado: 180
-  max: 260
+  min: 450
+  estimado: 620
+  max: 850
 objetivos:
-  drift: 2
-  drag: 2
-  mas-cv: 1
-  estetica: 0
+  drift: 3
+  drag: 3
+  mas-cv: 0
+  estetica: 2
 impacto: 2
 requiere: []
 plataformas:

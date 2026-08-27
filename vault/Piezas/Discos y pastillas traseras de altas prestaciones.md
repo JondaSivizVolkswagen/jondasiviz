@@ -1,17 +1,17 @@
 ---
 tipo: pieza
-id: fren-pastillas-baja
-nombre: Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1
+id: fren-traseros-baja
+nombre: Discos y pastillas traseras de altas prestaciones
 categoria: frenos
 gama: baja
 precio:
-  min: 120
-  estimado: 180
-  max: 260
+  min: 130
+  estimado: 190
+  max: 280
 objetivos:
   drift: 2
   drag: 2
-  mas-cv: 1
+  mas-cv: 0
   estetica: 0
 impacto: 2
 requiere: []

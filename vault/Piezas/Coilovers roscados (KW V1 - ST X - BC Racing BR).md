@@ -1,18 +1,18 @@
 ---
 tipo: pieza
-id: dir-angulo-media
-nombre: Kit de ángulo de dirección + espaciadores
-categoria: direccion
+id: susp-coil-media
+nombre: Coilovers roscados (KW V1 / ST X / BC Racing BR)
+categoria: suspension
 gama: media
 precio:
-  min: 250
-  estimado: 350
-  max: 480
+  min: 700
+  estimado: 950
+  max: 1250
 objetivos:
-  drift: 5
-  drag: 0
+  drift: 4
+  drag: 3
   mas-cv: 0
-  estetica: 0
+  estetica: 4
 impacto: 4
 requiere: []
 plataformas:

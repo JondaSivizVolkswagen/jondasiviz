@@ -1,17 +1,17 @@
 ---
 tipo: pieza
-id: fren-pastillas-baja
-nombre: Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1
-categoria: frenos
+id: seg-corte-baja
+nombre: Corte de batería + extintor homologado
+categoria: seguridad
 gama: baja
 precio:
-  min: 120
-  estimado: 180
-  max: 260
+  min: 80
+  estimado: 130
+  max: 200
 objetivos:
   drift: 2
   drag: 2
-  mas-cv: 1
+  mas-cv: 0
   estetica: 0
 impacto: 2
 requiere: []

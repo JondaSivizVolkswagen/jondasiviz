@@ -13,7 +13,7 @@ objetivos:
   drag: 0
   mas-cv: 0
   estetica: 0
-impacto: 3
+impacto: 4
 requiere: []
 plataformas:
   - 1.8T-20v

@@ -1,19 +1,19 @@
 ---
 tipo: pieza
-id: fren-pastillas-baja
-nombre: Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1
-categoria: frenos
+id: est-detalles-baja
+nombre: Rejilla sin logos + molduras en negro brillo + vinilo de techo
+categoria: estetica
 gama: baja
 precio:
   min: 120
-  estimado: 180
-  max: 260
+  estimado: 200
+  max: 320
 objetivos:
-  drift: 2
-  drag: 2
-  mas-cv: 1
-  estetica: 0
-impacto: 2
+  drift: 0
+  drag: 0
+  mas-cv: 0
+  estetica: 3
+impacto: 1
 requiere: []
 plataformas:
   - 1.8T-20v

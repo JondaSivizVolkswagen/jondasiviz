@@ -1,18 +1,18 @@
 ---
 tipo: pieza
-id: fren-pastillas-baja
-nombre: Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1
-categoria: frenos
-gama: baja
+id: est-bodykit-media
+nombre: Kit de carrocería Votex / RVA completo
+categoria: estetica
+gama: media
 precio:
-  min: 120
-  estimado: 180
-  max: 260
+  min: 500
+  estimado: 750
+  max: 1100
 objetivos:
-  drift: 2
-  drag: 2
-  mas-cv: 1
-  estetica: 0
+  drift: 0
+  drag: 0
+  mas-cv: 0
+  estetica: 5
 impacto: 2
 requiere: []
 plataformas:
