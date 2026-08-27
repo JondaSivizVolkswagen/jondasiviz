@@ -68,8 +68,8 @@ ya poblado. La ida y vuelta está cubierta por tests.
 Dada una petición (modelo, gama, presupuesto, objetivo):
 
 1. Resuelve el modelo y filtra el catálogo por su plataforma de motor y por la gama.
-2. Comprueba el suelo de gasto para esa gama y objetivo. Si el presupuesto no llega,
-   avisa y sugiere la gama que sí encajaría.
+2. Comprueba el suelo de gasto: la suma de los suelos de cada objetivo elegido para
+   esa gama. Si el presupuesto no llega, avisa y sugiere la gama que sí encajaría.
 3. Puntúa cada pieza por aporte al objetivo (`peso × impacto`) y por aporte por euro.
 4. Paso de esenciales: cubre una pieza de cada categoría prioritaria del objetivo
    (la de más aporte técnico), resolviendo sus dependencias, mientras quepa.
@@ -85,7 +85,7 @@ El motor es determinista: ante la misma entrada devuelve siempre el mismo result
 
 ```bash
 npm install
-npm test                 # 40 tests
+npm test                 # 42 tests
 npm run plan -- --listar-modelos
 npm run plan -- --modelo "Golf GTI Mk5" --gama media --presupuesto 4000 --objetivo drag
 npm run vault:ingest     # vault/ -> src/data/*.json
@@ -98,7 +98,7 @@ Valores admitidos:
 
 - `--modelo`: id, nombre o alias (`mk5`, `Golf GTI Mk5`, `golf 5 gti`, ...). `--listar-modelos` para verlos.
 - `--gama`: `baja` | `media` | `alta`
-- `--objetivo`: `drift` | `drag` | `mas-cv` | `estetica`
+- `--objetivo`: `drift` | `drag` | `mas-cv` | `estetica` (uno o varios por coma: `drift,estetica`)
 
 ## Notas de una pieza en el vault
 
