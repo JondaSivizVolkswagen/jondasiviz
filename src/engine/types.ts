@@ -40,6 +40,11 @@ export interface Pieza {
   impacto: number;
   /** Ids de piezas que deben ir sí o sí antes que esta. */
   requiere: string[];
+  /**
+   * Piezas con el mismo grupo cumplen la misma función y no se montan juntas
+   * (dos intercoolers, coilovers y air ride, remap y standalone...).
+   */
+  grupoExclusivo?: string;
   stage?: Stage;
   nota?: string;
 }

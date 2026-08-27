@@ -20,6 +20,7 @@ plataformas:
   - EA113
   - EA888
   - TDI
+grupoExclusivo: null
 stage: null
 nota: null
 ---

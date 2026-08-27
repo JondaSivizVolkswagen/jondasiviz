@@ -21,6 +21,7 @@ plataformas:
   - EA888
   - VR6
   - TDI
+grupoExclusivo: llantas
 stage: null
 nota: null
 ---

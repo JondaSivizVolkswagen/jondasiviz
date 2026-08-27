@@ -18,6 +18,7 @@ requiere:
   - adm-fmic-media
 plataformas:
   - EA113
+grupoExclusivo: remap
 stage: stage3
 nota: null
 ---

@@ -21,6 +21,7 @@ plataformas:
   - EA888
   - VR6
   - TDI
+grupoExclusivo: diferencial
 stage: null
 nota: null
 ---

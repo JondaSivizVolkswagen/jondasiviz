@@ -21,6 +21,7 @@ requiere:
   - gestion-standalone-alta
 plataformas:
   - EA113
+grupoExclusivo: turbo-principal
 stage: stage3
 nota: Pide bloque preparado para fiabilidad a más de 400 CV.
 ---

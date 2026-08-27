@@ -20,6 +20,7 @@ plataformas:
   - EA113
   - EA888
   - TDI
+grupoExclusivo: remap
 stage: stage1
 nota: null
 ---

@@ -22,6 +22,7 @@ requiere:
   - gestion-stage2plus-alta
 plataformas:
   - EA113
+grupoExclusivo: turbo-principal
 stage: stage3
 nota: null
 ---

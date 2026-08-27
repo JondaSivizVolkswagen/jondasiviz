@@ -101,38 +101,46 @@ export function generarPresupuesto(
 
   const porId = new Map(catalogo.piezas.map((p) => [p.id, p] as const));
   const elegidas = new Map<string, MotivoLinea>();
+  const gruposUsados = new Set<string>();
   let gastado = 0;
+
+  const grupoLibre = (pieza: Pieza): boolean =>
+    !pieza.grupoExclusivo || !gruposUsados.has(pieza.grupoExclusivo);
 
   // Devuelve el paquete (dependencias primero, pieza al final) y su coste,
   // contando solo lo que aún no está elegido. null si falta alguna dependencia.
+  // Si una dependencia comparte grupo con algo ya elegido, se da por cubierta.
   const paqueteDe = (raiz: Pieza): { orden: string[]; coste: number } | null => {
     const orden: string[] = [];
     const vistos = new Set<string>();
     let coste = 0;
     let falta = false;
 
-    const rec = (id: string): void => {
+    const rec = (id: string, esRaiz: boolean): void => {
       if (elegidas.has(id) || vistos.has(id)) return;
       const p = porId.get(id);
       if (!p) {
         falta = true;
         return;
       }
+      if (!esRaiz && p.grupoExclusivo && gruposUsados.has(p.grupoExclusivo)) return;
       vistos.add(id);
-      for (const dep of p.requiere) rec(dep);
+      for (const dep of p.requiere) rec(dep, false);
       orden.push(id);
       coste += p.precio.estimado;
     };
 
-    rec(raiz.id);
+    rec(raiz.id, true);
     return falta ? null : { orden, coste };
   };
 
   const añadirPaquete = (orden: string[], motivoFinal: MotivoLinea): void => {
     orden.forEach((id, i) => {
       if (elegidas.has(id)) return;
+      const pieza = porId.get(id)!;
       elegidas.set(id, i === orden.length - 1 ? motivoFinal : "dependencia");
-      gastado += porId.get(id)!.precio.estimado;
+      if (pieza.grupoExclusivo) gruposUsados.add(pieza.grupoExclusivo);
+      gastado += pieza.precio.estimado;
     });
   };
 
@@ -142,10 +150,16 @@ export function generarPresupuesto(
   const categoriasSinCubrir: Categoria[] = [];
   for (const categoria of ESENCIALES[objetivo]) {
     const candidatas = pool
-      .filter((p) => p.categoria === categoria && p.objetivos[objetivo] > 0 && !elegidas.has(p.id))
+      .filter(
+        (p) =>
+          p.categoria === categoria &&
+          p.objetivos[objetivo] > 0 &&
+          !elegidas.has(p.id) &&
+          grupoLibre(p),
+      )
       .sort(
         (a, b) =>
-          b.objetivos[objetivo] - a.objetivos[objetivo] ||
+          valor(b, objetivo) - valor(a, objetivo) ||
           valorPorEuro(b, objetivo) - valorPorEuro(a, objetivo) ||
           a.precio.estimado - b.precio.estimado ||
           a.id.localeCompare(b.id),
@@ -153,6 +167,7 @@ export function generarPresupuesto(
 
     let cubierta = false;
     for (const pieza of candidatas) {
+      if (!grupoLibre(pieza)) continue;
       const paquete = paqueteDe(pieza);
       if (paquete && cabe(paquete.coste)) {
         añadirPaquete(paquete.orden, "esencial");
@@ -175,7 +190,7 @@ export function generarPresupuesto(
     );
 
   for (const pieza of relleno) {
-    if (elegidas.has(pieza.id)) continue;
+    if (elegidas.has(pieza.id) || !grupoLibre(pieza)) continue;
     const paquete = paqueteDe(pieza);
     if (paquete && cabe(paquete.coste)) añadirPaquete(paquete.orden, "valor");
   }

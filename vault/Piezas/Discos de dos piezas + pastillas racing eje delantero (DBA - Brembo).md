@@ -21,6 +21,7 @@ plataformas:
   - EA888
   - VR6
   - TDI
+grupoExclusivo: frenos-delanteros
 stage: null
 nota: null
 ---

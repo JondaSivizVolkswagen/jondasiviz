@@ -16,6 +16,7 @@ export function pieza(over: Partial<Pieza> & Pick<Pieza, "id">): Pieza {
     objetivos,
     impacto: over.impacto ?? 3,
     requiere: over.requiere ?? [],
+    grupoExclusivo: over.grupoExclusivo,
     stage: over.stage,
     nota: over.nota,
   };

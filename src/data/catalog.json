@@ -75,7 +75,8 @@
         "estetica": 0
       },
       "impacto": 1,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "admision-filtro"
     },
     {
       "id": "adm-fmic-alta",
@@ -98,7 +99,8 @@
         "estetica": 0
       },
       "impacto": 4,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "intercooler"
     },
     {
       "id": "adm-fmic-media",
@@ -122,7 +124,8 @@
         "estetica": 0
       },
       "impacto": 4,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "intercooler"
     },
     {
       "id": "adm-inlet-media",
@@ -168,7 +171,8 @@
         "estetica": 1
       },
       "impacto": 2,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "admision-filtro"
     },
     {
       "id": "comb-inyectores-media",
@@ -340,7 +344,8 @@
         "estetica": 0
       },
       "impacto": 3,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "downpipe"
     },
     {
       "id": "esc-dp-media",
@@ -364,7 +369,8 @@
         "estetica": 0
       },
       "impacto": 4,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "downpipe"
     },
     {
       "id": "esc-turboback-alta",
@@ -387,7 +393,8 @@
         "estetica": 3
       },
       "impacto": 4,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "downpipe"
     },
     {
       "id": "est-airride-alta",
@@ -413,7 +420,8 @@
         "estetica": 5
       },
       "impacto": 3,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "altura"
     },
     {
       "id": "est-bodykit-media",
@@ -566,7 +574,8 @@
         "estetica": 3
       },
       "impacto": 4,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "frenos-delanteros"
     },
     {
       "id": "fren-discos-media",
@@ -592,7 +601,8 @@
         "estetica": 0
       },
       "impacto": 3,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "frenos-delanteros"
     },
     {
       "id": "fren-pastillas-baja",
@@ -670,6 +680,7 @@
       },
       "impacto": 3,
       "requiere": [],
+      "grupoExclusivo": "remap",
       "stage": "stage1"
     },
     {
@@ -696,6 +707,7 @@
       },
       "impacto": 4,
       "requiere": [],
+      "grupoExclusivo": "remap",
       "stage": "stage1"
     },
     {
@@ -724,6 +736,7 @@
       "requiere": [
         "esc-dp-media"
       ],
+      "grupoExclusivo": "remap",
       "stage": "stage2"
     },
     {
@@ -749,6 +762,7 @@
       "requiere": [
         "adm-fmic-media"
       ],
+      "grupoExclusivo": "remap",
       "stage": "stage3"
     },
     {
@@ -774,7 +788,8 @@
         "estetica": 0
       },
       "impacto": 4,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "remap"
     },
     {
       "id": "rueda-calle-baja",
@@ -800,7 +815,8 @@
         "estetica": 5
       },
       "impacto": 2,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "llantas"
     },
     {
       "id": "rueda-drift-media",
@@ -851,7 +867,8 @@
         "estetica": 5
       },
       "impacto": 3,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "llantas"
     },
     {
       "id": "rueda-semislick-media",
@@ -903,7 +920,8 @@
         "estetica": 2
       },
       "impacto": 2,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "llantas"
     },
     {
       "id": "seg-baquet-media",
@@ -1112,7 +1130,8 @@
         "estetica": 2
       },
       "impacto": 5,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "altura"
     },
     {
       "id": "susp-coil-baja",
@@ -1138,7 +1157,8 @@
         "estetica": 4
       },
       "impacto": 3,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "altura"
     },
     {
       "id": "susp-coil-media",
@@ -1164,7 +1184,8 @@
         "estetica": 4
       },
       "impacto": 4,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "altura"
     },
     {
       "id": "susp-dogbone-baja",
@@ -1239,7 +1260,8 @@
         "estetica": 3
       },
       "impacto": 2,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "altura"
     },
     {
       "id": "susp-subframe-media",
@@ -1288,7 +1310,8 @@
         "estetica": 0
       },
       "impacto": 4,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "embrague"
     },
     {
       "id": "trans-embrague-media",
@@ -1312,7 +1335,8 @@
         "estetica": 0
       },
       "impacto": 3,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "embrague"
     },
     {
       "id": "trans-lsd-alta",
@@ -1336,7 +1360,8 @@
         "estetica": 0
       },
       "impacto": 4,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "diferencial"
     },
     {
       "id": "trans-lsd-media",
@@ -1362,7 +1387,8 @@
         "estetica": 0
       },
       "impacto": 4,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "diferencial"
     },
     {
       "id": "trans-palieres-alta",
@@ -1440,6 +1466,7 @@
         "comb-stage3-alta",
         "gestion-standalone-alta"
       ],
+      "grupoExclusivo": "turbo-principal",
       "stage": "stage3",
       "nota": "Pide bloque preparado para fiabilidad a más de 400 CV."
     },
@@ -1493,6 +1520,7 @@
         "turbo-hpfp-media",
         "gestion-stage2plus-alta"
       ],
+      "grupoExclusivo": "turbo-principal",
       "stage": "stage3"
     }
   ]

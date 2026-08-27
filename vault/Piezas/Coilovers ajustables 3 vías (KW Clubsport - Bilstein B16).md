@@ -20,6 +20,7 @@ plataformas:
   - EA113
   - EA888
   - VR6
+grupoExclusivo: altura
 stage: null
 nota: null
 ---

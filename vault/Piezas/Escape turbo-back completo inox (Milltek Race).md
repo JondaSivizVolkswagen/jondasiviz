@@ -18,6 +18,7 @@ requiere: []
 plataformas:
   - EA113
   - EA888
+grupoExclusivo: downpipe
 stage: null
 nota: null
 ---

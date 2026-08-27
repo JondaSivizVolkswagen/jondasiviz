@@ -74,8 +74,10 @@ function leerPieza(data: Record<string, unknown>, ref: string): Pieza {
   const objetivos = {} as Record<Objetivo, number>;
   for (const o of OBJETIVOS) objetivos[o] = comoNumero(objetivosRaw[o] ?? 0, `objetivos.${o}`, ref);
 
-  const stage = data.stage == null || data.stage === "" ? undefined : (String(data.stage) as Stage);
-  const nota = data.nota == null || data.nota === "" ? undefined : String(data.nota);
+  const vacio = (v: unknown): boolean => v == null || v === "";
+  const stage = vacio(data.stage) ? undefined : (String(data.stage) as Stage);
+  const nota = vacio(data.nota) ? undefined : String(data.nota);
+  const grupoExclusivo = vacio(data.grupoExclusivo) ? undefined : String(data.grupoExclusivo);
 
   return {
     id: String(data.id ?? ""),
@@ -91,6 +93,7 @@ function leerPieza(data: Record<string, unknown>, ref: string): Pieza {
     objetivos,
     impacto: comoNumero(data.impacto, "impacto", ref),
     requiere: comoLista(data.requiere),
+    grupoExclusivo,
     stage,
     nota,
   };
@@ -224,6 +227,7 @@ export function escribirVault(
         impacto: p.impacto,
         requiere: p.requiere,
         plataformas: p.plataformas,
+        grupoExclusivo: p.grupoExclusivo ?? null,
         stage: p.stage ?? null,
         nota: p.nota ?? null,
       }),

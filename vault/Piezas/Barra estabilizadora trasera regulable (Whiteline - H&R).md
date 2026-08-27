@@ -21,6 +21,7 @@ plataformas:
   - EA888
   - VR6
   - TDI
+grupoExclusivo: null
 stage: null
 nota: 'Reduce el subviraje del tren delantero, muy efectivo por poco dinero.'
 ---

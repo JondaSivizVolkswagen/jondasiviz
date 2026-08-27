@@ -18,6 +18,7 @@ requiere: []
 plataformas:
   - EA113
   - EA888
+grupoExclusivo: intercooler
 stage: null
 nota: null
 ---

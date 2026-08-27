@@ -21,6 +21,7 @@ plataformas:
   - EA888
   - VR6
   - TDI
+grupoExclusivo: null
 stage: null
 nota: Obligatoria en la mayoría de reglamentos de competición.
 ---

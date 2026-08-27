@@ -17,6 +17,7 @@ impacto: 4
 requiere: []
 plataformas:
   - EA113
+grupoExclusivo: null
 stage: null
 nota: null
 ---

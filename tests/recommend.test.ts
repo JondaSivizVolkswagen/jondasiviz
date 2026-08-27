@@ -112,6 +112,89 @@ describe("generarPresupuesto con catálogo controlado", () => {
     expect(res.lineas.map((l) => l.pieza.id)).toEqual(["barata-buena"]);
   });
 
+  it("no monta dos piezas del mismo grupo exclusivo", () => {
+    const c = catalogo([
+      pieza({
+        id: "fmic-media",
+        categoria: "admision",
+        grupoExclusivo: "intercooler",
+        objetivos: { drag: 5 },
+        impacto: 4,
+        precio: { min: 380, estimado: 450, max: 520 },
+      }),
+      pieza({
+        id: "fmic-alta",
+        categoria: "admision",
+        grupoExclusivo: "intercooler",
+        objetivos: { drag: 5 },
+        impacto: 5,
+        precio: { min: 700, estimado: 800, max: 950 },
+      }),
+    ]);
+    const res = generarPresupuesto({ ...base, objetivo: "drag", presupuesto: 5000 }, c);
+    const ids = res.lineas.map((l) => l.pieza.id);
+    expect(ids).toContain("fmic-alta");
+    expect(ids).not.toContain("fmic-media");
+    expect(ids.length).toBe(1);
+  });
+
+  it("una dependencia se da por cubierta si su grupo ya está ocupado", () => {
+    // "mas-cv" cubre admisión antes que turbo, así que el intercooler alta entra
+    // primero y la dependencia intercooler del turbo se da por satisfecha.
+    const c = catalogo([
+      pieza({
+        id: "fmic-alta",
+        categoria: "admision",
+        grupoExclusivo: "intercooler",
+        objetivos: { "mas-cv": 5 },
+        impacto: 5,
+        precio: { min: 700, estimado: 800, max: 950 },
+      }),
+      pieza({
+        id: "fmic-media",
+        categoria: "admision",
+        grupoExclusivo: "intercooler",
+        objetivos: { "mas-cv": 3 },
+        impacto: 3,
+        precio: { min: 380, estimado: 450, max: 520 },
+      }),
+      pieza({
+        id: "turbo",
+        categoria: "turbo",
+        objetivos: { "mas-cv": 5 },
+        impacto: 5,
+        precio: { min: 1000, estimado: 1200, max: 1500 },
+        requiere: ["fmic-media"],
+      }),
+    ]);
+    const res = generarPresupuesto({ ...base, objetivo: "mas-cv", presupuesto: 5000 }, c);
+    const ids = res.lineas.map((l) => l.pieza.id).sort();
+    expect(ids).toContain("turbo");
+    expect(ids).toContain("fmic-alta");
+    expect(ids).not.toContain("fmic-media");
+  });
+
+  it("el paso de esenciales prefiere la pieza de más aporte técnico, no la más barata", () => {
+    const c = catalogo([
+      pieza({
+        id: "coilovers",
+        categoria: "suspension",
+        objetivos: { drift: 4 },
+        impacto: 5,
+        precio: { min: 700, estimado: 950, max: 1200 },
+      }),
+      pieza({
+        id: "casquillos-baratos",
+        categoria: "suspension",
+        objetivos: { drift: 4 },
+        impacto: 3,
+        precio: { min: 150, estimado: 200, max: 260 },
+      }),
+    ]);
+    const res = generarPresupuesto({ ...base, objetivo: "drift", presupuesto: 1200 }, c);
+    expect(res.lineas.find((l) => l.motivo === "esencial")?.pieza.id).toBe("coilovers");
+  });
+
   it("no mete una pieza si no cabe su dependencia", () => {
     const c = catalogo([
       pieza({
