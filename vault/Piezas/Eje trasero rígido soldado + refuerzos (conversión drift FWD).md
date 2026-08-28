@@ -24,6 +24,7 @@ plataformas:
 grupoExclusivo: null
 stage: null
 nota: Bloquea la barra de torsión trasera para forzar el sobreviraje.
+imagen: null
 ---
 
 Compatible con [[1.8T-20v]], [[EA113]], [[EA888]], [[VR6]], [[TDI]].

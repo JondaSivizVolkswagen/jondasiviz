@@ -11,7 +11,7 @@ precio:
 objetivos:
   drift: 2
   drag: 2
-  mas-cv: 0
+  mas-cv: 2
   estetica: 0
 impacto: 2
 requiere: []
@@ -24,6 +24,7 @@ plataformas:
 grupoExclusivo: null
 stage: null
 nota: null
+imagen: null
 ---
 
 Compatible con [[1.8T-20v]], [[EA113]], [[EA888]], [[VR6]], [[TDI]].

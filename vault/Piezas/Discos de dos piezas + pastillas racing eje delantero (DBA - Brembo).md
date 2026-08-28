@@ -11,7 +11,7 @@ precio:
 objetivos:
   drift: 3
   drag: 3
-  mas-cv: 0
+  mas-cv: 3
   estetica: 0
 impacto: 3
 requiere: []
@@ -24,6 +24,7 @@ plataformas:
 grupoExclusivo: frenos-delanteros
 stage: null
 nota: null
+imagen: null
 ---
 
 Compatible con [[1.8T-20v]], [[EA113]], [[EA888]], [[VR6]], [[TDI]].

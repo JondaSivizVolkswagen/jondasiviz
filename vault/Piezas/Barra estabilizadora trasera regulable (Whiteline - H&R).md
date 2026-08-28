@@ -24,6 +24,7 @@ plataformas:
 grupoExclusivo: null
 stage: null
 nota: 'Reduce el subviraje del tren delantero, muy efectivo por poco dinero.'
+imagen: null
 ---
 
 Compatible con [[1.8T-20v]], [[EA113]], [[EA888]], [[VR6]], [[TDI]].

@@ -25,6 +25,7 @@ plataformas:
 grupoExclusivo: turbo-principal
 stage: stage3
 nota: null
+imagen: null
 ---
 
 Compatible con [[EA113]].

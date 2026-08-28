@@ -78,6 +78,7 @@ function leerPieza(data: Record<string, unknown>, ref: string): Pieza {
   const stage = vacio(data.stage) ? undefined : (String(data.stage) as Stage);
   const nota = vacio(data.nota) ? undefined : String(data.nota);
   const grupoExclusivo = vacio(data.grupoExclusivo) ? undefined : String(data.grupoExclusivo);
+  const imagen = vacio(data.imagen) ? undefined : String(data.imagen);
 
   return {
     id: String(data.id ?? ""),
@@ -96,6 +97,7 @@ function leerPieza(data: Record<string, unknown>, ref: string): Pieza {
     grupoExclusivo,
     stage,
     nota,
+    imagen,
   };
 }
 
@@ -230,6 +232,7 @@ export function escribirVault(
         grupoExclusivo: p.grupoExclusivo ?? null,
         stage: p.stage ?? null,
         nota: p.nota ?? null,
+        imagen: p.imagen ?? null,
       }),
     );
   }

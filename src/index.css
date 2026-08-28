@@ -14,7 +14,17 @@
   --r-sm: 8px;
   --r-md: 12px;
   --r-lg: 20px;
-  --maxw: 960px;
+  /* Tope del sitio en dos columnas: ~460 de controles + 40 de hueco + ~1020 de plan.
+     No se quita del todo porque casi todas las filas son "nombre a la izquierda,
+     precio a la derecha", y pasados unos 700 px por fila se pierde el emparejamiento
+     entre las dos puntas. 1600 llena un monitor de 1920 dejando aire, no sobra. */
+  --maxw: 1600px;
+  /* Tope mientras solo hay una columna: una tarjeta más ancha deja las frases de los
+     objetivos sueltas en medio del vacío. */
+  --maxw-simple: 760px;
+  /* Alto de la barra superior (20 + 36 del botón + 20 + 1 de borde). Lo usan los
+     elementos pegados para no quedar debajo de ella. */
+  --alto-barra: 78px;
   --font: "Segoe UI Variable", "Segoe UI", -apple-system, BlinkMacSystemFont,
     "SF Pro Text", Roboto, sans-serif;
 
@@ -111,4 +121,17 @@ button {
     transition: none !important;
     animation: none !important;
   }
+}
+
+/* Texto solo para lectores de pantalla: anuncia el resumen del plan sin ocupar sitio. */
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }

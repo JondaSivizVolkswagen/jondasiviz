@@ -20,6 +20,7 @@ plataformas:
 grupoExclusivo: null
 stage: null
 nota: null
+imagen: null
 ---
 
 Compatible con [[EA113]].

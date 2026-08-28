@@ -22,6 +22,7 @@ plataformas:
 grupoExclusivo: null
 stage: null
 nota: Recomendados por encima de 350 CV en tracción delantera.
+imagen: null
 ---
 
 Compatible con [[1.8T-20v]], [[EA113]], [[EA888]].

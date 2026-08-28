@@ -47,6 +47,8 @@ export interface Pieza {
   grupoExclusivo?: string;
   stage?: Stage;
   nota?: string;
+  /** Ruta o URL de una foto de la pieza. Opcional: hoy el catálogo no trae fotos. */
+  imagen?: string;
 }
 
 export interface Catalogo {
@@ -92,14 +94,34 @@ export interface GruposPorGama {
 
 export interface PeticionPresupuesto {
   plataforma: Plataforma;
-  gama: Gama;
   presupuesto: number;
   /** Uno o más objetivos del proyecto. Sus pesos se suman al puntuar las piezas. */
   objetivos: Objetivo[];
   modelo?: string;
+  /**
+   * Ids de piezas que ha elegido el comprador a mano. Entran antes que nada y bloquean
+   * su grupo, así que el motor ya no decide por él en esa parte del coche. Lo que no
+   * elija sigue eligiéndolo el motor.
+   */
+  elecciones?: string[];
 }
 
-export type MotivoLinea = "esencial" | "valor" | "dependencia";
+export type MotivoLinea = "elegida" | "esencial" | "valor" | "dependencia";
+
+/**
+ * Una parte del coche con varias alternativas entre las que se puede elegir: el grupo
+ * exclusivo y las piezas compatibles que caen dentro. Es lo que alimenta el selector
+ * de piezas del formulario.
+ */
+export interface GrupoElegible {
+  /** El `grupoExclusivo` que comparten. */
+  grupo: string;
+  /** Nombre legible del grupo, para enseñarlo. */
+  nombre: string;
+  categoria: Categoria;
+  /** Alternativas compatibles con el coche, de más barata a más cara. */
+  piezas: Pieza[];
+}
 
 export interface LineaPresupuesto {
   pieza: Pieza;
@@ -111,6 +133,20 @@ export interface GrupoCategoria {
   categoria: Categoria;
   total: number;
   lineas: LineaPresupuesto[];
+}
+
+/**
+ * Una categoría prioritaria del objetivo y lo que costaría cubrirla por lo mínimo.
+ * Es lo que responde a "cuánto necesito y qué entra y qué no".
+ */
+export interface RequisitoCategoria {
+  categoria: Categoria;
+  /** Opción más barata que aporta algo al objetivo. null si el catálogo no tiene nada. */
+  pieza: Pieza | null;
+  /** Lo que suma cubrirla, ya descontado lo que arrastran otras categorías. */
+  minimo: number;
+  /** Si el presupuesto actual la cubre. */
+  cubierta: boolean;
 }
 
 export interface MejoraSugerida {
@@ -126,6 +162,15 @@ export interface Presupuesto {
   porCategoria: GrupoCategoria[];
   total: number;
   restante: number;
+  /**
+   * Gama del build que ha salido, ponderada por el dinero que se lleva cada pieza.
+   * No es un dato de entrada: la decide el presupuesto. null si no entró nada.
+   */
+  gamaResultante: Gama | null;
+  /** Categorías prioritarias del objetivo, con su mínimo y si entran o no. */
+  esenciales: RequisitoCategoria[];
+  /** Lo que cuesta cubrir todas las esenciales por lo mínimo. El proyecto pelado. */
+  minimoEsencial: number;
   siguientesMejoras: MejoraSugerida[];
   avisos: string[];
 }

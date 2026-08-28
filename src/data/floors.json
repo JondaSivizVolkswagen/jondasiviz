@@ -1,7 +1,7 @@
 {
   "version": "0.1.0",
   "moneda": "EUR",
-  "_comment": "Gasto minimo orientativo para que un proyecto de cada tipo tenga sentido en cada gama.",
+  "_comment": "Escala de referencia por objetivo: a partir de cuanto dinero un proyecto de ese tipo llega a cada gama. El valor de 'baja' es ademas el suelo real, por debajo del cual el proyecto no tiene sentido.",
   "suelos": {
     "drift": { "baja": 1200, "media": 3000, "alta": 8000 },
     "drag": { "baja": 1500, "media": 3500, "alta": 12000 },

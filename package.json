@@ -14,14 +14,20 @@
     "test:watch": "vitest",
     "plan": "tsx src/cli/plan.ts",
     "vault:export": "tsx src/ingest/run.ts export",
-    "vault:ingest": "tsx src/ingest/run.ts ingest"
+    "vault:ingest": "tsx src/ingest/run.ts ingest",
+    "tauri": "tauri",
+    "escritorio:dev": "tauri dev",
+    "escritorio:build": "tauri build"
   },
   "dependencies": {
+    "pdfmake": "^0.3.11",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
   "devDependencies": {
+    "@tauri-apps/cli": "^2.11.4",
     "@types/node": "^24.13.3",
+    "@types/pdfmake": "^0.3.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
     "@vitejs/plugin-react": "^6.1.0",

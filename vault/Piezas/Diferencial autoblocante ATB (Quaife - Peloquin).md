@@ -24,6 +24,7 @@ plataformas:
 grupoExclusivo: diferencial
 stage: null
 nota: null
+imagen: null
 ---
 
 Compatible con [[1.8T-20v]], [[EA113]], [[EA888]], [[VR6]], [[TDI]].

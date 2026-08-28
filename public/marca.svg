@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!--
+    Icono de la aplicación. Nada de logotipos de Volkswagen: el proyecto no tiene
+    relación con la marca y usar el suyo sería un problema. Esto es una "J" de
+    JondaSiviz sobre el rojo GTI, con la barra de presupuesto debajo, que es el gesto
+    que define la herramienta.
+  -->
+  <rect width="512" height="512" rx="112" fill="#C0322E"/>
+  <path d="M322 128v186c0 46-37 82-83 82-40 0-73-28-81-66"
+        fill="none" stroke="#FFFFFF" stroke-width="42"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="128" y="128" width="130" height="42" rx="21" fill="#FFFFFF"/>
+</svg>

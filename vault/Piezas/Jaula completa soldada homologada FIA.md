@@ -21,9 +21,10 @@ plataformas:
   - EA888
   - VR6
   - TDI
-grupoExclusivo: null
+grupoExclusivo: jaula
 stage: null
 nota: null
+imagen: null
 ---
 
 Compatible con [[1.8T-20v]], [[EA113]], [[EA888]], [[VR6]], [[TDI]].

@@ -1,32 +1,64 @@
-// Subagente 2 (offline): a partir de modelo + gama + presupuesto + objetivos,
-// autoselecciona las piezas y comprueba el gasto mínimo recomendado.
+// Subagente 2 (offline): a partir de modelo + presupuesto + objetivos, autoselecciona
+// las piezas y sitúa el resultado.
 //
-// La matemática de selección la hace el motor determinista (engine/recommend).
-// Este módulo añade la resolución del modelo y el suelo de gasto por gama/objetivos.
+// La gama no se pide al usuario ni se predice: el dinero disponible es el único techo,
+// el motor coge lo que cabe y la gama del build sale de las piezas que entraron
+// (`Presupuesto.gamaResultante`). Lo mismo con el mínimo del proyecto, que lo calcula
+// el motor sobre el catálogo (`Presupuesto.minimoEsencial`).
+//
+// floors.json ya solo aporta una cosa: la escala de presupuestos que vale la pena
+// probar para ver si poner más dinero cambia algo de verdad.
 
 import { cargarCatalogo } from "../engine/catalog";
 import { buscarModelo, listarModelos, piezasDeModelo } from "../engine/graph";
-import { generarPresupuesto, nombreObjetivos, normalizarObjetivos } from "../engine/recommend";
+import {
+  NIVEL_GAMA,
+  generarPresupuesto,
+  gruposElegibles,
+  techoUtil,
+  normalizarObjetivos,
+} from "../engine/recommend";
 import floorsJson from "../data/floors.json";
-import type { Catalogo, Gama, ModeloVW, Objetivo, Presupuesto } from "../engine/types";
+import type {
+  Catalogo,
+  Gama,
+  GrupoElegible,
+  ModeloVW,
+  Objetivo,
+  Presupuesto,
+} from "../engine/types";
 
 export interface EntradaSelector {
   /** Texto libre: id, nombre o alias del modelo. */
   modelo: string;
+  presupuesto: number;
+  /** Uno o más objetivos. Sus categorías esenciales se combinan. */
+  objetivos: Objetivo[];
+  /** Ids de piezas elegidas a mano por el comprador. El resto lo elige el motor. */
+  elecciones?: string[];
+}
+
+/** Un presupuesto mayor y la gama que el motor saca de verdad con él. */
+export interface EscalonGama {
   gama: Gama;
   presupuesto: number;
-  /** Uno o más objetivos. El suelo de gasto es la suma de los suyos. */
-  objetivos: Objetivo[];
 }
 
 export interface ResultadoSelector {
   modelo: ModeloVW | null;
   presupuesto: Presupuesto | null;
-  /** Gasto mínimo recomendado para esta gama y estos objetivos (suma de suelos). */
-  suelo: number;
-  cumpleSuelo: boolean;
-  /** Gama que sí encajaría con el dinero disponible, si la pedida se queda corta. */
-  gamaSugerida: Gama | null;
+  /** Lo que cuesta cubrir lo esencial del objetivo por lo mínimo, según el catálogo. */
+  minimo: number;
+  cumpleMinimo: boolean;
+  /** Presupuesto que sube la gama del build, ya comprobado. null si ninguno lo hace. */
+  siguienteEscalon: EscalonGama | null;
+  /**
+   * Dinero a partir del cual poner más ya no cambia la lista: con esto entra todo lo que
+   * este coche admite para estos objetivos. 0 si no hay nada que montar.
+   */
+  techoUtil: number;
+  /** Partes del coche con varias alternativas compatibles, para que elija el comprador. */
+  grupos: GrupoElegible[];
   avisos: string[];
 }
 
@@ -38,11 +70,11 @@ interface ConfigSuelos {
 const GAMAS: Gama[] = ["baja", "media", "alta"];
 
 /**
- * Gasto mínimo recomendado para una combinación de objetivos en una gama.
- * Es la suma de los suelos de cada objetivo: pedir varias cosas a la vez sube
- * el mínimo. Función pura para que la interfaz pueda mostrarlo en vivo.
+ * Escala de referencia por objetivo: presupuestos que merece la pena probar. Suma los
+ * umbrales de cada objetivo elegido, porque pedir varias cosas a la vez sube el listón.
+ * No predice ninguna gama, solo dice dónde mirar.
  */
-export function sueloDe(
+export function umbralGama(
   objetivos: Objetivo[],
   gama: Gama,
   suelosCfg: ConfigSuelos = floorsJson as ConfigSuelos,
@@ -59,67 +91,94 @@ export function crearSelector(
   suelosCfg: ConfigSuelos = floorsJson as ConfigSuelos,
   modelos: ModeloVW[] = listarModelos(),
 ): SelectorPresupuesto {
+  /**
+   * Siguiente escalón de gama, comprobado en vez de supuesto: recorre la escala de
+   * presupuestos por encima del actual y devuelve el primero que, pasado por el motor,
+   * da un build de gama más alta. Si ninguno lo consigue no hay escalón. Antes se
+   * anunciaba el salto igualmente y a veces prometía una gama que el build ya tenía.
+   */
+  const buscarEscalon = (
+    modelo: ModeloVW,
+    objetivos: Objetivo[],
+    presupuesto: number,
+    gamaActual: Gama | null,
+    catalogoModelo: Catalogo,
+    elecciones: string[],
+  ): EscalonGama | null => {
+    const nivelActual = gamaActual ? NIVEL_GAMA[gamaActual] : -1;
+
+    for (const gama of GAMAS) {
+      const dinero = umbralGama(objetivos, gama, suelosCfg);
+      if (dinero <= presupuesto) continue;
+      const prueba = generarPresupuesto(
+        {
+          plataforma: modelo.motor,
+          presupuesto: dinero,
+          objetivos,
+          modelo: modelo.nombre,
+          elecciones,
+        },
+        catalogoModelo,
+      );
+      const salida = prueba.gamaResultante;
+      if (salida && NIVEL_GAMA[salida] > nivelActual) return { gama: salida, presupuesto: dinero };
+    }
+    return null;
+  };
+
   const seleccionar = (entrada: EntradaSelector): ResultadoSelector => {
-    const { gama } = entrada;
     const objetivos = normalizarObjetivos(entrada.objetivos);
     const presupuesto = Number.isFinite(entrada.presupuesto) ? entrada.presupuesto : 0;
-    const suelo = sueloDe(objetivos, gama, suelosCfg);
-    const avisos: string[] = [];
 
     const modelo = buscarModelo(entrada.modelo, modelos);
     if (!modelo) {
-      avisos.push(
-        `No reconozco el modelo "${entrada.modelo}". Modelos disponibles: ` +
-          modelos.map((m) => m.nombre).join(", ") +
-          ".",
-      );
       return {
         modelo: null,
         presupuesto: null,
-        suelo,
-        cumpleSuelo: false,
-        gamaSugerida: null,
-        avisos,
+        minimo: 0,
+        cumpleMinimo: false,
+        siguienteEscalon: null,
+        techoUtil: 0,
+        grupos: [],
+        avisos: [
+          `No reconozco el modelo "${entrada.modelo}". Modelos disponibles: ` +
+            modelos.map((m) => m.nombre).join(", ") +
+            ".",
+        ],
       };
-    }
-
-    const cumpleSuelo = objetivos.length > 0 && presupuesto >= suelo;
-    let gamaSugerida: Gama | null = null;
-    if (objetivos.length > 0 && !cumpleSuelo) {
-      // Gama más alta cuyo suelo combinado sí cabe en el presupuesto.
-      for (const g of [...GAMAS].reverse()) {
-        if (presupuesto >= sueloDe(objetivos, g, suelosCfg)) {
-          gamaSugerida = g;
-          break;
-        }
-      }
-      const detalle =
-        gamaSugerida && gamaSugerida !== gama
-          ? ` Con ese dinero encaja mejor la gama ${gamaSugerida}.`
-          : gamaSugerida == null
-            ? " Ni siquiera llega al mínimo de gama baja para esto."
-            : "";
-      avisos.push(
-        `Para un proyecto de ${nombreObjetivos(objetivos)} en gama ${gama} conviene gastar al menos ` +
-          `${suelo} ${suelosCfg.moneda}. Tienes ${presupuesto} ${suelosCfg.moneda}.${detalle}`,
-      );
     }
 
     const compatibles = piezasDeModelo(modelo, catalogo);
     const catalogoModelo: Catalogo = { ...catalogo, piezas: compatibles };
 
-    const presupuestoRes = generarPresupuesto(
-      { plataforma: modelo.motor, gama, presupuesto, objetivos, modelo: modelo.nombre },
+    // Solo se pasan al motor las elecciones que siguen valiendo para este coche y estos
+    // objetivos: al cambiar de modelo, lo elegido para el anterior deja de aplicar sin
+    // tener que borrarlo, y vuelve solo si se vuelve a ese coche.
+    const grupos = gruposElegibles(catalogoModelo, modelo.motor, objetivos);
+    const elegibles = new Set(grupos.flatMap((g) => g.piezas.map((p) => p.id)));
+    const elecciones = (entrada.elecciones ?? []).filter((id) => elegibles.has(id));
+
+    const plan = generarPresupuesto(
+      { plataforma: modelo.motor, presupuesto, objetivos, modelo: modelo.nombre, elecciones },
       catalogoModelo,
     );
 
     return {
       modelo,
-      presupuesto: presupuestoRes,
-      suelo,
-      cumpleSuelo,
-      gamaSugerida,
-      avisos: [...avisos, ...presupuestoRes.avisos],
+      presupuesto: plan,
+      minimo: plan.minimoEsencial,
+      cumpleMinimo: objetivos.length > 0 && presupuesto >= plan.minimoEsencial,
+      siguienteEscalon: buscarEscalon(
+        modelo,
+        objetivos,
+        presupuesto,
+        plan.gamaResultante,
+        catalogoModelo,
+        elecciones,
+      ),
+      techoUtil: techoUtil(catalogoModelo, modelo.motor, objetivos, elecciones),
+      grupos,
+      avisos: plan.avisos,
     };
   };
 

@@ -20,6 +20,7 @@ plataformas:
 grupoExclusivo: null
 stage: null
 nota: En el EA113 la HPFP es de leva. Necesaria para Stage 2+ y para el K04.
+imagen: null
 ---
 
 Compatible con [[EA113]].

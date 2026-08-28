@@ -1,17 +1,40 @@
 // Resultado del cálculo: cabecera, barra de gasto, avisos y piezas por categoría.
 
+import { useState } from "react";
 import type { ResultadoSelector } from "../agents";
-import type { Gama } from "../engine/types";
-import { NOMBRE_CATEGORIA, NOMBRE_OBJETIVO } from "../engine/recommend";
+import {
+  NOMBRE_CATEGORIA,
+  NOMBRE_OBJETIVO,
+  fraseMinimo,
+  fraseRiesgo,
+  normalizarObjetivos,
+} from "../engine/recommend";
+import { descargarPdf } from "../export/pdf";
 import { euros } from "./format";
 
 interface Props {
   resultado: ResultadoSelector;
-  onProbarGama: (gama: Gama) => void;
+  onProbarPresupuesto: (presupuesto: number) => void;
 }
 
-export function Resultado({ resultado, onProbarGama }: Props) {
-  const { modelo, presupuesto, cumpleSuelo, gamaSugerida, avisos } = resultado;
+export function Resultado({ resultado, onProbarPresupuesto }: Props) {
+  const { modelo, presupuesto, cumpleMinimo, siguienteEscalon, avisos } = resultado;
+  const [generando, setGenerando] = useState(false);
+  const [falloPdf, setFalloPdf] = useState(false);
+
+  // pdfmake llega por import() dinámico, así que la primera descarga tarda un poco.
+  const bajarPdf = async () => {
+    if (!modelo || !presupuesto) return;
+    setGenerando(true);
+    setFalloPdf(false);
+    try {
+      await descargarPdf({ modelo, plan: presupuesto, siguienteEscalon, avisos });
+    } catch {
+      setFalloPdf(true);
+    } finally {
+      setGenerando(false);
+    }
+  };
 
   if (!modelo || !presupuesto) {
     return (
@@ -31,24 +54,48 @@ export function Resultado({ resultado, onProbarGama }: Props) {
   const tope = pet.presupuesto;
   const sobrante = Math.max(0, presupuesto.restante);
   const porcentaje = tope > 0 ? Math.min(100, Math.round((gastado / tope) * 100)) : 0;
-  const avisosRestantes = cumpleSuelo ? avisos : avisos.slice(1);
+  const objetivos = normalizarObjetivos(pet.objetivos);
+  const riesgo = fraseRiesgo(presupuesto);
 
   return (
-    <section className="resultado" aria-live="polite">
+    // Sin `aria-live` en toda la sección: el plan se rehace en cada pulsación de tecla y
+    // un lector de pantalla leería la lista entera con cada dígito del presupuesto. Se
+    // anuncia solo el resumen, que es lo que de verdad hay que oír.
+    <section className="resultado">
       <header className="resultado-cab">
         <h2>{modelo.nombre}</h2>
         <p className="resultado-sub">
           {modelo.motorDetalle} · chasis {modelo.chasis}
         </p>
         <div className="chips">
-          <span className="chip">Gama {pet.gama}</span>
           <span className="chip">{euros(tope)}</span>
+          {presupuesto.gamaResultante && (
+            <span className="chip chip-gama">Build de gama {presupuesto.gamaResultante}</span>
+          )}
           <span className="chip">
-            {pet.objetivos.length > 1 ? "Objetivos" : "Objetivo"}{" "}
-            {pet.objetivos.map((o) => NOMBRE_OBJETIVO[o]).join(" + ")}
+            {objetivos.length > 1 ? "Objetivos" : "Objetivo"}{" "}
+            {objetivos.map((o) => NOMBRE_OBJETIVO[o]).join(" + ")}
           </span>
         </div>
+
+        <div className="resultado-acciones">
+          <button
+            type="button"
+            className="btn btn-fantasma btn-sm"
+            onClick={bajarPdf}
+            disabled={generando}
+          >
+            {generando ? "Preparando el PDF…" : "Descargar en PDF"}
+          </button>
+          {falloPdf && (
+            <span className="aviso-linea">No se pudo generar el PDF. Vuelve a intentarlo.</span>
+          )}
+        </div>
       </header>
+
+      <p className="visualmente-oculto" role="status">
+        {presupuesto.lineas.length} piezas, {euros(gastado)} de {euros(tope)}.
+      </p>
 
       <div className="tarjeta barra-bloque">
         <div className="barra-cifras">
@@ -62,24 +109,26 @@ export function Resultado({ resultado, onProbarGama }: Props) {
         </div>
       </div>
 
-      {!cumpleSuelo && (
+      {/* El mínimo lo cuenta el motor con la misma frase que el formulario y el PDF. */}
+      {!cumpleMinimo && objetivos.length > 0 && (
         <div className="aviso-suelo">
-          <p>{avisos[0]}</p>
-          {gamaSugerida && gamaSugerida !== pet.gama && (
+          {riesgo && <p className="aviso-riesgo">{riesgo}</p>}
+          <p>{fraseMinimo(presupuesto)}</p>
+          {siguienteEscalon && (
             <button
               type="button"
               className="btn btn-fantasma btn-sm"
-              onClick={() => onProbarGama(gamaSugerida)}
+              onClick={() => onProbarPresupuesto(siguienteEscalon.presupuesto)}
             >
-              Probar en gama {gamaSugerida}
+              Ver qué sale con {euros(siguienteEscalon.presupuesto)}
             </button>
           )}
         </div>
       )}
 
-      {avisosRestantes.length > 0 && (
+      {avisos.length > 0 && (
         <ul className="avisos">
-          {avisosRestantes.map((a) => (
+          {avisos.map((a) => (
             <li key={a}>{a}</li>
           ))}
         </ul>
@@ -99,8 +148,14 @@ export function Resultado({ resultado, onProbarGama }: Props) {
                     <div className="linea-texto">
                       <span className="linea-nombre">
                         {linea.pieza.nombre}
+                        <span className={`etiqueta etiqueta-${linea.pieza.gama}`}>
+                          {linea.pieza.gama}
+                        </span>
                         {linea.motivo === "dependencia" && (
                           <span className="etiqueta">dependencia</span>
+                        )}
+                        {linea.motivo === "elegida" && (
+                          <span className="etiqueta etiqueta-elegida">la elegiste tú</span>
                         )}
                       </span>
                       {linea.pieza.nota && <span className="linea-nota">{linea.pieza.nota}</span>}
@@ -114,9 +169,24 @@ export function Resultado({ resultado, onProbarGama }: Props) {
         </div>
       ) : (
         <p className="aviso-linea">
-          Con lo que has puesto no entra ninguna pieza de esta gama para este objetivo. Sube el
-          presupuesto o baja la gama.
+          Con lo que has puesto no entra ninguna pieza para este objetivo. Sube el presupuesto.
         </p>
+      )}
+
+      {cumpleMinimo && siguienteEscalon && (
+        <div className="escalon">
+          <p>
+            Con {euros(siguienteEscalon.presupuesto)} esto pasaría a ser un build de gama{" "}
+            {siguienteEscalon.gama}.
+          </p>
+          <button
+            type="button"
+            className="btn btn-fantasma btn-sm"
+            onClick={() => onProbarPresupuesto(siguienteEscalon.presupuesto)}
+          >
+            Probarlo
+          </button>
+        </div>
       )}
 
       {presupuesto.siguientesMejoras.length > 0 && (

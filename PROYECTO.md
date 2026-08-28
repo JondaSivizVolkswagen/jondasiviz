@@ -12,13 +12,26 @@ Herramienta de escritorio/web que planifica la preparación de un coche **Volksw
 El usuario introduce:
 
 - un **modelo** VW (empezando por el Golf GTI Mk5),
-- una **gama** de piezas: `baja` | `media` | `alta`,
 - un **presupuesto** en euros,
 - uno o varios **objetivos**: `drift`, `drag`, `mas-cv` (ganar caballos), `estetica`.
 
 La herramienta devuelve un **presupuesto de piezas** recomendado que cabe en el
 dinero disponible, con desglose por categoría, total, sobrante, avisos y las
 siguientes mejoras si se amplía el presupuesto.
+
+**La gama no es una entrada.** Se probó como filtro exacto (`gama alta` solo veía
+piezas alta) y limitaba el resultado sin motivo: dejaba fuera la pieza sensata solo
+por estar en otro cajón, y un presupuesto corto en gama alta devolvía casi nada. Ahora
+el presupuesto es el único techo, el pool son todas las piezas compatibles con el
+motor del coche, y la gama sale como **resultado**, ponderada por el dinero que se
+lleva cada pieza. `floors.json` pasa de ser un filtro a ser la escala de presupuestos
+que merece la pena probar para ver si subir el dinero cambia algo.
+
+**Una sola gama y un solo mínimo.** Durante un tiempo convivieron dos de cada: la gama
+que predecía `floors.json` y la que salía del build, el suelo de `floors.json` y el
+mínimo calculado del catálogo. Se contradecían en pantalla (el formulario decía "gama
+media" y el resultado "gama alta"). Ahora la verdad es siempre la que sale del motor:
+`Presupuesto.gamaResultante` y `Presupuesto.minimoEsencial`.
 
 Los precios son orientativos. Proyecto personal, sin relación con Volkswagen AG.
 
@@ -50,7 +63,9 @@ repositorio (`C:\Users\alexa\Desktop\JondaSiviz`).
 
 | Decisión | Detalle |
 |---|---|
+| **PDF** | pdfmake, con `import()` dinámico. Maqueta tablas y saltos de página solo y lleva fuentes embebidas, así que los acentos salen bien. Pesa casi un mega, por eso no entra en el arranque. Se descartó imprimir con `window.print()` (obliga al diálogo de impresión y controla mal los saltos) y jsPDF (más ligero pero hay que maquetar a mano). |
 | **Stack** | Vite + React 19 + TypeScript para la interfaz. Motor en TypeScript puro y aislado, sin dependencias de UI, reutilizable en web / escritorio / CLI. |
+| **Gama** | No se pide. El presupuesto es el único techo y la gama del build se deduce del reparto del dinero. Antes era un filtro exacto sobre el catálogo, y limitaba el resultado sin aportar nada. |
 | **Escritorio** | Tauri (binario pequeño, multiplataforma). Pendiente: **no hay Rust instalado** en la máquina; se instala en la Fase 4. Electron descartado por peso. |
 | **Datos** | Catálogo curado. **Nada de scraping** (frágil, lento, problemas legales; además el "precios orientativos" ya es la postura honesta). |
 | **Red relacional** | Se autoría a mano en un **vault de Obsidian** (`vault/`), y un parser la convierte a los JSON que consume el motor. |
@@ -73,13 +88,14 @@ vault/                 Red relacional autoría en Obsidian (fuente de verdad de 
 src/
   engine/              Lógica pura, sin UI.
     types.ts             Tipos del dominio.
+    format.ts            euros(). Única implementación, la usan interfaz, PDF y CLI.
     catalog.ts           Carga + validación del catálogo (ids únicos, dependencias, ciclos, rangos).
     graph.ts             Capa relacional en memoria: buscarModelo (id/nombre/alias) y piezasDeModelo.
     recommend.ts         Motor de recomendación (selección con restricción de presupuesto).
     index.ts             Barrel.
   agents/              Subagentes (deterministas; misma interfaz que tendría un LLM).
     clasificador-gama.ts     Reparte las piezas de un modelo en baja / media / alta.
-    selector-presupuesto.ts  Resuelve el modelo, calcula el suelo de gasto y delega en el motor.
+    selector-presupuesto.ts  Resuelve el modelo, delega en el motor y busca el siguiente escalón.
     index.ts
   ingest/
     obsidian.ts          Parser vault <-> JSON (las dos direcciones).
@@ -88,19 +104,25 @@ src/
     catalog.json         59 piezas. Generado por `npm run vault:ingest`.
     models.json          8 modelos VW. Generado por `npm run vault:ingest`.
     brands.json          Config a mano: niveles de marca y bandas de precio por categoría.
-    floors.json          Config a mano: gasto mínimo por gama y objetivo.
+    floors.json          Config a mano: escala de presupuestos a probar por objetivo.
+  export/             Salida a documento.
+    pdf.ts               Documento del presupuesto con pdfmake, cargado con import() dinámico.
+    iconos-pdf.ts        Iconos vectoriales por categoría, como cadenas SVG.
+    pdfmake.d.ts         Tipos prestados para los bundles de pdfmake/build.
   ui/                 Interfaz React (usa el motor, no lo toca).
-    format.ts            euros().
+    format.ts            Reexporta euros() del motor.
     icons.tsx           Familia de iconos de línea.
     theme.ts            Hook useTema (sistema por defecto, elección en localStorage `jondasiviz-tema`, `data-theme` en <html>).
     opciones.ts         Gamas y las 4 tarjetas de objetivo con su frase.
-    Formulario.tsx      Modelo con datalist, gama segmentada, presupuesto (número + slider), objetivos multi-selección, suelo en vivo.
-    Resultado.tsx       Cabecera, barra de gasto, aviso de suelo con botón "probar en gama X", piezas por categoría, siguientes mejoras.
+    Formulario.tsx      Modelo en desplegable agrupado por motor, presupuesto (número libre + barra con suelo en el mínimo del proyecto), objetivos multi-selección, gama del build en vivo y aviso de peligro por debajo del mínimo.
+    Elecciones.tsx      Selector plegable: por cada parte con varias alternativas, elige el comprador o el motor.
+    Requisitos.tsx      Desglose en vivo: mínimo del proyecto y qué categorías entran y cuáles no. Se usa bajo los objetivos del formulario.
+    Resultado.tsx       Cabecera con chip de gama resultante, barra de gasto, aviso de mínimo con botón "ver qué sale con X €", piezas por categoría (cada línea con su gama), invitación al siguiente escalón, siguientes mejoras.
     PiezasCompatibles.tsx  Panel plegable con pestañas baja/media/alta.
   App.tsx             Orquesta el estado y llama a crearSelector().seleccionar(...).
   App.css, index.css  Sistema visual (acento rojo GTI, tokens, tema claro/oscuro, grid 8pt, prefers-reduced-motion).
   cli/plan.ts         CLI para probar el motor sin interfaz.
-tests/               Vitest. 42 tests.
+tests/               Vitest. 80 tests.
 ```
 
 ### Flujo de datos
@@ -119,13 +141,13 @@ tests/               Vitest. 42 tests.
 
 Función principal: `generarPresupuesto(peticion, catalogo?) -> Presupuesto`.
 
-`peticion`: `{ plataforma, gama, presupuesto, objetivos: Objetivo[], modelo? }`.
+`peticion`: `{ plataforma, presupuesto, objetivos: Objetivo[], modelo? }`.
 
 Pasos:
 
 1. Normaliza los objetivos (orden canónico `drift, drag, mas-cv, estetica`, sin repetir).
    Si no hay objetivos, o presupuesto <= 0, devuelve vacío con aviso.
-2. `pool` = piezas del catálogo compatibles con la plataforma **y** la gama pedidas.
+2. `pool` = piezas del catálogo compatibles con la plataforma. Sin filtro de gama.
 3. **Puntuación** de cada pieza:
    - `peso(pieza)` = suma de `pieza.objetivos[o]` para los objetivos elegidos (0..5 cada uno).
    - `valor(pieza)` = `peso × pieza.impacto`.
@@ -135,14 +157,35 @@ Pasos:
    `valorPorEuro`, luego precio, luego id. Resuelve sus dependencias. La añade si cabe
    en el presupuesto. Una pieza por categoría esencial.
 5. **Paso de relleno**: recorre el resto de piezas por `valorPorEuro` y añade las que
-   quepan, con sus dependencias.
+   quepan, con sus dependencias. Si la pieza pertenece a un grupo exclusivo, sube a la
+   de más `valor` del grupo que quepa (`mejorDelGrupo`): el relleno va por aporte por
+   euro y sin esto se quedaba con la más barata del grupo, bloqueando a la buena para
+   siempre aunque sobrase dinero (unos Raceland de 330 € en un build de 25.000 €).
 6. **Grupo exclusivo**: piezas con el mismo `grupoExclusivo` cumplen la misma función y
    no se montan juntas (dos intercoolers, coilovers + air ride, remap + standalone,
    un solo turbo / downpipe / embrague / diferencial / juego de llantas, filtro vs
    admisión completa). Si una dependencia comparte grupo con algo ya elegido, se da
    por cubierta y el motor usa la pieza superior en vez de duplicar.
-7. Devuelve: líneas agrupadas por categoría, total, sobrante, avisos (categorías
-   prioritarias que no han entrado) y hasta 3 mejoras siguientes con "faltan X €".
+7. Devuelve: líneas agrupadas por categoría, total, sobrante, `gamaResultante`, avisos
+   (categorías prioritarias que no han entrado) y hasta 3 mejoras siguientes con
+   "faltan X €". Las mejoras descartan lo que choque de `grupoExclusivo` con algo ya
+   montado, y no repiten grupo entre ellas: sería la misma mejora contada dos veces.
+8. Y `esenciales` + `minimoEsencial` (`minimosEsenciales`): recorre las categorías
+   prioritarias cogiendo la **más barata** de cada una con sus dependencias, sin límite
+   de dinero, y marca cuáles cubre el presupuesto real. Lo compartido se cuenta una vez
+   (si el turbo ya trae downpipe, cubrir escape sale a 0). La mecánica de selección
+   (`crearSeleccion`) está factorizada y la usan los dos cálculos.
+
+`fraseMinimo(presupuesto)` vive en `recommend.ts`, con los demás textos de
+presentación, para que el formulario y el PDF cuenten lo mismo. Cubre el caso que
+despista: puedes tener de sobra para el mínimo y aun así ver categorías fuera, porque
+el motor concentra el dinero en lo que más pesa en vez de repartirlo en la opción más
+barata de cada cosa.
+
+`gamaResultante` (`gamaDeLineas`) es la media de `{ baja: 0, media: 1, alta: 2 }`
+**ponderada por el precio** de cada línea, con cortes en 2/3 y 4/3. Se pondera por
+dinero y no por número de piezas: unos coilovers de 2.400 € con cuatro detalles de
+50 € es un build de gama alta, no una mezcla sin nombre.
 
 El motor es **determinista**: misma entrada, mismo resultado. Todos los desempates
 terminan en `id.localeCompare`.
@@ -178,17 +221,25 @@ Con varios objetivos se combinan sin repetir.
 
 `crearSelector(catalogo?, suelosCfg?, modelos?) -> { seleccionar(entrada) }`.
 
-`entrada`: `{ modelo: string, gama, presupuesto, objetivos: Objetivo[] }`.
+`entrada`: `{ modelo: string, presupuesto, objetivos: Objetivo[] }`.
 
 - Resuelve el modelo con `buscarModelo` (id, nombre o alias; tolerante a acentos y
   mayúsculas). Si no lo reconoce: `modelo: null` + aviso con la lista de modelos.
-- **Suelo de gasto**: `sueloDe(objetivos, gama)` = **suma** de `floors.json` -> `suelos[o][gama]`
-  para cada objetivo. Pedir varias cosas a la vez sube el mínimo. Es función pura y
-  exportada para que la interfaz lo muestre en vivo.
-- `cumpleSuelo` = presupuesto >= suelo. Si no llega: aviso + `gamaSugerida` (la gama
-  más alta cuyo suelo combinado sí cabe en el presupuesto).
-- Llama a `generarPresupuesto` con las piezas del modelo y devuelve
-  `{ modelo, presupuesto, suelo, cumpleSuelo, gamaSugerida, avisos }`.
+- `umbralGama(objetivos, gama)` (pura, exportada) = **suma** de `floors.json` ->
+  `suelos[o][gama]`. Pedir varias cosas a la vez sube el listón. Es lo único que queda
+  de `floors.json`: una escala de presupuestos que probar, no una predicción.
+- `siguienteEscalon`: recorre esa escala por encima del presupuesto actual, pasa cada
+  candidato por el motor y devuelve el primero que de verdad da un build de gama más
+  alta, con la gama **comprobada**. `null` si ninguno la sube. Alimenta el botón "ver
+  qué sale con X €". Antes salía de `floors.json` sin mirar el build y llegaba a
+  prometer una gama que la lista de piezas ya tenía.
+- `minimo` = `Presupuesto.minimoEsencial`, calculado por el motor sobre el catálogo.
+  Es el único mínimo del proyecto; ya no hay un suelo a mano compitiendo con él.
+- `cumpleMinimo` = presupuesto >= minimo. Si no llega: se marca, **pero devuelve
+  igualmente lo que entra**. Antes en ese caso la lista salía casi vacía.
+- Devuelve `{ modelo, presupuesto, minimo, cumpleMinimo, siguienteEscalon, avisos }`.
+  Los avisos son los del motor tal cual: el selector ya no antepone ninguno, así que
+  la interfaz no depende de qué índice ocupa cada uno.
 
 ---
 
@@ -248,7 +299,7 @@ Grupos exclusivos definidos: `intercooler`, `admision-filtro`, `remap`,
 `bandasPrecio`: por categoría, `{ baja: <=X, media: <=Y }`. Precio <= baja -> baja;
 <= media -> media; si no -> alta.
 
-### `floors.json` (gasto mínimo orientativo por objetivo y gama)
+### `floors.json` (escala de presupuestos a probar, por objetivo)
 
 ```
 drift:    baja 1200, media 3000, alta 8000
@@ -257,7 +308,10 @@ mas-cv:   baja 500,  media 1500, alta 5000
 estetica: baja 400,  media 1500, alta 5000
 ```
 
-El suelo de una combinación de objetivos es la suma de estos valores.
+El umbral de una combinación de objetivos es la suma de estos valores. No deciden nada
+del resultado: son los presupuestos que `siguienteEscalon` prueba contra el motor para
+ver si poner más dinero sube de gama. El mínimo del proyecto sale del catálogo
+(`minimoEsencial`), no de aquí.
 
 ---
 
@@ -278,15 +332,125 @@ El suelo de una combinación de objetivos es la suma de estos valores.
 - **Objetivos múltiples** — el objetivo pasa de "elige uno" a "elige los que quieras";
   los pesos se suman, las categorías esenciales se unen, y el suelo de gasto es la
   suma de los suelos de cada objetivo, recalculado en vivo en el formulario.
+- **(e) Desglose en vivo y PDF** — bajo los objetivos del formulario aparece, sin
+  pulsar nada, cuánto cuesta cubrir lo esencial del proyecto y qué categorías entran y
+  cuáles no. Sale de `minimosEsenciales` en el motor, y el formulario recalcula el plan
+  entero en cada cambio (59 piezas, milisegundos). Botón "Descargar en PDF" en el
+  resultado: documento A4 con pdfmake cargado por `import()` dinámico, cabecera con
+  marca, barra de gasto, el desglose de mínimos, las piezas por categoría con su gama e
+  iconos vectoriales, mejoras siguientes y pie con el aviso de precios orientativos.
+  Se añade `Pieza.imagen` (opcional) al tipo, al parser y a todas las notas del vault:
+  hoy está a null en las 59, y el PDF incrusta las fotos en cuanto haya rutas. 59 tests.
+- **(d) La gama deja de ser entrada** — se quita el filtro exacto por gama y el control
+  del formulario. El presupuesto es el único techo y la gama sale como resultado
+  (`gamaResultante`). `floors.json` pasa de filtro a escala (`umbralGama`,
+  `gamaEsperada`, `siguienteEscalon`). Se añade `mejorDelGrupo` en el relleno para que
+  sobrar dinero no acabe en la pieza barata del grupo, y se cierra el pendiente 7:
+  las mejoras ya no chocan de grupo ni con lo montado ni entre ellas. Datos: se agrupan
+  las dos jaulas en `jaula`, y el set de llantas sacrificables entra en `llantas` con
+  peso 0 de estética (se colaba en builds de estética por no tener grupo). 52 tests.
+
+- **(e) Coherencia: una gama, un mínimo, avisos que no se contradicen** — cuatro
+  arreglos sobre lo anterior:
+  1. El motor avisaba de "no entra nada de escape" con el downpipe en la lista. Los
+     huecos se miraban en el paso de esenciales, que no ve lo que tapan las
+     dependencias ni el relleno; ahora salen de la selección final, así que un aviso
+     no puede contradecir a `esenciales[].cubierta`. El paso de esenciales además
+     salta una categoría ya cubierta en vez de comprarle una segunda pieza.
+  2. Se elimina `gamaEsperada`: la gama del build es solo `gamaResultante`. El
+     formulario y el resultado decían gamas distintas a la vez.
+  3. `siguienteEscalon` pasa a comprobarse contra el motor en vez de leerse de
+     `floors.json`. Antes prometía subir a una gama que el build ya tenía.
+  4. Se elimina `sueloDe`: el mínimo del proyecto es solo `minimoEsencial`. El
+     formulario mostraba 1500 € (floors) y el desglose de debajo 1825 € (catálogo).
+
+  De paso: `Resultado` ya no depende de que el aviso de mínimo sea `avisos[0]` (ese
+  índice se rompía sin objetivos), se quita el copy que aún pedía "baja la gama", y la
+  CLI y el PDF normalizan el orden de objetivos como el motor. 80 tests.
+
+- **(f) El mínimo como suelo real de la barra** — encargo: que la barra de presupuesto
+  no deje bajar del mínimo, avisando de que por debajo puede ser fatal. Para que ese
+  suelo no fuese decorativo hubo que arreglar antes el motor:
+  1. **Reserva en el paso de esenciales**: antes de gastar en una categoría se reserva
+     lo que cuesta cubrir por lo mínimo las que vienen detrás. Cierra el pendiente de
+     starvation: drag con 4.000 € dejaba fuera transmisión, frenos y ruedas, y ahora
+     con el mínimo justo (1.825 €) entran todas. Hay un test que lo comprueba con los
+     8 modelos × 6 combinaciones de objetivos, así que un coche nuevo del vault entra
+     solo en la garantía.
+  2. **`frenos` pasa a ser esencial de `mas-cv`**. No lo era: un build de ganar
+     caballos montaba el K04 y dejaba el freno de serie sin decir nada. El mínimo de
+     `mas-cv` sube de 995 € a 1.175 €.
+  3. **`fraseRiesgo(presupuesto)`** en el motor: distingue "el proyecto está a medias"
+     de "el coche es peligroso". Solo llama peligro a `frenos`, `ruedas`, `direccion` y
+     `seguridad`, solo si hay un objetivo de marcha (`drift`/`drag`/`mas-cv`) en juego,
+     y solo si el catálogo puede servir esa categoría para ese motor (si no, es un
+     hueco de datos, no algo que el usuario arregle con dinero). Lo usan formulario,
+     resultado, PDF y CLI, así que los cuatro dicen la misma frase.
+  4. **UI**: el `min` de la barra es `minimoEsencial`. Se puede escribir a mano una
+     cifra menor, y entonces sale el aviso con un botón "subir a X €". No se bloquea el
+     cálculo: sigue devolviendo lo que entra, que era una decisión ya tomada. 80 tests.
+  5. **Datos**: las cuatro piezas de freno tenían peso `mas-cv` 0 salvo unas pastillas
+     con 1, así que un build de caballos no podía llegar a un freno serio ni con dinero.
+     Ahora pastillas y traseros van a 2, discos delanteros a 3 y big brake a 3, en la
+     misma escala del resto (5 remaps, 4 turbo y downpipe, 3 intercooler y alimentación,
+     1 embrague y diferencial). El freno escala con el presupuesto: pastillas de 180 €
+     en el mínimo, discos de 400 € sobre 2.500 €, big brake de 1.350 € a partir de
+     4.000 €. El mínimo de `mas-cv` no se mueve (1.175 €), porque el cálculo del mínimo
+     coge la opción más barata de cada categoría.
+  6. **Datos**: `fren-pastillas-baja` entra en el grupo `frenos-delanteros`, donde ya
+     estaban el big brake y los discos de dos piezas. Le faltaba la etiqueta, así que
+     con presupuesto amplio salía el kit big brake **y además** las pastillas y los
+     latiguillos que ese kit ya incluye: 180 € pagados dos veces. Pasaba en drift y
+     drag desde antes, y salió a la luz al darle peso a los frenos en `mas-cv`. Los
+     traseros siguen sin grupo, que son del otro eje y sí suman. Test nuevo que barre
+     objetivos y presupuestos comprobando que ningún grupo exclusivo sale repetido en
+     una misma lista. 80 tests.
+
+- **(g) Elige el comprador, elige el motor** — tres encargos del usuario:
+  1. **Drift y drag dejan de combinarse.** Piden preparaciones contrarias. La regla vive
+     en el motor (`INCOMPATIBLES`, `enConflictoCon`, `conflictosEn`, `alternarObjetivo`),
+     la comparten web y CLI. Al marcar uno se suelta el otro; `mas-cv` y `estetica` se
+     suman con cualquiera. La tarjeta que va a soltar a otra se marca antes de pulsar.
+     Test que recorre todas las secuencias de hasta 4 clics: no hay camino que los junte.
+  2. **El modelo pasa a `<select>`** agrupado por plataforma de motor, pensando en que la
+     lista va a crecer. Los `optgroup` salen del campo `motor`, sin configurar nada. Se
+     va el "no reconozco ese modelo" y sus chips, que ya no pueden pasar. El estado deja
+     de ser texto libre (`modeloTexto`) y pasa a ser el id (`modeloId`).
+  3. **Selector de piezas concretas.** `PeticionPresupuesto.elecciones` (ids) y un paso 0
+     en el motor que las mete antes que nada, con `motivo: "elegida"`. `gruposElegibles`
+     saca del catálogo las partes con dos o más alternativas compatibles; el eje son los
+     `grupoExclusivo`, así que unos parachoques nuevos en el vault aparecen solos.
+     `minimosEsenciales` acepta las elecciones, así que el suelo de la barra sube al
+     pedir una pieza cara. El selector filtra lo que no aplica al coche actual sin
+     borrarlo. UI en `src/ui/Elecciones.tsx`, plegable bajo los objetivos.
+
+  Datos: los dos kits de carrocería (`est-widebody-alta`, `est-bodykit-media`) entran en
+  el grupo `carroceria`; les faltaba y el motor los montaba los dos a la vez. 80 tests.
+
+- **(h) La barra va del mínimo al techo útil** — la barra iba de 500 a 30.000 fijos y la
+  casilla del número rechazaba cifras fuera del `step` con el mensaje del navegador
+  ("los dos valores válidos más cercanos son 9000 y 9100"). Ahora:
+  1. `noValidate` en el formulario: se puede escribir la cifra exacta que uno tenga. El
+     `step` de 100 se queda solo para las flechas del teclado.
+  2. Nuevo `techoUtil(catalogo, plataforma, objetivos, elecciones)` en el motor: pasa el
+     motor con un tope que no puede limitar y devuelve lo gastado. Es un punto fijo
+     (con ese dinero exacto salen las mismas decisiones que sin límite) y está ajustado
+     (con 100 € menos ya cambia la lista). Test en 8 modelos × 6 objetivos.
+  3. La barra va de `minimoEsencial` a `techoUtil`, ambos redondeados al centenar hacia
+     arriba, porque un `range` cuenta sus pasos desde su propio `min` y con un mínimo de
+     1.825 € las posiciones eran 1.825, 1.925... Mk5 drag: 1.900-21.700 en saltos de 100.
+  4. Aviso gris con botón "ajustar" al escribir por encima del techo, simétrico al de
+     peligro por debajo del mínimo. 80 tests.
 
 ### Pendientes
 
 1. **Sustitución de gama en dependencias fijadas**: ahora si el downpipe entra como
    dependencia del K04, el turbo-back (que lo incluye) solo aparece como "mejora
    siguiente". Permitir que una pieza de gama superior sustituya a una inferior ya
-   elegida y recupere el presupuesto.
-2. **Fase 3** — Guardar builds (localStorage o archivo) y exportar el presupuesto a
-   PDF / CSV.
+   elegida y recupere el presupuesto. `mejorDelGrupo` resuelve el caso del relleno,
+   pero no el de una dependencia que ya está fijada por el paso de esenciales.
+2. **Fase 3b** — Guardar builds (localStorage o archivo) y exportar a CSV. El PDF ya
+   está hecho.
 3. **Fase 4** — Empaquetar el escritorio con Tauri (requiere instalar Rust), build
    web, y conectar el botón de descarga de la landing.
 4. **Poblar más modelos** en el vault (Mk7, Golf R, etc.) con piezas y compatibilidades
@@ -295,8 +459,6 @@ El suelo de una combinación de objetivos es la suma de estos valores.
 6. **Opción con API de LLM** para los subagentes, cuando se decida salir del modo
    100% offline.
 7. Afinar más la matriz `floors.json` y los pesos por objetivo del catálogo con uso real.
-8. Filtrar `siguientesMejoras` por `grupoExclusivo` (ahora puede sugerir algo que
-   nunca entraría por chocar de grupo, p. ej. air ride con coilovers ya montados).
 
 ---
 
@@ -304,21 +466,21 @@ El suelo de una combinación de objetivos es la suma de estos valores.
 
 ```bash
 npm install
-npm test                 # 42 tests (Vitest)
+npm test                 # 80 tests (Vitest)
 npm run typecheck        # tsc -b --noEmit
 npm run build            # type-check + build de producción
 
 npm run dev              # arranca la interfaz en http://localhost:5173
 
 npm run plan -- --listar-modelos
-npm run plan -- --modelo "Golf GTI Mk5" --gama media --presupuesto 4000 --objetivo drag
-npm run plan -- --modelo mk5 --gama alta --presupuesto 12000 --objetivo drift,estetica
+npm run plan -- --modelo "Golf GTI Mk5" --presupuesto 4000 --objetivo drag
+npm run plan -- --modelo mk5 --presupuesto 12000 --objetivo drift,estetica
 
 npm run vault:ingest     # vault/ -> src/data/catalog.json + models.json
 npm run vault:export     # src/data/*.json -> vault/
 ```
 
-Valores: `gama` = `baja|media|alta`. `objetivo` (CLI) = uno o varios separados por
+Valores: `objetivo` (CLI) = uno o varios separados por
 coma, de `drift|drag|mas-cv|estetica`.
 
 ---
@@ -359,7 +521,7 @@ nueva no hay auth: `gh auth login` (interactivo) o `gh auth login --with-token`.
 
 1. Abrir Claude Code en `C:\Users\alexa\Desktop\JondaSiviz`.
 2. Pedirle que lea este `PROYECTO.md` y el `README.md`.
-3. `npm install` y `npm test` para confirmar que todo pasa (42 tests).
+3. `npm install` y `npm test` para confirmar que todo pasa (80 tests).
 4. `npm run dev` para ver la interfaz.
 5. Continuar por la lista de **Pendientes** (sección 8).
 

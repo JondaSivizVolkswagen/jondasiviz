@@ -22,6 +22,7 @@ plataformas:
 grupoExclusivo: null
 stage: null
 nota: Mantiene limpia la admisión en motores de inyección directa exigidos.
+imagen: null
 ---
 
 Compatible con [[1.8T-20v]], [[EA113]], [[EA888]].

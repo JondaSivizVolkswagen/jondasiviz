@@ -21,6 +21,7 @@ plataformas:
 grupoExclusivo: intercooler
 stage: null
 nota: null
+imagen: null
 ---
 
 Compatible con [[EA113]], [[EA888]].

@@ -24,6 +24,7 @@ plataformas:
 grupoExclusivo: remap
 stage: stage2
 nota: null
+imagen: null
 ---
 
 Compatible con [[1.8T-20v]], [[EA113]], [[EA888]], [[TDI]].

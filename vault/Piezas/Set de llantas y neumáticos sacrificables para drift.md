@@ -12,7 +12,7 @@ objetivos:
   drift: 4
   drag: 0
   mas-cv: 0
-  estetica: 1
+  estetica: 0
 impacto: 2
 requiere: []
 plataformas:
@@ -21,9 +21,10 @@ plataformas:
   - EA888
   - VR6
   - TDI
-grupoExclusivo: null
+grupoExclusivo: llantas
 stage: null
 nota: null
+imagen: null
 ---
 
 Compatible con [[1.8T-20v]], [[EA113]], [[EA888]], [[VR6]], [[TDI]].
