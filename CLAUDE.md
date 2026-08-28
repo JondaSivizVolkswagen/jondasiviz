@@ -40,6 +40,24 @@ coche nuevo en el vault entra solo en la comprobación.
 - Nunca entran dos piezas del mismo `grupoExclusivo`.
 - No hay ninguna secuencia de clics que deje `drift` y `drag` marcados a la vez.
 
+## Diseño de interfaz
+
+El repo trae en `.claude/` un subagente y tres skills que se cargan solos al clonar, sin
+instalar nada:
+
+- **`app-designer`** — se invoca **siempre** que se pida crear, rediseñar o mejorar una
+  pantalla, componente o interfaz. Aporta la guía de estilo y sobre ella se construye.
+  No aplica a bugs, scripts o trabajo de motor.
+- **`apple-minimal-style-guide`** — el sistema visual fijo (color, tipografía, iconos,
+  espaciado, movimiento). Es lo que hace que todo se vea igual de una pantalla a otra.
+  El acento de este proyecto es el rojo GTI: `#C0322E` en claro, `#E0605A` en oscuro.
+- **`design-research`** — busca los patrones de UX adecuados al tipo de aplicación antes
+  de construir. No decide nada visual, solo estructura y flujos.
+- **`humanized-writing`** — reglas para que ningún texto suene a IA.
+
+Los tokens de color, radios y sombras están en `src/index.css`. Se usan esos, no valores
+sueltos, para que el tema claro y el oscuro sigan cuadrando.
+
 ## Comandos
 
 ```bash
