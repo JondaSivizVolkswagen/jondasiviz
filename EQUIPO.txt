@@ -1,0 +1,188 @@
+====================================================================
+ JONDASIVIZ - ANTES DE EMPEZAR A TOCAR NADA
+ Lee esto entero, son 5 minutos
+====================================================================
+
+Cada uno trabaja con SU cuenta de GitHub. No compartimos ninguna. Asi
+cada cambio queda con el nombre de quien lo hizo, y si algo se rompe
+sabemos a quien preguntar y podemos volver atras al punto exacto en
+que estaba bien.
+
+
+--------------------------------------------------------------------
+PASO 1 - Tu cuenta de GitHub
+--------------------------------------------------------------------
+
+Si no tienes, hazte una en https://github.com/signup
+Si ya tienes, usa esa.
+
+Activa la verificacion en dos pasos cuando te lo pida. Es obligatorio
+en GitHub y te evita un disgusto.
+
+
+--------------------------------------------------------------------
+PASO 2 - Pasame tu usuario
+--------------------------------------------------------------------
+
+Mandame tu nombre de usuario de GitHub (el que sale en tu perfil,
+github.com/TU-USUARIO).
+
+Te añado como colaborador y te llega una invitacion al correo. La
+aceptas y ya puedes subir cambios.
+
+Hasta que la aceptes puedes clonar y trabajar en local, pero al hacer
+"git push" te lo rechazara.
+
+
+--------------------------------------------------------------------
+PASO 3 - Vincular tu cuenta con tu ordenador
+--------------------------------------------------------------------
+
+Instala la CLI de GitHub:   https://cli.github.com
+
+Y entra con TU cuenta:
+
+    gh auth login
+
+Te pregunta cuatro cosas, responde:
+
+    GitHub.com
+    HTTPS
+    Yes  (autenticar Git con tus credenciales)
+    Login with a web browser
+
+Te da un codigo de 8 letras, se abre el navegador, lo pegas y listo.
+
+Comprueba que has entrado con la cuenta correcta:
+
+    gh auth status
+
+Tiene que salir TU usuario, no el de otro.
+
+
+--------------------------------------------------------------------
+PASO 4 - Poner tu nombre en los commits  (IMPORTANTE)
+--------------------------------------------------------------------
+
+Esto es lo que hace que sepamos quien hizo cada cosa. Dentro de la
+carpeta del proyecto:
+
+    git config user.name "Tu Nombre"
+    git config user.email "el-correo-de-tu-cuenta-de-github@ejemplo.com"
+
+Usa el MISMO correo que tienes en GitHub, si no los commits no se
+enlazan con tu perfil.
+
+Comprueba:
+
+    git config user.name
+    git config user.email
+
+
+--------------------------------------------------------------------
+PASO 5 - Claude Code
+--------------------------------------------------------------------
+
+Instalalo:
+
+    npm install -g @anthropic-ai/claude-code
+
+Y abrelo DENTRO de la carpeta del proyecto:
+
+    cd jondasiviz
+    claude
+
+La primera vez te pedira iniciar sesion con tu cuenta de Claude (esa
+es aparte de la de GitHub, no tienen nada que ver).
+
+No hay que configurarle nada del proyecto: el repositorio trae un
+CLAUDE.md que lee solo, con las reglas y los comandos.
+
+
+--------------------------------------------------------------------
+COMO TRABAJAR EN EL DIA A DIA
+--------------------------------------------------------------------
+
+NO trabajes directamente sobre main. Hazte una rama para cada cosa:
+
+    git checkout main
+    git pull                          (traerte lo ultimo)
+    git checkout -b lo-que-vas-a-hacer
+
+Trabajas, y cuando tengas algo:
+
+    npm test                          (los tres tienen que ir bien)
+    npm run typecheck
+    npm run lint
+
+    git add -A
+    git commit -m "Explica que has cambiado y por que"
+    git push -u origin lo-que-vas-a-hacer
+
+Luego vas a la pagina del repositorio, le das a "Compare & pull
+request" y lo mandas. GitHub pasa las comprobaciones solo y lo marca
+en verde o rojo.
+
+Por que en ramas: si lo que haces sale mal, main sigue intacto. No hay
+que deshacer nada, simplemente no se mezcla.
+
+
+--------------------------------------------------------------------
+SI ALGUIEN LA LIA
+--------------------------------------------------------------------
+
+No pasa nada, todo se puede volver atras. Avisa antes de tocar, para
+no arreglarlo dos a la vez.
+
+Ver que ha pasado y cuando:
+
+    git log --oneline -20
+
+Sale una lista tipo:
+
+    c726542 Comprobaciones automaticas
+    6b309e6 Explica en la guia que hay que pedir acceso
+    9857f8d EMPEZAR.txt, guia de arranque
+
+Deshacer un commit concreto, aunque ya este subido:
+
+    git revert 6b309e6
+    git push
+
+Esto NO borra la historia: crea un commit nuevo que deshace aquel.
+Es la forma segura cuando los demas ya se han bajado los cambios.
+
+Volver a ver como estaba el proyecto en un punto, sin tocar nada:
+
+    git checkout 9857f8d      (miras lo que quieras)
+    git checkout main         (y vuelves)
+
+LO QUE NO HAY QUE HACER:
+
+    git reset --hard  y  git push --force  sobre main
+
+Eso si borra historia, y si otro ya se habia bajado esos commits le
+deja el repositorio hecho un lio. Si crees que hace falta, dilo antes
+y lo vemos.
+
+
+--------------------------------------------------------------------
+LAS DOS COSAS QUE SE ROMPEN MAS FACIL
+--------------------------------------------------------------------
+
+1) NO edites src/data/catalog.json ni models.json a mano. Son
+   GENERADOS a partir de las notas de la carpeta vault/. Se edita el
+   vault y luego:
+
+       npm run vault:ingest
+
+   Hay una comprobacion automatica que falla si no coinciden.
+
+2) Antes de subir: npm test, npm run typecheck y npm run lint.
+   En verde los tres.
+
+
+--------------------------------------------------------------------
+ Todo lo demas (que es el proyecto, como esta montado, los comandos)
+ esta en EMPEZAR.txt y en PROYECTO.md, dentro del repositorio.
+--------------------------------------------------------------------
