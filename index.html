@@ -767,11 +767,10 @@
      * y se publican con nombre fijo en la Release, para que estas URL no cambien de una
      * version a otra.
      *
-     * Mientras no exista ninguna Release, HAY_DESCARGAS se queda en false y el boton
-     * sigue enseñando el aviso de que todavia no esta lista. Prefiero eso a un enlace
-     * que devuelve un 404.
+     * HAY_DESCARGAS se pone a false si alguna vez se retiran las Releases: el boton vuelve
+     * a enseñar el aviso en vez de llevar a un 404.
      */
-    var HAY_DESCARGAS = false;
+    var HAY_DESCARGAS = true;
     var BASE = 'https://github.com/JondaSivizVolkswagen/jondasiviz/releases/latest/download/';
 
     function sistema() {

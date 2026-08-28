@@ -118,8 +118,15 @@ jobs:
           set -euo pipefail
           mkdir -p estables
 
-          echo "$RUTAS" | jq -r '.[]' | while read -r ruta; do
-            [ -f "$ruta" ] || continue
+          # En Windows las rutas llegan con barras invertidas ("D:\a\repo\...") y Git
+          # Bash no las resuelve, asi que hay que darles la vuelta antes de tocarlas.
+          # Sin esto el paso no copiaba nada y aun asi terminaba en verde.
+          while read -r ruta; do
+            ruta="${ruta//\\//}"
+            if [ ! -f "$ruta" ]; then
+              echo "::error::No existe el fichero que anuncio tauri-action: $ruta"
+              exit 1
+            fi
             case "$ruta" in
               *.msi)      destino="JondaSiviz-Windows.msi" ;;
               *setup.exe) destino="JondaSiviz-Windows-instalador.exe" ;;
@@ -130,8 +137,13 @@ jobs:
             esac
             cp "$ruta" "estables/$destino"
             echo "$ruta  ->  $destino"
-          done
+          done < <(echo "$RUTAS" | jq -r '.[]')
 
-          if [ -n "$(ls -A estables 2>/dev/null)" ]; then
-            gh release upload "${{ github.ref_name }}" estables/* --clobber --repo "${{ github.repository }}"
+          # Si no sale ninguna copia es que algo ha cambiado de nombre o de sitio: hay
+          # que enterarse aqui y no descubrirlo con un enlace roto en la landing.
+          if [ -z "$(ls -A estables 2>/dev/null)" ]; then
+            echo "::error::Ningun artefacto encajo con los nombres estables. Rutas: $RUTAS"
+            exit 1
           fi
+
+          gh release upload "${{ github.ref_name }}" estables/* --clobber --repo "${{ github.repository }}"
