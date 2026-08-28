@@ -1,6 +1,6 @@
 [package]
 name = "jondasiviz"
-version = "0.1.0"
+version = "0.1.1"
 description = "Planificador de presupuestos de preparacion para modelos Volkswagen"
 authors = ["JondaSiviz"]
 edition = "2021"
