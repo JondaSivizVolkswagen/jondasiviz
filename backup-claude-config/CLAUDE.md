@@ -136,62 +136,41 @@ Cuando el usuario escriba algo tipo "quiero cerrar terminal" (o equivalente), an
 
 ### `C:\Users\alexa\Desktop\JondaSiviz` — Volkswagen Build Planner
 
-Remoto GitHub: **https://github.com/JondaSivizVolkswagen/jondasiviz** (privado, rama `main`, cuenta
-`JondaSivizVolkswagen`). `gh` CLI autenticado en la máquina con token clásico; `gh auth setup-git`
-hecho. Dossier completo del proyecto en `PROYECTO.md` (en el repo), y backup portable de la config
-de `~/.claude` en `backup-claude-config/` del repo.
+**Repo público**: https://github.com/JondaSivizVolkswagen/jondasiviz (rama `main`, cuenta
+`JondaSivizVolkswagen`, `gh` autenticado con scopes `repo` + `workflow` + `write:org`).
 
-Herramienta que planifica la preparación de un Volkswagen: entras modelo + plataforma de motor
-(`1.8T-20v` | `EA113` | `EA888` | `VR6` | `TDI`), gama (`baja` | `media` | `alta`), presupuesto y
-objetivo (`drift` | `drag` | `mas-cv` | `estetica`), y devuelve un presupuesto de piezas que cabe
-en el dinero, con desglose por categoría, total, sobrante y mejoras siguientes.
+**El detalle vive en el repo, no aquí.** `CLAUDE.md` del proyecto (reglas de trabajo),
+`PROYECTO.md` (dossier completo con decisiones y por qué se descartó lo demás),
+`EMPEZAR.txt` (arranque) y `EQUIPO.txt` (alta de gente nueva). No duplicar aquí lo que
+esté ahí: se desincroniza.
 
-Es la herramienta que se descargará desde la landing (Artifact
-https://claude.ai/code/artifact/2e2a345f-9595-4950-95ff-8d320d9df984, fuente en
-`...\scratchpad\vw-build-planner.html`). Antes fue de BMW; se rehízo entero a Volkswagen.
+Herramienta que planifica la preparación de un Volkswagen: modelo + presupuesto +
+objetivos (`drift` | `drag` | `mas-cv` | `estetica`) y devuelve la lista de piezas que
+cabe en el dinero. Vite + React + TypeScript, motor en TS puro, escritorio con Tauri.
+Datos autorados en un vault de Obsidian (`vault/`) que un parser convierte a JSON.
 
-Stack acordado: Vite + React + TypeScript para la interfaz, Tauri para escritorio (pendiente:
-no hay Rust instalado, se hará en Fase 4), motor en TypeScript puro y aislado. Nada de scraping.
+Decisiones de fondo que conviene no volver a discutir:
 
-Visión de datos: la "red relacional" se autoría a mano en un **vault de Obsidian** (`vault/`:
-notas de modelo, pieza, plataforma y marca con frontmatter YAML y enlaces `[[...]]`). Un parser
-(`src/ingest/obsidian.ts`, `npm run vault:ingest`) la convierte a `src/data/catalog.json` +
-`models.json`, que es lo que consume el motor y lo que se distribuye con la app. Más adelante,
-sobre esos datos, una capa de embeddings para inferir compatibilidad en modelos con pocos datos
-(la parte "neuronal"). Los "subagentes" (clasificador de gama y selector de presupuesto) de
-momento son módulos deterministas locales, con interfaz lista para cambiar a LLM. Se decidió
-**offline de momento**; la opción con API de LLM se verá después.
+- **La gama no es entrada**, sale del build (`gamaResultante`). El presupuesto es el
+  único techo. `floors.json` ya solo aporta la escala de presupuestos que probar.
+- **Un solo mínimo**: `minimoEsencial`, calculado del catálogo. Con ese dinero justo
+  entran todas las esenciales (hay tests que lo comprueban en los 8 modelos).
+- **Las reglas de dominio van en `src/engine/`**, nunca en la interfaz. El proyecto ya
+  arrastró bugs por tener dos fuentes de verdad (dos gamas y dos mínimos en pantalla).
+- **`drift` y `drag` no se combinan**; `frenos` es esencial también de `mas-cv`.
+- Nada de scraping, nada de logos de Volkswagen, textos en español con voz humana.
 
-Fases hechas y commiteadas (git init local, sin remoto): 0 esqueleto · 1 motor + catálogo + tests
-+ CLI · 1.5 capa relacional por modelo en Obsidian + clasificador de gama + selector con suelo de
-gasto (`src/data/floors.json`, matriz gama × objetivo) · (a) catálogo real y profundo del Mk5 /
-EA113 (catalog v0.2.0, 59 piezas con marcas y precios reales, cadenas de dependencia K04 y big
-turbo) · (b) Fase 2 interfaz React en `src/ui/` (format, icons, theme con `data-theme` +
-`localStorage` `jondasiviz-tema`, opciones, Formulario, Resultado, PiezasCompatibles; `src/App.tsx`
-orquesta; `src/App.css` + `src/index.css` con el estilo de la landing, acento rojo GTI `#C0322E`
-claro / `#E0605A` oscuro; una sola página: formulario con modelo datalist + gama segmentada +
-presupuesto con slider 500-25000 + 4 tarjetas de objetivo, y resultado con barra de gasto, aviso
-de suelo con botón "probar en gama X", piezas por categoría, siguientes mejoras y panel plegable
-de piezas compatibles) · (c) exclusión mutua por `Pieza.grupoExclusivo` (no dos intercoolers, ni
-coilovers + air ride, ni remap + standalone, un solo turbo/downpipe/embrague/diferencial/llantas),
-el paso de esenciales ordena por aporte técnico (objetivo × impacto) antes que por precio, y
-`floors` drag/media bajado a 3500. El motor (`src/engine`, `src/agents`) solo lo consume la UI, no
-se tocó. Además: el objetivo es **multi-selección** (`PeticionPresupuesto.objetivos: Objetivo[]`,
-`EntradaSelector.objetivos`); los pesos de las piezas se suman entre objetivos y las categorías
-esenciales son la unión; el suelo de gasto es la suma de los suelos de cada objetivo (función
-pura `sueloDe(objetivos, gama)` para mostrarlo en vivo en el formulario, que se recalcula al
-togglear objetivos o gama). CLI `--objetivo` acepta lista por coma. `npm run build` OK, `npm run
-dev` arranca. 42 tests. Pendientes: permitir que una pieza de gama
-superior sustituya a una dependencia inferior ya fijada; 3 guardar builds + export PDF/CSV; 4
-empaquetar Tauri (necesita instalar Rust) + build web + conectar la descarga de la landing.
+Sitio: `index.html` (landing) · `herramienta.html` (planner) · `menu.html` (inicio de la
+app de escritorio, con Inicio / Probar JondaSiviz / Salir). Los binarios los compila
+GitHub Actions al empujar una etiqueta `v*`; hay otro workflow con las comprobaciones de
+cada push. **Rust no está instalado** en la máquina: compilar en local necesitaría Rust
+más las Build Tools de Microsoft.
 
-Comandos: `npm test` (42 tests con Vitest), `npm run plan -- --modelo "Golf GTI Mk5" --gama media --presupuesto 4000 --objetivo drag,estetica`,
-`npm run plan -- --listar-modelos`, `npm run vault:ingest` / `vault:export`, `npm run dev`, `npm run build`.
-Estructura: `src/engine/` (types, catalog, graph, recommend), `src/agents/` (clasificador-gama,
-selector-presupuesto), `src/ingest/` (obsidian, run), `src/ui/` (interfaz React), `src/data/`
-(catalog.json y models.json generados del vault; brands.json y floors.json a mano),
-`src/cli/plan.ts`, `vault/`, `tests/`. Catálogo: 59 piezas, 8 modelos VW (Mk5 GTI de referencia,
-el único con catálogo profundo por ahora).
+El subagente `app-designer` y sus tres skills están en `.claude/` del repo, así que
+cualquiera que lo clone los tiene sin instalar nada.
+
+Pendientes: firmar los binarios (Windows y macOS avisan de editor desconocido); poblar
+más modelos en el vault; guardar builds y exportar a CSV; capa de embeddings.
 
 @RTK.md
 @SKILLS_AGENTES.md
