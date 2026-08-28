@@ -118,11 +118,14 @@ jobs:
           set -euo pipefail
           mkdir -p estables
 
-          # En Windows las rutas llegan con barras invertidas ("D:\a\repo\...") y Git
-          # Bash no las resuelve, asi que hay que darles la vuelta antes de tocarlas.
-          # Sin esto el paso no copiaba nada y aun asi terminaba en verde.
+          # En Windows las rutas llegan como "D:\a\repo\..." y el bash de Git no entiende
+          # ni esa forma ni "D:/a/...": necesita "/d/a/...". `cygpath` hace justo esa
+          # traduccion y viene con Git for Windows. En Linux y macOS no existe y las
+          # rutas ya son correctas, asi que se usan tal cual.
           while read -r ruta; do
-            ruta="${ruta//\\//}"
+            if command -v cygpath >/dev/null 2>&1; then
+              ruta="$(cygpath -u "$ruta")"
+            fi
             if [ ! -f "$ruta" ]; then
               echo "::error::No existe el fichero que anuncio tauri-action: $ruta"
               exit 1
