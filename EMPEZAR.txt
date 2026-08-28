@@ -47,6 +47,20 @@ Se abre en http://localhost:5173
 Esa es la portada. El boton "Abrir el planner" lleva a la herramienta.
 
 
+PARA PODER SUBIR TUS CAMBIOS:
+
+Clonar y trabajar en local funciona sin cuenta, el repositorio es
+publico. Pero para hacer "git push" necesitas permiso de escritura.
+
+Hazte una cuenta en github.com si no la tienes y pasale tu usuario a
+Alex, que te añade como colaborador. Te llegara una invitacion al
+correo; la aceptas y ya puedes subir.
+
+Cada uno con su cuenta, nada de compartir una entre todos: asi cada
+commit sale con el nombre de quien lo hizo y se sabe a quien preguntar
+cuando algo se rompe.
+
+
 --------------------------------------------------------------------
 3. TRABAJAR CON CLAUDE CODE
 --------------------------------------------------------------------
