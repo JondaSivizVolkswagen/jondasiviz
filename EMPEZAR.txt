@@ -50,15 +50,39 @@ Esa es la portada. El boton "Abrir el planner" lleva a la herramienta.
 PARA PODER SUBIR TUS CAMBIOS:
 
 Clonar y trabajar en local funciona sin cuenta, el repositorio es
-publico. Pero para hacer "git push" necesitas permiso de escritura.
+publico. Para subir necesitas permiso, y eso va con TU cuenta.
 
-Hazte una cuenta en github.com si no la tienes y pasale tu usuario a
-Alex, que te añade como colaborador. Te llegara una invitacion al
-correo; la aceptas y ya puedes subir.
+  1) Hazte una cuenta en github.com si no la tienes, y pasale tu
+     usuario a Alex. El te añade como colaborador y te llega una
+     invitacion al correo. La aceptas y ya puedes subir.
 
-Cada uno con su cuenta, nada de compartir una entre todos: asi cada
-commit sale con el nombre de quien lo hizo y se sabe a quien preguntar
-cuando algo se rompe.
+     Luego instala la CLI de GitHub:  https://cli.github.com
+
+         gh auth login
+
+     Elige GitHub.com -> HTTPS -> "Login with a web browser".
+
+     IMPORTANTE: el token necesita los permisos "repo" Y "workflow".
+     Sin "workflow" no podras subir cambios a .github/workflows/ y
+     GitHub te rechazara el push con un mensaje sobre ese permiso.
+     Si te pasa, ejecuta:
+
+         gh auth refresh -h github.com -s workflow
+
+  2) Pon tu nombre en los commits, dentro de la carpeta del proyecto:
+
+         git config user.name "Tu Nombre"
+         git config user.email "tucorreo@ejemplo.com"
+
+     (sin --global, asi solo aplica a este proyecto)
+
+     Hazlo ANTES de tu primer commit, o saldran firmados con lo que
+     tengas configurado por defecto.
+
+  3) Al subir, GitHub pasa solas las comprobaciones (tests, tipos,
+     estilo y compilacion) y te lo marca en verde o en rojo en la
+     pagina del commit o de la pull request. Si sale rojo, mira la
+     pestaña Actions del repositorio: ahi dice que fallo.
 
 
 --------------------------------------------------------------------

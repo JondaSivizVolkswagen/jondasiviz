@@ -1,0 +1,63 @@
+##
+# Comprobaciones de cada cambio: tests, tipos, estilo y compilacion.
+#
+# Hasta ahora lo unico que corria en GitHub era el empaquetado del escritorio, y solo al
+# publicar una version. Con varias personas tocando el mismo repositorio eso llega tarde:
+# un fallo se descubria al sacar una release, no al subirlo.
+#
+# Corre en cada push a main y en cada pull request, asi que quien sube ve el verde o el
+# rojo en su propio commit sin tener que acordarse de lanzar nada a mano.
+##
+name: Comprobaciones
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# Si alguien empuja dos veces seguidas, se cancela la comprobacion vieja: interesa el
+# resultado del ultimo commit, no el de uno que ya no existe.
+concurrency:
+  group: comprobaciones-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  comprobar:
+    name: Tests, tipos, estilo y build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Tests
+        run: npm test
+
+      - name: Tipos
+        run: npm run typecheck
+
+      - name: Estilo
+        run: npm run lint
+
+      - name: Compilacion
+        run: npm run build
+
+      # El catalogo se genera del vault, y es facil editar un JSON de src/data a mano sin
+      # darse cuenta. Si al reingerir el vault sale algo distinto de lo que hay commiteado,
+      # es que los dos han dejado de estar sincronizados y hay que arreglarlo.
+      - name: El catalogo concuerda con el vault
+        run: |
+          npm run vault:ingest
+          if ! git diff --quiet -- src/data/catalog.json src/data/models.json; then
+            echo "::error::src/data/ no coincide con vault/. Edita el vault y ejecuta 'npm run vault:ingest', en vez de tocar los JSON a mano."
+            git --no-pager diff --stat -- src/data/
+            exit 1
+          fi
+          echo "El catalogo esta al dia con el vault."
