@@ -1,0 +1,229 @@
+====================================================================
+ JONDASIVIZ - BUILD PLANNER
+ Como bajarte el proyecto y ponerte a trabajar con Claude Code
+====================================================================
+
+Que es: una herramienta que planifica la preparacion de un Volkswagen.
+Metes modelo, presupuesto y objetivo (drift, drag, ganar caballos o
+estetica) y te devuelve una lista de piezas que cabe en el dinero, con
+desglose por categoria, total y sobrante.
+
+Repositorio: https://github.com/JondaSivizVolkswagen/jondasiviz
+
+
+--------------------------------------------------------------------
+1. LO QUE NECESITAS INSTALADO
+--------------------------------------------------------------------
+
+  - Node.js 24
+    https://nodejs.org  (o con nvm: nvm install 24 && nvm use 24)
+
+  - Git
+    https://git-scm.com
+
+  - Claude Code
+    npm install -g @anthropic-ai/claude-code
+
+Comprueba que va todo:
+
+    node -v      (tiene que decir v24.x)
+    git --version
+    claude --version
+
+
+--------------------------------------------------------------------
+2. BAJARTE EL PROYECTO
+--------------------------------------------------------------------
+
+    git clone https://github.com/JondaSivizVolkswagen/jondasiviz.git
+    cd jondasiviz
+    npm install
+
+Para verlo funcionando:
+
+    npm run dev
+
+Se abre en http://localhost:5173
+Esa es la portada. El boton "Abrir el planner" lleva a la herramienta.
+
+
+--------------------------------------------------------------------
+3. TRABAJAR CON CLAUDE CODE
+--------------------------------------------------------------------
+
+Abre Claude Code DENTRO de la carpeta del proyecto:
+
+    cd jondasiviz
+    claude
+
+Y ya esta. No tienes que configurar nada ni pegarle ningun prompt de
+instrucciones: el repositorio trae un fichero CLAUDE.md que Claude lee
+solo al arrancar, con las reglas del proyecto y los comandos.
+
+La primera vez, para que se ponga al dia del todo, dile:
+
+    Lee PROYECTO.md y dime en que estado esta el proyecto y que hay
+    pendiente.
+
+PROYECTO.md es el dossier completo: que decisiones se tomaron y por que
+se descartaron las alternativas, la arquitectura, como funciona el
+motor por dentro, el formato del vault y la lista de pendientes. Con
+eso alguien que llega de cero se pone al dia sin haber visto ninguna
+conversacion anterior.
+
+
+--------------------------------------------------------------------
+4. LAS HERRAMIENTAS DE DISENO (ya vienen puestas)
+--------------------------------------------------------------------
+
+El repositorio incluye, en la carpeta .claude/, un subagente y tres
+skills que Claude Code carga SOLO al abrir el proyecto. No hay que
+instalar nada:
+
+  app-designer
+    Se invoca siempre que pidas crear o rediseñar una pantalla o un
+    componente. Aporta la guia de estilo y sobre ella construye.
+
+  apple-minimal-style-guide
+    El sistema visual fijo: color, tipografia, iconos, espaciado y
+    movimiento. Es lo que hace que todo se vea igual de una pantalla a
+    otra. El acento del proyecto es el rojo GTI.
+
+  design-research
+    Busca en internet los patrones de UX adecuados al tipo de pantalla
+    antes de construir. No decide nada visual, solo estructura.
+
+  humanized-writing
+    Reglas para que ningun texto suene a IA.
+
+Si le pides a Claude una pantalla nueva, la hara con el mismo estilo
+que el resto del proyecto sin que tengas que explicarselo.
+
+
+--------------------------------------------------------------------
+5. HERRAMIENTAS EXTRA (opcionales, NO hacen falta)
+--------------------------------------------------------------------
+
+Estas son del entorno personal de Alex, no del proyecto. Todo funciona
+sin ellas. Estan en la carpeta backup-claude-config/ del repositorio,
+con sus instrucciones en el README de dentro.
+
+  CAVEMAN (plugin de Claude Code)
+    Comprime las respuestas para gastar menos tokens. Dentro de Claude
+    Code:
+        /plugin marketplace add JuliusBrussee/caveman
+        /plugin install caveman@caveman
+    Se cambia de nivel con /caveman lite|full|ultra, y se apaga con
+    /caveman off.
+
+  RTK (Rust Token Killer)
+    Comprime la salida de los comandos de terminal antes de que llegue
+    al modelo. Hay que bajar el binario de github.com/rtk-ai/rtk,
+    ponerlo en una carpeta del PATH y engancharlo por hook. El detalle
+    esta en backup-claude-config/README.md.
+
+AVISO: el settings.json que hay en backup-claude-config/ tiene rutas
+absolutas del ordenador de Alex (C:\Users\alexa\...). Si lo copias tal
+cual en tu maquina, te dara error. Cambia esas rutas por las tuyas o
+no lo copies.
+
+
+--------------------------------------------------------------------
+6. DOS REGLAS QUE SE ROMPEN FACIL
+--------------------------------------------------------------------
+
+  1) EL CATALOGO NO SE EDITA A MANO.
+
+     src/data/catalog.json y models.json son GENERADOS. Si los editas
+     directamente, la siguiente persona que regenere pierde tu cambio.
+
+     La fuente de verdad es el vault de Obsidian, en la carpeta vault/.
+     Se editan ahi las notas de piezas y modelos, y luego:
+
+         npm run vault:ingest
+
+     (brands.json y floors.json si son configuracion a mano.)
+
+  2) ANTES DE DAR ALGO POR TERMINADO:
+
+         npm test
+         npm run typecheck
+         npm run lint
+
+     Los tres en verde. Hay tests que recorren los 8 modelos y varias
+     combinaciones de objetivos comprobando cosas como que con el
+     minimo justo entran todas las piezas esenciales. Si tocas el
+     motor y algo se rompe, salta ahi.
+
+
+--------------------------------------------------------------------
+7. COMANDOS
+--------------------------------------------------------------------
+
+    npm run dev              arranca la web
+    npm test                 los tests
+    npm run typecheck        comprueba tipos
+    npm run lint             comprueba estilo de codigo
+    npm run build            compila las tres paginas
+
+    npm run vault:ingest     vault/ -> src/data/*.json
+    npm run vault:export     src/data/*.json -> vault/
+
+    Probar el motor sin abrir el navegador:
+
+    npm run plan -- --listar-modelos
+    npm run plan -- --modelo "Golf GTI Mk5" --presupuesto 4000 --objetivo drag
+    npm run plan -- --modelo mk5 --presupuesto 9000 --objetivo drift,estetica
+
+
+--------------------------------------------------------------------
+8. LA APP DE ESCRITORIO
+--------------------------------------------------------------------
+
+Para USARLA, no hace falta compilar nada. Se baja de aqui:
+
+    https://github.com/JondaSivizVolkswagen/jondasiviz/releases/latest
+
+Hay version para Windows (.msi), Mac (.dmg, uno para Apple Silicon y
+otro para Intel) y Linux (.AppImage y .deb).
+
+Los binarios no van firmados todavia, asi que la primera vez:
+  - Windows: sale el aviso azul de SmartScreen. "Mas informacion" ->
+    "Ejecutar de todas formas".
+  - macOS: se abre desde Ajustes -> Privacidad y seguridad.
+
+Para COMPILARLA tu mismo hace falta Rust y las Build Tools de
+Microsoft (varios GB). Normalmente no hace falta: los binarios los
+compila GitHub solo al publicar una version nueva.
+
+
+--------------------------------------------------------------------
+9. COMO ESTA ORGANIZADO
+--------------------------------------------------------------------
+
+    vault/          Los datos, en notas de Obsidian. Fuente de verdad.
+    src/engine/     El motor. TypeScript puro, sin nada de interfaz.
+    src/agents/     Clasificador de gama y selector de presupuesto.
+    src/ui/         La interfaz en React. Usa el motor, no lo toca.
+    src/export/     Generacion del PDF.
+    src/ingest/     El parser que convierte el vault en JSON.
+    src/cli/        La CLI para probar el motor.
+    src-tauri/      La aplicacion de escritorio.
+    tests/          Los tests.
+
+    index.html          la portada
+    herramienta.html    el planner
+    menu.html           el menu de inicio de la app de escritorio
+
+Una cosa importante del diseño: las reglas de dominio (que piezas son
+esenciales para cada objetivo, cuando un build es peligroso, que
+objetivos no se combinan) viven TODAS en src/engine/. La web, la CLI y
+el PDF las importan de ahi. Si escribes una regla o un texto en la
+interfaz, acabaras teniendo dos versiones que se contradicen; este
+proyecto ya arrastro bugs por eso.
+
+
+--------------------------------------------------------------------
+ Los precios del catalogo son orientativos.
+ Proyecto personal, sin relacion con Volkswagen AG.
+--------------------------------------------------------------------
