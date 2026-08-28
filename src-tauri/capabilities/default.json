@@ -3,5 +3,5 @@
   "identifier": "default",
   "description": "Permisos minimos: la app solo pinta la ventana y todo el calculo pasa dentro del frontend, sin red ni ficheros.",
   "windows": ["main"],
-  "permissions": ["core:default"]
+  "permissions": ["core:default", "core:window:allow-close"]
 }

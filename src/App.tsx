@@ -4,6 +4,7 @@ import { alternarObjetivo as aplicarObjetivo } from "./engine/recommend";
 import { crearSelector } from "./agents";
 import type { Objetivo } from "./engine/types";
 import { useTema } from "./ui/theme";
+import { cerrarApp, enEscritorio } from "./ui/entorno";
 import { Icono } from "./ui/icons";
 import { Formulario } from "./ui/Formulario";
 import { Resultado } from "./ui/Resultado";
@@ -15,6 +16,8 @@ function App() {
   const modelos = useMemo(() => listarModelos(), []);
   const selector = useMemo(() => crearSelector(), []);
   const { oscuro, alternar } = useTema();
+  // Se mira una sola vez: no cambia de entorno a mitad de sesion.
+  const escritorio = useMemo(() => enEscritorio(), []);
 
   // El Mk5 es el modelo de referencia del catálogo, así que arranca en él si está.
   const [modeloId, setModeloId] = useState(
@@ -67,15 +70,27 @@ function App() {
       <header className="barra">
         {/* La marca lleva a la portada, que es lo que espera cualquiera, y al lado va el
             enlace con su nombre, para el que no da por hecho esa convención. */}
-        <a className="marca" href="/">
+        <a className="marca" href={escritorio ? "/menu.html" : "/"}>
           JondaSiviz <span>build planner</span>
         </a>
 
         <div className="barra-acciones">
-          <a className="btn btn-fantasma btn-sm volver" href="/">
+          {/* En la app el destino no es una web, es el menú de inicio del programa, y
+              además se puede cerrar. En el navegador no existe "salir". */}
+          <a className="btn btn-fantasma btn-sm volver" href={escritorio ? "/menu.html" : "/"}>
             <Icono nombre="flechaIzquierda" />
-            <span>Volver a la web</span>
+            <span>{escritorio ? "Inicio" : "Volver a la web"}</span>
           </a>
+          {escritorio && (
+            <button
+              type="button"
+              className="btn btn-fantasma btn-sm volver"
+              onClick={() => void cerrarApp()}
+            >
+              <Icono nombre="salir" />
+              <span>Salir</span>
+            </button>
+          )}
           <button
             type="button"
             className="icono-btn"

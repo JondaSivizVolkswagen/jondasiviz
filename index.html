@@ -446,10 +446,12 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               Abrir el planner
             </a>
-            <button class="btn btn-ghost js-download">
+            <!-- Enlace y no boton: el JS le pone el href del fichero que toca, y asi
+                 funciona el clic derecho, el "guardar enlace como" y el clic central. -->
+            <a class="btn btn-ghost js-download" href="#top">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
               <span class="js-download-texto">Descargar para escritorio</span>
-            </button>
+            </a>
           </div>
           <p class="download-note" id="download-note" role="status" aria-live="polite">
             <strong>El planner ya funciona aquí mismo, en el navegador.</strong> La versión de escritorio todavía no: falta publicar la primera versión. Cuando esté, se descargará desde este mismo botón, para Windows, macOS y Linux.
@@ -804,7 +806,11 @@
         var etiqueta = btn.querySelector('span.js-download-texto');
         if (etiqueta) etiqueta.textContent = 'Descargar para ' + mio.nombre;
         btn.setAttribute('href', BASE + mio.fichero);
-        btn.removeAttribute('aria-describedby');
+        btn.setAttribute('download', '');
+        // El del pie no lleva <span>, asi que se le cambia el texto directamente.
+        if (!etiqueta && btn.textContent.trim() === 'Escritorio') {
+          btn.textContent = 'Descargar para ' + mio.nombre;
+        }
       });
       var otros = document.getElementById('download-otros');
       if (otros) otros.classList.add('show');

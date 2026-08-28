@@ -26,6 +26,12 @@ const TRAZOS = {
   estrella: <path d="m12 3 2.7 5.5 6 .9-4.3 4.2 1 6L12 17l-5.4 2.6 1-6L3.3 9.4l6-.9z" />,
   chevron: <path d="m6 9 6 6 6-6" />,
   flechaIzquierda: <path d="M19 12H5M11 18l-6-6 6-6" />,
+  salir: (
+    <>
+      <path d="M15 12H3M7 8l-4 4 4 4" />
+      <path d="M11 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7" />
+    </>
+  ),
 } satisfies Record<string, ReactNode>;
 
 export type NombreIcono = keyof typeof TRAZOS;

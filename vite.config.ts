@@ -15,6 +15,7 @@ export default defineConfig({
       input: {
         landing: resolve(import.meta.dirname, 'index.html'),
         herramienta: resolve(import.meta.dirname, 'herramienta.html'),
+        menu: resolve(import.meta.dirname, 'menu.html'),
       },
     },
   },

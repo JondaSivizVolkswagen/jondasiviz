@@ -10,11 +10,12 @@
     "frontendDist": "../dist"
   },
   "app": {
+    "withGlobalTauri": true,
     "windows": [
       {
         "label": "main",
         "title": "JondaSiviz Build Planner",
-        "url": "herramienta.html",
+        "url": "menu.html",
         "width": 1440,
         "height": 900,
         "minWidth": 380,
