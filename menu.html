@@ -76,11 +76,26 @@
         text-align: center;
       }
 
-      .marca-icono {
-        width: 76px;
-        height: 76px;
-        border-radius: 20px;
+      /*
+        El GIF es de 220x220 nativos, así que se pinta a 168 y no se estira: por encima
+        de su tamaño real se vería pastoso. El borde y el radio lo atan al resto de la
+        interfaz, para que no parezca una imagen pegada encima.
+      */
+      .portada {
+        width: 168px;
+        height: 168px;
+        object-fit: cover;
+        border-radius: var(--r-lg);
+        border: 1px solid var(--border);
         box-shadow: var(--shadow-md);
+        background: var(--surface-2);
+      }
+
+      .cabecera {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
       }
 
       h1 {
@@ -162,8 +177,15 @@
 
   <body>
     <main class="menu">
-      <div>
-        <img class="marca-icono" src="/marca.svg" alt="" width="76" height="76" />
+      <div class="cabecera">
+        <img
+          class="portada"
+          src="/civic-road.gif"
+          alt=""
+          width="168"
+          height="168"
+          decoding="async"
+        />
         <h1>JondaSiviz Build Planner</h1>
         <p class="lema">
           Planifica la preparación de tu Volkswagen sin pasarte del presupuesto.
