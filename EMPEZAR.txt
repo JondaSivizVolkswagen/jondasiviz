@@ -122,10 +122,10 @@ instalar nada:
     Se invoca siempre que pidas crear o rediseñar una pantalla o un
     componente. Aporta la guia de estilo y sobre ella construye.
 
-  apple-minimal-style-guide
+  racing-atelier-style-guide
     El sistema visual fijo: color, tipografia, iconos, espaciado y
     movimiento. Es lo que hace que todo se vea igual de una pantalla a
-    otra. El acento del proyecto es el rojo GTI.
+    otra. Base oscura y un solo acento rojo.
 
   design-research
     Busca en internet los patrones de UX adecuados al tipo de pantalla

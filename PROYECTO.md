@@ -442,6 +442,43 @@ ver si poner más dinero sube de gama. El mínimo del proyecto sale del catálog
   4. Aviso gris con botón "ajustar" al escribir por encima del techo, simétrico al de
      peligro por debajo del mínimo. 80 tests.
 
+### Rediseño visual (agosto 2026)
+
+Cambio completo de piel, sin tocar el motor. El sistema pasa de una base clara tipo Apple
+a uno oscuro, industrial: trama de carbono, hairlines en vez de sombras, radio de 2 px,
+Archivo para titulares y JetBrains Mono para toda cifra o etiqueta técnica, y un solo
+acento rojo (`#E3121C`) reservado al estado activo, al peligro y a los índices.
+
+Decisiones que conviene no deshacer sin motivo:
+
+1. **Se quitó el tema claro** (`src/ui/theme.ts` borrado). Mantener dos paletas del sistema
+   entero costaba más de lo que aportaba, y un taller con dos modos pierde carácter.
+2. **La escena 3D vive en `src/landing/`, no en `src/ui/`.** La portada es HTML plano sin
+   React por diseño; meter el visor en el bundle de la app habría obligado a cargar React y
+   `three` a quien solo mira la portada.
+3. **El Civic está modelado a mano, no descargado.** Un `.glb` decente son varios megas y
+   una licencia que vigilar. La carrocería es un casco lofteado por secciones (ver el
+   README): la forma vive en cuatro tablas de curvas y el reparto chapa/cristal/bajos es
+   una regla geométrica, no una lista de piezas. Se puede cambiar la forma del coche
+   editando números, que es justo lo que no permitiría un modelo importado.
+
+   Se probó antes con un perfil lateral extruido y se descartó: daba un coche de costados
+   planos, sin caída de techo y con los pasos de rueda como arcos pintados.
+4. **El mapa de entorno es un canvas pintado a mano** pasado por `PMREMGenerator`. Es lo
+   que hace que la chapa refleje. Sin él, con solo luces, el metal se ve mate.
+5. **Los ángulos de las vistas fijas están calculados contra `AZIMUT = 0.55`.** Si se mueve
+   la cámara hay que recalcular los tres giros de `VISTAS` o las vistas se descuadran.
+6. **El icono de escritorio se genera, no se dibuja.** `herramientas/generar-iconos.py`
+   escribe los quince PNG, el `.ico` y el `.icns` a partir de la misma marca que lleva la
+   barra superior de la web, dibujada a 4x y reducida con Lanczos. Editar el icono es
+   editar ese script y volver a ejecutarlo, no abrir quince archivos.
+7. **La CSP de Tauri tuvo que abrirse a Google Fonts.** Con la anterior, el navegador
+   embebido bloqueaba las tipografías y la app de escritorio caía a las del sistema. Lo
+   correcto a medio plazo es servirlas desde `public/` y volver a cerrar la CSP.
+8. La guía de estilo de `.claude/` se reescribió (`racing-atelier-style-guide`) y la
+   anterior se borró. Si se hubiera dejado, la siguiente pantalla que se le pidiese a Claude
+   Code habría vuelto al estilo claro.
+
 ### Pendientes
 
 1. **Sustitución de gama en dependencias fijadas**: ahora si el downpipe entra como
@@ -558,7 +595,7 @@ borra ni lo modifica. Se documenta aquí como copia de seguridad portable.
 
 ### Skills (`~/.claude/skills/`)
 
-- **apple-minimal-style-guide** — sistema de diseño visual fijo tipo Apple (color,
+- **racing-atelier-style-guide** — sistema de diseño visual fijo del proyecto (color,
   tipografía, iconos, espaciado, movimiento). Solo cambia el acento por proyecto.
 - **design-research** — investiga en internet patrones de UX y arquitectura de
   información según el tipo de producto, antes de construir. No decide nada visual.

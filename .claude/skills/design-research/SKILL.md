@@ -1,6 +1,6 @@
 ---
 name: design-research
-description: Investiga en internet los patrones de UX y las referencias de diseño más adecuados para el tipo concreto de aplicación que se va a construir, antes de empezar el desarrollo. Se usa siempre junto con apple-minimal-style-guide, que fija el estilo visual constante.
+description: Investiga en internet los patrones de UX y las referencias de diseño más adecuados para el tipo concreto de aplicación que se va a construir, antes de empezar el desarrollo. Se usa siempre junto con racing-atelier-style-guide, que fija el estilo visual constante.
 ---
 
 # Investigación de diseño antes de construir
@@ -12,7 +12,7 @@ Cada vez que se vaya a diseñar o construir una aplicación, pantalla o flujo nu
 ## Qué se investiga y qué no
 
 - Se investiga: arquitectura de información, patrones de navegación, flujos habituales, convenciones que el usuario final ya reconoce para ese tipo de app (por ejemplo, un checkout de e-commerce, un dashboard financiero, una app de fitness).
-- No se investiga ni se cambia el lenguaje visual: colores, tipografía, iconos y espaciado siempre vienen de `apple-minimal-style-guide`. La investigación nunca debe llevar a romper esa guía.
+- No se investiga ni se cambia el lenguaje visual: colores, tipografía, iconos y espaciado siempre vienen de `racing-atelier-style-guide`. La investigación nunca debe llevar a romper esa guía.
 
 ## Proceso
 

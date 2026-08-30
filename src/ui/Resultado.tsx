@@ -1,6 +1,7 @@
-// Resultado del cálculo: cabecera, barra de gasto, avisos y piezas por categoría.
+// Resultado del cálculo: cabecera, telemetría de gasto, avisos y piezas por categoría.
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 import type { ResultadoSelector } from "../agents";
 import {
   NOMBRE_CATEGORIA,
@@ -17,10 +18,45 @@ interface Props {
   onProbarPresupuesto: (presupuesto: number) => void;
 }
 
+/**
+ * El total no salta de una cifra a otra: cuenta hasta ella. Con la lista cambiando bajo
+ * la mano, el número que se mueve es lo que dice "esto que has tocado ha hecho algo".
+ */
+function useCuenta(destino: number) {
+  const [valor, setValor] = useState(destino);
+  const desde = useRef(destino);
+
+  useEffect(() => {
+    const inicio = performance.now();
+    const origen = desde.current;
+    const salto = destino - origen;
+    if (salto === 0) return;
+
+    let vivo = true;
+    const paso = () => {
+      if (!vivo) return;
+      const t = Math.min(1, (performance.now() - inicio) / 550);
+      const suave = 1 - Math.pow(1 - t, 3);
+      setValor(Math.round(origen + salto * suave));
+      if (t < 1) requestAnimationFrame(paso);
+      else desde.current = destino;
+    };
+    requestAnimationFrame(paso);
+
+    return () => {
+      vivo = false;
+      desde.current = destino;
+    };
+  }, [destino]);
+
+  return valor;
+}
+
 export function Resultado({ resultado, onProbarPresupuesto }: Props) {
   const { modelo, presupuesto, cumpleMinimo, siguienteEscalon, avisos } = resultado;
   const [generando, setGenerando] = useState(false);
   const [falloPdf, setFalloPdf] = useState(false);
+  const contado = useCuenta(presupuesto ? presupuesto.total : 0);
 
   // pdfmake llega por import() dinámico, así que la primera descarga tarda un poco.
   const bajarPdf = async () => {
@@ -38,7 +74,7 @@ export function Resultado({ resultado, onProbarPresupuesto }: Props) {
 
   if (!modelo || !presupuesto) {
     return (
-      <section className="tarjeta resultado-vacio" aria-live="polite">
+      <section className="resultado-vacio" aria-live="polite">
         <h2>No pudimos calcular el presupuesto</h2>
         {avisos.map((a) => (
           <p key={a} className="aviso-linea">
@@ -61,53 +97,51 @@ export function Resultado({ resultado, onProbarPresupuesto }: Props) {
     // Sin `aria-live` en toda la sección: el plan se rehace en cada pulsación de tecla y
     // un lector de pantalla leería la lista entera con cada dígito del presupuesto. Se
     // anuncia solo el resumen, que es lo que de verdad hay que oír.
-    <section className="resultado">
-      <header className="resultado-cab">
-        <h2>{modelo.nombre}</h2>
-        <p className="resultado-sub">
+    <>
+      <header className="plan-cab">
+        <p className="eyebrow">Hoja de preparación</p>
+        <h2 className="plan-modelo">{modelo.nombre}</h2>
+        <p className="plan-sub">
           {modelo.motorDetalle} · chasis {modelo.chasis}
         </p>
+
         <div className="chips">
-          <span className="chip">{euros(tope)}</span>
           {presupuesto.gamaResultante && (
-            <span className="chip chip-gama">Build de gama {presupuesto.gamaResultante}</span>
+            <span className="chip chip-gama">Gama {presupuesto.gamaResultante}</span>
           )}
-          <span className="chip">
-            {objetivos.length > 1 ? "Objetivos" : "Objetivo"}{" "}
-            {objetivos.map((o) => NOMBRE_OBJETIVO[o]).join(" + ")}
-          </span>
+          <span className="chip">{objetivos.map((o) => NOMBRE_OBJETIVO[o]).join(" + ")}</span>
+          <span className="chip">{presupuesto.lineas.length} piezas</span>
         </div>
 
-        <div className="resultado-acciones">
-          <button
-            type="button"
-            className="btn btn-fantasma btn-sm"
-            onClick={bajarPdf}
-            disabled={generando}
-          >
-            {generando ? "Preparando el PDF…" : "Descargar en PDF"}
+        <div className="telemetria">
+          <div className="telemetria-cifras">
+            <div>
+              <div className="total-grande">{euros(contado)}</div>
+              <div className="total-de">Gastado de {euros(tope)}</div>
+            </div>
+            <div className="total-lateral">
+              <b>{euros(sobrante)}</b>
+              <span>Sobrante</span>
+            </div>
+          </div>
+          <div className="riel">
+            <div className="riel-relleno" style={{ width: `${porcentaje}%` }} />
+          </div>
+        </div>
+
+        <p className="visualmente-oculto" role="status">
+          {presupuesto.lineas.length} piezas, {euros(gastado)} de {euros(tope)}.
+        </p>
+
+        <div className="acciones-plan">
+          <button type="button" className="btn btn-sm" onClick={bajarPdf} disabled={generando}>
+            <span>{generando ? "Preparando el PDF…" : "Descargar en PDF"}</span>
           </button>
           {falloPdf && (
             <span className="aviso-linea">No se pudo generar el PDF. Vuelve a intentarlo.</span>
           )}
         </div>
       </header>
-
-      <p className="visualmente-oculto" role="status">
-        {presupuesto.lineas.length} piezas, {euros(gastado)} de {euros(tope)}.
-      </p>
-
-      <div className="tarjeta barra-bloque">
-        <div className="barra-cifras">
-          <span>
-            <strong>{euros(gastado)}</strong> de {euros(tope)}
-          </span>
-          <span className="barra-sobrante">Sobran {euros(sobrante)}</span>
-        </div>
-        <div className="barra-pista">
-          <div className="barra-relleno" style={{ width: `${porcentaje}%` }} />
-        </div>
-      </div>
 
       {/* El mínimo lo cuenta el motor con la misma frase que el formulario y el PDF. */}
       {!cumpleMinimo && objetivos.length > 0 && (
@@ -117,10 +151,10 @@ export function Resultado({ resultado, onProbarPresupuesto }: Props) {
           {siguienteEscalon && (
             <button
               type="button"
-              className="btn btn-fantasma btn-sm"
+              className="btn btn-sm"
               onClick={() => onProbarPresupuesto(siguienteEscalon.presupuesto)}
             >
-              Ver qué sale con {euros(siguienteEscalon.presupuesto)}
+              <span>Ver qué sale con {euros(siguienteEscalon.presupuesto)}</span>
             </button>
           )}
         </div>
@@ -136,9 +170,14 @@ export function Resultado({ resultado, onProbarPresupuesto }: Props) {
 
       {presupuesto.porCategoria.length > 0 ? (
         <div className="categorias">
-          {presupuesto.porCategoria.map((grupo) => (
-            <div className="categoria" key={grupo.categoria}>
+          {presupuesto.porCategoria.map((grupo, i) => (
+            <div
+              className="categoria"
+              key={grupo.categoria}
+              style={{ "--i": i } as CSSProperties}
+            >
               <div className="categoria-cab">
+                <span className="categoria-indice">{String(i + 1).padStart(2, "0")}</span>
                 <h3>{NOMBRE_CATEGORIA[grupo.categoria]}</h3>
                 <span className="categoria-total">{euros(grupo.total)}</span>
               </div>
@@ -155,7 +194,7 @@ export function Resultado({ resultado, onProbarPresupuesto }: Props) {
                           <span className="etiqueta">dependencia</span>
                         )}
                         {linea.motivo === "elegida" && (
-                          <span className="etiqueta etiqueta-elegida">la elegiste tú</span>
+                          <span className="etiqueta etiqueta-elegida">tuya</span>
                         )}
                       </span>
                       {linea.pieza.nota && <span className="linea-nota">{linea.pieza.nota}</span>}
@@ -168,9 +207,12 @@ export function Resultado({ resultado, onProbarPresupuesto }: Props) {
           ))}
         </div>
       ) : (
-        <p className="aviso-linea">
-          Con lo que has puesto no entra ninguna pieza para este objetivo. Sube el presupuesto.
-        </p>
+        <div className="resultado-vacio">
+          <p className="vacio">
+            Con lo que has puesto no entra ninguna pieza para este objetivo. Sube el
+            presupuesto.
+          </p>
+        </div>
       )}
 
       {cumpleMinimo && siguienteEscalon && (
@@ -181,17 +223,17 @@ export function Resultado({ resultado, onProbarPresupuesto }: Props) {
           </p>
           <button
             type="button"
-            className="btn btn-fantasma btn-sm"
+            className="btn btn-sm"
             onClick={() => onProbarPresupuesto(siguienteEscalon.presupuesto)}
           >
-            Probarlo
+            <span>Probarlo</span>
           </button>
         </div>
       )}
 
       {presupuesto.siguientesMejoras.length > 0 && (
-        <div className="tarjeta mejoras">
-          <h3>Siguientes mejoras si subes el presupuesto</h3>
+        <div className="mejoras">
+          <h3>Siguientes mejoras</h3>
           <ul>
             {presupuesto.siguientesMejoras.map((mejora) => (
               <li key={mejora.pieza.id}>
@@ -212,6 +254,6 @@ export function Resultado({ resultado, onProbarPresupuesto }: Props) {
           </ul>
         </div>
       )}
-    </section>
+    </>
   );
 }

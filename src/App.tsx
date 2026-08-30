@@ -1,9 +1,8 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { buscarModelo, listarModelos } from "./engine/graph";
 import { alternarObjetivo as aplicarObjetivo } from "./engine/recommend";
 import { crearSelector } from "./agents";
 import type { Objetivo } from "./engine/types";
-import { useTema } from "./ui/theme";
 import { cerrarApp, enEscritorio } from "./ui/entorno";
 import { Icono } from "./ui/icons";
 import { Formulario } from "./ui/Formulario";
@@ -15,7 +14,6 @@ import "./App.css";
 function App() {
   const modelos = useMemo(() => listarModelos(), []);
   const selector = useMemo(() => crearSelector(), []);
-  const { oscuro, alternar } = useTema();
   // Se mira una sola vez: no cambia de entorno a mitad de sesion.
   const escritorio = useMemo(() => enEscritorio(), []);
 
@@ -23,12 +21,13 @@ function App() {
   const [modeloId, setModeloId] = useState(
     () => (modelos.find((m) => m.id === "golf-gti-mk5") ?? modelos[0])?.id ?? "",
   );
-  const [presupuesto, setPresupuesto] = useState(4000);
+  const [presupuesto, setPresupuesto] = useState(6500);
   const [objetivos, setObjetivos] = useState<Objetivo[]>(["drag"]);
   // Pieza elegida a mano, por grupo. Se guarda por grupo y no como lista suelta para que
   // volver a "que elija el motor" sea quitar la clave, y para que cambiar de coche no
   // borre lo elegido: el selector ya ignora lo que no aplique.
   const [elecciones, setElecciones] = useState<Record<string, string>>({});
+  const [progreso, setProgreso] = useState(0);
 
   const idsElegidos = useMemo(
     () => Object.values(elecciones).filter(Boolean),
@@ -51,6 +50,18 @@ function App() {
     [selector, modeloId, presupuesto, objetivos, idsElegidos],
   );
 
+  // Hilo rojo de progreso de lectura, pegado al borde superior de la ventana.
+  useEffect(() => {
+    const alScroll = () => {
+      const raiz = document.documentElement;
+      const recorrido = raiz.scrollHeight - raiz.clientHeight;
+      setProgreso(recorrido > 0 ? (raiz.scrollTop / recorrido) * 100 : 0);
+    };
+    alScroll();
+    window.addEventListener("scroll", alScroll, { passive: true });
+    return () => window.removeEventListener("scroll", alScroll);
+  }, []);
+
   // Las reglas de qué objetivo descarta a cuál viven en el motor, no aquí.
   const alternarObjetivo = (o: Objetivo) => {
     setObjetivos((prev) => aplicarObjetivo(prev, o));
@@ -67,77 +78,71 @@ function App() {
 
   return (
     <div className="app">
+      <div className="progreso" style={{ width: `${progreso}%` }} />
+
       <header className="barra">
-        {/* La marca lleva a la portada, que es lo que espera cualquiera, y al lado va el
-            enlace con su nombre, para el que no da por hecho esa convención. */}
+        {/* La marca lleva a la portada, que es lo que espera cualquiera. */}
         <a className="marca" href={escritorio ? "/menu.html" : "/"}>
-          JondaSiviz <span>build planner</span>
+          <i />
+          Jondasiviz <span>Build Planner</span>
         </a>
 
         <div className="barra-acciones">
           {/* En la app el destino no es una web, es el menú de inicio del programa, y
               además se puede cerrar. En el navegador no existe "salir". */}
-          <a className="btn btn-fantasma btn-sm volver" href={escritorio ? "/menu.html" : "/"}>
+          <a className="btn btn-sm volver" href={escritorio ? "/menu.html" : "/"}>
             <Icono nombre="flechaIzquierda" />
-            <span>{escritorio ? "Inicio" : "Volver a la web"}</span>
+            <span>{escritorio ? "Inicio" : "Portada"}</span>
           </a>
           {escritorio && (
-            <button
-              type="button"
-              className="btn btn-fantasma btn-sm volver"
-              onClick={() => void cerrarApp()}
-            >
+            <button type="button" className="btn btn-sm volver" onClick={() => void cerrarApp()}>
               <Icono nombre="salir" />
               <span>Salir</span>
             </button>
           )}
-          <button
-            type="button"
-            className="icono-btn"
-            onClick={alternar}
-            aria-label="Cambiar entre tema claro y oscuro"
-          >
-            <Icono nombre={oscuro ? "sol" : "luna"} />
-          </button>
         </div>
       </header>
 
       <main className="contenido">
         <div className="intro">
-          <h1>Planifica tu build sin pasarte del presupuesto</h1>
+          <div>
+            <p className="eyebrow">Configurador</p>
+            <h1>Arma el build</h1>
+          </div>
           <p>
-            Elige el modelo, cuánto quieres gastar y para qué es el coche. La lista de piezas se
-            arma sola mientras tocas, ordenada por lo que más pesa en ese objetivo. La gama no la
-            eliges tú: la marca el dinero que pones.
+            Elige el modelo, cuánto quieres gastar y para qué es el coche. La lista se arma sola
+            mientras tocas. La gama no la eliges tú: la marca el dinero que pones.
           </p>
         </div>
 
-        <div className="columna-controles">
-          <Formulario
-            modelos={modelos}
-            modeloId={modeloId}
-            modeloResuelto={modeloResuelto}
-            onModeloId={setModeloId}
-            presupuesto={presupuesto}
-            onPresupuesto={setPresupuesto}
-            objetivos={objetivos}
-            onAlternarObjetivo={alternarObjetivo}
-            vistaPrevia={plan.presupuesto}
-            techoUtil={plan.techoUtil}
-            grupos={plan.grupos}
-            elecciones={elecciones}
-            onElegir={elegirPieza}
-            onLimpiarElecciones={() => setElecciones({})}
-          />
-        </div>
+        <div className="config">
+          <div className="columna-controles">
+            <Formulario
+              modelos={modelos}
+              modeloId={modeloId}
+              modeloResuelto={modeloResuelto}
+              onModeloId={setModeloId}
+              presupuesto={presupuesto}
+              onPresupuesto={setPresupuesto}
+              objetivos={objetivos}
+              onAlternarObjetivo={alternarObjetivo}
+              vistaPrevia={plan.presupuesto}
+              techoUtil={plan.techoUtil}
+              grupos={plan.grupos}
+              elecciones={elecciones}
+              onElegir={elegirPieza}
+              onLimpiarElecciones={() => setElecciones({})}
+            />
+          </div>
 
-        {/* El desglose de lo que pide el proyecto se lee junto al plan, no entre los
-            controles: así la columna de la izquierda cabe en pantalla y la derecha
-            nunca está vacía. */}
-        <div className="columna-plan" id="plan">
-          {plan.presupuesto && <Requisitos plan={plan.presupuesto} />}
-          <Resultado resultado={plan} onProbarPresupuesto={setPresupuesto} />
-          {plan.modelo && <PiezasCompatibles modelo={plan.modelo} />}
+          {/* El desglose de lo que pide el proyecto se lee junto al plan, no entre los
+              controles: así la columna de la izquierda cabe en pantalla y la derecha
+              nunca está vacía. */}
+          <div className="columna-plan" id="plan">
+            <Resultado resultado={plan} onProbarPresupuesto={setPresupuesto} />
+            {plan.presupuesto && <Requisitos plan={plan.presupuesto} />}
+            {plan.modelo && <PiezasCompatibles modelo={plan.modelo} />}
+          </div>
         </div>
       </main>
     </div>

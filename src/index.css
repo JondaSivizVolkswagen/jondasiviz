@@ -1,129 +1,285 @@
-:root {
-  --bg: #fbfbfa;
-  --surface: #ffffff;
-  --surface-2: #f4f4f3;
-  --text: #1d1d1f;
-  --text-muted: #6b6b70;
-  --border: #e7e7e4;
-  --accent: #c0322e;
-  --accent-hover: #a02824;
-  --accent-contrast: #ffffff;
-  --accent-suave: rgba(192, 50, 46, 0.08);
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 1px 2px rgba(0, 0, 0, 0.04), 0 10px 28px rgba(0, 0, 0, 0.07);
-  --r-sm: 8px;
-  --r-md: 12px;
-  --r-lg: 20px;
-  /* Tope del sitio en dos columnas: ~460 de controles + 40 de hueco + ~1020 de plan.
-     No se quita del todo porque casi todas las filas son "nombre a la izquierda,
-     precio a la derecha", y pasados unos 700 px por fila se pierde el emparejamiento
-     entre las dos puntas. 1600 llena un monitor de 1920 dejando aire, no sobra. */
-  --maxw: 1600px;
-  /* Tope mientras solo hay una columna: una tarjeta más ancha deja las frases de los
-     objetivos sueltas en medio del vacío. */
-  --maxw-simple: 760px;
-  /* Alto de la barra superior (20 + 36 del botón + 20 + 1 de borde). Lo usan los
-     elementos pegados para no quedar debajo de ella. */
-  --alto-barra: 78px;
-  --font: "Segoe UI Variable", "Segoe UI", -apple-system, BlinkMacSystemFont,
-    "SF Pro Text", Roboto, sans-serif;
+/* =========================================================================
+   Base compartida por la portada y el planner.
+   Sistema "racing atelier": oscuro, industrial, un solo acento rojo.
+   Aqui viven los tokens y lo que se repite en las dos paginas (contenedor,
+   botones, tipografia). Lo especifico del planner esta en App.css y lo de
+   la portada en src/landing/landing.css.
+   ========================================================================= */
 
-  color-scheme: light dark;
-  font-family: var(--font);
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--text);
-  background: var(--bg);
+:root {
+  /* Base */
+  --negro: #08090b;
+  --negro-2: #0b0d10;
+  --panel: #0e1014;
+  --panel-2: #13161b;
+  --panel-3: #191d23;
+  --linea: rgba(255, 255, 255, 0.07);
+  --linea-fuerte: rgba(255, 255, 255, 0.14);
+
+  /* Tinta */
+  --texto: #eef0f3;
+  --texto-2: #a8aeb6;
+  --tenue: #6e757e;
+  --apagado: #464c54;
+
+  /* Acento. El rojo es el unico color con voz: se reserva para el estado
+     activo, el peligro y los indices. Si aparece en todas partes deja de
+     significar nada. */
+  --rojo: #e3121c;
+  --rojo-vivo: #ff3b30;
+  --verde: #35d07f;
+  --ambar: #f0a92b;
+
+  /* Tipografia. Archivo para titulares, mono para todo lo que sea una cifra,
+     una etiqueta o una referencia tecnica. */
+  --display: "Archivo", "Segoe UI Variable", "Segoe UI", -apple-system,
+    BlinkMacSystemFont, Roboto, sans-serif;
+  --mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  /* Medidas */
+  --ancho: 1440px;
+  --barra: 68px;
+  /* Radio casi nulo a proposito: lo redondo suaviza, y aqui no queremos
+     suavidad. */
+  --r: 2px;
+  --curva: cubic-bezier(0.16, 1, 0.3, 1);
+
+  color-scheme: dark;
+  font-family: var(--display);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--texto);
+  background: var(--negro);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #101012;
-    --surface: #171719;
-    --surface-2: #1e1e22;
-    --text: #f5f5f7;
-    --text-muted: #9b9ba2;
-    --border: #2b2b30;
-    --accent: #e0605a;
-    --accent-hover: #ea7772;
-    --accent-contrast: #0b0b0c;
-    --accent-suave: rgba(224, 96, 90, 0.12);
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.45);
-  }
-}
-
-:root[data-theme="dark"] {
-  --bg: #101012;
-  --surface: #171719;
-  --surface-2: #1e1e22;
-  --text: #f5f5f7;
-  --text-muted: #9b9ba2;
-  --border: #2b2b30;
-  --accent: #e0605a;
-  --accent-hover: #ea7772;
-  --accent-contrast: #0b0b0c;
-  --accent-suave: rgba(224, 96, 90, 0.12);
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.45);
-}
-
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--barra) + 24px);
+  background: var(--negro);
 }
 
 body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--negro);
+  color: var(--texto);
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
-#root {
-  min-height: 100vh;
+/* Trama de carbono. Casi invisible de cerca, pero le quita el plano al fondo. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.014) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.014) 0 1px, transparent 1px 4px);
+}
+
+/* Grano. Sin el, los degradados grandes se ven como plastico. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--rojo);
+  color: #fff;
 }
 
 h1,
 h2,
-h3 {
-  margin: 0;
-  line-height: 1.2;
-  letter-spacing: -0.015em;
-  font-weight: 600;
-  color: var(--text);
+h3,
+h4 {
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
 }
 
-h1 {
-  font-size: 2rem;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-h2 {
-  font-size: 1.5rem;
+input,
+select,
+button,
+textarea {
+  font: inherit;
+  color: inherit;
 }
 
-h3 {
-  font-size: 1.05rem;
+/* ============================== estructura ============================== */
+
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
 }
 
-p {
-  margin: 0;
-}
-
-button {
-  font-family: inherit;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition: none !important;
-    animation: none !important;
+@media (max-width: 720px) {
+  .contenedor {
+    padding: 0 20px;
   }
 }
 
-/* Texto solo para lectores de pantalla: anuncia el resumen del plan sin ocupar sitio. */
+/* ============================== tipografia ============================== */
+
+/* Antetitulo con guion rojo. Marca el inicio de cada seccion sin gritar. */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tenue);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: var(--rojo);
+  flex: none;
+}
+
+.num {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* ================================ botones =============================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border: 1px solid var(--linea-fuerte);
+  background: transparent;
+  color: var(--texto);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r);
+  isolation: isolate;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+/* El relleno entra barriendo desde la izquierda, como una barrera de box. */
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--texto);
+  transform: translateX(-101%);
+  transition: transform 0.45s var(--curva);
+  z-index: -1;
+}
+
+.btn:hover {
+  border-color: var(--texto);
+  color: var(--negro);
+}
+
+.btn:hover::before {
+  transform: translateX(0);
+}
+
+.btn-rojo {
+  background: var(--rojo);
+  border-color: var(--rojo);
+  color: #fff;
+}
+
+.btn-rojo::before {
+  background: #fff;
+}
+
+.btn-rojo:hover {
+  color: var(--rojo);
+  border-color: #fff;
+}
+
+.btn-sm {
+  padding: 9px 14px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn svg {
+  width: 14px;
+  height: 14px;
+  flex: none;
+}
+
+.btn:focus-visible,
+.entrada:focus-visible,
+.objetivo:focus-visible,
+.segmento-opcion:focus-visible,
+.pintura:focus-visible {
+  outline: 2px solid var(--rojo);
+  outline-offset: 2px;
+}
+
+/* ============================== revelado ================================ */
+
+.revela {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.85s var(--curva), transform 0.85s var(--curva);
+}
+
+.revela.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Barra de progreso de lectura, pegada al borde superior de la ventana. */
+.progreso {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--rojo), var(--rojo-vivo));
+  z-index: 70;
+  box-shadow: 0 0 12px rgba(227, 18, 28, 0.7);
+}
+
+/* ============================== accesibilidad =========================== */
+
+/* Texto solo para lectores de pantalla: anuncia el resumen del plan sin
+   ocupar sitio en pantalla. */
 .visualmente-oculto {
   position: absolute;
   width: 1px;
@@ -134,4 +290,22 @@ button {
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+  .revela {
+    opacity: 1;
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }

@@ -26,11 +26,9 @@ export function Elecciones({ grupos, elecciones, onElegir, onLimpiar }: Props) {
   return (
     <details className="elecciones">
       <summary>
-        <span className="elecciones-titulo">Elegir tú alguna pieza</span>
+        <span>Elegir tú alguna pieza</span>
         <span className="elecciones-estado">
-          {elegidas > 0
-            ? `${elegidas} de ${grupos.length} elegidas por ti`
-            : `${grupos.length} partes con alternativas`}
+          {elegidas > 0 ? `${elegidas}/${grupos.length} tuyas` : `${grupos.length} partes`}
         </span>
       </summary>
 
@@ -66,8 +64,13 @@ export function Elecciones({ grupos, elecciones, onElegir, onLimpiar }: Props) {
       </div>
 
       {elegidas > 0 && (
-        <button type="button" className="btn btn-fantasma btn-sm" onClick={onLimpiar}>
-          Devolvérselo todo al motor
+        <button
+          type="button"
+          className="btn btn-sm"
+          style={{ marginTop: "14px" }}
+          onClick={onLimpiar}
+        >
+          <span>Devolvérselo al motor</span>
         </button>
       )}
     </details>

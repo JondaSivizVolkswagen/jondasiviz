@@ -24,6 +24,9 @@ const TECHO_LIBRE = 30000;
  */
 const PASO = 100;
 
+/** Rayas de la escala grabada sobre la pista del presupuesto. */
+const MARCAS = Array.from({ length: 21 }, (_, i) => i);
+
 interface Props {
   modelos: ModeloVW[];
   modeloId: string;
@@ -91,9 +94,15 @@ export function Formulario(p: Props) {
     // saltaba con "los dos valores válidos más cercanos son 9000 y 9100". Aquí se puede
     // escribir la cifra exacta que uno tiene; de avisar ya se encarga el motor, con
     // mensajes que dicen algo. El `step` se queda solo para las flechas del teclado.
-    <form className="tarjeta formulario" onSubmit={enviar} noValidate>
-      <div className="campo">
-        <label htmlFor="modelo">Modelo</label>
+    <form className="formulario" onSubmit={enviar} noValidate>
+      <div className="bloque">
+        <div className="bloque-cab">
+          <h3>
+            <label htmlFor="modelo">Vehículo</label>
+          </h3>
+          <span className="bloque-indice">01</span>
+        </div>
+
         <select
           id="modelo"
           className="entrada"
@@ -112,27 +121,51 @@ export function Formulario(p: Props) {
         </select>
 
         {p.modeloResuelto && (
-          <p className="pista pista-ok">
-            {p.modeloResuelto.motorDetalle} · chasis {p.modeloResuelto.chasis} ·{" "}
-            {p.modeloResuelto.anios[0]}-{p.modeloResuelto.anios[1]} · tracción{" "}
-            {p.modeloResuelto.traccion}
+          <p className="ficha">
+            {p.modeloResuelto.motorDetalle}
+            <br />
+            chasis {p.modeloResuelto.chasis} · {p.modeloResuelto.anios[0]}–
+            {p.modeloResuelto.anios[1]} · tracción {p.modeloResuelto.traccion}
           </p>
         )}
       </div>
 
-      <div className="campo">
-        <label htmlFor="presupuesto">Presupuesto</label>
-        <p className="campo-ayuda">
-          Cuanto más pongas, mejores piezas entran en la lista.
-          {minimo > 0 && p.techoUtil > 0 && (
-            <>
-              {" "}
-              La barra va del mínimo del proyecto ({euros(minimo)}) a lo que cuesta montarlo
-              todo ({euros(p.techoUtil)}). Fuera de ese tramo el dinero no cambia nada.
-            </>
-          )}
-        </p>
-        <div className="presupuesto-fila">
+      <div className="bloque">
+        <div className="bloque-cab">
+          <h3>
+            <label htmlFor="presupuesto">Presupuesto</label>
+          </h3>
+          <span className="bloque-indice">02</span>
+        </div>
+
+        <div className="medidor-cifra">
+          <b>{p.presupuesto.toLocaleString("es-ES")}</b>
+          <i>EUR · techo del proyecto</i>
+        </div>
+
+        <div className="pista-presupuesto">
+          <div className="marcas" aria-hidden="true">
+            {MARCAS.map((m) => (
+              <span key={m} />
+            ))}
+          </div>
+          <input
+            type="range"
+            min={suelo}
+            max={techo}
+            step={PASO}
+            aria-label="Presupuesto en euros"
+            value={Math.min(techo, Math.max(suelo, p.presupuesto))}
+            onChange={(e) => p.onPresupuesto(Number(e.target.value))}
+          />
+        </div>
+
+        <div className="extremos">
+          <span>Mín {euros(suelo)}</span>
+          <span>Todo {euros(techo)}</span>
+        </div>
+
+        <div className="fila-presupuesto">
           <input
             id="presupuesto"
             className={"entrada" + (porDebajo ? " entrada-peligro" : "")}
@@ -144,38 +177,35 @@ export function Formulario(p: Props) {
             value={p.presupuesto}
             onChange={(e) => p.onPresupuesto(Math.max(0, Number(e.target.value) || 0))}
           />
-          <input
-            type="range"
-            min={suelo}
-            max={techo}
-            step={PASO}
-            aria-label="Presupuesto en euros"
-            value={Math.min(techo, Math.max(suelo, p.presupuesto))}
-            onChange={(e) => p.onPresupuesto(Number(e.target.value))}
-          />
-          <span className="valor-euros">{euros(p.presupuesto)}</span>
         </div>
+
+        <p className="campo-ayuda">
+          Cuanto más pongas, mejores piezas entran en la lista.
+          {minimo > 0 && p.techoUtil > 0 && (
+            <>
+              {" "}
+              La barra va del mínimo del proyecto ({euros(minimo)}) a lo que cuesta montarlo
+              todo ({euros(p.techoUtil)}). Fuera de ese tramo el dinero no cambia nada.
+            </>
+          )}
+        </p>
 
         {/* Solo se llega aquí escribiendo la cifra a mano: la barra no deja bajar tanto. */}
         {porDebajo && (
-          <div className="aviso-peligro" role="alert">
+          <div className="aviso aviso-rojo" role="alert">
             <p>
               {riesgo ?? `Con ${euros(p.presupuesto)} el proyecto se queda a medias.`}{" "}
               El mínimo para hacerlo entero son <strong>{euros(minimo)}</strong>.
             </p>
-            <button
-              type="button"
-              className="btn btn-fantasma btn-sm"
-              onClick={() => p.onPresupuesto(minimo)}
-            >
-              Subir a {euros(minimo)}
+            <button type="button" className="btn btn-sm" onClick={() => p.onPresupuesto(minimo)}>
+              <span>Subir a {euros(minimo)}</span>
             </button>
           </div>
         )}
 
-        {/* Igual que abajo, la barra no llega aquí: solo se entra escribiendo la cifra. */}
+        {/* Igual que arriba, la barra no llega aquí: solo se entra escribiendo la cifra. */}
         {porEncima && (
-          <div className="aviso-techo">
+          <div className="aviso">
             <p>
               Con {euros(p.techoUtil)} ya entra todo lo que hay para este coche. Los{" "}
               {euros(p.presupuesto - p.techoUtil)} de más se quedan de sobrante, la lista es
@@ -183,21 +213,21 @@ export function Formulario(p: Props) {
             </p>
             <button
               type="button"
-              className="btn btn-fantasma btn-sm"
+              className="btn btn-sm"
               onClick={() => p.onPresupuesto(p.techoUtil)}
             >
-              Ajustar a {euros(p.techoUtil)}
+              <span>Ajustar a {euros(p.techoUtil)}</span>
             </button>
           </div>
         )}
       </div>
 
-      <div className="campo">
-        <span className="campo-titulo">Objetivo</span>
-        <p className="campo-ayuda">
-          Marca todos los que quieras. El mínimo sube al combinarlos. Drift y drag son la
-          excepción: piden preparaciones contrarias, así que al elegir uno se suelta el otro.
-        </p>
+      <div className="bloque">
+        <div className="bloque-cab">
+          <span className="campo-titulo">Objetivo</span>
+          <span className="bloque-indice">03</span>
+        </div>
+
         <div className="objetivos" role="group" aria-label="Objetivos de la preparación">
           {OBJETIVOS.map((o) => {
             const activo = p.objetivos.includes(o.valor);
@@ -233,13 +263,18 @@ export function Formulario(p: Props) {
           })}
         </div>
 
-        {/* Solo la gama del build. El mínimo lo cuenta Requisitos, justo debajo. */}
-        <div className={"suelo-vista" + (sinObjetivos ? "" : llegaAlMinimo ? " ok" : " corto")}>
+        <p className="campo-ayuda">
+          Marca todos los que quieras. El mínimo sube al combinarlos. Drift y drag son la
+          excepción: piden preparaciones contrarias, así que al elegir uno se suelta el otro.
+        </p>
+
+        {/* Solo la gama del build. El mínimo lo cuenta Requisitos, junto al plan. */}
+        <div className={"lectura" + (sinObjetivos ? "" : llegaAlMinimo ? " ok" : " corto")}>
           {sinObjetivos ? (
-            <span>Elige al menos un objetivo.</span>
+            <span>Marca al menos un objetivo.</span>
           ) : gama ? (
             <span>
-              Con {euros(p.presupuesto)} esto sale un build de gama <strong>{gama}</strong>.
+              Con {euros(p.presupuesto)} sale un build de gama <strong>{gama}</strong>
             </span>
           ) : (
             <span>Con {euros(p.presupuesto)} todavía no entra ninguna pieza.</span>
@@ -256,8 +291,8 @@ export function Formulario(p: Props) {
 
       {/* En pantalla ancha el plan está al lado y esto sobra. En móvil queda debajo de
           todo el formulario, así que hace falta un empujón para llegar. */}
-      <a className="btn btn-primario ir-al-plan" href="#plan">
-        Ver el presupuesto
+      <a className="btn btn-rojo ir-al-plan" href="#plan">
+        <span>Ver el presupuesto</span>
       </a>
     </form>
   );

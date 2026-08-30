@@ -11,7 +11,8 @@ que encaja en el motor del coche y coge lo mejor que cabe, así que la lista mez
 gamas igual que un build real. La gama sale como resultado, ponderada por el dinero
 que se lleva cada pieza.
 
-Los precios son orientativos. Proyecto personal, sin relación con Volkswagen AG.
+Los precios son orientativos. Proyecto personal, sin relación con Volkswagen AG ni con
+Honda Motor Co.
 
 ## Estado
 
@@ -24,6 +25,7 @@ para poder cambiarlos más adelante.
 - [x] Fase 1.5 — Capa relacional por modelo (Obsidian), clasificador de gama y selector con suelo de gasto.
 - [x] Fase 2 — Interfaz React: formulario y vista de resultados (`src/ui/`, `npm run dev`).
 - [x] Fase 3a — Desglose en vivo de lo que pide el proyecto y exportación a PDF.
+- [x] Rediseño visual completo: sistema oscuro "racing atelier", portada nueva y visor 3D de un Honda Civic EK del 98 en la portada.
 - [ ] Fase 3b — Guardar builds y exportar a CSV.
 - [ ] Fase 4 — Empaquetado de escritorio (Tauri) y build web; conectar la descarga en la landing.
 - [ ] Más adelante — capa de embeddings para inferir compatibilidad en modelos con pocos datos.
@@ -59,6 +61,11 @@ src/
     iconos-pdf.ts      Iconos vectoriales por categoría para el documento.
   cli/
     plan.ts            CLI para probar sin interfaz.
+  landing/           Portada. Fuera de ui/ porque la portada es HTML plano, sin React.
+    civic.ts           Escena 3D: plato, luces, plato de reflejos e interaccion.
+    descarga.ts        Resuelve el instalador de la ultima release de GitHub.
+    modelo-ek.ts       Geometria del Civic EK, construida con primitivas (no hay .glb).
+    landing.css        Estilos de la portada.
 tests/               Vitest.
 ```
 
@@ -186,6 +193,47 @@ que merece la pena probar: para proponer el siguiente escalón, el selector pasa
 presupuestos por el motor y se queda con el primero que de verdad sube la gama del
 build. Si ninguno la sube, no hay escalón que ofrecer.
 
+### El sistema visual
+
+Base oscura, trama de carbono, hairlines en vez de sombras y un solo acento rojo
+(`#E3121C`) reservado al estado activo, al peligro y a los índices. Dos tipografías con
+papeles separados: Archivo para los titulares y JetBrains Mono para toda cifra, etiqueta o
+referencia técnica. Esa separación es lo que le da el aire de documentación de taller en
+vez de web de formulario.
+
+Los tokens están en `src/index.css` y los comparten las tres páginas. Las reglas completas
+viven en `.claude/skills/racing-atelier-style-guide/`, así que una pantalla nueva pedida a
+Claude Code sale con el mismo lenguaje sin explicárselo.
+
+No hay tema claro. El conmutador existió y se quitó: mantener dos paletas del sistema
+entero costaba más de lo que aportaba.
+
+### El visor 3D de la portada
+
+La portada abre con un Honda Civic EK de 1998 que se gira arrastrando, se acerca con la
+rueda y se puede repintar. No es un modelo descargado ni un perfil extruido: la carrocería
+es un **casco lofteado**. En `src/landing/modelo-ek.ts` el coche se describe por secciones
+transversales a lo largo del eje X, como se describe una carrocería en el taller de chapa,
+y la malla se cose entre sección y sección. De ahí salen los costados abombados, el morro
+que se estrecha, la caída del techo hacia dentro y unos pasos de rueda que son huecos de
+verdad: se ve el interior de la aleta por detrás del neumático.
+
+Las medidas son las de fábrica del EK de tres puertas: 4.180 × 1.695 × 1.355, batalla de
+2.620. Están en cuatro tablas al principio del archivo (línea de arriba, línea de abajo,
+anchura en el hombro y anchura en el techo); tocar un número de esas tablas cambia la forma
+del coche sin escribir una sola línea de malla. El reparto entre chapa, cristal y bajos
+también es una regla, no una lista: `materialDe()` decide qué es cada trozo del casco a
+partir de dónde cae, así que el parabrisas, las ventanillas y los montantes salen solos.
+
+Lo que hace que la chapa parezca chapa no son las luces, es el mapa de entorno: un plató de
+fotografía pintado en un canvas (dos pantallas de luz arriba, suelo oscuro, un rebote rojo
+lateral) pasado por `PMREMGenerator`. Sin él, el metal se ve como plástico mate.
+
+Vive en `src/landing/` y no en `src/ui/` a propósito: la portada es HTML plano sin React, y
+`three` solo lo carga quien abre la portada. Quien entra directo a `/herramienta.html` no se
+descarga nada de 3D. Si el navegador no tiene WebGL, queda una silueta de repuesto y el
+resto de la página sigue funcionando.
+
 ### PDF
 
 El botón "Descargar en PDF" del resultado arma un documento A4 con la cabecera del
@@ -204,6 +252,7 @@ El motor es determinista: ante la misma entrada devuelve siempre el mismo result
 ```bash
 npm install
 npm test                 # 80 tests
+python3 herramientas/generar-iconos.py   # regenera el icono de escritorio (necesita Pillow)
 npm run plan -- --listar-modelos
 npm run plan -- --modelo "Golf GTI Mk5" --presupuesto 4000 --objetivo drag
 npm run vault:ingest     # vault/ -> src/data/*.json

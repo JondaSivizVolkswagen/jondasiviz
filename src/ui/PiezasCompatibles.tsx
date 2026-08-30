@@ -12,17 +12,14 @@ import { euros } from "./format";
 export function PiezasCompatibles({ modelo }: { modelo: ModeloVW }) {
   const clasificador = useMemo(() => crearClasificadorReglas(), []);
   const compatibles = useMemo(() => piezasDeModelo(modelo), [modelo]);
-  const grupos = useMemo(
-    () => clasificador.agrupar(compatibles),
-    [clasificador, compatibles],
-  );
+  const grupos = useMemo(() => clasificador.agrupar(compatibles), [clasificador, compatibles]);
   const [gama, setGama] = useState<Gama>("baja");
   const lista = grupos[gama];
 
   return (
     <details className="panel">
       <summary className="panel-cab">
-        <span>Ver todas las piezas compatibles ({compatibles.length})</span>
+        <span>Catálogo compatible · {compatibles.length} piezas</span>
         <Icono nombre="chevron" className="panel-chevron" />
       </summary>
       <div className="panel-cuerpo">
@@ -54,7 +51,7 @@ export function PiezasCompatibles({ modelo }: { modelo: ModeloVW }) {
             ))}
           </ul>
         ) : (
-          <p className="aviso-linea">No hay piezas de gama {gama} para este motor.</p>
+          <p className="vacio">No hay piezas de gama {gama} para este motor.</p>
         )}
       </div>
     </details>

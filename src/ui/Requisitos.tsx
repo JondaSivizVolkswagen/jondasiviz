@@ -22,21 +22,21 @@ export function Requisitos({ plan }: { plan: Presupuesto }) {
         {esenciales.map((e) => (
           <li key={e.categoria} className={e.cubierta ? "entra" : "no-entra"}>
             <span className="requisitos-marca" aria-hidden="true">
-              {e.cubierta ? "✓" : "—"}
+              {e.cubierta ? "●" : "○"}
             </span>
             <span className="requisitos-nombre">{NOMBRE_CATEGORIA[e.categoria]}</span>
             <span className="requisitos-pieza">
               {e.pieza ? e.pieza.nombre : "nada en el catálogo todavía"}
             </span>
             <span className="requisitos-precio">
-              {e.pieza ? (e.minimo > 0 ? `desde ${euros(e.minimo)}` : "ya incluido") : "—"}
+              {e.pieza ? (e.minimo > 0 ? euros(e.minimo) : "incluido") : "—"}
             </span>
           </li>
         ))}
       </ul>
 
       <p className="requisitos-pie">
-        Entran {dentro.length} de {esenciales.length} categorías.
+        Entran {dentro.length} de {esenciales.length} categorías
       </p>
     </div>
   );

@@ -67,15 +67,21 @@ instalar nada:
 - **`app-designer`** — se invoca **siempre** que se pida crear, rediseñar o mejorar una
   pantalla, componente o interfaz. Aporta la guía de estilo y sobre ella se construye.
   No aplica a bugs, scripts o trabajo de motor.
-- **`apple-minimal-style-guide`** — el sistema visual fijo (color, tipografía, iconos,
+- **`racing-atelier-style-guide`** — el sistema visual fijo (color, tipografía, iconos,
   espaciado, movimiento). Es lo que hace que todo se vea igual de una pantalla a otra.
-  El acento de este proyecto es el rojo GTI: `#C0322E` en claro, `#E0605A` en oscuro.
+  Base oscura y un solo acento, el rojo `#E3121C`, reservado para el estado activo, el
+  peligro y los índices.
 - **`design-research`** — busca los patrones de UX adecuados al tipo de aplicación antes
   de construir. No decide nada visual, solo estructura y flujos.
 - **`humanized-writing`** — reglas para que ningún texto suene a IA.
 
-Los tokens de color, radios y sombras están en `src/index.css`. Se usan esos, no valores
-sueltos, para que el tema claro y el oscuro sigan cuadrando.
+Los tokens de color, radios y tipografía están en `src/index.css`. Se usan esos, no
+valores sueltos: es lo único que mantiene cuadradas la portada, el planner y el menú de
+escritorio, que son tres páginas distintas.
+
+La interfaz es solo oscura. Hubo un conmutador de tema claro/oscuro (`src/ui/theme.ts`) y
+se quitó con el rediseño: un taller con dos modos pierde carácter, y mantener la paleta
+clara del sistema entero costaba más de lo que aportaba.
 
 ## Comandos
 

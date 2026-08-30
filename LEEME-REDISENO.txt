@@ -1,0 +1,141 @@
+====================================================================
+ JONDASIVIZ - REDISEÑO VISUAL
+ Como meter este zip en tu repositorio sin perder nada
+====================================================================
+
+IMPORTANTE: NO BORRES TU CARPETA. Descomprime ENCIMA.
+
+Este zip NO trae tres cosas que si tienes en tu copia:
+
+  .git/          El historial. Se queda el tuyo.
+  vault/         Los datos en Obsidian. Fuente de verdad. Se queda el tuyo.
+  boveda-vw/     La boveda de consulta. Se queda la tuya.
+
+Las dos boveda se han dejado fuera a proposito. Al comprimir en
+Windows y descomprimir en Linux, los nombres con acentos se
+convirtieron en cosas como "Berlina el#U00e9ctrica.md". Si te los
+devolviera asi, git veria 110 archivos borrados y 110 nuevos, y tu
+boveda quedaria con los nombres rotos. Tus copias estan bien: se
+quedan como estan.
+
+Nada de lo que cambia el rediseño toca los datos, asi que no hace
+falta regenerar nada.
+
+
+--------------------------------------------------------------------
+ PASOS
+--------------------------------------------------------------------
+
+  1) Descomprime este zip encima de tu carpeta del proyecto y acepta
+     sobrescribir.
+
+  2) Borra a mano estos dos, que ya no existen:
+
+         src/ui/theme.ts
+         .claude/skills/apple-minimal-style-guide/
+
+     (Al descomprimir encima no desaparecen solos. Si los dejas,
+     theme.ts se queda sin usar y la guia vieja seguira diciendole a
+     Claude Code que construya en claro.)
+
+  3) Instala la dependencia nueva:
+
+         npm install
+
+     three ha pasado a ser dependencia real del proyecto.
+
+  4) Comprueba que todo sigue verde:
+
+         npm test
+         npm run typecheck
+         npm run lint
+
+  5) Arranca:
+
+         npm run dev
+
+     http://localhost:5173            la portada, con el Civic en 3D
+     http://localhost:5173/herramienta.html   el planner
+
+
+--------------------------------------------------------------------
+ QUE HA CAMBIADO
+--------------------------------------------------------------------
+
+TOCADO:
+
+  src/index.css              tokens y base del sistema visual nuevo
+  src/App.css                estilos del planner
+  src/App.tsx                layout de dos columnas, sin el toggle de tema
+  src/ui/Formulario.tsx      tres bloques y el medidor de presupuesto
+  src/ui/Elecciones.tsx      markup nuevo
+  src/ui/Requisitos.tsx      checklist
+  src/ui/Resultado.tsx       cabecera, telemetria y categorias numeradas
+  src/ui/PiezasCompatibles.tsx  panel del catalogo
+  index.html                 portada entera, nueva
+  menu.html                  menu de escritorio, mismo estilo
+  herramienta.html           solo las tipografias
+  package.json               + three, + @types/three
+  README.md, CLAUDE.md, EMPEZAR.txt, PROYECTO.md   textos al dia
+
+NUEVO:
+
+  src/landing/civic.ts       escena 3D
+  src/landing/descarga.ts    boton de descarga del instalador
+  src/landing/modelo-ek.ts   el Civic EK, casco lofteado por secciones
+  src/landing/landing.css    estilos de la portada
+  herramientas/generar-iconos.py   genera el icono de escritorio
+  .claude/skills/racing-atelier-style-guide/
+
+LOGO Y APP DE ESCRITORIO:
+
+  src-tauri/icons/*          los 15 PNG, el .ico y el .icns, regenerados
+  public/marca.svg           la marca nueva
+  public/favicon.svg         version simplificada, para que se lea a 16 px
+  public/logo-180.png        icono de pantalla de inicio en iOS
+  src-tauri/tauri.conf.json  ventana en oscuro y CSP abierta a las fuentes
+
+  El icono es la misma cuña roja inclinada que lleva la barra superior
+  de la web, con dos estelas detras. Se dibuja a 4096 y se reduce con
+  Lanczos, por eso a 32 px se sigue leyendo.
+
+  Para cambiarlo NO edites los PNG: edita el script y vuelve a
+  ejecutarlo.
+
+      pip install pillow
+      python3 herramientas/generar-iconos.py
+
+  La app de escritorio no necesita nada mas: carga las mismas paginas
+  que la web, asi que hereda el rediseño entero. Lo unico que habia que
+  tocar era la ventana (abria en blanco y daba un fogonazo antes de
+  pintar) y la CSP (bloqueaba las tipografias).
+
+FUERA:
+
+  src/ui/theme.ts            ya no hay tema claro
+  .claude/skills/apple-minimal-style-guide/
+
+
+SIN TOCAR: src/engine/, src/agents/, src/data/, src/ingest/,
+src/cli/, src/export/, tests/. El rediseño es solo capa de
+presentacion, asi que los 80 tests pasan sin cambiar una linea.
+
+
+--------------------------------------------------------------------
+ LO QUE QUEDA PENDIENTE
+--------------------------------------------------------------------
+
+  1) El PDF (src/export/pdf.ts) sigue generandose con la paleta
+     clara. Funciona, pero un documento blanco salido de una app
+     negra canta.
+
+  1b) Las tipografias vienen de Google Fonts. En la web da igual, pero
+     en la app de escritorio significa que sin internet caen a las del
+     sistema. Lo correcto es bajarse los .woff2 de Archivo y JetBrains
+     Mono a public/fuentes/, declararlas con @font-face en
+     src/index.css y volver a cerrar la CSP de tauri.conf.json.
+
+  2) La portada abre con un Honda y la herramienta planifica
+     Volkswagen. Es una decision, no un despiste: hay que decidir si
+     el Civic se queda como firma de la casa o si el hero deberia
+     llevar un Golf.

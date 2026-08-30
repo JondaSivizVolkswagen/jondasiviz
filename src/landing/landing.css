@@ -1,0 +1,532 @@
+/* =========================================================================
+   Portada. Los tokens, los botones y las utilidades vienen de index.css;
+   aqui solo lo que es de esta pagina: barra, hero con el visor 3D, secciones
+   y pie.
+   ========================================================================= */
+
+@import "../index.css";
+
+/* ================================ barra ================================= */
+
+.barra-sup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--barra);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  background: rgba(8, 9, 11, 0.72);
+  backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--linea);
+}
+
+.barra-sup .contenedor {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.marca i {
+  width: 8px;
+  height: 8px;
+  background: var(--rojo);
+  display: block;
+  transform: skewX(-18deg);
+  box-shadow: 0 0 14px rgba(227, 18, 28, 0.8);
+  flex: none;
+}
+
+.marca span {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  color: var(--tenue);
+}
+
+.nav-links {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--texto-2);
+}
+
+.nav-links a {
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.25s;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--rojo);
+  transition: width 0.35s var(--curva);
+}
+
+.nav-links a:hover {
+  color: var(--texto);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .nav-links a:not(.btn) {
+    display: none;
+  }
+}
+
+/* ================================= hero ================================= */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding-top: calc(var(--barra) + 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-fondo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(60% 50% at 72% 45%, rgba(227, 18, 28, 0.13), transparent 70%),
+    radial-gradient(45% 40% at 18% 20%, rgba(90, 120, 190, 0.08), transparent 70%);
+}
+
+/* Rejilla de taller, difuminada por los bordes con una mascara radial. */
+.hero-rejilla {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(var(--linea) 1px, transparent 1px),
+    linear-gradient(90deg, var(--linea) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(70% 60% at 50% 40%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(70% 60% at 50% 40%, #000 20%, transparent 75%);
+  opacity: 0.55;
+}
+
+.hero .contenedor {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-texto {
+  padding: 40px 0;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 5.6vw, 82px);
+  margin: 22px 0 0;
+  text-transform: uppercase;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--rojo);
+  display: block;
+}
+
+.hero-lead {
+  color: var(--texto-2);
+  font-size: 17px;
+  max-width: 46ch;
+  margin-top: 24px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  margin-top: 34px;
+  flex-wrap: wrap;
+}
+
+.hero-datos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--linea);
+  margin-top: 44px;
+}
+
+.hero-datos div {
+  padding: 18px 18px 18px 0;
+  border-right: 1px solid var(--linea);
+}
+
+.hero-datos div:last-child {
+  border-right: none;
+}
+
+.hero-datos b {
+  display: block;
+  font-family: var(--mono);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.hero-datos span {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+
+/* ============================== visor 3d ================================ */
+
+.escena {
+  position: relative;
+  aspect-ratio: 1 / 0.82;
+  min-height: 460px;
+}
+
+.escena canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+}
+
+.escena canvas:active {
+  cursor: grabbing;
+}
+
+.escena-hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 4px;
+}
+
+.hud-fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.hud-etiqueta {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tenue);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hud-etiqueta b {
+  color: var(--texto);
+  font-weight: 500;
+}
+
+.hud-punto {
+  width: 5px;
+  height: 5px;
+  background: var(--rojo);
+  border-radius: 50%;
+  animation: latido 2.2s infinite;
+}
+
+@keyframes latido {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(227, 18, 28, 0.5);
+  }
+  50% {
+    opacity: 0.45;
+    box-shadow: 0 0 0 6px rgba(227, 18, 28, 0);
+  }
+}
+
+.vistas {
+  display: flex;
+  gap: 14px;
+  pointer-events: auto;
+}
+
+.vistas a {
+  border-bottom: 1px solid var(--linea-fuerte);
+  transition: color 0.25s, border-color 0.25s;
+}
+
+.vistas a:hover {
+  color: var(--texto);
+  border-color: var(--rojo);
+}
+
+.pinturas {
+  display: flex;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.pintura {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--linea-fuerte);
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  transition: transform 0.3s var(--curva);
+}
+
+.pintura:hover {
+  transform: scale(1.14);
+}
+
+.pintura[aria-pressed="true"]::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 1px solid var(--texto);
+  border-radius: 50%;
+}
+
+/* Silueta de repuesto cuando no hay WebGL. */
+.escena-aviso {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-align: center;
+  padding: 24px;
+}
+
+.escena-aviso p {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--tenue);
+  max-width: 34ch;
+}
+
+.escena.sin-3d .escena-aviso {
+  display: flex;
+}
+
+.escena.sin-3d canvas,
+.escena.sin-3d .escena-hud {
+  display: none;
+}
+
+/* =============================== secciones ============================== */
+
+.seccion {
+  padding: 110px 0;
+  position: relative;
+}
+
+.seccion-cab {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--linea);
+  margin-bottom: 48px;
+}
+
+.seccion-cab h2 {
+  font-size: clamp(28px, 3.6vw, 46px);
+  text-transform: uppercase;
+  margin-top: 14px;
+}
+
+.seccion-cab p {
+  color: var(--texto-2);
+  max-width: 40ch;
+  font-size: 15px;
+}
+
+.manifiesto {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.tarjeta-m {
+  background: var(--panel);
+  border: 1px solid var(--linea);
+  padding: 34px 28px 38px;
+  transition: background 0.35s;
+}
+
+.tarjeta-m:hover {
+  background: var(--panel-2);
+}
+
+.tarjeta-m b {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--rojo);
+  display: block;
+  margin-bottom: 18px;
+}
+
+.tarjeta-m h3 {
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.tarjeta-m p {
+  font-size: 13.5px;
+  color: var(--tenue);
+  line-height: 1.6;
+}
+
+/* Bloque de descarga de escritorio. */
+.descarga {
+  background: var(--panel);
+  border: 1px solid var(--linea);
+  border-left: 2px solid var(--rojo);
+  padding: 34px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.descarga h3 {
+  font-size: 22px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.descarga p {
+  color: var(--tenue);
+  font-size: 13.5px;
+  max-width: 52ch;
+}
+
+/* Version, peso y nombre del archivo. Lo rellena descarga.ts cuando GitHub
+   contesta; mientras tanto no ocupa sitio. */
+.descarga-nota {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--apagado);
+  margin-top: 14px;
+}
+
+.descarga-nota:empty {
+  display: none;
+}
+
+.descarga-acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: none;
+}
+
+@media (max-width: 720px) {
+  .descarga-acciones {
+    width: 100%;
+  }
+
+  .descarga-acciones .btn {
+    justify-content: center;
+  }
+}
+
+/* ================================ pie =================================== */
+
+.pie {
+  border-top: 1px solid var(--linea);
+  padding: 46px 0 60px;
+}
+
+.pie .contenedor {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--apagado);
+}
+
+/* ============================== responsive ============================== */
+
+@media (max-width: 1080px) {
+  .hero .contenedor {
+    grid-template-columns: 1fr;
+  }
+
+  .escena {
+    min-height: 380px;
+    order: -1;
+  }
+
+  .manifiesto {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .seccion {
+    padding: 72px 0;
+  }
+
+  .seccion-cab {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .hero-datos {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-datos div:nth-child(2) {
+    border-right: none;
+  }
+}
