@@ -106,10 +106,11 @@ Esta bóveda es independiente de `vault/`, la fuente de datos del planner. El co
 `build-neo4j.mjs` deja dos archivos en `.generador/salida/`, que está en el
 `.gitignore` porque se regeneran en un segundo:
 
-- `boveda-vw.cypher` — restricciones de unicidad más 22 sentencias `UNWIND` con los datos
-  incrustados. Crea el grafo entero: 1.093 nodos y 2.887 relaciones.
+- `boveda-vw.cypher` — restricciones de unicidad más las sentencias `UNWIND` con los
+  datos incrustados. Crea el grafo entero.
 - `cargar-csv.cypher` — la misma carga, pero leyendo de los CSV. Sentencias cortas.
-- `csv/` — 22 archivos, uno por etiqueta y uno por tipo de relación.
+- `csv/` — un archivo por etiqueta y uno por tipo de relación.
+- `grafo.json` — volcado plano de nodos y enlaces, para el visor.
 - `ejemplos.cypher` — once consultas de ejemplo para pegar en Neo4j Browser.
 
 Las dos rutas de carga salen del mismo registro interno del generador, así que no pueden
@@ -177,6 +178,25 @@ Dos avisos sobre esta ruta:
 En el CSV todo es texto, así que el script convierte al vuelo lo que no lo es:
 `toInteger` para los años y `toBoolean` para `enProduccion` y `detallada`. Un `anioFin`
 vacío, que es como se marcan los modelos aún en producción, entra como `null`.
+
+## Ver el grafo entero sin Neo4j
+
+El visor de Neo4j tiene un tope de nodos y, aunque lo subas, se atraganta dibujando
+5.900 aristas. Para verlo completo hay un tercer exportador:
+
+```bash
+node .generador/build-neo4j.mjs && node .generador/build-grafo.mjs
+```
+
+Deja `salida/grafo.html`: una página con los datos dentro, sin servidor ni base de
+datos. Dibuja sobre canvas, así que aguanta el grafo entero, y trae filtros por
+etiqueta, búsqueda y una ficha por nodo con sus conexiones agrupadas y con los enlaces
+a las tiendas.
+
+Usa los mismos tokens de color que `src/index.css`, incluido el rojo GTI, para que no
+parezca de otro proyecto. Los catorce colores de etiqueta están a media saturación a
+propósito: así el mismo valor se lee sobre el fondo claro y sobre el oscuro sin
+duplicar la paleta.
 
 ### Modelo del grafo
 

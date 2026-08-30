@@ -474,6 +474,23 @@ mkdirSync(SALIDA, { recursive: true });
 writeFileSync(join(SALIDA, "boveda-vw.cypher"), `${cabecera}\n\n${bloques.join("\n\n")}\n`, "utf8");
 writeFileSync(join(SALIDA, "ejemplos.cypher"), ejemplos, "utf8");
 
+// Volcado plano del mismo registro, para el visor de grafo. Neo4j no hace falta para
+// mirarlo, así que este archivo es lo que consume build-grafo.mjs.
+writeFileSync(join(SALIDA, "grafo.json"), JSON.stringify({
+  generado: HOY,
+  nodos: REGISTRO_NODOS.flatMap(({ etiqueta, filas }) =>
+    filas.map((f) => ({ id: `${etiqueta}::${f.nombre}`, etiqueta, ...f })),
+  ),
+  enlaces: REGISTRO_RELACIONES.flatMap(({ etiqueta, desde, hasta, pares }) =>
+    pares.map(([a, b, p]) => ({
+      desde: `${desde}::${a}`,
+      hasta: `${hasta}::${b}`,
+      tipo: etiqueta,
+      ...(p ?? {}),
+    })),
+  ),
+}), "utf8");
+
 const dirCsv = join(SALIDA, "csv");
 mkdirSync(dirCsv, { recursive: true });
 for (const [nombre, contenido] of archivos) writeFileSync(join(dirCsv, nombre), contenido, "utf8");
