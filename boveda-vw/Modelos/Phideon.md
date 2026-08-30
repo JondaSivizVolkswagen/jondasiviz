@@ -62,12 +62,12 @@ Sin accesorios originales recogidos todavía para esta generación.
 
 **admision**
 
-- [[Filtro de aire de altas prestaciones (BMC - Pipercross)]] · 65,00 € orientativos
+- [[Filtro de aire de altas prestaciones (BMC - Pipercross)]] · 67,74 € en [[GG2 Fahrzeugtechnik]] · homologada en [[Alemania]], [[España]]
 - [[Intercooler barra y placa Stage 3 (Airtec - do88) + hard pipes]] · 800,00 € orientativos
 - [[Intercooler frontal (Forge - Wagner Competition)]] · 949,00 € en [[Wagner Tuning]] · homologada en [[Alemania]]
 - [[Kit de admisión cerrada (Forge - Neuspeed P-Flo)]] · 250,00 € orientativos
 - [[Sistema de recogida de aceite (catch can) Forge]] · 544,00 € en [[BAR-TEK Tuning]] · homologada en [[Alemania]]
-- [[Válvula de descarga reforzada (Forge DV+)]] · 100,00 € orientativos
+- [[Válvula de descarga reforzada (Forge DV+)]] · 123,70 € en [[BBM Tuningshop]]
 
 **escape**
 
@@ -85,7 +85,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 
 **transmision**
 
-- [[Autoblocante de discos - Wavetrac con precarga ajustable]] · 1250,00 € orientativos
+- [[Autoblocante de discos - Wavetrac con precarga ajustable]] · 1499,00 € en [[EM-Racing]] · homologada en [[Alemania]], [[España]]
 - [[Diferencial autoblocante ATB (Quaife - Peloquin)]] · 1249,00 € en [[Boost-Parts]] · homologada en [[Alemania]], [[España]]
 - [[Embrague de competición + volante aligerado]] · 1179,00 € en [[Boost-Parts]]
 - [[Embrague reforzado Stage 2 + volante rígido (Sachs - Spec)]] · 620,00 € orientativos

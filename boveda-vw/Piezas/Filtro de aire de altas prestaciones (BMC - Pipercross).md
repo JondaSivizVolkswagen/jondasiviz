@@ -6,11 +6,12 @@ oficial: no
 gama: "baja"
 referencia: null
 precio_orientativo: 65
-ofertas: 0
-precio_verificado: no
-homologacion_verificada: no
+ofertas: 1
+precio_verificado: sí
+homologacion_verificada: sí
 homologada_en:
-
+  - "Alemania"
+  - "España"
 no_homologada_en:
 
 ambito: "motor"
@@ -29,11 +30,13 @@ Pieza de mercado no oficial. Gama baja. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [BMC Sportluftfilter FB756/20 para Golf 8 GTI y GTI Clubsport](https://www.gg2.shop/products/bmc-sportluftfilter-fb756-20-fur-vw-golf-8-gti-gti-clubsport) · [[GG2 Fahrzeugtechnik]] · **67,74 €** · referencia FB756/20 · consultado el 2026-08-30
 
 ## Homologación
 
-Sin verificar. No se ha comprobado en qué países es legalizable, así que aquí no pone nada.
+**Homologada en:** [[Alemania]], [[España]]
+
+Filtro de recambio que va en la caja original, sin modificar el circuito de admisión. No necesita trámite en ninguno de los dos países.
 
 ## Modelos compatibles
 

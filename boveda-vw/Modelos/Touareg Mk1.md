@@ -71,7 +71,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 
 **admision**
 
-- [[Filtro de aire de altas prestaciones (BMC - Pipercross)]] · 65,00 € orientativos
+- [[Filtro de aire de altas prestaciones (BMC - Pipercross)]] · 67,74 € en [[GG2 Fahrzeugtechnik]] · homologada en [[Alemania]], [[España]]
 
 **escape**
 

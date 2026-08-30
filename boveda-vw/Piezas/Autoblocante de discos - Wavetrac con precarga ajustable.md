@@ -6,11 +6,12 @@ oficial: no
 gama: "alta"
 referencia: null
 precio_orientativo: 1250
-ofertas: 0
-precio_verificado: no
-homologacion_verificada: no
+ofertas: 1
+precio_verificado: sí
+homologacion_verificada: sí
 homologada_en:
-
+  - "Alemania"
+  - "España"
 no_homologada_en:
 
 ambito: "motor"
@@ -27,11 +28,13 @@ Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [Wavetrac autoblocante para cambio 02Q de 6 marchas, tracción delantera](https://www.em-racing.de/Wavetrac-Differentialsperre-10309175WK-VW-02Q-2WD-Getriebe) · [[EM-Racing]] · **1499,00 €** · referencia 10.309.175WK · consultado el 2026-08-30
 
 ## Homologación
 
-Sin verificar. No se ha comprobado en qué países es legalizable, así que aquí no pone nada.
+**Homologada en:** [[Alemania]], [[España]]
+
+Como el ATB: es una pieza interna del cambio y no toca nada de lo que mira una inspección.
 
 ## Modelos compatibles
 

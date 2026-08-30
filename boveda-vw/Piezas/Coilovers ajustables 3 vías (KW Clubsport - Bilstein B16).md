@@ -6,11 +6,11 @@ oficial: no
 gama: "alta"
 referencia: null
 precio_orientativo: 2400
-ofertas: 0
-precio_verificado: no
-homologacion_verificada: no
+ofertas: 1
+precio_verificado: sí
+homologacion_verificada: sí
 homologada_en:
-
+  - "Alemania"
 no_homologada_en:
 
 ambito: "chasis"
@@ -28,11 +28,13 @@ Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [KW V4 Clubsport para Golf 7 GTI y R](https://www.cdt-shop.de/produkt/kw-v4-clubsport-gewindefahrwerk-vw-golf-7-gti-r/) · [[CDT-Shop]] · **4867,68 €** · referencia 3978020N-01 · consultado el 2026-08-30
 
 ## Homologación
 
-Sin verificar. No se ha comprobado en qué países es legalizable, así que aquí no pone nada.
+**Homologada en:** [[Alemania]]
+
+El KW V4 Clubsport se vende con Teilegutachten, así que en Alemania hay que pasar por el TÜV para inscribirlo. En España, reforma 8.51 con proyecto.
 
 ## Modelos compatibles
 

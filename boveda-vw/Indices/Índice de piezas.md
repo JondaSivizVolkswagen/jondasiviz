@@ -1,24 +1,24 @@
 ---
 tipo: indice
 piezas: 64
-con_precio_verificado: 10
-con_homologacion_verificada: 13
+con_precio_verificado: 16
+con_homologacion_verificada: 17
 ---
 
 # Índice de piezas
 
-10 de 64 piezas tienen precio y enlace comprobados uno a uno.
+16 de 64 piezas tienen precio y enlace comprobados uno a uno.
 El resto lleva el precio orientativo del catálogo del planner y ninguna tienda asociada.
 
 ## No oficiales · admision
 
-- [[Filtro de aire de altas prestaciones (BMC - Pipercross)]] · 65,00 € orientativo · homologación sin verificar
+- [[Filtro de aire de altas prestaciones (BMC - Pipercross)]] · 67,74 € verificado · homologada en Alemania, España
 - [[Intercooler barra y placa Stage 3 (Airtec - do88) + hard pipes]] · 800,00 € orientativo · homologación sin verificar
 - [[Intercooler frontal (Forge - Wagner Competition)]] · 949,00 € verificado · homologada en Alemania
 - [[Kit de admisión cerrada (Forge - Neuspeed P-Flo)]] · 250,00 € orientativo · homologación sin verificar
 - [[Sistema de recogida de aceite (catch can) Forge]] · 544,00 € verificado · homologada en Alemania
 - [[Tubo turbo inlet de alto flujo (Forge)]] · 130,00 € orientativo · homologación sin verificar
-- [[Válvula de descarga reforzada (Forge DV+)]] · 100,00 € orientativo · homologación sin verificar
+- [[Válvula de descarga reforzada (Forge DV+)]] · 123,70 € verificado · homologación sin verificar
 
 ## No oficiales · direccion
 
@@ -47,7 +47,7 @@ El resto lleva el precio orientativo del catálogo del planner y ninguna tienda 
 - [[Discos de dos piezas + pastillas racing eje delantero (DBA - Brembo)]] · 400,00 € orientativo · homologación sin verificar
 - [[Discos y pastillas traseras de altas prestaciones]] · 190,00 € orientativo · homologación sin verificar
 - [[Kit big brake 4-6 pistones 330-355 mm (Stoptech - HISPEC)]] · 1350,00 € orientativo · homologación sin verificar
-- [[Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1]] · 180,00 € orientativo · homologación sin verificar
+- [[Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1]] · 203,00 € verificado · homologación sin verificar
 
 ## No oficiales · gestion
 
@@ -76,9 +76,9 @@ El resto lleva el precio orientativo del catálogo del planner y ninguna tienda 
 ## No oficiales · suspension
 
 - [[Barra estabilizadora trasera regulable (Whiteline - H&R)]] · 190,00 € orientativo · homologación sin verificar
-- [[Brazos ajustables + silentblocks de poliuretano (Powerflex - SuperPro)]] · 400,00 € orientativo · homologación sin verificar
+- [[Brazos ajustables + silentblocks de poliuretano (Powerflex - SuperPro)]] · 389,99 € verificado · homologación sin verificar
 - [[Casquillos rígidos de subchasis y eje trasero (poliuretano-aluminio)]] · 260,00 € orientativo · homologación sin verificar
-- [[Coilovers ajustables 3 vías (KW Clubsport - Bilstein B16)]] · 2400,00 € orientativo · homologación sin verificar
+- [[Coilovers ajustables 3 vías (KW Clubsport - Bilstein B16)]] · 4867,68 € verificado · homologada en Alemania
 - [[Coilovers de entrada (FK - Raceland - TA Technix)]] · 330,00 € orientativo · homologación sin verificar
 - [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]] · 1130,94 € verificado · homologada en Alemania, España
 - [[Inserto de soporte de motor trasero (dogbone) 034 - VF]] · 65,00 € orientativo · homologación sin verificar
@@ -87,7 +87,7 @@ El resto lleva el precio orientativo del catálogo del planner y ninguna tienda 
 
 ## No oficiales · transmision
 
-- [[Autoblocante de discos - Wavetrac con precarga ajustable]] · 1250,00 € orientativo · homologación sin verificar
+- [[Autoblocante de discos - Wavetrac con precarga ajustable]] · 1499,00 € verificado · homologada en Alemania, España
 - [[Diferencial autoblocante ATB (Quaife - Peloquin)]] · 1249,00 € verificado · homologada en Alemania, España
 - [[Embrague de competición + volante aligerado]] · 1179,00 € verificado · homologación sin verificar
 - [[Embrague reforzado Stage 2 + volante rígido (Sachs - Spec)]] · 620,00 € orientativo · homologación sin verificar

@@ -6,8 +6,8 @@ oficial: no
 gama: "baja"
 referencia: null
 precio_orientativo: 100
-ofertas: 0
-precio_verificado: no
+ofertas: 1
+precio_verificado: sí
 homologacion_verificada: no
 homologada_en:
 
@@ -27,7 +27,7 @@ Pieza de mercado no oficial. Gama baja. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [GFB DV+ T9351, válvula de descarga para 2.0 TFSI](https://bbm-tuningshop.de/GFB-DV-20TFSI-T9351-Schubumluftventil) · [[BBM Tuningshop]] · **123,70 €** · referencia SW10005 · consultado el 2026-08-30
 
 ## Homologación
 

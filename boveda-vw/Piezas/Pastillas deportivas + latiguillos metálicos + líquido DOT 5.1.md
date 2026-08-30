@@ -6,9 +6,9 @@ oficial: no
 gama: "baja"
 referencia: null
 precio_orientativo: 180
-ofertas: 0
-precio_verificado: no
-homologacion_verificada: no
+ofertas: 1
+precio_verificado: sí
+homologacion_verificada: sí
 homologada_en:
 
 no_homologada_en:
@@ -29,11 +29,11 @@ Pieza de mercado no oficial. Gama baja. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [Ferodo DS2500 eje delantero, Golf 7 GTI, Clubsport, R y TCR desde 2016](https://www.ezt-autoteile.de/bremse/ferodo-racing-bremsbelag/vw/golf-7/ds2500/210372/ferodo-ds2500-bremsbelaege-fuer-vw-golf-7-5g1-2.0-gti-inkl.-clubsport/r/tcr-ab-bj.-2016-va-fcp4425h) · [[EZT Autoteile]] · **203,00 €** · referencia FCP4425H · consultado el 2026-08-30
 
 ## Homologación
 
-Sin verificar. No se ha comprobado en qué países es legalizable, así que aquí no pone nada.
+Depende de la referencia, no del tipo de pieza. Las Ferodo DS2500 se venden 'ohne Gutachten, nur für Rennsport': solo circuito. Las DS Performance del mismo fabricante y para el mismo coche sí llevan ABE y valen para calle. Mira la referencia concreta antes de comprar.
 
 ## Modelos compatibles
 

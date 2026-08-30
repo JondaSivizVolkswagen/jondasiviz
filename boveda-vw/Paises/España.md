@@ -1,7 +1,7 @@
 ---
 tipo: pais
 nombre: "España"
-piezas_homologadas: 4
+piezas_homologadas: 6
 piezas_no_homologadas: 6
 ---
 
@@ -12,8 +12,10 @@ producto y el régimen de reformas vigente.
 
 ## Homologadas
 
+- [[Autoblocante de discos - Wavetrac con precarga ajustable]]
 - [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]]
 - [[Diferencial autoblocante ATB (Quaife - Peloquin)]]
+- [[Filtro de aire de altas prestaciones (BMC - Pipercross)]]
 - [[Línea cat-back inox 76 mm (Milltek - Scorpion)]]
 - [[Muelles de rebaje (Eibach Pro-Kit - H&R)]]
 

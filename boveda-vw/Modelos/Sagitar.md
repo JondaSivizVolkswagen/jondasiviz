@@ -67,12 +67,12 @@ Sin accesorios originales recogidos todavía para esta generación.
 
 **admision**
 
-- [[Filtro de aire de altas prestaciones (BMC - Pipercross)]] · 65,00 € orientativos
+- [[Filtro de aire de altas prestaciones (BMC - Pipercross)]] · 67,74 € en [[GG2 Fahrzeugtechnik]] · homologada en [[Alemania]], [[España]]
 - [[Intercooler barra y placa Stage 3 (Airtec - do88) + hard pipes]] · 800,00 € orientativos
 - [[Intercooler frontal (Forge - Wagner Competition)]] · 949,00 € en [[Wagner Tuning]] · homologada en [[Alemania]]
 - [[Kit de admisión cerrada (Forge - Neuspeed P-Flo)]] · 250,00 € orientativos
 - [[Sistema de recogida de aceite (catch can) Forge]] · 544,00 € en [[BAR-TEK Tuning]] · homologada en [[Alemania]]
-- [[Válvula de descarga reforzada (Forge DV+)]] · 100,00 € orientativos
+- [[Válvula de descarga reforzada (Forge DV+)]] · 123,70 € en [[BBM Tuningshop]]
 
 **direccion**
 
@@ -101,7 +101,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 - [[Discos de dos piezas + pastillas racing eje delantero (DBA - Brembo)]] · 400,00 € orientativos
 - [[Discos y pastillas traseras de altas prestaciones]] · 190,00 € orientativos
 - [[Kit big brake 4-6 pistones 330-355 mm (Stoptech - HISPEC)]] · 1350,00 € orientativos
-- [[Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1]] · 180,00 € orientativos
+- [[Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1]] · 203,00 € en [[EZT Autoteile]]
 
 **gestion**
 
@@ -129,9 +129,9 @@ Sin accesorios originales recogidos todavía para esta generación.
 **suspension**
 
 - [[Barra estabilizadora trasera regulable (Whiteline - H&R)]] · 190,00 € orientativos
-- [[Brazos ajustables + silentblocks de poliuretano (Powerflex - SuperPro)]] · 400,00 € orientativos
+- [[Brazos ajustables + silentblocks de poliuretano (Powerflex - SuperPro)]] · 389,99 € en [[Powerflex Shop]]
 - [[Casquillos rígidos de subchasis y eje trasero (poliuretano-aluminio)]] · 260,00 € orientativos
-- [[Coilovers ajustables 3 vías (KW Clubsport - Bilstein B16)]] · 2400,00 € orientativos
+- [[Coilovers ajustables 3 vías (KW Clubsport - Bilstein B16)]] · 4867,68 € en [[CDT-Shop]] · homologada en [[Alemania]]
 - [[Coilovers de entrada (FK - Raceland - TA Technix)]] · 330,00 € orientativos
 - [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]] · 1130,94 € en [[MK Fahrwerkstechnik]] · homologada en [[Alemania]], [[España]]
 - [[Inserto de soporte de motor trasero (dogbone) 034 - VF]] · 65,00 € orientativos
@@ -140,7 +140,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 
 **transmision**
 
-- [[Autoblocante de discos - Wavetrac con precarga ajustable]] · 1250,00 € orientativos
+- [[Autoblocante de discos - Wavetrac con precarga ajustable]] · 1499,00 € en [[EM-Racing]] · homologada en [[Alemania]], [[España]]
 - [[Diferencial autoblocante ATB (Quaife - Peloquin)]] · 1249,00 € en [[Boost-Parts]] · homologada en [[Alemania]], [[España]]
 - [[Embrague de competición + volante aligerado]] · 1179,00 € en [[Boost-Parts]]
 - [[Embrague reforzado Stage 2 + volante rígido (Sachs - Spec)]] · 620,00 € orientativos

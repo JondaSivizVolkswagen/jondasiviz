@@ -1,6 +1,6 @@
 ---
 tipo: portada
-generado: 2026-08-29
+generado: 2026-08-30
 modelos: 92
 familias: 56
 ediciones: 198

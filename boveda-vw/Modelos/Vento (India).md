@@ -69,7 +69,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 
 **admision**
 
-- [[Filtro de aire de altas prestaciones (BMC - Pipercross)]] · 65,00 € orientativos
+- [[Filtro de aire de altas prestaciones (BMC - Pipercross)]] · 67,74 € en [[GG2 Fahrzeugtechnik]] · homologada en [[Alemania]], [[España]]
 
 **direccion**
 
@@ -89,7 +89,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 
 - [[Discos de dos piezas + pastillas racing eje delantero (DBA - Brembo)]] · 400,00 € orientativos
 - [[Discos y pastillas traseras de altas prestaciones]] · 190,00 € orientativos
-- [[Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1]] · 180,00 € orientativos
+- [[Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1]] · 203,00 € en [[EZT Autoteile]]
 
 **gestion**
 
@@ -115,7 +115,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 **suspension**
 
 - [[Barra estabilizadora trasera regulable (Whiteline - H&R)]] · 190,00 € orientativos
-- [[Brazos ajustables + silentblocks de poliuretano (Powerflex - SuperPro)]] · 400,00 € orientativos
+- [[Brazos ajustables + silentblocks de poliuretano (Powerflex - SuperPro)]] · 389,99 € en [[Powerflex Shop]]
 - [[Casquillos rígidos de subchasis y eje trasero (poliuretano-aluminio)]] · 260,00 € orientativos
 - [[Coilovers de entrada (FK - Raceland - TA Technix)]] · 330,00 € orientativos
 - [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]] · 1130,94 € en [[MK Fahrwerkstechnik]] · homologada en [[Alemania]], [[España]]

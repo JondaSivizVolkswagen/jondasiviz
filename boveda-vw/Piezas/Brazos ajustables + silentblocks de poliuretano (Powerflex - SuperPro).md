@@ -6,8 +6,8 @@ oficial: no
 gama: "media"
 referencia: null
 precio_orientativo: 400
-ofertas: 0
-precio_verificado: no
+ofertas: 1
+precio_verificado: sí
 homologacion_verificada: no
 homologada_en:
 
@@ -29,7 +29,7 @@ Pieza de mercado no oficial. Gama media. Precio orientativo del catálogo: entre
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [Juego de brazos con silentblocks de poliuretano Powerflex para Golf VII GTI y R](https://www.powerflex-shop.com/?a=139577&lang=eng) · [[Powerflex Shop]] · **389,99 €** · consultado el 2026-08-30
 
 ## Homologación
 
