@@ -6,13 +6,13 @@ oficial: no
 gama: "alta"
 referencia: null
 precio_orientativo: 800
-ofertas: 0
-precio_verificado: no
-homologacion_verificada: no
+ofertas: 1
+precio_verificado: sí
+homologacion_verificada: sí
 homologada_en:
 
 no_homologada_en:
-
+  - "Alemania"
 ambito: "motor"
 modelos_compatibles: 42
 motores:
@@ -26,11 +26,13 @@ Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [Airtec intercooler de 60 mm para Golf 7 R](https://rh-renntechnik.de/produkt/vw-golf-7-r-airtec-ladeluftkuehler/) · [[RH Renntechnik]] · **749,90 €** · referencia RH-VW213S-1 · consultado el 2026-08-30
 
 ## Homologación
 
-Sin verificar. No se ha comprobado en qué países es legalizable, así que aquí no pone nada.
+**No homologada en:** [[Alemania]]
+
+El Airtec de esta gama se vende sin ningún certificado: la ficha dice literalmente 'no street approval certification'. Sin papel no hay forma de inscribirlo en Alemania ni de legalizarlo en España, al contrario que el Wagner de la gama media, que sí trae Teilegutachten.
 
 ## Modelos compatibles
 

@@ -6,8 +6,8 @@ oficial: no
 gama: "media"
 referencia: null
 precio_orientativo: 430
-ofertas: 0
-precio_verificado: no
+ofertas: 1
+precio_verificado: sí
 homologacion_verificada: no
 homologada_en:
 
@@ -27,7 +27,7 @@ Pieza de mercado no oficial. Gama media. Precio orientativo del catálogo: entre
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [BAR-TEK bomba de alta presión de pistón 11,65 mm para EA888 Gen.3](https://www.bar-tek.com/20l-tsi-ea888-gen3-upgrade-high-pressure-pump) · [[BAR-TEK Tuning]] · **699,98 €** · referencia 21tf199 · consultado el 2026-08-30
 
 ## Homologación
 

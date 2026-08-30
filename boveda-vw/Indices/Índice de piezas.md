@@ -1,23 +1,23 @@
 ---
 tipo: indice
 piezas: 64
-con_precio_verificado: 16
-con_homologacion_verificada: 17
+con_precio_verificado: 23
+con_homologacion_verificada: 19
 ---
 
 # Índice de piezas
 
-16 de 64 piezas tienen precio y enlace comprobados uno a uno.
+23 de 64 piezas tienen precio y enlace comprobados uno a uno.
 El resto lleva el precio orientativo del catálogo del planner y ninguna tienda asociada.
 
 ## No oficiales · admision
 
 - [[Filtro de aire de altas prestaciones (BMC - Pipercross)]] · 67,74 € verificado · homologada en Alemania, España
-- [[Intercooler barra y placa Stage 3 (Airtec - do88) + hard pipes]] · 800,00 € orientativo · homologación sin verificar
+- [[Intercooler barra y placa Stage 3 (Airtec - do88) + hard pipes]] · 749,90 € verificado · no homologada en Alemania
 - [[Intercooler frontal (Forge - Wagner Competition)]] · 949,00 € verificado · homologada en Alemania
-- [[Kit de admisión cerrada (Forge - Neuspeed P-Flo)]] · 250,00 € orientativo · homologación sin verificar
+- [[Kit de admisión cerrada (Forge - Neuspeed P-Flo)]] · 899,95 € verificado · homologación sin verificar
 - [[Sistema de recogida de aceite (catch can) Forge]] · 544,00 € verificado · homologada en Alemania
-- [[Tubo turbo inlet de alto flujo (Forge)]] · 130,00 € orientativo · homologación sin verificar
+- [[Tubo turbo inlet de alto flujo (Forge)]] · 114,60 € verificado · homologación sin verificar
 - [[Válvula de descarga reforzada (Forge DV+)]] · 123,70 € verificado · homologación sin verificar
 
 ## No oficiales · direccion
@@ -31,7 +31,7 @@ El resto lleva el precio orientativo del catálogo del planner y ninguna tienda 
 - [[Downpipe 3- descatalizado o con cat deportivo (AWE - Milltek)]] · 1010,74 € verificado · no homologada en Alemania, España
 - [[Downpipe descatalizado genérico]] · 200,00 € orientativo · no homologada en Alemania, España
 - [[Escape turbo-back completo inox (Milltek Race)]] · 1000,00 € orientativo · no homologada en Alemania, España
-- [[Línea cat-back inox 76 mm (Milltek - Scorpion)]] · 620,00 € orientativo · homologada en Alemania, España
+- [[Línea cat-back inox 76 mm (Milltek - Scorpion)]] · 1465,95 € verificado · homologada en Alemania, España
 
 ## No oficiales · estetica
 
@@ -60,7 +60,7 @@ El resto lleva el precio orientativo del catálogo del planner y ninguna tienda 
 ## No oficiales · ruedas
 
 - [[Juego de neumáticos semi-slick (Federal 595RS-RR - Nankang AR-1)]] · 500,00 € orientativo · homologación sin verificar
-- [[Llantas forjadas 18- (BBS CH-R - OZ Ultraleggera)]] · 1900,00 € orientativo · homologación sin verificar
+- [[Llantas forjadas 18- (BBS CH-R - OZ Ultraleggera)]] · 540,21 € verificado · homologada en Alemania, España
 - [[Llantas ligeras 17- para circuito (Team Dynamics Pro Race)]] · 620,00 € orientativo · homologación sin verificar
 - [[Llantas réplica 18- + neumáticos de calle (tipo BBS LM)]] · 700,00 € orientativo · homologación sin verificar
 - [[Set de llantas y neumáticos sacrificables para drift]] · 450,00 € orientativo · homologación sin verificar
@@ -81,7 +81,7 @@ El resto lleva el precio orientativo del catálogo del planner y ninguna tienda 
 - [[Coilovers ajustables 3 vías (KW Clubsport - Bilstein B16)]] · 4867,68 € verificado · homologada en Alemania
 - [[Coilovers de entrada (FK - Raceland - TA Technix)]] · 330,00 € orientativo · homologación sin verificar
 - [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]] · 1130,94 € verificado · homologada en Alemania, España
-- [[Inserto de soporte de motor trasero (dogbone) 034 - VF]] · 65,00 € orientativo · homologación sin verificar
+- [[Inserto de soporte de motor trasero (dogbone) 034 - VF]] · 70,99 € verificado · homologación sin verificar
 - [[Kit de geometría completo con rótulas uniball]] · 900,00 € orientativo · homologación sin verificar
 - [[Muelles de rebaje (Eibach Pro-Kit - H&R)]] · 187,95 € verificado · homologada en Alemania, España
 
@@ -99,7 +99,7 @@ El resto lleva el precio orientativo del catálogo del planner y ninguna tienda 
 - [[Inyectores de mayor caudal + bomba de gasolina en depósito]] · 500,00 € orientativo · homologación sin verificar
 - [[Kit big turbo top-mount (Garrett GTX - Precision)]] · 4200,00 € orientativo · homologación sin verificar
 - [[Kit de alimentación Stage 3 (rieles, inyectores 1000cc, bomba externa)]] · 950,00 € orientativo · homologación sin verificar
-- [[Kit de bomba de alta presión reforzada (Autotech - APR)]] · 430,00 € orientativo · homologación sin verificar
+- [[Kit de bomba de alta presión reforzada (Autotech - APR)]] · 699,98 € verificado · homologación sin verificar
 - [[Turbo híbrido K04-064 (clásico del Mk5 GTI)]] · 1550,00 € orientativo · homologación sin verificar
 
 ## Oficiales · estetica

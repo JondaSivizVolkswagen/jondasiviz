@@ -6,8 +6,8 @@ oficial: no
 gama: "baja"
 referencia: null
 precio_orientativo: 65
-ofertas: 0
-precio_verificado: no
+ofertas: 1
+precio_verificado: sí
 homologacion_verificada: no
 homologada_en:
 
@@ -28,7 +28,7 @@ Pieza de mercado no oficial. Gama baja. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [Forge inserto de soporte de motor trasero para 2.0 TSI EA888 Gen.3 MQB](https://www.bar-tek.com/forge-dogbone-insert-2-0-l-tsi-ea888-mqb) · [[BAR-TEK Tuning]] · **70,99 €** · referencia FMAM-B.2 · consultado el 2026-08-30
 
 ## Homologación
 

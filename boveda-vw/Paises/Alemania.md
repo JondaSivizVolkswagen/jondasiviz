@@ -1,8 +1,8 @@
 ---
 tipo: pais
 nombre: "Alemania"
-piezas_homologadas: 9
-piezas_no_homologadas: 5
+piezas_homologadas: 10
+piezas_no_homologadas: 6
 ---
 
 # Alemania
@@ -18,6 +18,7 @@ producto y el régimen de reformas vigente.
 - [[Diferencial autoblocante ATB (Quaife - Peloquin)]]
 - [[Filtro de aire de altas prestaciones (BMC - Pipercross)]]
 - [[Intercooler frontal (Forge - Wagner Competition)]]
+- [[Llantas forjadas 18- (BBS CH-R - OZ Ultraleggera)]]
 - [[Línea cat-back inox 76 mm (Milltek - Scorpion)]]
 - [[Muelles de rebaje (Eibach Pro-Kit - H&R)]]
 - [[Sistema de recogida de aceite (catch can) Forge]]
@@ -29,6 +30,7 @@ producto y el régimen de reformas vigente.
 - [[Eje trasero rígido soldado + refuerzos (conversión drift FWD)]]
 - [[Escape turbo-back completo inox (Milltek Race)]]
 - [[Gestión standalone (Syvecs - Emerald)]]
+- [[Intercooler barra y placa Stage 3 (Airtec - do88) + hard pipes]]
 
 > Comprobado pieza a pieza y solo donde había fuente. Una pieza sin aparecer en ninguna
 > de las dos listas no es que sea legal: es que no está verificada.

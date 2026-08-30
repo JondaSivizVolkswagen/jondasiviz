@@ -6,8 +6,8 @@ oficial: no
 gama: "media"
 referencia: null
 precio_orientativo: 130
-ofertas: 0
-precio_verificado: no
+ofertas: 1
+precio_verificado: sí
 homologacion_verificada: no
 homologada_en:
 
@@ -25,7 +25,7 @@ Pieza de mercado no oficial. Gama media. Precio orientativo del catálogo: entre
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [Forge tubo de admisión al turbo para Golf 7 GTI y R](https://www.bar-tek.com/2-0t-vw-golf-7-gti-audi-a3-s3-induction-hose-forge) · [[BAR-TEK Tuning]] · **114,60 €** · referencia fmmk7indh · consultado el 2026-08-30
 
 ## Homologación
 

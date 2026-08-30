@@ -63,9 +63,9 @@ Sin accesorios originales recogidos todavía para esta generación.
 **admision**
 
 - [[Filtro de aire de altas prestaciones (BMC - Pipercross)]] · 67,74 € en [[GG2 Fahrzeugtechnik]] · homologada en [[Alemania]], [[España]]
-- [[Intercooler barra y placa Stage 3 (Airtec - do88) + hard pipes]] · 800,00 € orientativos
+- [[Intercooler barra y placa Stage 3 (Airtec - do88) + hard pipes]] · 749,90 € en [[RH Renntechnik]] · no homologada en [[Alemania]]
 - [[Intercooler frontal (Forge - Wagner Competition)]] · 949,00 € en [[Wagner Tuning]] · homologada en [[Alemania]]
-- [[Kit de admisión cerrada (Forge - Neuspeed P-Flo)]] · 250,00 € orientativos
+- [[Kit de admisión cerrada (Forge - Neuspeed P-Flo)]] · 899,95 € en [[BAR-TEK Tuning]]
 - [[Sistema de recogida de aceite (catch can) Forge]] · 544,00 € en [[BAR-TEK Tuning]] · homologada en [[Alemania]]
 - [[Válvula de descarga reforzada (Forge DV+)]] · 123,70 € en [[BBM Tuningshop]]
 
@@ -74,7 +74,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 - [[Downpipe 3- descatalizado o con cat deportivo (AWE - Milltek)]] · 1010,74 € en [[Milltek Alemania]] · no homologada en [[Alemania]], [[España]]
 - [[Downpipe descatalizado genérico]] · 200,00 € orientativos · no homologada en [[Alemania]], [[España]]
 - [[Escape turbo-back completo inox (Milltek Race)]] · 1000,00 € orientativos · no homologada en [[Alemania]], [[España]]
-- [[Línea cat-back inox 76 mm (Milltek - Scorpion)]] · 620,00 € orientativos · homologada en [[Alemania]], [[España]]
+- [[Línea cat-back inox 76 mm (Milltek - Scorpion)]] · 1465,95 € en [[BAR-TEK Tuning]] · homologada en [[Alemania]], [[España]]
 
 **gestion**
 

@@ -6,8 +6,8 @@ oficial: no
 gama: "media"
 referencia: null
 precio_orientativo: 620
-ofertas: 0
-precio_verificado: no
+ofertas: 1
+precio_verificado: sí
 homologacion_verificada: sí
 homologada_en:
   - "Alemania"
@@ -29,7 +29,7 @@ Pieza de mercado no oficial. Gama media. Precio orientativo del catálogo: entre
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [Milltek línea desde el catalizador con TÜV para Golf 7 GTI 2.0 TSI](https://www.bar-tek.com/2-0l-tfsi-golf7-gti-exhaust-milltek) · [[BAR-TEK Tuning]] · **1465,95 €** · referencia SSXVW225 · consultado el 2026-08-30
 
 ## Homologación
 

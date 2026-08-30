@@ -1,7 +1,7 @@
 ---
 tipo: pais
 nombre: "España"
-piezas_homologadas: 6
+piezas_homologadas: 7
 piezas_no_homologadas: 6
 ---
 
@@ -16,6 +16,7 @@ producto y el régimen de reformas vigente.
 - [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]]
 - [[Diferencial autoblocante ATB (Quaife - Peloquin)]]
 - [[Filtro de aire de altas prestaciones (BMC - Pipercross)]]
+- [[Llantas forjadas 18- (BBS CH-R - OZ Ultraleggera)]]
 - [[Línea cat-back inox 76 mm (Milltek - Scorpion)]]
 - [[Muelles de rebaje (Eibach Pro-Kit - H&R)]]
 

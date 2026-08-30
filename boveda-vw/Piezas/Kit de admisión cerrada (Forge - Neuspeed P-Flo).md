@@ -6,8 +6,8 @@ oficial: no
 gama: "media"
 referencia: null
 precio_orientativo: 250
-ofertas: 0
-precio_verificado: no
+ofertas: 1
+precio_verificado: sí
 homologacion_verificada: no
 homologada_en:
 
@@ -27,7 +27,7 @@ Pieza de mercado no oficial. Gama media. Precio orientativo del catálogo: entre
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [Forge admisión de carbono para 2.0 TSI EA888 Gen.3 MQB](https://www.bar-tek.com/fmindmk7-golf7-intake-air-intake-forge) · [[BAR-TEK Tuning]] · **899,95 €** · referencia FMINDMK7 · consultado el 2026-08-30
 
 ## Homologación
 

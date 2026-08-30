@@ -77,7 +77,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 
 **escape**
 
-- [[Línea cat-back inox 76 mm (Milltek - Scorpion)]] · 620,00 € orientativos · homologada en [[Alemania]], [[España]]
+- [[Línea cat-back inox 76 mm (Milltek - Scorpion)]] · 1465,95 € en [[BAR-TEK Tuning]] · homologada en [[Alemania]], [[España]]
 
 **gestion**
 

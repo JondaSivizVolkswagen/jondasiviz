@@ -6,11 +6,12 @@ oficial: no
 gama: "alta"
 referencia: null
 precio_orientativo: 1900
-ofertas: 0
-precio_verificado: no
-homologacion_verificada: no
+ofertas: 1
+precio_verificado: sí
+homologacion_verificada: sí
 homologada_en:
-
+  - "Alemania"
+  - "España"
 no_homologada_en:
 
 ambito: "chasis"
@@ -28,11 +29,13 @@ Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [BBS CH-R 8,5x18 ET38 5x112, plata brillante, precio por llanta](https://www.tunershop.de/bbs-felge-ch-r-8-5x18-et38-5x112-18-zoll-brillantsilber.html) · [[Tunershop]] · **540,21 €** · referencia 0360441 · consultado el 2026-08-30
 
 ## Homologación
 
-Sin verificar. No se ha comprobado en qué países es legalizable, así que aquí no pone nada.
+**Homologada en:** [[Alemania]], [[España]]
+
+BBS entrega ABE o informe TÜV, pero la validez es por combinación concreta de llanta, neumático y coche, no por el modelo de llanta. Hay que pedir el papel de tu combinación y llevarlo en el coche.
 
 ## Modelos compatibles
 

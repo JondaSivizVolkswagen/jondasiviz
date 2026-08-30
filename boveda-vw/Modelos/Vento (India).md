@@ -119,7 +119,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 - [[Casquillos rígidos de subchasis y eje trasero (poliuretano-aluminio)]] · 260,00 € orientativos
 - [[Coilovers de entrada (FK - Raceland - TA Technix)]] · 330,00 € orientativos
 - [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]] · 1130,94 € en [[MK Fahrwerkstechnik]] · homologada en [[Alemania]], [[España]]
-- [[Inserto de soporte de motor trasero (dogbone) 034 - VF]] · 65,00 € orientativos
+- [[Inserto de soporte de motor trasero (dogbone) 034 - VF]] · 70,99 € en [[BAR-TEK Tuning]]
 - [[Muelles de rebaje (Eibach Pro-Kit - H&R)]] · 187,95 € en [[Federnwerk]] · homologada en [[Alemania]], [[España]]
 
 **transmision**
