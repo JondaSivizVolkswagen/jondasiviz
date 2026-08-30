@@ -150,7 +150,10 @@ export const OFERTAS = [
   {
     pieza: "trans-embrague-alta",
     producto: "Sachs Performance Racing, embrague para 2.0 TFSI EA113 y 2.0 TDI",
-    referencia: "40021",
+    // Sin referencia a propósito: la tienda muestra el mismo código 40021 en este
+    // embrague y en el de EA888 Gen.3, que son piezas distintas. Es su plantilla, no el
+    // número real, y una referencia equivocada es peor que ninguna.
+    referencia: null,
     vendedor: "Boost-Parts",
     url: "https://boost-parts.de/en/20-tfsi-ea113/90-20-tfsi-ea113-20-tdi-sachs-performance-racing-clutch-golf-5-golf-6-audi-a3-seat-leon-skoda-octavia.html",
     precio: 1179.00, moneda: "EUR", fecha: "2026-08-29",
@@ -260,6 +263,38 @@ export const OFERTAS = [
     precio: 540.21, moneda: "EUR", fecha: "2026-08-30",
   },
   {
+    pieza: "susp-coil-baja",
+    producto: "TA Technix roscada para Arteon, Golf 7, Passat B8 y Touran",
+    referencia: "EVOGWVW23",
+    vendedor: "KORNI Performance",
+    url: "https://www.korni-performance.de/ta-technix-gewindefahrwerk-passend-fuer-vw-arteon-golf-7-passat-b8-touran-1t-evogwvw23.html",
+    precio: 223.27, moneda: "EUR", fecha: "2026-08-30",
+  },
+  {
+    pieza: "trans-embrague-media",
+    producto: "Sachs Performance Racing, embrague para 2.0 TSI EA888 Gen.3 con caja MQ350",
+    referencia: null,
+    vendedor: "Boost-Parts",
+    url: "https://boost-parts.de/en/20-tsi-ea888-gen3/1165-20-tsi-ea888-gen3-sachs-performance-racing-clutch-vw-golf-7-gti-mq350-mqb.html",
+    precio: 1149.00, moneda: "EUR", fecha: "2026-08-30",
+  },
+  {
+    pieza: "fren-bbk-alta",
+    producto: "V-MAXX big brake de 4 pistones y 330 mm para Golf 7 GTI, eje delantero",
+    referencia: null,
+    vendedor: "AB Trading",
+    url: "https://www.abtrading.de/tuning-shop/bremsentuning/v-maxx-big-brake-kit-golf-7-gti/",
+    precio: 1159.00, moneda: "EUR", fecha: "2026-08-30",
+  },
+  {
+    pieza: "fren-bbk-alta",
+    producto: "Epytec big brake de 4 pistones y 356 mm para eje trasero, con pinza de freno de mano",
+    referencia: null,
+    vendedor: "Epytec",
+    url: "https://epytec.de/bremsanlagen-kit-hinterachse-vw-golf-7-audi-a3-porsche-cayenne-4-kolben-sattel-vw-golf-7r-handbremssattel-356x22-bremsscheibe-farbe-bremssattel-blank-ohne-farbe-1091-kit-blank",
+    precio: 1590.14, moneda: "EUR", fecha: "2026-08-30",
+  },
+  {
     pieza: "of-portaequipajes-golf8",
     producto: "Portaequipajes original VW Golf 8, barras con perfil en T",
     referencia: "5H4071126",
@@ -347,9 +382,14 @@ export const HOMOLOGACION = {
     nota: "Tanto el KW V1 como el Bilstein B14 tienen certificado TÜV del rango de regulación. En España, reforma 8.51 con proyecto o ficha reducida según el certificado.",
   },
   "susp-coil-baja": {
-    homologada: [],
+    homologada: ["Alemania", "España"],
     no_homologada: [],
-    nota: "Las marcas de entrada suelen venderse sin certificado. Sin él no hay forma de legalizarlo, aunque el producto en sí no sea ilegal. Verificar referencia por referencia.",
+    nota: "La TA Technix EVOGWVW23 se entrega con Teilegutachten §19.3, así que se inscribe en Alemania pasando por TÜV, DEKRA, KÜS o GTÜ. En España, reforma 8.51. Ojo: en esta gama de precio hay referencias que se venden sin ningún certificado y entonces no hay nada que legalizar. Mira el papel antes de pagar.",
+  },
+  "fren-bbk-alta": {
+    homologada: ["Alemania", "España"],
+    no_homologada: [],
+    nota: "Tanto el V-MAXX como el kit de Epytec llevan Teilegutachten §19.3. En España es reforma del sistema de frenado, que exige proyecto e inspección. Comprueba antes el diámetro mínimo de llanta: 17 pulgadas para el de 330 mm y 18 o 19 para los de 355 y 365.",
   },
   "seg-jaula-alta": {
     homologada: [],

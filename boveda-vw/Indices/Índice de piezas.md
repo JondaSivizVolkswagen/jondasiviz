@@ -1,13 +1,13 @@
 ---
 tipo: indice
 piezas: 64
-con_precio_verificado: 23
-con_homologacion_verificada: 19
+con_precio_verificado: 26
+con_homologacion_verificada: 20
 ---
 
 # Índice de piezas
 
-23 de 64 piezas tienen precio y enlace comprobados uno a uno.
+26 de 64 piezas tienen precio y enlace comprobados uno a uno.
 El resto lleva el precio orientativo del catálogo del planner y ninguna tienda asociada.
 
 ## No oficiales · admision
@@ -46,7 +46,7 @@ El resto lleva el precio orientativo del catálogo del planner y ninguna tienda 
 
 - [[Discos de dos piezas + pastillas racing eje delantero (DBA - Brembo)]] · 400,00 € orientativo · homologación sin verificar
 - [[Discos y pastillas traseras de altas prestaciones]] · 190,00 € orientativo · homologación sin verificar
-- [[Kit big brake 4-6 pistones 330-355 mm (Stoptech - HISPEC)]] · 1350,00 € orientativo · homologación sin verificar
+- [[Kit big brake 4-6 pistones 330-355 mm (Stoptech - HISPEC)]] · 1159,00 € verificado · homologada en Alemania, España
 - [[Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1]] · 203,00 € verificado · homologación sin verificar
 
 ## No oficiales · gestion
@@ -79,7 +79,7 @@ El resto lleva el precio orientativo del catálogo del planner y ninguna tienda 
 - [[Brazos ajustables + silentblocks de poliuretano (Powerflex - SuperPro)]] · 389,99 € verificado · homologación sin verificar
 - [[Casquillos rígidos de subchasis y eje trasero (poliuretano-aluminio)]] · 260,00 € orientativo · homologación sin verificar
 - [[Coilovers ajustables 3 vías (KW Clubsport - Bilstein B16)]] · 4867,68 € verificado · homologada en Alemania
-- [[Coilovers de entrada (FK - Raceland - TA Technix)]] · 330,00 € orientativo · homologación sin verificar
+- [[Coilovers de entrada (FK - Raceland - TA Technix)]] · 223,27 € verificado · homologada en Alemania, España
 - [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]] · 1130,94 € verificado · homologada en Alemania, España
 - [[Inserto de soporte de motor trasero (dogbone) 034 - VF]] · 70,99 € verificado · homologación sin verificar
 - [[Kit de geometría completo con rótulas uniball]] · 900,00 € orientativo · homologación sin verificar
@@ -90,7 +90,7 @@ El resto lleva el precio orientativo del catálogo del planner y ninguna tienda 
 - [[Autoblocante de discos - Wavetrac con precarga ajustable]] · 1499,00 € verificado · homologada en Alemania, España
 - [[Diferencial autoblocante ATB (Quaife - Peloquin)]] · 1249,00 € verificado · homologada en Alemania, España
 - [[Embrague de competición + volante aligerado]] · 1179,00 € verificado · homologación sin verificar
-- [[Embrague reforzado Stage 2 + volante rígido (Sachs - Spec)]] · 620,00 € orientativo · homologación sin verificar
+- [[Embrague reforzado Stage 2 + volante rígido (Sachs - Spec)]] · 1149,00 € verificado · homologación sin verificar
 - [[Kit de recorrido corto de cambio (034 - Forge)]] · 150,00 € orientativo · homologación sin verificar
 - [[Palieres reforzados]] · 560,00 € orientativo · homologación sin verificar
 

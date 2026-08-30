@@ -6,8 +6,8 @@ oficial: no
 gama: "media"
 referencia: null
 precio_orientativo: 620
-ofertas: 0
-precio_verificado: no
+ofertas: 1
+precio_verificado: sí
 homologacion_verificada: no
 homologada_en:
 
@@ -27,7 +27,7 @@ Pieza de mercado no oficial. Gama media. Precio orientativo del catálogo: entre
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [Sachs Performance Racing, embrague para 2.0 TSI EA888 Gen.3 con caja MQ350](https://boost-parts.de/en/20-tsi-ea888-gen3/1165-20-tsi-ea888-gen3-sachs-performance-racing-clutch-vw-golf-7-gti-mq350-mqb.html) · [[Boost-Parts]] · **1149,00 €** · consultado el 2026-08-30
 
 ## Homologación
 

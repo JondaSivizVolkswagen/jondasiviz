@@ -105,7 +105,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 - [[Autoblocante de discos - Wavetrac con precarga ajustable]] · 1499,00 € en [[EM-Racing]] · homologada en [[Alemania]], [[España]]
 - [[Diferencial autoblocante ATB (Quaife - Peloquin)]] · 1249,00 € en [[Boost-Parts]] · homologada en [[Alemania]], [[España]]
 - [[Embrague de competición + volante aligerado]] · 1179,00 € en [[Boost-Parts]]
-- [[Embrague reforzado Stage 2 + volante rígido (Sachs - Spec)]] · 620,00 € orientativos
+- [[Embrague reforzado Stage 2 + volante rígido (Sachs - Spec)]] · 1149,00 € en [[Boost-Parts]]
 - [[Kit de recorrido corto de cambio (034 - Forge)]] · 150,00 € orientativos
 - [[Palieres reforzados]] · 560,00 € orientativos
 

@@ -27,7 +27,7 @@ Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-- [Sachs Performance Racing, embrague para 2.0 TFSI EA113 y 2.0 TDI](https://boost-parts.de/en/20-tfsi-ea113/90-20-tfsi-ea113-20-tdi-sachs-performance-racing-clutch-golf-5-golf-6-audi-a3-seat-leon-skoda-octavia.html) · [[Boost-Parts]] · **1179,00 €** · referencia 40021 · consultado el 2026-08-29
+- [Sachs Performance Racing, embrague para 2.0 TFSI EA113 y 2.0 TDI](https://boost-parts.de/en/20-tfsi-ea113/90-20-tfsi-ea113-20-tdi-sachs-performance-racing-clutch-golf-5-golf-6-audi-a3-seat-leon-skoda-octavia.html) · [[Boost-Parts]] · **1179,00 €** · consultado el 2026-08-29
 
 ## Homologación
 

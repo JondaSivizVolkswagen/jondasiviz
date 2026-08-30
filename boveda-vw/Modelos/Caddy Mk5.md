@@ -126,7 +126,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 - [[Barra estabilizadora trasera regulable (Whiteline - H&R)]] · 190,00 € orientativos
 - [[Brazos ajustables + silentblocks de poliuretano (Powerflex - SuperPro)]] · 389,99 € en [[Powerflex Shop]]
 - [[Casquillos rígidos de subchasis y eje trasero (poliuretano-aluminio)]] · 260,00 € orientativos
-- [[Coilovers de entrada (FK - Raceland - TA Technix)]] · 330,00 € orientativos
+- [[Coilovers de entrada (FK - Raceland - TA Technix)]] · 223,27 € en [[KORNI Performance]] · homologada en [[Alemania]], [[España]]
 - [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]] · 1130,94 € en [[MK Fahrwerkstechnik]] · homologada en [[Alemania]], [[España]]
 - [[Inserto de soporte de motor trasero (dogbone) 034 - VF]] · 70,99 € en [[BAR-TEK Tuning]]
 - [[Muelles de rebaje (Eibach Pro-Kit - H&R)]] · 187,95 € en [[Federnwerk]] · homologada en [[Alemania]], [[España]]

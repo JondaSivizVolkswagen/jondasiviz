@@ -6,11 +6,12 @@ oficial: no
 gama: "baja"
 referencia: null
 precio_orientativo: 330
-ofertas: 0
-precio_verificado: no
+ofertas: 1
+precio_verificado: sí
 homologacion_verificada: sí
 homologada_en:
-
+  - "Alemania"
+  - "España"
 no_homologada_en:
 
 ambito: "chasis"
@@ -29,11 +30,13 @@ Pieza de mercado no oficial. Gama baja. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [TA Technix roscada para Arteon, Golf 7, Passat B8 y Touran](https://www.korni-performance.de/ta-technix-gewindefahrwerk-passend-fuer-vw-arteon-golf-7-passat-b8-touran-1t-evogwvw23.html) · [[KORNI Performance]] · **223,27 €** · referencia EVOGWVW23 · consultado el 2026-08-30
 
 ## Homologación
 
-Las marcas de entrada suelen venderse sin certificado. Sin él no hay forma de legalizarlo, aunque el producto en sí no sea ilegal. Verificar referencia por referencia.
+**Homologada en:** [[Alemania]], [[España]]
+
+La TA Technix EVOGWVW23 se entrega con Teilegutachten §19.3, así que se inscribe en Alemania pasando por TÜV, DEKRA, KÜS o GTÜ. En España, reforma 8.51. Ojo: en esta gama de precio hay referencias que se venden sin ningún certificado y entonces no hay nada que legalizar. Mira el papel antes de pagar.
 
 ## Modelos compatibles
 

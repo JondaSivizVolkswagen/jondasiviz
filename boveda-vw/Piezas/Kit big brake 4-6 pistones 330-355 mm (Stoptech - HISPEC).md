@@ -6,11 +6,12 @@ oficial: no
 gama: "alta"
 referencia: null
 precio_orientativo: 1350
-ofertas: 0
-precio_verificado: no
-homologacion_verificada: no
+ofertas: 2
+precio_verificado: sí
+homologacion_verificada: sí
 homologada_en:
-
+  - "Alemania"
+  - "España"
 no_homologada_en:
 
 ambito: "chasis"
@@ -28,11 +29,14 @@ Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [V-MAXX big brake de 4 pistones y 330 mm para Golf 7 GTI, eje delantero](https://www.abtrading.de/tuning-shop/bremsentuning/v-maxx-big-brake-kit-golf-7-gti/) · [[AB Trading]] · **1159,00 €** · consultado el 2026-08-30
+- [Epytec big brake de 4 pistones y 356 mm para eje trasero, con pinza de freno de mano](https://epytec.de/bremsanlagen-kit-hinterachse-vw-golf-7-audi-a3-porsche-cayenne-4-kolben-sattel-vw-golf-7r-handbremssattel-356x22-bremsscheibe-farbe-bremssattel-blank-ohne-farbe-1091-kit-blank) · [[Epytec]] · **1590,14 €** · consultado el 2026-08-30
 
 ## Homologación
 
-Sin verificar. No se ha comprobado en qué países es legalizable, así que aquí no pone nada.
+**Homologada en:** [[Alemania]], [[España]]
+
+Tanto el V-MAXX como el kit de Epytec llevan Teilegutachten §19.3. En España es reforma del sistema de frenado, que exige proyecto e inspección. Comprueba antes el diámetro mínimo de llanta: 17 pulgadas para el de 330 mm y 18 o 19 para los de 355 y 365.
 
 ## Modelos compatibles
 
