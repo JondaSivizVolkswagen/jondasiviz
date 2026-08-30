@@ -1,8 +1,8 @@
 ---
 tipo: pais
 nombre: "España"
-piezas_homologadas: 11
-piezas_no_homologadas: 5
+piezas_homologadas: 12
+piezas_no_homologadas: 6
 ---
 
 # España
@@ -17,6 +17,7 @@ producto y el régimen de reformas vigente.
 - [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]]
 - [[Diferencial autoblocante ATB (Quaife - Peloquin)]]
 - [[Escape turbo-back completo inox (Milltek Race)]]
+- [[Faldones y difusor R-Line originales]]
 - [[Filtro de aire de altas prestaciones (BMC - Pipercross)]]
 - [[Kit big brake 4-6 pistones 330-355 mm (Stoptech - HISPEC)]]
 - [[Llantas forjadas 18- (BBS CH-R - OZ Ultraleggera)]]
@@ -29,6 +30,7 @@ producto y el régimen de reformas vigente.
 - [[Downpipe 3- descatalizado o con cat deportivo (AWE - Milltek)]]
 - [[Downpipe descatalizado genérico]]
 - [[Eje trasero rígido soldado + refuerzos (conversión drift FWD)]]
+- [[Freno de mano hidráulico + pinza trasera dedicada]]
 - [[Gestión standalone (Syvecs - Emerald)]]
 - [[Jaula completa soldada homologada FIA]]
 

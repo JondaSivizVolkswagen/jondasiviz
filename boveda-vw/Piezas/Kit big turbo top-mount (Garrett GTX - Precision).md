@@ -6,9 +6,9 @@ oficial: no
 gama: "alta"
 referencia: null
 precio_orientativo: 4200
-ofertas: 0
+ofertas: 1
 precio_tipo: fijo
-precio_verificado: no
+precio_verificado: sí
 homologacion_verificada: no
 homologada_en:
 
@@ -28,7 +28,7 @@ Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [Turbo-Total kit de turbo IS38 en posición de origen, más de 600 CV, con tuberías de aceite y agua y kit de montaje](https://www.bar-tek.com/2.0-tsi-ea888-gen.3-mqb-is38-s-calations-turbocharger-kit-turbo-total) · [[BAR-TEK Tuning]] · **2.699,95 €** · referencia 21tsi226.1 · consultado el 2026-08-30
 
 ## Homologación
 

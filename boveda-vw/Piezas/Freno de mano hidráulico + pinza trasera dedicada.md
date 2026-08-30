@@ -6,14 +6,14 @@ oficial: no
 gama: "media"
 referencia: null
 precio_orientativo: 300
-ofertas: 0
+ofertas: 1
 precio_tipo: fijo
-precio_verificado: no
-homologacion_verificada: no
+precio_verificado: sí
+homologacion_verificada: sí
 homologada_en:
 
 no_homologada_en:
-
+  - "España"
 ambito: "chasis"
 modelos_compatibles: 47
 motores:
@@ -30,11 +30,13 @@ Pieza de mercado no oficial. Gama media. Precio orientativo del catálogo: entre
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [K-Sport freno de mano hidráulico fly-off. Solo la palanca y el cilindro: los racores y latiguillos van aparte, 60 € más](https://www.k-tec-germany.com/K-Sport-hydraulische-Handbremse-/-Fly-Off-Hebel) · [[K-Tec Germany]] · **249,00 €** · referencia KS-ZU-79 · consultado el 2026-08-30
 
 ## Homologación
 
-Sin verificar. No se ha comprobado en qué países es legalizable, así que aquí no pone nada.
+**No homologada en:** [[España]]
+
+Corta el circuito de freno trasero para meter un cilindro, así que toca el sistema de frenado. La palanca se vende como componente de competición y sin certificado, y sin papel no hay reforma que legalizar. Uso en circuito o rally con licencia.
 
 ## Modelos compatibles
 

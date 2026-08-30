@@ -93,7 +93,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 **direccion**
 
 - [[Eje trasero rígido soldado + refuerzos (conversión drift FWD)]] · 600,00 € orientativos · no homologada en [[Alemania]], [[España]]
-- [[Freno de mano hidráulico + pinza trasera dedicada]] · 300,00 € orientativos
+- [[Freno de mano hidráulico + pinza trasera dedicada]] · 249,00 € en [[K-Tec Germany]] · no homologada en [[España]]
 - [[Kit de ángulo de dirección + espaciadores]] · 350,00 € orientativos
 
 **escape**

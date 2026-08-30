@@ -75,7 +75,7 @@ Familias de motor: [[EA888]] · [[EA211]] · [[TDI]]
 
 **estetica**
 
-- [[Faldones y difusor R-Line originales]] · precio pendiente
+- [[Faldones y difusor R-Line originales]] · 5H0853855041 / 5H0853856041 · 548,50 € en [[ahw-shop]] · homologada en [[Alemania]], [[España]]
 
 **ruedas**
 
@@ -101,7 +101,7 @@ Familias de motor: [[EA888]] · [[EA211]] · [[TDI]]
 **direccion**
 
 - [[Eje trasero rígido soldado + refuerzos (conversión drift FWD)]] · 600,00 € orientativos · no homologada en [[Alemania]], [[España]]
-- [[Freno de mano hidráulico + pinza trasera dedicada]] · 300,00 € orientativos
+- [[Freno de mano hidráulico + pinza trasera dedicada]] · 249,00 € en [[K-Tec Germany]] · no homologada en [[España]]
 - [[Kit de ángulo de dirección + espaciadores]] · 350,00 € orientativos
 
 **escape**

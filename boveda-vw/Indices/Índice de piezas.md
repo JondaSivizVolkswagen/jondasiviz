@@ -1,13 +1,13 @@
 ---
 tipo: indice
 piezas: 64
-con_precio_verificado: 35
-con_homologacion_verificada: 21
+con_precio_verificado: 38
+con_homologacion_verificada: 23
 ---
 
 # Índice de piezas
 
-35 de 64 piezas tienen precio y enlace comprobados uno a uno.
+38 de 64 piezas tienen precio y enlace comprobados uno a uno.
 El resto lleva el precio orientativo del catálogo del planner y ninguna tienda asociada.
 
 Dos categorías se leen distinto y por eso van marcadas:
@@ -31,7 +31,7 @@ Dos categorías se leen distinto y por eso van marcadas:
 ## No oficiales · direccion
 
 - [[Eje trasero rígido soldado + refuerzos (conversión drift FWD)]] · 600,00 € orientativo · no homologada en Alemania, España
-- [[Freno de mano hidráulico + pinza trasera dedicada]] · 300,00 € orientativo · homologación sin verificar
+- [[Freno de mano hidráulico + pinza trasera dedicada]] · 249,00 € verificado · no homologada en España
 - [[Kit de ángulo de dirección + espaciadores]] · 350,00 € orientativo · homologación sin verificar
 
 ## No oficiales · escape
@@ -105,14 +105,14 @@ Dos categorías se leen distinto y por eso van marcadas:
 ## No oficiales · turbo
 
 - [[Inyectores de mayor caudal + bomba de gasolina en depósito]] · 82,65 € verificado · homologación sin verificar
-- [[Kit big turbo top-mount (Garrett GTX - Precision)]] · 4.200,00 € orientativo · homologación sin verificar
+- [[Kit big turbo top-mount (Garrett GTX - Precision)]] · 2.699,95 € verificado · homologación sin verificar
 - [[Kit de alimentación Stage 3 (rieles, inyectores 1000cc, bomba externa)]] · 467,70 € verificado · homologación sin verificar
 - [[Kit de bomba de alta presión reforzada (Autotech - APR)]] · 699,98 € verificado · homologación sin verificar
 - [[Turbo híbrido K04-064 (clásico del Mk5 GTI)]] · 2.699,95 € verificado · homologación sin verificar
 
 ## Oficiales · estetica
 
-- [[Faldones y difusor R-Line originales]] · sin precio · homologación sin verificar
+- [[Faldones y difusor R-Line originales]] · 548,50 € verificado · homologada en Alemania, España
 
 ## Oficiales · ruedas
 

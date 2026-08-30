@@ -91,7 +91,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 **direccion**
 
 - [[Eje trasero rígido soldado + refuerzos (conversión drift FWD)]] · 600,00 € orientativos · no homologada en [[Alemania]], [[España]]
-- [[Freno de mano hidráulico + pinza trasera dedicada]] · 300,00 € orientativos
+- [[Freno de mano hidráulico + pinza trasera dedicada]] · 249,00 € en [[K-Tec Germany]] · no homologada en [[España]]
 - [[Kit de ángulo de dirección + espaciadores]] · 350,00 € orientativos
 
 **escape**
@@ -165,7 +165,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 **turbo**
 
 - [[Inyectores de mayor caudal + bomba de gasolina en depósito]] · 82,65 € en [[BAR-TEK Tuning]]
-- [[Kit big turbo top-mount (Garrett GTX - Precision)]] · 4.200,00 € orientativos
+- [[Kit big turbo top-mount (Garrett GTX - Precision)]] · 2.699,95 € en [[BAR-TEK Tuning]]
 - [[Kit de alimentación Stage 3 (rieles, inyectores 1000cc, bomba externa)]] · 467,70 € en [[BAR-TEK Tuning]]
 - [[Kit de bomba de alta presión reforzada (Autotech - APR)]] · 699,98 € en [[BAR-TEK Tuning]]
 - [[Turbo híbrido K04-064 (clásico del Mk5 GTI)]] · 2.699,95 € en [[BAR-TEK Tuning]]

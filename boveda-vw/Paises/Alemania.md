@@ -1,7 +1,7 @@
 ---
 tipo: pais
 nombre: "Alemania"
-piezas_homologadas: 14
+piezas_homologadas: 15
 piezas_no_homologadas: 5
 ---
 
@@ -18,6 +18,7 @@ producto y el régimen de reformas vigente.
 - [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]]
 - [[Diferencial autoblocante ATB (Quaife - Peloquin)]]
 - [[Escape turbo-back completo inox (Milltek Race)]]
+- [[Faldones y difusor R-Line originales]]
 - [[Filtro de aire de altas prestaciones (BMC - Pipercross)]]
 - [[Intercooler frontal (Forge - Wagner Competition)]]
 - [[Kit big brake 4-6 pistones 330-355 mm (Stoptech - HISPEC)]]
