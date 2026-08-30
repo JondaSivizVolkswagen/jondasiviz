@@ -1,0 +1,98 @@
+---
+tipo: indice
+---
+
+# Índice por año de lanzamiento
+
+- 1998 · [[New Beetle (A4)]] · 1998-2010
+- 2001 · [[Polo Mk4 (9N - 9N3)]] · 2001-2009
+- 2002 · [[Phaeton]] · 2002-2016
+- 2002 · [[Touareg Mk1]] · 2002-2010
+- 2003 · [[Caddy Mk3]] · 2003-2015
+- 2003 · [[Fox (Brasil)]] · 2003-2021
+- 2003 · [[Golf Mk5]] · 2003-2009
+- 2003 · [[Touran Mk1]] · 2003-2015
+- 2003 · [[Transporter T5]] · 2003-2015
+- 2005 · [[Fox (Europa)]] · 2005-2011
+- 2005 · [[Gol G4]] · 2005-2014
+- 2005 · [[Jetta A5 (Mk5)]] · 2005-2010
+- 2005 · [[Passat B6]] · 2005-2010
+- 2006 · [[Citi Golf (producción tardía)]] · 2006-2009
+- 2006 · [[Crafter Mk1]] · 2006-2016
+- 2006 · [[Eos]] · 2006-2015
+- 2006 · [[Golf Mk4 (producción tardía)]] · 2006-2013
+- 2006 · [[Sagitar]] · 2006-presente
+- 2007 · [[Tiguan Mk1]] · 2007-2016
+- 2008 · [[Bora (China)]] · 2008-presente
+- 2008 · [[Gol G5]] · 2008-2012
+- 2008 · [[Golf Mk6]] · 2008-2013
+- 2008 · [[Lavida]] · 2008-presente
+- 2008 · [[Passat CC - CC]] · 2008-2017
+- 2008 · [[Routan]] · 2008-2014
+- 2008 · [[Scirocco Mk3]] · 2008-2017
+- 2008 · [[Voyage G5 - G6 - G7]] · 2008-2022
+- 2009 · [[Polo Mk5 (6R - 6C)]] · 2009-2017
+- 2009 · [[Saveiro G5 - G6 - G7]] · 2009-2023
+- 2010 · [[Amarok Mk1]] · 2010-2022
+- 2010 · [[Jetta A6 (Mk6)]] · 2010-2018
+- 2010 · [[Passat B7]] · 2010-2015
+- 2010 · [[Polo Vivo Mk1]] · 2010-2017
+- 2010 · [[Sharan Mk2]] · 2010-2022
+- 2010 · [[Touareg Mk2]] · 2010-2018
+- 2010 · [[Vento (India)]] · 2010-2022
+- 2011 · [[Beetle (A5)]] · 2011-2019
+- 2011 · [[Jetta Clásico (México)]] · 2011-2015
+- 2011 · [[Passat NMS (Norteamérica y China)]] · 2011-2022
+- 2011 · [[Up! (Europa)]] · 2011-2023
+- 2012 · [[Gol G6]] · 2012-2016
+- 2012 · [[Golf Mk7]] · 2012-2017
+- 2013 · [[Santana (China)]] · 2013-presente
+- 2013 · [[XL1]] · 2013-2016
+- 2014 · [[Lamando]] · 2014-presente
+- 2014 · [[Passat B8]] · 2014-2022
+- 2014 · [[up! (Brasil)]] · 2014-2021
+- 2014 · [[Vento (México)]] · 2014-presente
+- 2015 · [[Caddy Mk4]] · 2015-2020
+- 2015 · [[Touran Mk2]] · 2015-presente
+- 2015 · [[Transporter T6]] · 2015-2019
+- 2016 · [[Ameo]] · 2016-2020
+- 2016 · [[Gol G7 - G8]] · 2016-2023
+- 2016 · [[Phideon]] · 2016-2023
+- 2016 · [[Tiguan Mk2]] · 2016-2023
+- 2017 · [[Arteon]] · 2017-2024
+- 2017 · [[Atlas (América) · Teramont (China)]] · 2017-presente
+- 2017 · [[Crafter Mk2]] · 2017-presente
+- 2017 · [[Golf Mk7.5]] · 2017-2020
+- 2017 · [[Polo Mk6 (AW)]] · 2017-presente
+- 2017 · [[T-Roc Mk1]] · 2017-2025
+- 2018 · [[Jetta A7 (Mk7)]] · 2018-presente
+- 2018 · [[Polo Vivo Mk2]] · 2018-presente
+- 2018 · [[T-Cross]] · 2018-presente
+- 2018 · [[Taos (América) · Tharu (China)]] · 2018-presente
+- 2018 · [[Tayron]] · 2018-presente
+- 2018 · [[Touareg Mk3]] · 2018-presente
+- 2018 · [[Virtus]] · 2018-presente
+- 2019 · [[Golf Mk8]] · 2019-2024
+- 2019 · [[ID.3]] · 2019-presente
+- 2019 · [[Jetta China VA3, VS5 y VS7]] · 2019-presente
+- 2019 · [[Tacqua]] · 2019-presente
+- 2019 · [[Transporter T6.1]] · 2019-2024
+- 2020 · [[Caddy Mk5]] · 2020-presente
+- 2020 · [[ID.4]] · 2020-presente
+- 2020 · [[Taigo (Europa) · Nivus (Brasil)]] · 2020-presente
+- 2020 · [[Viloran]] · 2020-presente
+- 2021 · [[ID.5]] · 2021-presente
+- 2021 · [[ID.6]] · 2021-presente
+- 2021 · [[Multivan T7]] · 2021-presente
+- 2021 · [[Taigun (India)]] · 2021-presente
+- 2021 · [[Talagon]] · 2021-presente
+- 2022 · [[Amarok Mk2]] · 2022-presente
+- 2022 · [[ID. Buzz]] · 2022-presente
+- 2022 · [[Tavendor]] · 2022-presente
+- 2023 · [[ID.7]] · 2023-presente
+- 2023 · [[Passat B9]] · 2023-presente
+- 2023 · [[Tiguan Mk3]] · 2023-presente
+- 2024 · [[Golf Mk8.5]] · 2024-presente
+- 2024 · [[ID. UNYX]] · 2024-presente
+- 2024 · [[Transporter T7 (carga)]] · 2024-presente
+- 2025 · [[T-Roc Mk2]] · 2025-presente
