@@ -1,0 +1,31 @@
+---
+tipo: pais
+nombre: "Alemania"
+piezas_homologadas: 6
+piezas_no_homologadas: 5
+---
+
+# Alemania
+
+Situación legal de las piezas de la bóveda en este país, según lo que declara cada
+producto y el régimen de reformas vigente.
+
+## Homologadas
+
+- [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]]
+- [[Diferencial autoblocante ATB (Quaife - Peloquin)]]
+- [[Intercooler frontal (Forge - Wagner Competition)]]
+- [[Línea cat-back inox 76 mm (Milltek - Scorpion)]]
+- [[Muelles de rebaje (Eibach Pro-Kit - H&R)]]
+- [[Sistema de recogida de aceite (catch can) Forge]]
+
+## No homologadas
+
+- [[Downpipe 3- descatalizado o con cat deportivo (AWE - Milltek)]]
+- [[Downpipe descatalizado genérico]]
+- [[Eje trasero rígido soldado + refuerzos (conversión drift FWD)]]
+- [[Escape turbo-back completo inox (Milltek Race)]]
+- [[Gestión standalone (Syvecs - Emerald)]]
+
+> Comprobado pieza a pieza y solo donde había fuente. Una pieza sin aparecer en ninguna
+> de las dos listas no es que sea legal: es que no está verificada.

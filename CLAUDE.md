@@ -27,6 +27,25 @@ pendiente. Evita rehacer discusiones ya cerradas.
 - **El texto de la interfaz va en español de España** y tiene que sonar a persona: sin
   guiones largos, sin emojis, sin frases hechas de IA.
 
+## La bóveda de consulta (`boveda-vw/`)
+
+Segunda bóveda de Obsidian, **independiente del planner**: 92 generaciones de Volkswagen
+de los últimos veinte años con sus acabados, ediciones especiales, colores y piezas de
+mercado. Se abre en Obsidian con "Abrir carpeta como bóveda".
+
+- **`npm run vault:ingest` no la lee y los tests no la recorren.** Añadir un coche aquí
+  no toca el catálogo del planner. Son cosas distintas y conviene que sigan siéndolo.
+- Las notas **no se editan a mano**: se generan desde `boveda-vw/.generador/`. Se toca el
+  dato y se relanza `node boveda-vw/.generador/build.mjs boveda-vw`.
+- Reutiliza el catálogo de piezas del planner (`src/data/catalog.json`) en lugar de
+  copiarlo, y lo cruza con los modelos por familia de motor.
+- Hay un segundo exportador, `build-neo4j.mjs`, que vuelca lo mismo a un grafo de Neo4j.
+
+Lee `boveda-vw/.generador/LEEME.md` antes de tocar nada de ahí. Importante: los precios
+con enlace y la homologación por país están verificados uno a uno contra la tienda o la
+ficha del producto. **No se rellenan a ojo**; lo que no está comprobado se queda vacío y
+marcado como pendiente.
+
 ## Invariantes que protegen los tests
 
 No los rompas sin entender qué garantizan. Están en `tests/agents.test.ts` y
@@ -92,6 +111,7 @@ etiqueta `v*`. Para compilar en local hace falta Rust y las Build Tools de Micro
 
 ```
 vault/          Fuente de verdad de los datos (notas de Obsidian con frontmatter).
+boveda-vw/      Bóveda de consulta de modelos Volkswagen. No es el vault del planner.
 src/engine/     Motor: tipos, catálogo, grafo modelo->motor->piezas, recomendación.
 src/agents/     Clasificador de gama y selector de presupuesto (deterministas).
 src/ui/         Interfaz React. Usa el motor, no lo toca.

@@ -1,0 +1,204 @@
+---
+tipo: indice
+---
+
+# Índice de ediciones especiales
+
+- [[ABT e-Transporter]]
+- [[Amarok Aventura]]
+- [[Amarok Aventura Exclusive]]
+- [[Amarok Canyon]] · 2013 · Serie limitada por mercado
+- [[Amarok Dark Label]]
+- [[Amarok Limited Edition]]
+- [[Amarok PanAmericana]] · 2023 · Modelo de gama
+- [[Amarok W580 (Australia)]] · 2021 · Serie limitada australiana
+- [[Ameo Anniversary Edition]]
+- [[Ameo Corporate Edition]]
+- [[Arteon R]] · 2020 · Modelo de gama
+- [[Arteon Shooting Brake R]]
+- [[Atlas Basecamp]]
+- [[Atlas Cross Sport]]
+- [[Atlas Peak Edition]]
+- [[Beetle Denim]] · 2016 · 2.000 unidades
+- [[Beetle Dune]] · 2016 · Modelo de gama
+- [[Beetle Fender Edition]] · 2012 · Serie limitada
+- [[Beetle Final Edition]] · 2019 · Serie final
+- [[Beetle GSR]] · 2013 · 3.500 unidades en todo el mundo
+- [[Beetle Última Edición (México)]]
+- [[Bora Legend]]
+- [[CC Carat Edition]]
+- [[CC R-Line]]
+- [[Caddy Alltrack]]
+- [[Caddy Beach]]
+- [[Caddy California]]
+- [[Caddy Cross]]
+- [[Caddy Dark Label]]
+- [[Caddy Edition 30]]
+- [[Caddy Edition 35]]
+- [[Caddy Generation Four]]
+- [[Caddy PanAmericana]]
+- [[Caddy Tramper]]
+- [[California Edition]]
+- [[California Ocean]]
+- [[California T7 Ocean]]
+- [[Citi Golf Billabong]]
+- [[Citi Golf Mk1 Limited Edition]] · 2009 · 1.000 unidades
+- [[Citi Golf Storm]]
+- [[Crafter BlueMotion]]
+- [[CrossFox]]
+- [[CrossTouran]]
+- [[Eos Black Edition]]
+- [[Eos Exclusive]]
+- [[Eos Final Edition]]
+- [[Fox Pepper]]
+- [[Fox Rock in Rio]]
+- [[Fox United]]
+- [[Fox Urban Sport]]
+- [[Gol Copa]]
+- [[Gol Copa do Mundo]]
+- [[Gol Last Edition]] · 2023 · Serie final
+- [[Gol Rallye]]
+- [[Gol Seleção]]
+- [[Golf GT Sport]]
+- [[Golf GTI Adidas]]
+- [[Golf GTI Clubsport]] · 2016 · Serie limitada por año de modelo
+- [[Golf GTI Clubsport 45]] · 2021 · Serie limitada
+- [[Golf GTI Clubsport S]] · 2016 · 400 unidades
+- [[Golf GTI Edition 30]] · 2006 · Serie limitada, sin cifra oficial global
+- [[Golf GTI Edition 35]] · 2011 · Serie limitada
+- [[Golf GTI Edition 50]] · 2025 · Serie limitada
+- [[Golf GTI Performance]]
+- [[Golf GTI Pirelli]] · 2007 · Alrededor de 1.500 unidades
+- [[Golf GTI Rabbit Edition]]
+- [[Golf GTI TCR]] · 2018 · Serie limitada
+- [[Golf Match]]
+- [[Golf R 20 Years]] · 2022 · Serie limitada
+- [[Golf R Black Edition]]
+- [[Golf R Mk6]] · 2009 · Modelo de gama, no limitado
+- [[Golf R32 Mk5]] · 2005 · Producción de serie limitada en el tiempo
+- [[Golf Sportline Limited Edition (Brasil)]]
+- [[Grand California]] · 2019 · Modelo de gama
+- [[ID. Buzz 1ST Edition]] · 2022 · Serie de lanzamiento
+- [[ID. Buzz California]] · 2025 · Modelo de gama
+- [[ID. Buzz GTX]]
+- [[ID.3 1ST Edition]] · 2020 · 30.000 unidades
+- [[ID.3 GTX]]
+- [[ID.3 Tour]]
+- [[ID.4 1ST Edition]]
+- [[ID.4 GTX]]
+- [[ID.4 Pro S Plus]]
+- [[ID.5 GTX]]
+- [[ID.7 GTX]]
+- [[ID.7 Launch Edition]]
+- [[Jetta Clásico Última Edición]] · 2015 · Serie final
+- [[Jetta GLI 40th Anniversary Edition]] · 2024 · Serie limitada
+- [[Jetta GLI Autobahn]]
+- [[Jetta GLI Edition 30]]
+- [[Jetta GLI Mk5]]
+- [[Jetta Hybrid]]
+- [[Jetta Sport Wolfsburg Edition]]
+- [[Jetta Wolfsburg Edition]]
+- [[Lamando GTS]]
+- [[Lavida Star Edition]]
+- [[Multivan Bulli Edition]]
+- [[Multivan Energetic]]
+- [[Multivan Generation Six]]
+- [[Multivan PanAmericana]] · 2018 · Modelo de gama
+- [[Multivan Startline]]
+- [[New Beetle Red Edition]]
+- [[New Beetle Turbo S]]
+- [[New Beetle Última Edición]] · 2010 · 1.500 unidades
+- [[Nivus GTS]] · 2023 · Modelo de gama
+- [[Passat 20th Anniversary Edition]]
+- [[Passat Alltrack]]
+- [[Passat Alltrack 4Motion]]
+- [[Passat CC]]
+- [[Passat Exclusive]]
+- [[Passat GT]] · 2018 · Serie limitada
+- [[Passat GTE]]
+- [[Passat Limited Edition]]
+- [[Passat R36]] · 2007 · Modelo de gama limitado en el tiempo
+- [[Phaeton Exclusive]]
+- [[Phaeton W12 batalla larga]]
+- [[Phideon GTE]]
+- [[Polo Allstar]]
+- [[Polo Beats]]
+- [[Polo Dune]]
+- [[Polo Fun]]
+- [[Polo GTI Cup Edition]]
+- [[Polo GTI Edition 25]] · 2023 · Serie limitada
+- [[Polo GTS (Brasil)]]
+- [[Polo R WRC Street]] · 2013 · 2.500 unidades
+- [[Polo Vivo GT]]
+- [[Polo Vivo Mswenko]]
+- [[Polo Vivo Xtreme]]
+- [[Routan Execuline]]
+- [[Sagitar GLI]]
+- [[Sagitar R-Line]]
+- [[Santana Cross]]
+- [[Saveiro Cross]]
+- [[Saveiro Pepper]]
+- [[Saveiro Surf]]
+- [[Scirocco Allstar]]
+- [[Scirocco GT24]] · 2009 · Serie limitada
+- [[Scirocco GTS]] · 2013 · Serie limitada
+- [[Scirocco R]] · 2009 · Modelo de gama
+- [[Sharan Black Style]]
+- [[Sharan Match]]
+- [[Sharan United]]
+- [[T-Cross First Edition]]
+- [[T-Cross GTS]] · 2024 · Modelo de gama
+- [[T-Cross United]]
+- [[T-Roc Black Style]]
+- [[T-Roc Cabriolet]] · 2020 · Modelo de gama
+- [[T-Roc Edition]]
+- [[T-Roc R]] · 2019 · Modelo de gama
+- [[T-Roc United]]
+- [[Taigo R-Line Black Style]]
+- [[Taigun GT Edge Trail Edition]]
+- [[Taigun Sound Edition]]
+- [[Taos R-Line]]
+- [[Tayron GTE]]
+- [[Tayron X]]
+- [[Tharu XR]]
+- [[Tiguan Allspace]]
+- [[Tiguan Black Edition]]
+- [[Tiguan Cityscape]]
+- [[Tiguan R]] · 2021 · Modelo de gama
+- [[Tiguan R-Line]]
+- [[Tiguan R-Line Black Style]]
+- [[Tiguan Track & Field]]
+- [[Touareg Edition 20]]
+- [[Touareg Edition X]] · 2017 · Serie limitada
+- [[Touareg Hybrid]]
+- [[Touareg North Sails]]
+- [[Touareg One Million]]
+- [[Touareg R eHybrid]] · 2020 · Modelo de gama
+- [[Touareg R50]] · 2007 · Alrededor de 1.000 unidades
+- [[Touareg V8 TDI R-Line]]
+- [[Touareg W12 Sport]]
+- [[Touran Family Edition]]
+- [[Touran Freestyle]]
+- [[Touran Match]]
+- [[Touran United]]
+- [[Transporter Rockton]]
+- [[Up! Beats]]
+- [[Up! Black Edition]]
+- [[Up! GTI]] · 2018 · Modelo de gama limitado en el tiempo
+- [[Vento GT TSI]]
+- [[Vento Konekt Edition]]
+- [[Vento Sound Edition]]
+- [[Vento Sport]]
+- [[Vento Sport Line]]
+- [[Virtus 250 TSI Exclusive]]
+- [[Virtus GTS]] · 2023 · Modelo de gama
+- [[Voyage Connect]]
+- [[Voyage Evidence]]
+- [[XL1 (serie de 250 unidades)]] · 2013 · 250 unidades
+- [[cross up!]]
+- [[e-Bora]]
+- [[e-Crafter]]
+- [[e-Lavida]]
+- [[e-up!]]
+- [[pepper up!]]
+- [[xtreme up!]]
