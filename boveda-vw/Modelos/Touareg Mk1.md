@@ -87,7 +87,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 **transmision**
 
 - [[Diferencial autoblocante ATB (Quaife - Peloquin)]] · 1.249,00 € en [[Boost-Parts]] · homologada en [[Alemania]], [[España]]
-- [[Kit de recorrido corto de cambio (034 - Forge)]] · 150,00 € orientativos
+- [[Kit de recorrido corto de cambio (034 - Forge)]] · 92,55 € en [[BAR-TEK Tuning]]
 
 > La homologación es por país y por referencia concreta, no por tipo de pieza. Lo que no lleva indicación está sin verificar.
 

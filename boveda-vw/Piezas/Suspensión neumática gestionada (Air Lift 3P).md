@@ -6,12 +6,13 @@ oficial: no
 gama: "alta"
 referencia: null
 precio_orientativo: 2600
-ofertas: 0
+ofertas: 1
 precio_tipo: fijo
-precio_verificado: no
-homologacion_verificada: no
+precio_verificado: sí
+homologacion_verificada: sí
 homologada_en:
-
+  - "Alemania"
+  - "España"
 no_homologada_en:
 
 ambito: "chasis"
@@ -30,11 +31,13 @@ Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [Air Lift Performance para MQB, kit completo delantero y trasero. Precio de partida, sube según variante](https://www.deep-society.de/vw/golf-7/alp/) · [[DEEP Society]] · **2.569,00 €** · consultado el 2026-08-30
 
 ## Homologación
 
-Sin verificar. No se ha comprobado en qué países es legalizable, así que aquí no pone nada.
+**Homologada en:** [[Alemania]], [[España]]
+
+El kit de Air Lift para MQB se entrega con Teilegutachten. En España es reforma de suspensión con proyecto, y hay que llevar el certificado del fabricante. Ojo con la altura mínima al suelo: circular con el coche en el suelo no lo cubre ningún papel.
 
 ## Modelos compatibles
 

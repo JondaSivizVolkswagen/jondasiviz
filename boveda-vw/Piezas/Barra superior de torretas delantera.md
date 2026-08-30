@@ -6,9 +6,9 @@ oficial: no
 gama: "baja"
 referencia: null
 precio_orientativo: 95
-ofertas: 0
+ofertas: 1
 precio_tipo: fijo
-precio_verificado: no
+precio_verificado: sí
 homologacion_verificada: no
 homologada_en:
 
@@ -30,7 +30,7 @@ Pieza de mercado no oficial. Gama baja. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [Ultra Racing barra de torretas delantera de 2 puntos, acero](https://fullcartuning.de/142453-ultra-racing-vorne-domstrebe-2-punkt-weiss-stahl-volkswagen-golf) · [[Fullcartuning]] · **155,00 €** · referencia UR-TW2-981 · consultado el 2026-08-30
 
 ## Homologación
 

@@ -1,7 +1,7 @@
 ---
 tipo: pais
 nombre: "Alemania"
-piezas_homologadas: 13
+piezas_homologadas: 14
 piezas_no_homologadas: 5
 ---
 
@@ -25,6 +25,7 @@ producto y el régimen de reformas vigente.
 - [[Línea cat-back inox 76 mm (Milltek - Scorpion)]]
 - [[Muelles de rebaje (Eibach Pro-Kit - H&R)]]
 - [[Sistema de recogida de aceite (catch can) Forge]]
+- [[Suspensión neumática gestionada (Air Lift 3P)]]
 
 ## No homologadas
 

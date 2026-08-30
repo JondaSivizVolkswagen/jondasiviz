@@ -6,9 +6,9 @@ oficial: no
 gama: "media"
 referencia: null
 precio_orientativo: 500
-ofertas: 0
+ofertas: 1
 precio_tipo: fijo
-precio_verificado: no
+precio_verificado: sí
 homologacion_verificada: no
 homologada_en:
 
@@ -26,7 +26,7 @@ Pieza de mercado no oficial. Gama media. Precio orientativo del catálogo: entre
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [BAR-TEK inyectores de colector Bosch EV14 de 980 cc. Cubre solo los inyectores, no la bomba de depósito](https://www.bar-tek.com/injector-nozzle-kit-2-0-l-tsi-ea888-gen-3-mqb) · [[BAR-TEK Tuning]] · **82,65 €** · referencia 21tsi131 · consultado el 2026-08-30
 
 ## Homologación
 

@@ -6,9 +6,9 @@ oficial: no
 gama: "alta"
 referencia: null
 precio_orientativo: 950
-ofertas: 0
+ofertas: 1
 precio_tipo: fijo
-precio_verificado: no
+precio_verificado: sí
 homologacion_verificada: no
 homologada_en:
 
@@ -26,7 +26,7 @@ Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [BAR-TEK kit de riel MPI: riel de aluminio CNC, cuatro inyectores de 980 cc, sensores de presión y de combustible flexible](https://www.bar-tek.com/de/2.0-tsi-ea888-gen.3-evo4-mpi-fuel-rail-upgrade-kit-bar-tek) · [[BAR-TEK Tuning]] · **467,70 €** · referencia 22tsi22.4 · consultado el 2026-08-30
 
 ## Homologación
 

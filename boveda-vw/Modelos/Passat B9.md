@@ -75,7 +75,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 - [[Ópticas ahumadas + intermitentes dinámicos]] · 140,00 € orientativos
 - [[Rejilla sin logos + molduras en negro brillo + vinilo de techo]] · 200,00 € orientativos
 - [[Retapizado a cuadros GTI + volante de base plana]] · 320,00 € orientativos
-- [[Suspensión neumática gestionada (Air Lift 3P)]] · 2.600,00 € orientativos
+- [[Suspensión neumática gestionada (Air Lift 3P)]] · 2.569,00 € en [[DEEP Society]] · homologada en [[Alemania]], [[España]]
 
 **frenos**
 
@@ -99,7 +99,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 **seguridad**
 
 - [[Baquet + arnés de 4-6 puntos + soporte]] · 287,58 € en [[Import-Speedshop]]
-- [[Barra superior de torretas delantera]] · 95,00 € orientativos
+- [[Barra superior de torretas delantera]] · 155,00 € en [[Fullcartuning]]
 - [[Corte de batería + extintor homologado]] · 139,99 € en [[PARTS33]]
 - [[Jaula completa soldada homologada FIA]] · 1.600,00 € orientativos · no homologada en [[España]]
 - [[Media jaula atornillada de 6 puntos]] · 500,00 € orientativos

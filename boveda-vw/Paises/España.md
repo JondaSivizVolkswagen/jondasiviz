@@ -1,7 +1,7 @@
 ---
 tipo: pais
 nombre: "España"
-piezas_homologadas: 10
+piezas_homologadas: 11
 piezas_no_homologadas: 5
 ---
 
@@ -22,6 +22,7 @@ producto y el régimen de reformas vigente.
 - [[Llantas forjadas 18- (BBS CH-R - OZ Ultraleggera)]]
 - [[Línea cat-back inox 76 mm (Milltek - Scorpion)]]
 - [[Muelles de rebaje (Eibach Pro-Kit - H&R)]]
+- [[Suspensión neumática gestionada (Air Lift 3P)]]
 
 ## No homologadas
 

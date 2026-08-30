@@ -1,13 +1,13 @@
 ---
 tipo: indice
 piezas: 64
-con_precio_verificado: 30
-con_homologacion_verificada: 20
+con_precio_verificado: 35
+con_homologacion_verificada: 21
 ---
 
 # Índice de piezas
 
-30 de 64 piezas tienen precio y enlace comprobados uno a uno.
+35 de 64 piezas tienen precio y enlace comprobados uno a uno.
 El resto lleva el precio orientativo del catálogo del planner y ninguna tienda asociada.
 
 Dos categorías se leen distinto y por eso van marcadas:
@@ -48,7 +48,7 @@ Dos categorías se leen distinto y por eso van marcadas:
 - [[Ópticas ahumadas + intermitentes dinámicos]] · 140,00 € orientativo · homologación sin verificar
 - [[Rejilla sin logos + molduras en negro brillo + vinilo de techo]] · 200,00 € orientativo · homologación sin verificar
 - [[Retapizado a cuadros GTI + volante de base plana]] · 320,00 € orientativo · homologación sin verificar
-- [[Suspensión neumática gestionada (Air Lift 3P)]] · 2.600,00 € orientativo · homologación sin verificar
+- [[Suspensión neumática gestionada (Air Lift 3P)]] · 2.569,00 € verificado · homologada en Alemania, España
 
 ## No oficiales · frenos
 
@@ -76,7 +76,7 @@ Dos categorías se leen distinto y por eso van marcadas:
 ## No oficiales · seguridad
 
 - [[Baquet + arnés de 4-6 puntos + soporte]] · 287,58 € verificado · homologación sin verificar
-- [[Barra superior de torretas delantera]] · 95,00 € orientativo · homologación sin verificar
+- [[Barra superior de torretas delantera]] · 155,00 € verificado · homologación sin verificar
 - [[Corte de batería + extintor homologado]] · 139,99 € verificado · homologación sin verificar
 - [[Jaula completa soldada homologada FIA]] · 1.600,00 € orientativo · no homologada en España
 - [[Media jaula atornillada de 6 puntos]] · 500,00 € orientativo · homologación sin verificar
@@ -99,14 +99,14 @@ Dos categorías se leen distinto y por eso van marcadas:
 - [[Diferencial autoblocante ATB (Quaife - Peloquin)]] · 1.249,00 € verificado · homologada en Alemania, España
 - [[Embrague de competición + volante aligerado]] · 1.179,00 € verificado · homologación sin verificar
 - [[Embrague reforzado Stage 2 + volante rígido (Sachs - Spec)]] · 1.149,00 € verificado · homologación sin verificar
-- [[Kit de recorrido corto de cambio (034 - Forge)]] · 150,00 € orientativo · homologación sin verificar
+- [[Kit de recorrido corto de cambio (034 - Forge)]] · 92,55 € verificado · homologación sin verificar
 - [[Palieres reforzados]] · 560,00 € orientativo · homologación sin verificar
 
 ## No oficiales · turbo
 
-- [[Inyectores de mayor caudal + bomba de gasolina en depósito]] · 500,00 € orientativo · homologación sin verificar
+- [[Inyectores de mayor caudal + bomba de gasolina en depósito]] · 82,65 € verificado · homologación sin verificar
 - [[Kit big turbo top-mount (Garrett GTX - Precision)]] · 4.200,00 € orientativo · homologación sin verificar
-- [[Kit de alimentación Stage 3 (rieles, inyectores 1000cc, bomba externa)]] · 950,00 € orientativo · homologación sin verificar
+- [[Kit de alimentación Stage 3 (rieles, inyectores 1000cc, bomba externa)]] · 467,70 € verificado · homologación sin verificar
 - [[Kit de bomba de alta presión reforzada (Autotech - APR)]] · 699,98 € verificado · homologación sin verificar
 - [[Turbo híbrido K04-064 (clásico del Mk5 GTI)]] · 2.699,95 € verificado · homologación sin verificar
 

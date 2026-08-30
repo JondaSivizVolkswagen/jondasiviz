@@ -112,7 +112,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 - [[Ópticas ahumadas + intermitentes dinámicos]] · 140,00 € orientativos
 - [[Rejilla sin logos + molduras en negro brillo + vinilo de techo]] · 200,00 € orientativos
 - [[Retapizado a cuadros GTI + volante de base plana]] · 320,00 € orientativos
-- [[Suspensión neumática gestionada (Air Lift 3P)]] · 2.600,00 € orientativos
+- [[Suspensión neumática gestionada (Air Lift 3P)]] · 2.569,00 € en [[DEEP Society]] · homologada en [[Alemania]], [[España]]
 
 **frenos**
 
@@ -139,7 +139,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 **seguridad**
 
 - [[Baquet + arnés de 4-6 puntos + soporte]] · 287,58 € en [[Import-Speedshop]]
-- [[Barra superior de torretas delantera]] · 95,00 € orientativos
+- [[Barra superior de torretas delantera]] · 155,00 € en [[Fullcartuning]]
 - [[Corte de batería + extintor homologado]] · 139,99 € en [[PARTS33]]
 - [[Jaula completa soldada homologada FIA]] · 1.600,00 € orientativos · no homologada en [[España]]
 - [[Media jaula atornillada de 6 puntos]] · 500,00 € orientativos
@@ -162,7 +162,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 - [[Diferencial autoblocante ATB (Quaife - Peloquin)]] · 1.249,00 € en [[Boost-Parts]] · homologada en [[Alemania]], [[España]]
 - [[Embrague de competición + volante aligerado]] · 1.179,00 € en [[Boost-Parts]]
 - [[Embrague reforzado Stage 2 + volante rígido (Sachs - Spec)]] · 1.149,00 € en [[Boost-Parts]]
-- [[Kit de recorrido corto de cambio (034 - Forge)]] · 150,00 € orientativos
+- [[Kit de recorrido corto de cambio (034 - Forge)]] · 92,55 € en [[BAR-TEK Tuning]]
 - [[Palieres reforzados]] · 560,00 € orientativos
 
 > La homologación es por país y por referencia concreta, no por tipo de pieza. Lo que no lleva indicación está sin verificar.

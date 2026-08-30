@@ -6,9 +6,9 @@ oficial: no
 gama: "baja"
 referencia: null
 precio_orientativo: 150
-ofertas: 0
+ofertas: 1
 precio_tipo: fijo
-precio_verificado: no
+precio_verificado: sí
 homologacion_verificada: no
 homologada_en:
 
@@ -29,7 +29,7 @@ Pieza de mercado no oficial. Gama baja. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [BAR-TEK Speed Side Quick Shift para cajas VAG de 6 marchas](https://www.bar-tek.com/adjustable-short-shifter-vag-6-speed-gearbox) · [[BAR-TEK Tuning]] · **92,55 €** · referencia 2118t343 · consultado el 2026-08-30
 
 ## Homologación
 
