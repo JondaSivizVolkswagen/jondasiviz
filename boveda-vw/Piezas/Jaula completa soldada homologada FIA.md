@@ -7,6 +7,7 @@ gama: "alta"
 referencia: null
 precio_orientativo: 1600
 ofertas: 0
+precio_tipo: fijo
 precio_verificado: no
 homologacion_verificada: sí
 homologada_en:
@@ -25,7 +26,7 @@ motores:
 
 # Jaula completa soldada homologada FIA
 
-Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 1100,00 € y 2400,00 €.
+Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 1.100,00 € y 2.400,00 €.
 
 ## Dónde comprarla
 

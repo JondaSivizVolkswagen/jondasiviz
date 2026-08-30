@@ -7,6 +7,7 @@ gama: "alta"
 referencia: null
 precio_orientativo: 2400
 ofertas: 1
+precio_tipo: fijo
 precio_verificado: sí
 homologacion_verificada: sí
 homologada_en:
@@ -24,11 +25,11 @@ motores:
 
 # Coilovers ajustables 3 vías (KW Clubsport / Bilstein B16)
 
-Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 1700,00 € y 3200,00 €.
+Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 1.700,00 € y 3.200,00 €.
 
 ## Dónde comprarla
 
-- [KW V4 Clubsport para Golf 7 GTI y R](https://www.cdt-shop.de/produkt/kw-v4-clubsport-gewindefahrwerk-vw-golf-7-gti-r/) · [[CDT-Shop]] · **4867,68 €** · referencia 3978020N-01 · consultado el 2026-08-30
+- [KW V4 Clubsport para Golf 7 GTI y R](https://www.cdt-shop.de/produkt/kw-v4-clubsport-gewindefahrwerk-vw-golf-7-gti-r/) · [[CDT-Shop]] · **4.867,68 €** · referencia 3978020N-01 · consultado el 2026-08-30
 
 ## Homologación
 

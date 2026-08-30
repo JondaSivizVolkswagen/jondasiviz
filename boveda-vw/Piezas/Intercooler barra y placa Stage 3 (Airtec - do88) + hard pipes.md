@@ -7,6 +7,7 @@ gama: "alta"
 referencia: null
 precio_orientativo: 800
 ofertas: 1
+precio_tipo: fijo
 precio_verificado: sí
 homologacion_verificada: sí
 homologada_en:
@@ -22,7 +23,7 @@ motores:
 
 # Intercooler barra y placa Stage 3 (Airtec / do88) + hard pipes
 
-Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 620,00 € y 1050,00 €.
+Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 620,00 € y 1.050,00 €.
 
 ## Dónde comprarla
 

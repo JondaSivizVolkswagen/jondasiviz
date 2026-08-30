@@ -257,6 +257,7 @@ nodos("Pieza", PIEZAS.map((p) => {
     id: p.id,
     categoria: p.categoria,
     ambito: p.ambito,
+    precioTipo: p.precioTipo,
     oficial: p.oficial,
     gama: p.gama,
     referencia: p.referencia,

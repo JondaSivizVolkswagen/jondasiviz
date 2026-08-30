@@ -7,6 +7,7 @@ gama: null
 referencia: "5H0601025H"
 precio_orientativo: null
 ofertas: 0
+precio_tipo: volatil
 precio_verificado: no
 homologacion_verificada: no
 homologada_en:
@@ -27,7 +28,7 @@ Accesorio o recambio original de Volkswagen.
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+Sin oferta verificada. En llantas y neumáticos tampoco tendría mucho sentido fijarla: el precio cambia de una semana a otra, así que mira la tienda en el momento de comprar.
 
 ## Homologación
 

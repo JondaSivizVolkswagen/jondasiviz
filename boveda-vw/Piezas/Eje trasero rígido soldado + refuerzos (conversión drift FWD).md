@@ -7,6 +7,7 @@ gama: "alta"
 referencia: null
 precio_orientativo: 600
 ofertas: 0
+precio_tipo: fijo
 precio_verificado: no
 homologacion_verificada: sí
 homologada_en:

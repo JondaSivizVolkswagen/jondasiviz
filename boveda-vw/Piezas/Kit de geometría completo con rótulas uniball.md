@@ -7,6 +7,7 @@ gama: "alta"
 referencia: null
 precio_orientativo: 900
 ofertas: 0
+precio_tipo: fijo
 precio_verificado: no
 homologacion_verificada: no
 homologada_en:
@@ -23,7 +24,7 @@ motores:
 
 # Kit de geometría completo con rótulas uniball
 
-Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 650,00 € y 1250,00 €.
+Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 650,00 € y 1.250,00 €.
 
 ## Dónde comprarla
 

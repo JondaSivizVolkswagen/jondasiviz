@@ -7,6 +7,7 @@ gama: "media"
 referencia: null
 precio_orientativo: 750
 ofertas: 0
+precio_tipo: fijo
 precio_verificado: no
 homologacion_verificada: no
 homologada_en:
@@ -25,7 +26,7 @@ motores:
 
 # Kit de carrocería Votex / RVA completo
 
-Pieza de mercado no oficial. Gama media. Precio orientativo del catálogo: entre 500,00 € y 1100,00 €.
+Pieza de mercado no oficial. Gama media. Precio orientativo del catálogo: entre 500,00 € y 1.100,00 €.
 
 ## Dónde comprarla
 

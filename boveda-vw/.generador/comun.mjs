@@ -9,7 +9,15 @@ import d2 from "./datos2.mjs";
 import d3 from "./datos3.mjs";
 import d4 from "./datos4.mjs";
 import { MOTORES } from "./motores.mjs";
-import { OFICIALES, OFERTAS, HOMOLOGACION, AMBITO, PLATAFORMAS_TURISMO } from "./piezas.mjs";
+import {
+  OFICIALES,
+  OFERTAS,
+  HOMOLOGACION,
+  AMBITO,
+  PLATAFORMAS_TURISMO,
+  CATEGORIAS_SERVICIO,
+  CATEGORIAS_VOLATILES,
+} from "./piezas.mjs";
 
 export const MODELOS = [...d1, ...d2, ...d3, ...d4];
 
@@ -133,6 +141,17 @@ const nombresDeModelo = new Set(nombreDe.values());
 export const MOTORES_DE = (m) => MOTORES[nombreDe.get(m)] ?? [];
 
 /**
+ * Cómo hay que leer el precio de una pieza:
+ *   servicio  trabajo de taller, se presupuesta, no tiene página de producto
+ *   volatil   cambia semana a semana, el número solo sirve de orden de magnitud
+ *   fijo      precio de catálogo, verificable en una tienda concreta
+ */
+const tipoDePrecio = (categoria) =>
+  CATEGORIAS_SERVICIO.includes(categoria) ? "servicio"
+  : CATEGORIAS_VOLATILES.includes(categoria) ? "volatil"
+  : "fijo";
+
+/**
  * Piezas en formato único, vengan del planner o de este repositorio.
  * `motores` manda en las no oficiales y `modelos` en las oficiales: un accesorio de
  * Volkswagen se pide por modelo, no por motor.
@@ -149,6 +168,7 @@ export const PIEZAS = [
     modelos: null,
     referencia: null,
     ambito: AMBITO[p.categoria] ?? "motor",
+    precioTipo: tipoDePrecio(p.categoria),
     nota: p.nota ?? null,
   })),
   ...OFICIALES.map((p) => ({
@@ -162,9 +182,13 @@ export const PIEZAS = [
     modelos: p.modelos,
     referencia: p.referencia,
     ambito: AMBITO[p.categoria] ?? "chasis",
+    precioTipo: tipoDePrecio(p.categoria),
     nota: p.nota ?? null,
   })),
 ];
+
+export const esServicio = (p) => p.precioTipo === "servicio";
+export const esVolatil = (p) => p.precioTipo === "volatil";
 
 const esTurismo = (m) => trocaPlataformas(m.plat).some((p) => PLATAFORMAS_TURISMO.includes(p));
 

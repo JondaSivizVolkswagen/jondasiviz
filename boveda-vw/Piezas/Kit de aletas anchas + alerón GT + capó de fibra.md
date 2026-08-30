@@ -7,6 +7,7 @@ gama: "alta"
 referencia: null
 precio_orientativo: 1800
 ofertas: 0
+precio_tipo: fijo
 precio_verificado: no
 homologacion_verificada: no
 homologada_en:
@@ -23,7 +24,7 @@ motores:
 
 # Kit de aletas anchas + alerón GT + capó de fibra
 
-Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 1200,00 € y 2800,00 €.
+Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 1.200,00 € y 2.800,00 €.
 
 ## Dónde comprarla
 

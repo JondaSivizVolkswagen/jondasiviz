@@ -7,6 +7,7 @@ gama: "media"
 referencia: null
 precio_orientativo: 950
 ofertas: 2
+precio_tipo: fijo
 precio_verificado: sí
 homologacion_verificada: sí
 homologada_en:
@@ -26,12 +27,12 @@ motores:
 
 # Coilovers roscados (KW V1 / ST X / BC Racing BR)
 
-Pieza de mercado no oficial. Gama media. Precio orientativo del catálogo: entre 700,00 € y 1250,00 €.
+Pieza de mercado no oficial. Gama media. Precio orientativo del catálogo: entre 700,00 € y 1.250,00 €.
 
 ## Dónde comprarla
 
-- [KW Gewindefahrwerk V1 inox para Golf VII](https://www.tunershop.de/kw-gewindefahrwerk-v1-1028000n-fur-vw-golf-vii.html) · [[Tunershop]] · **1260,50 €** · referencia 1028000N · consultado el 2026-08-29
-- [Bilstein B14 PSS para Golf VII 2.0 GTI](https://www.mk-fahrwerkstechnik.de/BILSTEIN-B14-PSS-Gewindefahrwerk-fuer-VW-GOLF-VII-5G1-20-GTI-47-229945) · [[MK Fahrwerkstechnik]] · **1130,94 €** · referencia 47-229945 · consultado el 2026-08-29
+- [KW Gewindefahrwerk V1 inox para Golf VII](https://www.tunershop.de/kw-gewindefahrwerk-v1-1028000n-fur-vw-golf-vii.html) · [[Tunershop]] · **1.260,50 €** · referencia 1028000N · consultado el 2026-08-29
+- [Bilstein B14 PSS para Golf VII 2.0 GTI](https://www.mk-fahrwerkstechnik.de/BILSTEIN-B14-PSS-Gewindefahrwerk-fuer-VW-GOLF-VII-5G1-20-GTI-47-229945) · [[MK Fahrwerkstechnik]] · **1.130,94 €** · referencia 47-229945 · consultado el 2026-08-29
 
 ## Homologación
 

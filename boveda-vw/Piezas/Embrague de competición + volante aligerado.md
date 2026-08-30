@@ -7,6 +7,7 @@ gama: "alta"
 referencia: null
 precio_orientativo: 1400
 ofertas: 1
+precio_tipo: fijo
 precio_verificado: sí
 homologacion_verificada: no
 homologada_en:
@@ -23,11 +24,11 @@ motores:
 
 # Embrague de competición + volante aligerado
 
-Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 1000,00 € y 1950,00 €.
+Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 1.000,00 € y 1.950,00 €.
 
 ## Dónde comprarla
 
-- [Sachs Performance Racing, embrague para 2.0 TFSI EA113 y 2.0 TDI](https://boost-parts.de/en/20-tfsi-ea113/90-20-tfsi-ea113-20-tdi-sachs-performance-racing-clutch-golf-5-golf-6-audi-a3-seat-leon-skoda-octavia.html) · [[Boost-Parts]] · **1179,00 €** · consultado el 2026-08-29
+- [Sachs Performance Racing, embrague para 2.0 TFSI EA113 y 2.0 TDI](https://boost-parts.de/en/20-tfsi-ea113/90-20-tfsi-ea113-20-tdi-sachs-performance-racing-clutch-golf-5-golf-6-audi-a3-seat-leon-skoda-octavia.html) · [[Boost-Parts]] · **1.179,00 €** · consultado el 2026-08-29
 
 ## Homologación
 

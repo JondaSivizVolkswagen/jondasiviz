@@ -7,6 +7,7 @@ gama: "alta"
 referencia: null
 precio_orientativo: 1350
 ofertas: 2
+precio_tipo: fijo
 precio_verificado: sí
 homologacion_verificada: sí
 homologada_en:
@@ -25,12 +26,12 @@ motores:
 
 # Kit big brake 4/6 pistones 330-355 mm (Stoptech / HISPEC)
 
-Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 950,00 € y 1950,00 €.
+Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 950,00 € y 1.950,00 €.
 
 ## Dónde comprarla
 
-- [V-MAXX big brake de 4 pistones y 330 mm para Golf 7 GTI, eje delantero](https://www.abtrading.de/tuning-shop/bremsentuning/v-maxx-big-brake-kit-golf-7-gti/) · [[AB Trading]] · **1159,00 €** · consultado el 2026-08-30
-- [Epytec big brake de 4 pistones y 356 mm para eje trasero, con pinza de freno de mano](https://epytec.de/bremsanlagen-kit-hinterachse-vw-golf-7-audi-a3-porsche-cayenne-4-kolben-sattel-vw-golf-7r-handbremssattel-356x22-bremsscheibe-farbe-bremssattel-blank-ohne-farbe-1091-kit-blank) · [[Epytec]] · **1590,14 €** · consultado el 2026-08-30
+- [V-MAXX big brake de 4 pistones y 330 mm para Golf 7 GTI, eje delantero](https://www.abtrading.de/tuning-shop/bremsentuning/v-maxx-big-brake-kit-golf-7-gti/) · [[AB Trading]] · **1.159,00 €** · consultado el 2026-08-30
+- [Epytec big brake de 4 pistones y 356 mm para eje trasero, con pinza de freno de mano](https://epytec.de/bremsanlagen-kit-hinterachse-vw-golf-7-audi-a3-porsche-cayenne-4-kolben-sattel-vw-golf-7r-handbremssattel-356x22-bremsscheibe-farbe-bremssattel-blank-ohne-farbe-1091-kit-blank) · [[Epytec]] · **1.590,14 €** · consultado el 2026-08-30
 
 ## Homologación
 

@@ -7,6 +7,7 @@ gama: "alta"
 referencia: null
 precio_orientativo: 1900
 ofertas: 1
+precio_tipo: volatil
 precio_verificado: sí
 homologacion_verificada: sí
 homologada_en:
@@ -25,11 +26,13 @@ motores:
 
 # Llantas forjadas 18" (BBS CH-R / OZ Ultraleggera)
 
-Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 1400,00 € y 2600,00 €.
+Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 1.400,00 € y 2.600,00 €.
 
 ## Dónde comprarla
 
 - [BBS CH-R 8,5x18 ET38 5x112, plata brillante, precio por llanta](https://www.tunershop.de/bbs-felge-ch-r-8-5x18-et38-5x112-18-zoll-brillantsilber.html) · [[Tunershop]] · **540,21 €** · referencia 0360441 · consultado el 2026-08-30
+
+> **Precio volátil.** Llantas y neumáticos se mueven con el aluminio, el caucho y la temporada. Lo de arriba es el precio del día de la consulta y sirve como orden de magnitud, no como el precio que vas a pagar. Abre el enlace antes de decidir.
 
 ## Homologación
 

@@ -78,7 +78,7 @@ Sin accesorios originales recogidos todavía para esta generación.
 - [[Ópticas ahumadas + intermitentes dinámicos]] · 140,00 € orientativos
 - [[Rejilla sin logos + molduras en negro brillo + vinilo de techo]] · 200,00 € orientativos
 - [[Retapizado a cuadros GTI + volante de base plana]] · 320,00 € orientativos
-- [[Suspensión neumática gestionada (Air Lift 3P)]] · 2600,00 € orientativos
+- [[Suspensión neumática gestionada (Air Lift 3P)]] · 2.600,00 € orientativos
 
 **frenos**
 
@@ -88,23 +88,23 @@ Sin accesorios originales recogidos todavía para esta generación.
 
 **gestion**
 
-- [[Reprogramación Stage 1 de marca (APR - Revo - Unitronic)]] · 480,00 € orientativos
-- [[Reprogramación Stage 1 genérica]] · 300,00 € orientativos
-- [[Reprogramación Stage 2]] · 540,00 € orientativos
+- [[Reprogramación Stage 1 de marca (APR - Revo - Unitronic)]] · trabajo de taller, sobre 480,00 €
+- [[Reprogramación Stage 1 genérica]] · trabajo de taller, sobre 300,00 €
+- [[Reprogramación Stage 2]] · trabajo de taller, sobre 540,00 €
 
 **ruedas**
 
-- [[Juego de neumáticos semi-slick (Federal 595RS-RR - Nankang AR-1)]] · 500,00 € orientativos
-- [[Llantas ligeras 17- para circuito (Team Dynamics Pro Race)]] · 620,00 € orientativos
-- [[Llantas réplica 18- + neumáticos de calle (tipo BBS LM)]] · 700,00 € orientativos
-- [[Set de llantas y neumáticos sacrificables para drift]] · 450,00 € orientativos
+- [[Juego de neumáticos semi-slick (Federal 595RS-RR - Nankang AR-1)]] · 500,00 € orientativos, precio volátil
+- [[Llantas ligeras 17- para circuito (Team Dynamics Pro Race)]] · 620,00 € orientativos, precio volátil
+- [[Llantas réplica 18- + neumáticos de calle (tipo BBS LM)]] · 700,00 € orientativos, precio volátil
+- [[Set de llantas y neumáticos sacrificables para drift]] · 450,00 € orientativos, precio volátil
 
 **seguridad**
 
-- [[Baquet + arnés de 4-6 puntos + soporte]] · 450,00 € orientativos
+- [[Baquet + arnés de 4-6 puntos + soporte]] · 287,58 € en [[Import-Speedshop]]
 - [[Barra superior de torretas delantera]] · 95,00 € orientativos
-- [[Corte de batería + extintor homologado]] · 130,00 € orientativos
-- [[Jaula completa soldada homologada FIA]] · 1600,00 € orientativos · no homologada en [[España]]
+- [[Corte de batería + extintor homologado]] · 139,99 € en [[PARTS33]]
+- [[Jaula completa soldada homologada FIA]] · 1.600,00 € orientativos · no homologada en [[España]]
 - [[Media jaula atornillada de 6 puntos]] · 500,00 € orientativos
 
 **suspension**
@@ -113,13 +113,13 @@ Sin accesorios originales recogidos todavía para esta generación.
 - [[Brazos ajustables + silentblocks de poliuretano (Powerflex - SuperPro)]] · 389,99 € en [[Powerflex Shop]]
 - [[Casquillos rígidos de subchasis y eje trasero (poliuretano-aluminio)]] · 260,00 € orientativos
 - [[Coilovers de entrada (FK - Raceland - TA Technix)]] · 223,27 € en [[KORNI Performance]] · homologada en [[Alemania]], [[España]]
-- [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]] · 1130,94 € en [[MK Fahrwerkstechnik]] · homologada en [[Alemania]], [[España]]
+- [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]] · 1.130,94 € en [[MK Fahrwerkstechnik]] · homologada en [[Alemania]], [[España]]
 - [[Inserto de soporte de motor trasero (dogbone) 034 - VF]] · 70,99 € en [[BAR-TEK Tuning]]
 - [[Muelles de rebaje (Eibach Pro-Kit - H&R)]] · 187,95 € en [[Federnwerk]] · homologada en [[Alemania]], [[España]]
 
 **transmision**
 
-- [[Diferencial autoblocante ATB (Quaife - Peloquin)]] · 1249,00 € en [[Boost-Parts]] · homologada en [[Alemania]], [[España]]
+- [[Diferencial autoblocante ATB (Quaife - Peloquin)]] · 1.249,00 € en [[Boost-Parts]] · homologada en [[Alemania]], [[España]]
 
 > La homologación es por país y por referencia concreta, no por tipo de pieza. Lo que no lleva indicación está sin verificar.
 

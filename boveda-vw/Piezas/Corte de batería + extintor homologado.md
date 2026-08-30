@@ -6,8 +6,9 @@ oficial: no
 gama: "baja"
 referencia: null
 precio_orientativo: 130
-ofertas: 0
-precio_verificado: no
+ofertas: 1
+precio_tipo: fijo
+precio_verificado: sí
 homologacion_verificada: no
 homologada_en:
 
@@ -29,7 +30,7 @@ Pieza de mercado no oficial. Gama baja. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [OMP extintor de polvo de 2 kg en aluminio. Cubre solo el extintor, no el corte de batería](https://parts33.com/collections/feuerloscher) · [[PARTS33]] · **139,99 €** · consultado el 2026-08-30
 
 ## Homologación
 

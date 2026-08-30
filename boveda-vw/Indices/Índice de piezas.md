@@ -1,14 +1,22 @@
 ---
 tipo: indice
 piezas: 64
-con_precio_verificado: 26
+con_precio_verificado: 30
 con_homologacion_verificada: 20
 ---
 
 # Índice de piezas
 
-26 de 64 piezas tienen precio y enlace comprobados uno a uno.
+30 de 64 piezas tienen precio y enlace comprobados uno a uno.
 El resto lleva el precio orientativo del catálogo del planner y ninguna tienda asociada.
+
+Dos categorías se leen distinto y por eso van marcadas:
+
+- **Trabajo de taller** (5 piezas): reprogramaciones y calibraciones. Se cobran por horas y por
+  banco de pruebas, cambian de un taller a otro y no tienen página de producto. No se les
+  busca precio: se piden presupuestos.
+- **Precio volátil** (6 piezas): llantas y neumáticos. Siguen al aluminio, al caucho y a la
+  temporada, así que la cifra es orden de magnitud y hay que mirar la tienda en el momento.
 
 ## No oficiales · admision
 
@@ -28,49 +36,49 @@ El resto lleva el precio orientativo del catálogo del planner y ninguna tienda 
 
 ## No oficiales · escape
 
-- [[Downpipe 3- descatalizado o con cat deportivo (AWE - Milltek)]] · 1010,74 € verificado · no homologada en Alemania, España
+- [[Downpipe 3- descatalizado o con cat deportivo (AWE - Milltek)]] · 1.010,74 € verificado · no homologada en Alemania, España
 - [[Downpipe descatalizado genérico]] · 200,00 € orientativo · no homologada en Alemania, España
-- [[Escape turbo-back completo inox (Milltek Race)]] · 1000,00 € orientativo · no homologada en Alemania, España
-- [[Línea cat-back inox 76 mm (Milltek - Scorpion)]] · 1465,95 € verificado · homologada en Alemania, España
+- [[Escape turbo-back completo inox (Milltek Race)]] · 2.775,69 € verificado · homologada en Alemania, España
+- [[Línea cat-back inox 76 mm (Milltek - Scorpion)]] · 1.465,95 € verificado · homologada en Alemania, España
 
 ## No oficiales · estetica
 
-- [[Kit de aletas anchas + alerón GT + capó de fibra]] · 1800,00 € orientativo · homologación sin verificar
+- [[Kit de aletas anchas + alerón GT + capó de fibra]] · 1.800,00 € orientativo · homologación sin verificar
 - [[Kit de carrocería Votex - RVA completo]] · 750,00 € orientativo · homologación sin verificar
 - [[Ópticas ahumadas + intermitentes dinámicos]] · 140,00 € orientativo · homologación sin verificar
 - [[Rejilla sin logos + molduras en negro brillo + vinilo de techo]] · 200,00 € orientativo · homologación sin verificar
 - [[Retapizado a cuadros GTI + volante de base plana]] · 320,00 € orientativo · homologación sin verificar
-- [[Suspensión neumática gestionada (Air Lift 3P)]] · 2600,00 € orientativo · homologación sin verificar
+- [[Suspensión neumática gestionada (Air Lift 3P)]] · 2.600,00 € orientativo · homologación sin verificar
 
 ## No oficiales · frenos
 
 - [[Discos de dos piezas + pastillas racing eje delantero (DBA - Brembo)]] · 400,00 € orientativo · homologación sin verificar
 - [[Discos y pastillas traseras de altas prestaciones]] · 190,00 € orientativo · homologación sin verificar
-- [[Kit big brake 4-6 pistones 330-355 mm (Stoptech - HISPEC)]] · 1159,00 € verificado · homologada en Alemania, España
+- [[Kit big brake 4-6 pistones 330-355 mm (Stoptech - HISPEC)]] · 1.159,00 € verificado · homologada en Alemania, España
 - [[Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1]] · 203,00 € verificado · homologación sin verificar
 
 ## No oficiales · gestion
 
-- [[Calibración Stage 2+ - archivo K04]] · 720,00 € orientativo · homologación sin verificar
-- [[Gestión standalone (Syvecs - Emerald)]] · 2600,00 € orientativo · no homologada en Alemania, España
-- [[Reprogramación Stage 1 de marca (APR - Revo - Unitronic)]] · 480,00 € orientativo · homologación sin verificar
-- [[Reprogramación Stage 1 genérica]] · 300,00 € orientativo · homologación sin verificar
-- [[Reprogramación Stage 2]] · 540,00 € orientativo · homologación sin verificar
+- [[Calibración Stage 2+ - archivo K04]] · trabajo de taller · homologación sin verificar
+- [[Gestión standalone (Syvecs - Emerald)]] · trabajo de taller · no homologada en Alemania, España
+- [[Reprogramación Stage 1 de marca (APR - Revo - Unitronic)]] · trabajo de taller · homologación sin verificar
+- [[Reprogramación Stage 1 genérica]] · trabajo de taller · homologación sin verificar
+- [[Reprogramación Stage 2]] · trabajo de taller · homologación sin verificar
 
 ## No oficiales · ruedas
 
-- [[Juego de neumáticos semi-slick (Federal 595RS-RR - Nankang AR-1)]] · 500,00 € orientativo · homologación sin verificar
-- [[Llantas forjadas 18- (BBS CH-R - OZ Ultraleggera)]] · 540,21 € verificado · homologada en Alemania, España
-- [[Llantas ligeras 17- para circuito (Team Dynamics Pro Race)]] · 620,00 € orientativo · homologación sin verificar
-- [[Llantas réplica 18- + neumáticos de calle (tipo BBS LM)]] · 700,00 € orientativo · homologación sin verificar
-- [[Set de llantas y neumáticos sacrificables para drift]] · 450,00 € orientativo · homologación sin verificar
+- [[Juego de neumáticos semi-slick (Federal 595RS-RR - Nankang AR-1)]] · 500,00 € orientativo, volátil · homologación sin verificar
+- [[Llantas forjadas 18- (BBS CH-R - OZ Ultraleggera)]] · 540,21 € verificado, volátil · homologada en Alemania, España
+- [[Llantas ligeras 17- para circuito (Team Dynamics Pro Race)]] · 620,00 € orientativo, volátil · homologación sin verificar
+- [[Llantas réplica 18- + neumáticos de calle (tipo BBS LM)]] · 700,00 € orientativo, volátil · homologación sin verificar
+- [[Set de llantas y neumáticos sacrificables para drift]] · 450,00 € orientativo, volátil · homologación sin verificar
 
 ## No oficiales · seguridad
 
-- [[Baquet + arnés de 4-6 puntos + soporte]] · 450,00 € orientativo · homologación sin verificar
+- [[Baquet + arnés de 4-6 puntos + soporte]] · 287,58 € verificado · homologación sin verificar
 - [[Barra superior de torretas delantera]] · 95,00 € orientativo · homologación sin verificar
-- [[Corte de batería + extintor homologado]] · 130,00 € orientativo · homologación sin verificar
-- [[Jaula completa soldada homologada FIA]] · 1600,00 € orientativo · no homologada en España
+- [[Corte de batería + extintor homologado]] · 139,99 € verificado · homologación sin verificar
+- [[Jaula completa soldada homologada FIA]] · 1.600,00 € orientativo · no homologada en España
 - [[Media jaula atornillada de 6 puntos]] · 500,00 € orientativo · homologación sin verificar
 
 ## No oficiales · suspension
@@ -78,29 +86,29 @@ El resto lleva el precio orientativo del catálogo del planner y ninguna tienda 
 - [[Barra estabilizadora trasera regulable (Whiteline - H&R)]] · 190,00 € orientativo · homologación sin verificar
 - [[Brazos ajustables + silentblocks de poliuretano (Powerflex - SuperPro)]] · 389,99 € verificado · homologación sin verificar
 - [[Casquillos rígidos de subchasis y eje trasero (poliuretano-aluminio)]] · 260,00 € orientativo · homologación sin verificar
-- [[Coilovers ajustables 3 vías (KW Clubsport - Bilstein B16)]] · 4867,68 € verificado · homologada en Alemania
+- [[Coilovers ajustables 3 vías (KW Clubsport - Bilstein B16)]] · 4.867,68 € verificado · homologada en Alemania
 - [[Coilovers de entrada (FK - Raceland - TA Technix)]] · 223,27 € verificado · homologada en Alemania, España
-- [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]] · 1130,94 € verificado · homologada en Alemania, España
+- [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]] · 1.130,94 € verificado · homologada en Alemania, España
 - [[Inserto de soporte de motor trasero (dogbone) 034 - VF]] · 70,99 € verificado · homologación sin verificar
 - [[Kit de geometría completo con rótulas uniball]] · 900,00 € orientativo · homologación sin verificar
 - [[Muelles de rebaje (Eibach Pro-Kit - H&R)]] · 187,95 € verificado · homologada en Alemania, España
 
 ## No oficiales · transmision
 
-- [[Autoblocante de discos - Wavetrac con precarga ajustable]] · 1499,00 € verificado · homologada en Alemania, España
-- [[Diferencial autoblocante ATB (Quaife - Peloquin)]] · 1249,00 € verificado · homologada en Alemania, España
-- [[Embrague de competición + volante aligerado]] · 1179,00 € verificado · homologación sin verificar
-- [[Embrague reforzado Stage 2 + volante rígido (Sachs - Spec)]] · 1149,00 € verificado · homologación sin verificar
+- [[Autoblocante de discos - Wavetrac con precarga ajustable]] · 1.499,00 € verificado · homologada en Alemania, España
+- [[Diferencial autoblocante ATB (Quaife - Peloquin)]] · 1.249,00 € verificado · homologada en Alemania, España
+- [[Embrague de competición + volante aligerado]] · 1.179,00 € verificado · homologación sin verificar
+- [[Embrague reforzado Stage 2 + volante rígido (Sachs - Spec)]] · 1.149,00 € verificado · homologación sin verificar
 - [[Kit de recorrido corto de cambio (034 - Forge)]] · 150,00 € orientativo · homologación sin verificar
 - [[Palieres reforzados]] · 560,00 € orientativo · homologación sin verificar
 
 ## No oficiales · turbo
 
 - [[Inyectores de mayor caudal + bomba de gasolina en depósito]] · 500,00 € orientativo · homologación sin verificar
-- [[Kit big turbo top-mount (Garrett GTX - Precision)]] · 4200,00 € orientativo · homologación sin verificar
+- [[Kit big turbo top-mount (Garrett GTX - Precision)]] · 4.200,00 € orientativo · homologación sin verificar
 - [[Kit de alimentación Stage 3 (rieles, inyectores 1000cc, bomba externa)]] · 950,00 € orientativo · homologación sin verificar
 - [[Kit de bomba de alta presión reforzada (Autotech - APR)]] · 699,98 € verificado · homologación sin verificar
-- [[Turbo híbrido K04-064 (clásico del Mk5 GTI)]] · 1550,00 € orientativo · homologación sin verificar
+- [[Turbo híbrido K04-064 (clásico del Mk5 GTI)]] · 2.699,95 € verificado · homologación sin verificar
 
 ## Oficiales · estetica
 

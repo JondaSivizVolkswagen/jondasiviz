@@ -7,6 +7,7 @@ gama: "media"
 referencia: null
 precio_orientativo: 400
 ofertas: 1
+precio_tipo: fijo
 precio_verificado: sí
 homologacion_verificada: no
 homologada_en:

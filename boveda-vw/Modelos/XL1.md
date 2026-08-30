@@ -60,13 +60,13 @@ Sin accesorios originales recogidos todavía para esta generación.
 
 **gestion**
 
-- [[Reprogramación Stage 1 de marca (APR - Revo - Unitronic)]] · 480,00 € orientativos
-- [[Reprogramación Stage 1 genérica]] · 300,00 € orientativos
-- [[Reprogramación Stage 2]] · 540,00 € orientativos
+- [[Reprogramación Stage 1 de marca (APR - Revo - Unitronic)]] · trabajo de taller, sobre 480,00 €
+- [[Reprogramación Stage 1 genérica]] · trabajo de taller, sobre 300,00 €
+- [[Reprogramación Stage 2]] · trabajo de taller, sobre 540,00 €
 
 **transmision**
 
-- [[Diferencial autoblocante ATB (Quaife - Peloquin)]] · 1249,00 € en [[Boost-Parts]] · homologada en [[Alemania]], [[España]]
+- [[Diferencial autoblocante ATB (Quaife - Peloquin)]] · 1.249,00 € en [[Boost-Parts]] · homologada en [[Alemania]], [[España]]
 
 > La homologación es por país y por referencia concreta, no por tipo de pieza. Lo que no lleva indicación está sin verificar.
 

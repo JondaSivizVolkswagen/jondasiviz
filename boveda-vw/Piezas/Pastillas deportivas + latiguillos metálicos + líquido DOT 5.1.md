@@ -7,6 +7,7 @@ gama: "baja"
 referencia: null
 precio_orientativo: 180
 ofertas: 1
+precio_tipo: fijo
 precio_verificado: sí
 homologacion_verificada: sí
 homologada_en:

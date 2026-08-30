@@ -7,6 +7,7 @@ gama: null
 referencia: "pendiente"
 precio_orientativo: null
 ofertas: 0
+precio_tipo: fijo
 precio_verificado: no
 homologacion_verificada: no
 homologada_en:

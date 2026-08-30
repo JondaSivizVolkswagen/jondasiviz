@@ -10,6 +10,8 @@ import {
   categoriaCarroceria,
   nombreDe,
   esParalela,
+  esServicio,
+  esVolatil,
   PIEZAS,
   VENDEDORES,
   PAISES,
@@ -28,8 +30,12 @@ if (!RAIZ) { console.error("Falta la ruta de destino"); process.exit(1); }
 const enlace = (n) => `[[${limpia(n)}]]`;
 const lista = (arr) => arr.map((x) => `- ${x}`).join("\n");
 
-const euros = (n) =>
-  `${n.toLocaleString("es-ES", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+// A mano y no con toLocaleString: el Node de esta máquina viene con ICU reducido y se
+// come el separador de millares, así que 1465,95 salía sin el punto.
+function euros(n) {
+  const [enteros, decimales] = n.toFixed(2).split(".");
+  return `${enteros.replace(/\B(?=(\d{3})+(?!\d))/g, ".")},${decimales} €`;
+}
 
 /** Una línea de pieza dentro de la ficha de un modelo. */
 function lineaPieza(p) {
@@ -38,9 +44,21 @@ function lineaPieza(p) {
   const h = homologacionDePieza(p.id);
   const trozos = [enlace(p.nombre)];
   if (p.referencia && p.referencia !== "pendiente") trozos.push(p.referencia);
-  if (barata) trozos.push(`${euros(barata.precio)} en ${enlace(barata.vendedor)}`);
-  else if (p.precio?.estimado) trozos.push(`${euros(p.precio.estimado)} orientativos`);
-  else trozos.push("precio pendiente");
+  if (esServicio(p)) {
+    trozos.push(`trabajo de taller, ${p.precio?.estimado ? `sobre ${euros(p.precio.estimado)}` : "a presupuestar"}`);
+  } else if (esVolatil(p)) {
+    trozos.push(
+      barata
+        ? `${euros(barata.precio)} en ${enlace(barata.vendedor)}, precio volátil`
+        : `${p.precio?.estimado ? euros(p.precio.estimado) : "sin precio"} orientativos, precio volátil`,
+    );
+  } else if (barata) {
+    trozos.push(`${euros(barata.precio)} en ${enlace(barata.vendedor)}`);
+  } else if (p.precio?.estimado) {
+    trozos.push(`${euros(p.precio.estimado)} orientativos`);
+  } else {
+    trozos.push("precio pendiente");
+  }
   if (h?.no_homologada.length) trozos.push(`no homologada en ${h.no_homologada.map(enlace).join(", ")}`);
   else if (h?.homologada.length) trozos.push(`homologada en ${h.homologada.map(enlace).join(", ")}`);
   return `- ${trozos.join(" · ")}`;
@@ -309,14 +327,22 @@ for (const p of PIEZAS) {
   const ofertas = ofertasDePieza(p.id);
   const h = homologacionDePieza(p.id);
   const compatibles = modelosDePieza(p).sort();
-  const bloqueOfertas = ofertas.length
-    ? ofertas
-        .map((o) =>
-          `- [${o.producto}](${o.url}) · ${enlace(o.vendedor)} · **${euros(o.precio)}**` +
-          `${o.referencia ? ` · referencia ${o.referencia}` : ""} · consultado el ${o.fecha}`,
-        )
-        .join("\n")
-    : "Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.";
+  const listaOfertas = ofertas
+    .map((o) =>
+      `- [${o.producto}](${o.url}) · ${enlace(o.vendedor)} · **${euros(o.precio)}**` +
+      `${o.referencia ? ` · referencia ${o.referencia}` : ""} · consultado el ${o.fecha}`,
+    )
+    .join("\n");
+
+  const bloqueOfertas = esServicio(p)
+    ? "Esto no se compra en una tienda: es trabajo de taller. El precio depende del banco de pruebas, de las horas y de quién lo haga, así que no hay página de producto que enlazar. Pide dos o tres presupuestos."
+    : ofertas.length
+      ? esVolatil(p)
+        ? `${listaOfertas}\n\n> **Precio volátil.** Llantas y neumáticos se mueven con el aluminio, el caucho y la temporada. Lo de arriba es el precio del día de la consulta y sirve como orden de magnitud, no como el precio que vas a pagar. Abre el enlace antes de decidir.`
+        : listaOfertas
+      : esVolatil(p)
+        ? "Sin oferta verificada. En llantas y neumáticos tampoco tendría mucho sentido fijarla: el precio cambia de una semana a otra, así que mira la tienda en el momento de comprar."
+        : "Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.";
 
   const bloqueHomologacion = h
     ? `${h.homologada.length ? `**Homologada en:** ${h.homologada.map(enlace).join(", ")}\n\n` : ""}` +
@@ -333,7 +359,8 @@ gama: ${p.gama ? JSON.stringify(p.gama) : "null"}
 referencia: ${p.referencia ? JSON.stringify(p.referencia) : "null"}
 precio_orientativo: ${p.precio?.estimado ?? "null"}
 ofertas: ${ofertas.length}
-precio_verificado: ${ofertas.length ? "sí" : "no"}
+precio_tipo: ${p.precioTipo}
+precio_verificado: ${esServicio(p) ? "no aplica" : ofertas.length ? "sí" : "no"}
 homologacion_verificada: ${h ? "sí" : "no"}
 homologada_en:
 ${yamlLista(h?.homologada ?? [])}
@@ -545,15 +572,27 @@ con_homologacion_verificada: ${PIEZAS.filter((p) => homologacionDePieza(p.id)).l
 ${PIEZAS.filter((p) => ofertasDePieza(p.id).length).length} de ${PIEZAS.length} piezas tienen precio y enlace comprobados uno a uno.
 El resto lleva el precio orientativo del catálogo del planner y ninguna tienda asociada.
 
+Dos categorías se leen distinto y por eso van marcadas:
+
+- **Trabajo de taller** (${PIEZAS.filter(esServicio).length} piezas): reprogramaciones y calibraciones. Se cobran por horas y por
+  banco de pruebas, cambian de un taller a otro y no tienen página de producto. No se les
+  busca precio: se piden presupuestos.
+- **Precio volátil** (${PIEZAS.filter(esVolatil).length} piezas): llantas y neumáticos. Siguen al aluminio, al caucho y a la
+  temporada, así que la cifra es orden de magnitud y hay que mirar la tienda en el momento.
+
 ${[...porCategoriaPieza.keys()].sort().map((k) =>
   `## ${k}\n\n${porCategoriaPieza.get(k)
     .sort((a, b) => a.nombre.localeCompare(b.nombre))
     .map((p) => {
       const o = ofertasDePieza(p.id);
       const h = homologacionDePieza(p.id);
-      const precio = o.length
-        ? `${euros(Math.min(...o.map((x) => x.precio)))} verificado`
-        : p.precio?.estimado ? `${euros(p.precio.estimado)} orientativo` : "sin precio";
+      const precio = esServicio(p)
+        ? "trabajo de taller"
+        : o.length
+          ? `${euros(Math.min(...o.map((x) => x.precio)))} verificado${esVolatil(p) ? ", volátil" : ""}`
+          : p.precio?.estimado
+            ? `${euros(p.precio.estimado)} orientativo${esVolatil(p) ? ", volátil" : ""}`
+            : "sin precio";
       const leg = h?.no_homologada.length
         ? `no homologada en ${h.no_homologada.join(", ")}`
         : h?.homologada.length ? `homologada en ${h.homologada.join(", ")}` : "homologación sin verificar";

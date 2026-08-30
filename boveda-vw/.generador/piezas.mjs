@@ -33,6 +33,20 @@ export const AMBITO = {
   transporte: "chasis",
 };
 
+/**
+ * Categorías que no son una pieza que se compra en una tienda, sino trabajo de taller:
+ * la reprogramación se cobra por banco de pruebas y por hora, cambia de un taller a otro
+ * y no tiene página de producto con precio. No se les busca oferta.
+ */
+export const CATEGORIAS_SERVICIO = ["gestion"];
+
+/**
+ * Categorías cuyo precio se mueve de una semana a otra: llantas y neumáticos siguen el
+ * aluminio, el caucho y la temporada. Aquí el precio solo vale como orden de magnitud y
+ * hay que mirar la tienda en el momento de comprar.
+ */
+export const CATEGORIAS_VOLATILES = ["ruedas"];
+
 /** Plataformas de turismo: las que admiten piezas de chasis del mercado de compactos. */
 export const PLATAFORMAS_TURISMO = [
   "PQ24", "PQ25", "PQ34", "PQ35", "PQ35 alargada", "PQ46", "PQ46 alargada",
@@ -295,6 +309,38 @@ export const OFERTAS = [
     precio: 1590.14, moneda: "EUR", fecha: "2026-08-30",
   },
   {
+    pieza: "turbo-k04-alta",
+    producto: "Turbo-Total K04-064 V3 hasta 480 CV para 2.0 TFSI EA113",
+    referencia: "21tf173",
+    vendedor: "BAR-TEK Tuning",
+    url: "https://www.bar-tek.com/2-0l-tfsi-v3-upgrade-turbocharger-k04-480ps",
+    precio: 2699.95, moneda: "EUR", fecha: "2026-08-30",
+  },
+  {
+    pieza: "esc-turboback-alta",
+    producto: "Milltek línea completa Quad GT100 en titanio para Golf 7 R",
+    referencia: "SSXVW401",
+    vendedor: "Milltek Alemania",
+    url: "https://www.milltek.de/Milltek-Sport-Auspuffanlage-passend-fuer-VW-Golf-7-Mk7-R-20-TSI-Quad-GT100-Titan",
+    precio: 2775.69, moneda: "EUR", fecha: "2026-08-30",
+  },
+  {
+    pieza: "seg-baquet-media",
+    producto: "Sparco Sprint L, baquet homologado FIA, negro",
+    referencia: null,
+    vendedor: "Import-Speedshop",
+    url: "https://www.import-speedshop.de/innenraum/sportsitze/sparco/6982/sparco-sprint-l-sportsitz-black-fia",
+    precio: 287.58, moneda: "EUR", fecha: "2026-08-30",
+  },
+  {
+    pieza: "seg-corte-baja",
+    producto: "OMP extintor de polvo de 2 kg en aluminio. Cubre solo el extintor, no el corte de batería",
+    referencia: null,
+    vendedor: "PARTS33",
+    url: "https://parts33.com/collections/feuerloscher",
+    precio: 139.99, moneda: "EUR", fecha: "2026-08-30",
+  },
+  {
     pieza: "of-portaequipajes-golf8",
     producto: "Portaequipajes original VW Golf 8, barras con perfil en T",
     referencia: "5H4071126",
@@ -342,9 +388,9 @@ export const HOMOLOGACION = {
     nota: "Downpipe descatalizado genérico y sin certificado. No es legalizable en vía pública en ningún país de la Unión Europea.",
   },
   "esc-turboback-alta": {
-    homologada: [],
-    no_homologada: ["Alemania", "España"],
-    nota: "La línea Milltek Race va sin catalizador. Uso en circuito.",
+    homologada: ["Alemania", "España"],
+    no_homologada: [],
+    nota: "Depende de la variante y la diferencia es grande. La línea Milltek Race va sin catalizador y es solo de circuito. La línea completa con catalizador deportivo, como la SSXVW401, es componente verificado por ECE y circula sin trámite. Antes de comprar, mira si la referencia lleva 'Race' en el nombre.",
   },
   "esc-catback-media": {
     homologada: ["Alemania", "España"],

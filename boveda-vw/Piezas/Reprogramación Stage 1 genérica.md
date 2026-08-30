@@ -7,7 +7,8 @@ gama: "baja"
 referencia: null
 precio_orientativo: 300
 ofertas: 0
-precio_verificado: no
+precio_tipo: servicio
+precio_verificado: no aplica
 homologacion_verificada: no
 homologada_en:
 
@@ -28,7 +29,7 @@ Pieza de mercado no oficial. Gama baja. Precio orientativo del catálogo: entre 
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+Esto no se compra en una tienda: es trabajo de taller. El precio depende del banco de pruebas, de las horas y de quién lo haga, así que no hay página de producto que enlazar. Pide dos o tres presupuestos.
 
 ## Homologación
 

@@ -7,6 +7,7 @@ gama: "alta"
 referencia: null
 precio_orientativo: 950
 ofertas: 0
+precio_tipo: fijo
 precio_verificado: no
 homologacion_verificada: no
 homologada_en:
@@ -21,7 +22,7 @@ motores:
 
 # Kit de alimentación Stage 3 (rieles, inyectores 1000cc, bomba externa)
 
-Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 700,00 € y 1300,00 €.
+Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 700,00 € y 1.300,00 €.
 
 ## Dónde comprarla
 

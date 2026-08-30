@@ -7,6 +7,7 @@ gama: "alta"
 referencia: null
 precio_orientativo: 4200
 ofertas: 0
+precio_tipo: fijo
 precio_verificado: no
 homologacion_verificada: no
 homologada_en:
@@ -23,7 +24,7 @@ motores:
 
 Pide bloque preparado para fiabilidad a más de 400 CV.
 
-Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 3200,00 € y 5800,00 €.
+Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 3.200,00 € y 5.800,00 €.
 
 ## Dónde comprarla
 

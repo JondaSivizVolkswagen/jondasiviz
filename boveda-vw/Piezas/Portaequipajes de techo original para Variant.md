@@ -7,6 +7,7 @@ gama: null
 referencia: "5H9071151A"
 precio_orientativo: null
 ofertas: 1
+precio_tipo: fijo
 precio_verificado: sí
 homologacion_verificada: no
 homologada_en:

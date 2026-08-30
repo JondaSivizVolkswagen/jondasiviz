@@ -7,6 +7,7 @@ gama: null
 referencia: "5H0092150B"
 precio_orientativo: null
 ofertas: 1
+precio_tipo: fijo
 precio_verificado: sí
 homologacion_verificada: no
 homologada_en:

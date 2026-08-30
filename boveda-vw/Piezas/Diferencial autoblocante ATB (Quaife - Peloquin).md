@@ -7,6 +7,7 @@ gama: "media"
 referencia: null
 precio_orientativo: 1000
 ofertas: 1
+precio_tipo: fijo
 precio_verificado: sí
 homologacion_verificada: sí
 homologada_en:
@@ -26,11 +27,11 @@ motores:
 
 # Diferencial autoblocante ATB (Quaife / Peloquin)
 
-Pieza de mercado no oficial. Gama media. Precio orientativo del catálogo: entre 750,00 € y 1350,00 €.
+Pieza de mercado no oficial. Gama media. Precio orientativo del catálogo: entre 750,00 € y 1.350,00 €.
 
 ## Dónde comprarla
 
-- [Quaife ATB autoblocante para cambio 02Q de 6 marchas, tracción delantera](https://boost-parts.de/en/quaife/206-quaife-differential-lock-02q-2wd-6-speed-gearbox-vw-audi-qdf16r.html) · [[Boost-Parts]] · **1249,00 €** · referencia QDF16R · consultado el 2026-08-29
+- [Quaife ATB autoblocante para cambio 02Q de 6 marchas, tracción delantera](https://boost-parts.de/en/quaife/206-quaife-differential-lock-02q-2wd-6-speed-gearbox-vw-audi-qdf16r.html) · [[Boost-Parts]] · **1.249,00 €** · referencia QDF16R · consultado el 2026-08-29
 
 ## Homologación
 

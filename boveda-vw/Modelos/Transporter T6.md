@@ -92,24 +92,24 @@ Sin accesorios originales recogidos todavía para esta generación.
 
 **escape**
 
-- [[Downpipe 3- descatalizado o con cat deportivo (AWE - Milltek)]] · 1010,74 € en [[Milltek Alemania]] · no homologada en [[Alemania]], [[España]]
+- [[Downpipe 3- descatalizado o con cat deportivo (AWE - Milltek)]] · 1.010,74 € en [[Milltek Alemania]] · no homologada en [[Alemania]], [[España]]
 - [[Downpipe descatalizado genérico]] · 200,00 € orientativos · no homologada en [[Alemania]], [[España]]
-- [[Escape turbo-back completo inox (Milltek Race)]] · 1000,00 € orientativos · no homologada en [[Alemania]], [[España]]
-- [[Línea cat-back inox 76 mm (Milltek - Scorpion)]] · 1465,95 € en [[BAR-TEK Tuning]] · homologada en [[Alemania]], [[España]]
+- [[Escape turbo-back completo inox (Milltek Race)]] · 2.775,69 € en [[Milltek Alemania]] · homologada en [[Alemania]], [[España]]
+- [[Línea cat-back inox 76 mm (Milltek - Scorpion)]] · 1.465,95 € en [[BAR-TEK Tuning]] · homologada en [[Alemania]], [[España]]
 
 **gestion**
 
-- [[Gestión standalone (Syvecs - Emerald)]] · 2600,00 € orientativos · no homologada en [[Alemania]], [[España]]
-- [[Reprogramación Stage 1 de marca (APR - Revo - Unitronic)]] · 480,00 € orientativos
-- [[Reprogramación Stage 1 genérica]] · 300,00 € orientativos
-- [[Reprogramación Stage 2]] · 540,00 € orientativos
+- [[Gestión standalone (Syvecs - Emerald)]] · trabajo de taller, sobre 2.600,00 € · no homologada en [[Alemania]], [[España]]
+- [[Reprogramación Stage 1 de marca (APR - Revo - Unitronic)]] · trabajo de taller, sobre 480,00 €
+- [[Reprogramación Stage 1 genérica]] · trabajo de taller, sobre 300,00 €
+- [[Reprogramación Stage 2]] · trabajo de taller, sobre 540,00 €
 
 **transmision**
 
-- [[Autoblocante de discos - Wavetrac con precarga ajustable]] · 1499,00 € en [[EM-Racing]] · homologada en [[Alemania]], [[España]]
-- [[Diferencial autoblocante ATB (Quaife - Peloquin)]] · 1249,00 € en [[Boost-Parts]] · homologada en [[Alemania]], [[España]]
-- [[Embrague de competición + volante aligerado]] · 1179,00 € en [[Boost-Parts]]
-- [[Embrague reforzado Stage 2 + volante rígido (Sachs - Spec)]] · 1149,00 € en [[Boost-Parts]]
+- [[Autoblocante de discos - Wavetrac con precarga ajustable]] · 1.499,00 € en [[EM-Racing]] · homologada en [[Alemania]], [[España]]
+- [[Diferencial autoblocante ATB (Quaife - Peloquin)]] · 1.249,00 € en [[Boost-Parts]] · homologada en [[Alemania]], [[España]]
+- [[Embrague de competición + volante aligerado]] · 1.179,00 € en [[Boost-Parts]]
+- [[Embrague reforzado Stage 2 + volante rígido (Sachs - Spec)]] · 1.149,00 € en [[Boost-Parts]]
 - [[Kit de recorrido corto de cambio (034 - Forge)]] · 150,00 € orientativos
 - [[Palieres reforzados]] · 560,00 € orientativos
 

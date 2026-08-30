@@ -7,6 +7,7 @@ gama: "media"
 referencia: null
 precio_orientativo: 500
 ofertas: 0
+precio_tipo: volatil
 precio_verificado: no
 homologacion_verificada: no
 homologada_en:
@@ -29,7 +30,7 @@ Pieza de mercado no oficial. Gama media. Precio orientativo del catálogo: entre
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+Sin oferta verificada. En llantas y neumáticos tampoco tendría mucho sentido fijarla: el precio cambia de una semana a otra, así que mira la tienda en el momento de comprar.
 
 ## Homologación
 

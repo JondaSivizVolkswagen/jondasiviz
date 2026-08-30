@@ -6,8 +6,9 @@ oficial: no
 gama: "alta"
 referencia: null
 precio_orientativo: 1550
-ofertas: 0
-precio_verificado: no
+ofertas: 1
+precio_tipo: fijo
+precio_verificado: sí
 homologacion_verificada: no
 homologada_en:
 
@@ -21,11 +22,11 @@ motores:
 
 # Turbo híbrido K04-064 (clásico del Mk5 GTI)
 
-Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 1200,00 € y 2100,00 €.
+Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 1.200,00 € y 2.100,00 €.
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [Turbo-Total K04-064 V3 hasta 480 CV para 2.0 TFSI EA113](https://www.bar-tek.com/2-0l-tfsi-v3-upgrade-turbocharger-k04-480ps) · [[BAR-TEK Tuning]] · **2.699,95 €** · referencia 21tf173 · consultado el 2026-08-30
 
 ## Homologación
 

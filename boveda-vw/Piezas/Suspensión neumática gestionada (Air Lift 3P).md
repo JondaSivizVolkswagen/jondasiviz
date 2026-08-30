@@ -7,6 +7,7 @@ gama: "alta"
 referencia: null
 precio_orientativo: 2600
 ofertas: 0
+precio_tipo: fijo
 precio_verificado: no
 homologacion_verificada: no
 homologada_en:
@@ -25,7 +26,7 @@ motores:
 
 # Suspensión neumática gestionada (Air Lift 3P)
 
-Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 1900,00 € y 3600,00 €.
+Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 1.900,00 € y 3.600,00 €.
 
 ## Dónde comprarla
 

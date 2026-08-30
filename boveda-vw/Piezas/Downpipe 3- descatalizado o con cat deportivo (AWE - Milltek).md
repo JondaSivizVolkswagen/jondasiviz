@@ -7,6 +7,7 @@ gama: "media"
 referencia: null
 precio_orientativo: 420
 ofertas: 1
+precio_tipo: fijo
 precio_verificado: sí
 homologacion_verificada: sí
 homologada_en:
@@ -28,7 +29,7 @@ Pieza de mercado no oficial. Gama media. Precio orientativo del catálogo: entre
 
 ## Dónde comprarla
 
-- [Milltek Sport Downpipe VW Golf Mk7 y 7.5 R 2.0 TSI 300 CV, 80 mm](https://www.milltek.de/Milltek-Sport-Downpipe-passend-fuer-VW-Golf-Mk7-75-R-20-TSI-300-PS-80mm) · [[Milltek Alemania]] · **1010,74 €** · referencia SSXVW711 · consultado el 2026-08-29
+- [Milltek Sport Downpipe VW Golf Mk7 y 7.5 R 2.0 TSI 300 CV, 80 mm](https://www.milltek.de/Milltek-Sport-Downpipe-passend-fuer-VW-Golf-Mk7-75-R-20-TSI-300-PS-80mm) · [[Milltek Alemania]] · **1.010,74 €** · referencia SSXVW711 · consultado el 2026-08-29
 
 ## Homologación
 

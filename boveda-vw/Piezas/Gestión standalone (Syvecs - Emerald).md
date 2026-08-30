@@ -7,7 +7,8 @@ gama: "alta"
 referencia: null
 precio_orientativo: 2600
 ofertas: 0
-precio_verificado: no
+precio_tipo: servicio
+precio_verificado: no aplica
 homologacion_verificada: sí
 homologada_en:
 
@@ -25,11 +26,11 @@ motores:
 
 # Gestión standalone (Syvecs / Emerald)
 
-Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 1900,00 € y 3600,00 €.
+Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 1.900,00 € y 3.600,00 €.
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+Esto no se compra en una tienda: es trabajo de taller. El precio depende del banco de pruebas, de las horas y de quién lo haga, así que no hay página de producto que enlazar. Pide dos o tres presupuestos.
 
 ## Homologación
 

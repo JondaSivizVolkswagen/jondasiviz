@@ -6,8 +6,9 @@ oficial: no
 gama: "media"
 referencia: null
 precio_orientativo: 450
-ofertas: 0
-precio_verificado: no
+ofertas: 1
+precio_tipo: fijo
+precio_verificado: sí
 homologacion_verificada: no
 homologada_en:
 
@@ -29,7 +30,7 @@ Pieza de mercado no oficial. Gama media. Precio orientativo del catálogo: entre
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [Sparco Sprint L, baquet homologado FIA, negro](https://www.import-speedshop.de/innenraum/sportsitze/sparco/6982/sparco-sprint-l-sportsitz-black-fia) · [[Import-Speedshop]] · **287,58 €** · consultado el 2026-08-30
 
 ## Homologación
 

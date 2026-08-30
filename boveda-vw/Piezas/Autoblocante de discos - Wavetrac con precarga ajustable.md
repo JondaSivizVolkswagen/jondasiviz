@@ -7,6 +7,7 @@ gama: "alta"
 referencia: null
 precio_orientativo: 1250
 ofertas: 1
+precio_tipo: fijo
 precio_verificado: sí
 homologacion_verificada: sí
 homologada_en:
@@ -24,11 +25,11 @@ motores:
 
 # Autoblocante de discos / Wavetrac con precarga ajustable
 
-Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 950,00 € y 1700,00 €.
+Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 950,00 € y 1.700,00 €.
 
 ## Dónde comprarla
 
-- [Wavetrac autoblocante para cambio 02Q de 6 marchas, tracción delantera](https://www.em-racing.de/Wavetrac-Differentialsperre-10309175WK-VW-02Q-2WD-Getriebe) · [[EM-Racing]] · **1499,00 €** · referencia 10.309.175WK · consultado el 2026-08-30
+- [Wavetrac autoblocante para cambio 02Q de 6 marchas, tracción delantera](https://www.em-racing.de/Wavetrac-Differentialsperre-10309175WK-VW-02Q-2WD-Getriebe) · [[EM-Racing]] · **1.499,00 €** · referencia 10.309.175WK · consultado el 2026-08-30
 
 ## Homologación
 

@@ -6,14 +6,15 @@ oficial: no
 gama: "alta"
 referencia: null
 precio_orientativo: 1000
-ofertas: 0
-precio_verificado: no
+ofertas: 1
+precio_tipo: fijo
+precio_verificado: sí
 homologacion_verificada: sí
 homologada_en:
-
-no_homologada_en:
   - "Alemania"
   - "España"
+no_homologada_en:
+
 ambito: "motor"
 modelos_compatibles: 42
 motores:
@@ -23,17 +24,17 @@ motores:
 
 # Escape turbo-back completo inox (Milltek Race)
 
-Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 750,00 € y 1400,00 €.
+Pieza de mercado no oficial. Gama alta. Precio orientativo del catálogo: entre 750,00 € y 1.400,00 €.
 
 ## Dónde comprarla
 
-Sin oferta verificada todavía. El precio orientativo de arriba viene del catálogo del planner, no de una tienda concreta.
+- [Milltek línea completa Quad GT100 en titanio para Golf 7 R](https://www.milltek.de/Milltek-Sport-Auspuffanlage-passend-fuer-VW-Golf-7-Mk7-R-20-TSI-Quad-GT100-Titan) · [[Milltek Alemania]] · **2.775,69 €** · referencia SSXVW401 · consultado el 2026-08-30
 
 ## Homologación
 
-**No homologada en:** [[Alemania]], [[España]]
+**Homologada en:** [[Alemania]], [[España]]
 
-La línea Milltek Race va sin catalizador. Uso en circuito.
+Depende de la variante y la diferencia es grande. La línea Milltek Race va sin catalizador y es solo de circuito. La línea completa con catalizador deportivo, como la SSXVW401, es componente verificado por ECE y circula sin trámite. Antes de comprar, mira si la referencia lleva 'Race' en el nombre.
 
 ## Modelos compatibles
 

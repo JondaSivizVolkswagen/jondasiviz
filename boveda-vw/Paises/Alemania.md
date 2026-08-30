@@ -1,8 +1,8 @@
 ---
 tipo: pais
 nombre: "Alemania"
-piezas_homologadas: 12
-piezas_no_homologadas: 6
+piezas_homologadas: 13
+piezas_no_homologadas: 5
 ---
 
 # Alemania
@@ -17,6 +17,7 @@ producto y el régimen de reformas vigente.
 - [[Coilovers de entrada (FK - Raceland - TA Technix)]]
 - [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]]
 - [[Diferencial autoblocante ATB (Quaife - Peloquin)]]
+- [[Escape turbo-back completo inox (Milltek Race)]]
 - [[Filtro de aire de altas prestaciones (BMC - Pipercross)]]
 - [[Intercooler frontal (Forge - Wagner Competition)]]
 - [[Kit big brake 4-6 pistones 330-355 mm (Stoptech - HISPEC)]]
@@ -30,7 +31,6 @@ producto y el régimen de reformas vigente.
 - [[Downpipe 3- descatalizado o con cat deportivo (AWE - Milltek)]]
 - [[Downpipe descatalizado genérico]]
 - [[Eje trasero rígido soldado + refuerzos (conversión drift FWD)]]
-- [[Escape turbo-back completo inox (Milltek Race)]]
 - [[Gestión standalone (Syvecs - Emerald)]]
 - [[Intercooler barra y placa Stage 3 (Airtec - do88) + hard pipes]]
 
