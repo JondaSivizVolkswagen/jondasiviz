@@ -30,10 +30,36 @@ CREATE TABLE IF NOT EXISTS pieza (
   precio_estimado INTEGER NOT NULL,
   precio_max      INTEGER NOT NULL,
   impacto         INTEGER NOT NULL CHECK (impacto BETWEEN 1 AND 5),
+  legalidad       TEXT NOT NULL CHECK (legalidad IN ('homologable','requiere-ficha','solo-circuito')),
   grupo_exclusivo TEXT,
   stage           TEXT,
   nota            TEXT,
   imagen          TEXT
+);
+
+-- Chasis en los que monta. Vacío quiere decir que la pieza no depende del chasis, que
+-- es el caso de todo lo que cuelga del motor.
+CREATE TABLE IF NOT EXISTS pieza_chasis (
+  pieza_id TEXT NOT NULL REFERENCES pieza(id) ON DELETE CASCADE,
+  chasis   TEXT NOT NULL,
+  PRIMARY KEY (pieza_id, chasis)
+);
+
+-- Tracciones en las que la pieza tiene sentido. Vacío = cualquiera.
+CREATE TABLE IF NOT EXISTS pieza_traccion (
+  pieza_id TEXT NOT NULL REFERENCES pieza(id) ON DELETE CASCADE,
+  traccion TEXT NOT NULL CHECK (traccion IN ('delantera','trasera','total')),
+  PRIMARY KEY (pieza_id, traccion)
+);
+
+-- Las tres listas de equipamiento van juntas con una columna que dice cuál es. Son la
+-- misma relación pieza-equipamiento y solo cambia el sentido, así que tres tablas
+-- idénticas solo servirían para repetir el mismo esquema tres veces.
+CREATE TABLE IF NOT EXISTS pieza_equipamiento (
+  pieza_id     TEXT NOT NULL REFERENCES pieza(id) ON DELETE CASCADE,
+  relacion     TEXT NOT NULL CHECK (relacion IN ('sustituye','exige','chocaCon')),
+  equipamiento TEXT NOT NULL,
+  PRIMARY KEY (pieza_id, relacion, equipamiento)
 );
 
 -- Una pieza puede valer para varios motores.
@@ -64,9 +90,17 @@ CREATE TABLE IF NOT EXISTS modelo (
   chasis        TEXT NOT NULL,
   motor         TEXT NOT NULL,
   motor_detalle TEXT NOT NULL,
-  traccion      TEXT NOT NULL CHECK (traccion IN ('delantera','total')),
+  traccion      TEXT NOT NULL CHECK (traccion IN ('delantera','trasera','total')),
+  propulsion    TEXT NOT NULL,
   anio_inicio   INTEGER NOT NULL,
   anio_fin      INTEGER NOT NULL
+);
+
+-- Lo que el coche trae de fábrica y condiciona qué piezas tienen sentido.
+CREATE TABLE IF NOT EXISTS modelo_equipamiento (
+  modelo_id    TEXT NOT NULL REFERENCES modelo(id) ON DELETE CASCADE,
+  equipamiento TEXT NOT NULL,
+  PRIMARY KEY (modelo_id, equipamiento)
 );
 
 -- Formas alternativas de escribir el modelo, para el buscador.

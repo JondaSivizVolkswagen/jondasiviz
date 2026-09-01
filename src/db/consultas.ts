@@ -9,11 +9,15 @@ import type {
   Catalogo,
   CatalogoModelos,
   Categoria,
+  Chasis,
+  Equipamiento,
   Gama,
+  Legalidad,
   ModeloVW,
   Objetivo,
   Pieza,
   Plataforma,
+  Propulsion,
   Stage,
   Traccion,
 } from "../engine/types.ts";
@@ -30,6 +34,7 @@ interface FilaPieza {
   precio_estimado: number;
   precio_max: number;
   impacto: number;
+  legalidad: string;
   grupo_exclusivo: string | null;
   stage: string | null;
   nota: string | null;
@@ -43,6 +48,7 @@ interface FilaModelo {
   motor: string;
   motor_detalle: string;
   traccion: string;
+  propulsion: string;
   anio_inicio: number;
   anio_fin: number;
 }
@@ -89,12 +95,34 @@ export function leerCatalogo(base: BaseDatos): Catalogo {
     requisitos.set(fila.pieza_id, lista);
   }
 
+  const chasis = agrupar<Chasis>(base, "SELECT pieza_id, chasis AS valor FROM pieza_chasis");
+  const tracciones = agrupar<Traccion>(
+    base,
+    "SELECT pieza_id, traccion AS valor FROM pieza_traccion",
+  );
+
+  // Las tres listas de equipamiento salen de la misma tabla, separadas por `relacion`.
+  const equipamiento = new Map<string, Record<string, Equipamiento[]>>();
+  for (const fila of base
+    .prepare("SELECT pieza_id, relacion, equipamiento FROM pieza_equipamiento")
+    .all() as unknown as { pieza_id: string; relacion: string; equipamiento: string }[]) {
+    const porRelacion = equipamiento.get(fila.pieza_id) ?? {};
+    (porRelacion[fila.relacion] ??= []).push(fila.equipamiento as Equipamiento);
+    equipamiento.set(fila.pieza_id, porRelacion);
+  }
+
   const piezas: Pieza[] = filas.map((fila) => {
     const pieza: Pieza = {
       id: fila.id,
       nombre: fila.nombre,
       categoria: fila.categoria as Categoria,
       plataformas: plataformas.get(fila.id) ?? [],
+      chasis: chasis.get(fila.id) ?? [],
+      legalidad: fila.legalidad as Legalidad,
+      traccion: tracciones.get(fila.id) ?? [],
+      sustituye: equipamiento.get(fila.id)?.sustituye ?? [],
+      exige: equipamiento.get(fila.id)?.exige ?? [],
+      chocaCon: equipamiento.get(fila.id)?.chocaCon ?? [],
       gama: fila.gama as Gama,
       precio: { min: fila.precio_min, estimado: fila.precio_estimado, max: fila.precio_max },
       objetivos:
@@ -129,14 +157,25 @@ export function leerModelos(base: BaseDatos): CatalogoModelos {
     alias.set(fila.modelo_id, lista);
   }
 
+  const equipamiento = new Map<string, Equipamiento[]>();
+  for (const fila of base
+    .prepare("SELECT modelo_id, equipamiento FROM modelo_equipamiento")
+    .all() as unknown as { modelo_id: string; equipamiento: string }[]) {
+    const lista = equipamiento.get(fila.modelo_id) ?? [];
+    lista.push(fila.equipamiento as Equipamiento);
+    equipamiento.set(fila.modelo_id, lista);
+  }
+
   const modelos: ModeloVW[] = filas.map((fila) => ({
     id: fila.id,
     nombre: fila.nombre,
     alias: alias.get(fila.id) ?? [],
-    chasis: fila.chasis,
+    chasis: fila.chasis as Chasis,
     motor: fila.motor as Plataforma,
     motorDetalle: fila.motor_detalle,
     traccion: fila.traccion as Traccion,
+    propulsion: fila.propulsion as Propulsion,
+    equipamiento: equipamiento.get(fila.id) ?? [],
     anios: [fila.anio_inicio, fila.anio_fin],
   }));
 
@@ -179,6 +218,23 @@ export function ultimaSiembra(
     .prepare("SELECT fecha, origen, piezas, modelos FROM siembra ORDER BY id DESC LIMIT 1")
     .get();
   return (fila ?? null) as { fecha: string; origen: string; piezas: number; modelos: number } | null;
+}
+
+/**
+ * Junta en un mapa las filas de una tabla que cuelga de `pieza`. La consulta tiene que
+ * devolver dos columnas llamadas `pieza_id` y `valor`.
+ */
+function agrupar<T extends string>(base: BaseDatos, consulta: string): Map<string, T[]> {
+  const mapa = new Map<string, T[]>();
+  for (const fila of base.prepare(consulta).all() as unknown as {
+    pieza_id: string;
+    valor: string;
+  }[]) {
+    const lista = mapa.get(fila.pieza_id) ?? [];
+    lista.push(fila.valor as T);
+    mapa.set(fila.pieza_id, lista);
+  }
+  return mapa;
 }
 
 function valorMeta(base: BaseDatos, clave: string): string {
