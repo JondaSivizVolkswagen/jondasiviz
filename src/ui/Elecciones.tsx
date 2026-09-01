@@ -8,6 +8,8 @@
 
 import type { GrupoElegible } from "../engine/types";
 import { NOMBRE_CATEGORIA } from "../engine/recommend";
+import { useCuenta } from "../cuenta/useCuenta";
+import { motivoElecciones } from "../cuenta/gating";
 import { euros } from "./format";
 
 interface Props {
@@ -16,12 +18,16 @@ interface Props {
   elecciones: Record<string, string>;
   onElegir: (grupo: string, piezaId: string) => void;
   onLimpiar: () => void;
+  /** Si el plan deja fijar piezas a mano. Sin permiso, las opciones se ven pero no se tocan. */
+  permitido: boolean;
 }
 
-export function Elecciones({ grupos, elecciones, onElegir, onLimpiar }: Props) {
+export function Elecciones({ grupos, elecciones, onElegir, onLimpiar, permitido }: Props) {
+  const { limites, abrirSuscripcion } = useCuenta();
   if (grupos.length === 0) return null;
 
   const elegidas = grupos.filter((g) => elecciones[g.grupo]).length;
+  const motivo = motivoElecciones(limites);
 
   return (
     <details className="elecciones">
@@ -37,6 +43,19 @@ export function Elecciones({ grupos, elecciones, onElegir, onLimpiar }: Props) {
         sigue eligiendo el motor con el dinero que le quede.
       </p>
 
+      {!permitido && motivo && (
+        <div className="elecciones-bloqueadas">
+          <span>{motivo}</span>
+          <button
+            type="button"
+            className="btn btn-sm"
+            onClick={() => abrirSuscripcion(motivo)}
+          >
+            <span>Ver el taller</span>
+          </button>
+        </div>
+      )}
+
       <div className="elecciones-lista">
         {grupos.map((g) => {
           const valor = elecciones[g.grupo] ?? "";
@@ -49,6 +68,7 @@ export function Elecciones({ grupos, elecciones, onElegir, onLimpiar }: Props) {
               <select
                 className={"entrada" + (valor ? " entrada-elegida" : "")}
                 value={valor}
+                disabled={!permitido}
                 onChange={(e) => onElegir(g.grupo, e.target.value)}
               >
                 <option value="">Que elija el motor</option>

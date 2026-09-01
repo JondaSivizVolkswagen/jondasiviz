@@ -32,6 +32,13 @@ const TRAZOS = {
       <path d="M11 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7" />
     </>
   ),
+  cerrar: <path d="M18 6 6 18M6 6l12 12" />,
+  candado: (
+    <>
+      <rect x="4" y="11" width="16" height="10" rx="1" />
+      <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+    </>
+  ),
 } satisfies Record<string, ReactNode>;
 
 export type NombreIcono = keyof typeof TRAZOS;

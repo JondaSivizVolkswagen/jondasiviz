@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Pasarela simulada · Jondasiviz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="pago-simulado">
+      <div class="pago-tarjeta">
+        <div class="pago-marca"><i></i>Jondasiviz</div>
+        <span class="pago-simulacion">Simulación, no es un cobro real</span>
+
+        <h1>Confirmar el taller</h1>
+        <p>
+          No hay claves de pago configuradas en este servidor, así que no se cobra nada de
+          verdad. Este botón marca la cuenta como suscrita, igual que haría Stripe al terminar
+          un pago real.
+        </p>
+
+        <div class="pago-precio">4,99 € al mes, si esto fuera de verdad</div>
+
+        <div class="pago-acciones" data-acciones>
+          <button type="button" class="btn btn-rojo" data-confirmar>
+            <span>Confirmar el pago simulado</span>
+          </button>
+          <a class="btn btn-sm" href="/herramienta.html?suscripcion=cancelada">
+            <span>Cancelar y volver</span>
+          </a>
+        </div>
+
+        <p class="pago-estado" data-estado></p>
+      </div>
+    </div>
+
+    <script type="module" src="/src/landing/pago-simulado.ts"></script>
+  </body>
+</html>

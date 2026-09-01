@@ -5,7 +5,13 @@
 import { useMemo } from "react";
 import type { FormEvent } from "react";
 import type { GrupoElegible, ModeloVW, Objetivo, Presupuesto } from "../engine/types";
-import { NOMBRE_OBJETIVO, enConflictoCon, fraseRiesgo } from "../engine/recommend";
+import {
+  NOMBRE_OBJETIVO,
+  alternarObjetivo as aplicarObjetivo,
+  enConflictoCon,
+  fraseRiesgo,
+} from "../engine/recommend";
+import type { Limites } from "../cuenta/api";
 import { OBJETIVOS } from "./opciones";
 import { Icono } from "./icons";
 import { Elecciones } from "./Elecciones";
@@ -49,6 +55,8 @@ interface Props {
   elecciones: Record<string, string>;
   onElegir: (grupo: string, piezaId: string) => void;
   onLimpiarElecciones: () => void;
+  /** Qué deja hacer el plan de la cuenta. Gratis por defecto para quien no ha entrado. */
+  limites: Limites;
 }
 
 export function Formulario(p: Props) {
@@ -237,20 +245,33 @@ export function Formulario(p: Props) {
               ? enConflictoCon(o.valor).filter((c) => p.objetivos.includes(c))
               : [];
             const enConflicto = suelta.length > 0;
+            // Se sigue pudiendo pulsar: el clic lo recoge onAlternarObjetivo, que decide
+            // si cabe en el plan y, si no, abre la suscripción con el motivo. Aquí solo
+            // se atenúa para que se vea que hay algo detrás antes de tocarlo.
+            const bloqueado = !activo && aplicarObjetivo(p.objetivos, o.valor).length > p.limites.objetivos;
 
             return (
               <button
                 type="button"
                 key={o.valor}
                 className={
-                  "objetivo" + (activo ? " activo" : "") + (enConflicto ? " en-conflicto" : "")
+                  "objetivo" +
+                  (activo ? " activo" : "") +
+                  (enConflicto ? " en-conflicto" : "") +
+                  (bloqueado ? " bloqueado" : "")
                 }
                 aria-pressed={activo}
+                title={bloqueado ? "Combinar objetivos es de la suscripción." : undefined}
                 onClick={() => p.onAlternarObjetivo(o.valor)}
               >
                 <span className="objetivo-cab">
                   <Icono nombre={o.icono} className="objetivo-icono" />
                   <span className="objetivo-nombre">{o.etiqueta}</span>
+                  {bloqueado && (
+                    <span className="objetivo-candado" aria-hidden="true">
+                      <Icono nombre="candado" />
+                    </span>
+                  )}
                 </span>
                 <span className="objetivo-frase">{o.frase}</span>
                 {enConflicto && (
@@ -266,6 +287,9 @@ export function Formulario(p: Props) {
         <p className="campo-ayuda">
           Marca todos los que quieras. El mínimo sube al combinarlos. Drift y drag son la
           excepción: piden preparaciones contrarias, así que al elegir uno se suelta el otro.
+          {p.limites.objetivos < OBJETIVOS.length && (
+            <> Con el plan gratuito va uno cada vez.</>
+          )}
         </p>
 
         {/* Solo la gama del build. El mínimo lo cuenta Requisitos, junto al plan. */}
@@ -286,6 +310,7 @@ export function Formulario(p: Props) {
           elecciones={p.elecciones}
           onElegir={p.onElegir}
           onLimpiar={p.onLimpiarElecciones}
+          permitido={p.limites.eleccionesManuales}
         />
       </div>
 

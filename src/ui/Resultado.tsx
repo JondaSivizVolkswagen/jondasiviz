@@ -11,6 +11,9 @@ import {
   normalizarObjetivos,
 } from "../engine/recommend";
 import { descargarPdf } from "../export/pdf";
+import { comprobarLimite } from "../cuenta/api";
+import { useCuenta } from "../cuenta/useCuenta";
+import { MOTIVO_PDF } from "../cuenta/gating";
 import { euros } from "./format";
 
 interface Props {
@@ -22,7 +25,7 @@ interface Props {
  * El total no salta de una cifra a otra: cuenta hasta ella. Con la lista cambiando bajo
  * la mano, el número que se mueve es lo que dice "esto que has tocado ha hecho algo".
  */
-function useCuenta(destino: number) {
+function useContador(destino: number) {
   const [valor, setValor] = useState(destino);
   const desde = useRef(destino);
 
@@ -54,16 +57,38 @@ function useCuenta(destino: number) {
 
 export function Resultado({ resultado, onProbarPresupuesto }: Props) {
   const { modelo, presupuesto, cumpleMinimo, siguienteEscalon, avisos } = resultado;
+  const { limites, abrirSuscripcion } = useCuenta();
   const [generando, setGenerando] = useState(false);
   const [falloPdf, setFalloPdf] = useState(false);
-  const contado = useCuenta(presupuesto ? presupuesto.total : 0);
+  const contado = useContador(presupuesto ? presupuesto.total : 0);
 
   // pdfmake llega por import() dinámico, así que la primera descarga tarda un poco.
   const bajarPdf = async () => {
     if (!modelo || !presupuesto) return;
+
+    if (!limites.exportarPdf) {
+      abrirSuscripcion(MOTIVO_PDF);
+      return;
+    }
+
     setGenerando(true);
     setFalloPdf(false);
     try {
+      // Antes de generar el PDF de verdad se le pregunta al servidor, que es quien manda:
+      // la interfaz puede desactivar el botón, pero eso se salta abriendo las
+      // herramientas del navegador. Si la API no contesta (sin conexión, escritorio sin
+      // servidor) se sigue igual: la app no se rompe porque el backend esté apagado.
+      const veredicto = await comprobarLimite({
+        modelo: presupuesto.peticion.modelo ?? modelo.id,
+        presupuesto: presupuesto.peticion.presupuesto,
+        objetivos: presupuesto.peticion.objetivos,
+        elecciones: presupuesto.peticion.elecciones ?? [],
+      });
+      if (!veredicto.ok && veredicto.codigo === 402) {
+        abrirSuscripcion(veredicto.error);
+        return;
+      }
+
       await descargarPdf({ modelo, plan: presupuesto, siguienteEscalon, avisos });
     } catch {
       setFalloPdf(true);
@@ -134,7 +159,13 @@ export function Resultado({ resultado, onProbarPresupuesto }: Props) {
         </p>
 
         <div className="acciones-plan">
-          <button type="button" className="btn btn-sm" onClick={bajarPdf} disabled={generando}>
+          <button
+            type="button"
+            className={"btn btn-sm" + (limites.exportarPdf ? "" : " btn-bloqueado")}
+            onClick={() => void bajarPdf()}
+            disabled={generando}
+            title={limites.exportarPdf ? undefined : MOTIVO_PDF}
+          >
             <span>{generando ? "Preparando el PDF…" : "Descargar en PDF"}</span>
           </button>
           {falloPdf && (

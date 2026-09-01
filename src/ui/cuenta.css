@@ -1,0 +1,514 @@
+/* =========================================================================
+   Cuenta y suscripcion: modal de acceso, modal de suscripcion, la pastilla de
+   plan en la barra y los estados "esto es de pago" de los controles del
+   planner. Todo con los tokens de index.css y las clases que ya existen
+   (.btn, .chip, .entrada, .bloque): esto no es una pagina nueva con su
+   propio estilo, es la misma casa con dos habitaciones mas.
+   ========================================================================= */
+
+/* ================================ cuenta ================================= */
+
+.cuenta-barra {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cuenta-correo {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  color: var(--texto-2);
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.plan-pill {
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+@media (max-width: 640px) {
+  .cuenta-correo {
+    display: none;
+  }
+}
+
+/* ================================= modal ================================= */
+
+.modal-fondo {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(4, 5, 6, 0.78);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: modal-fondo-entra 0.3s var(--curva);
+}
+
+@keyframes modal-fondo-entra {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  background: var(--panel);
+  border: 1px solid var(--linea-fuerte);
+  padding: 32px;
+  animation: modal-panel-entra 0.4s var(--curva);
+}
+
+@keyframes modal-panel-entra {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.modal-cerrar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--linea);
+  background: transparent;
+  color: var(--tenue);
+  cursor: pointer;
+  border-radius: var(--r);
+  transition: color 0.25s, border-color 0.25s;
+}
+
+.modal-cerrar:hover {
+  color: var(--texto);
+  border-color: var(--linea-fuerte);
+}
+
+.modal-cerrar svg {
+  width: 14px;
+  height: 14px;
+}
+
+.modal-titulo {
+  font-size: 26px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 22px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-fondo,
+  .modal-panel {
+    animation: none;
+  }
+}
+
+/* ============================== form de acceso ============================ */
+
+.form-acceso {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.campo-acceso {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campo-acceso > span:first-child {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+
+.campo-error {
+  font-size: 12px;
+  color: var(--rojo-vivo);
+  line-height: 1.5;
+}
+
+.campo-error-general {
+  padding: 12px 14px;
+  border: 1px solid rgba(227, 18, 28, 0.4);
+  background: rgba(227, 18, 28, 0.07);
+}
+
+.form-acceso-enviar {
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.form-acceso-cambiar {
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--tenue);
+}
+
+.enlace {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  color: var(--texto);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0;
+}
+
+.enlace:hover {
+  color: var(--rojo-vivo);
+}
+
+/* ============================== suscripcion ================================ */
+
+.suscripcion-motivo {
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  border-left: 2px solid var(--rojo);
+  background: var(--panel-2);
+  font-size: 13px;
+  color: var(--texto-2);
+  line-height: 1.55;
+}
+
+.suscripcion-precio {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.suscripcion-precio b {
+  font-family: var(--mono);
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.suscripcion-precio span {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tenue);
+}
+
+.suscripcion-rasgos {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.suscripcion-rasgos li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13.5px;
+  color: var(--texto);
+}
+
+.suscripcion-rasgos svg {
+  width: 15px;
+  height: 15px;
+  color: var(--rojo);
+  flex: none;
+}
+
+.suscripcion-gratis {
+  margin-bottom: 22px;
+  border-top: 1px solid var(--linea);
+  padding-top: 14px;
+}
+
+.suscripcion-gratis summary {
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tenue);
+  transition: color 0.25s;
+}
+
+.suscripcion-gratis summary:hover {
+  color: var(--texto);
+}
+
+.suscripcion-gratis summary::-webkit-details-marker {
+  display: none;
+}
+
+.suscripcion-gratis ul {
+  list-style: none;
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.suscripcion-gratis li {
+  font-size: 12.5px;
+  color: var(--tenue);
+  padding-left: 16px;
+  position: relative;
+}
+
+.suscripcion-gratis li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 1px;
+  background: var(--apagado);
+}
+
+.suscripcion-activa {
+  font-size: 13.5px;
+  color: var(--verde);
+}
+
+.suscripcion-esperando {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.suscripcion-esperando p {
+  font-size: 13px;
+  color: var(--texto-2);
+  line-height: 1.55;
+}
+
+.suscripcion-esperando .btn {
+  justify-content: center;
+}
+
+/* =============================== aviso de pago ============================= */
+
+.aviso-pago {
+  margin-bottom: 24px;
+  padding: 14px 18px;
+  border: 1px solid var(--linea);
+  background: var(--panel-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--texto-2);
+  animation: entra 0.4s var(--curva);
+}
+
+.aviso-pago.ok {
+  border-color: rgba(53, 208, 127, 0.4);
+}
+
+.aviso-pago-cerrar {
+  flex: none;
+  border: none;
+  background: none;
+  color: var(--tenue);
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.aviso-pago-cerrar:hover {
+  color: var(--texto);
+}
+
+/* ========================= controles solo de pago ========================= */
+
+/* Se ven, no desaparecen: el punto es que quien mira sepa que existen y por
+   que estan apagados. */
+.objetivo.bloqueado {
+  opacity: 0.5;
+}
+
+.objetivo.bloqueado:hover {
+  opacity: 0.75;
+}
+
+/* Mismo lenguaje que .objetivo.bloqueado, pero para botones sueltos como el de PDF. */
+.btn-bloqueado {
+  opacity: 0.5;
+}
+
+.btn-bloqueado:hover {
+  opacity: 0.75;
+}
+
+.objetivo-candado {
+  display: inline-flex;
+  margin-left: 6px;
+  color: var(--tenue);
+}
+
+.objetivo-candado svg {
+  width: 11px;
+  height: 11px;
+}
+
+.limite-aviso {
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid rgba(227, 18, 28, 0.4);
+  background: rgba(227, 18, 28, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 12.5px;
+  color: var(--texto-2);
+  animation: entra 0.4s var(--curva);
+}
+
+.elecciones-bloqueadas {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--linea);
+  background: var(--negro-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--tenue);
+}
+
+.boton-precio {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ============================== pago simulado ============================= */
+
+.pago-simulado {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.pago-tarjeta {
+  width: 100%;
+  max-width: 440px;
+  background: var(--panel);
+  border: 1px solid var(--linea-fuerte);
+  padding: 36px;
+  position: relative;
+  z-index: 2;
+}
+
+.pago-marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.pago-marca i {
+  width: 8px;
+  height: 8px;
+  background: var(--rojo);
+  display: block;
+  transform: skewX(-18deg);
+  box-shadow: 0 0 14px rgba(227, 18, 28, 0.8);
+  flex: none;
+}
+
+.pago-simulacion {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 5px 10px;
+  border: 1px solid rgba(240, 169, 43, 0.45);
+  color: var(--ambar);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.pago-tarjeta h1 {
+  font-size: 26px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.pago-tarjeta p {
+  font-size: 13.5px;
+  color: var(--texto-2);
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+.pago-precio {
+  font-family: var(--mono);
+  font-size: 15px;
+  color: var(--texto);
+  margin-bottom: 24px;
+}
+
+.pago-acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pago-acciones .btn {
+  justify-content: center;
+}
+
+.pago-estado {
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--texto-2);
+}
+
+.pago-estado.error {
+  color: var(--rojo-vivo);
+}
+
+.pago-estado.ok {
+  color: var(--verde);
+}

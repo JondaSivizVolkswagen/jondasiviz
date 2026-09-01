@@ -9,13 +9,29 @@ import { Formulario } from "./ui/Formulario";
 import { Resultado } from "./ui/Resultado";
 import { Requisitos } from "./ui/Requisitos";
 import { PiezasCompatibles } from "./ui/PiezasCompatibles";
+import { useCuenta } from "./cuenta/useCuenta";
+import { motivoObjetivos } from "./cuenta/gating";
+import { AccesoModal } from "./ui/AccesoModal";
+import { SuscripcionModal } from "./ui/SuscripcionModal";
 import "./App.css";
+import "./ui/cuenta.css";
 
 function App() {
   const modelos = useMemo(() => listarModelos(), []);
   const selector = useMemo(() => crearSelector(), []);
   // Se mira una sola vez: no cambia de entorno a mitad de sesion.
   const escritorio = useMemo(() => enEscritorio(), []);
+
+  const cuenta = useCuenta();
+  const {
+    usuario,
+    plan: planCuenta,
+    limites,
+    cargando: cargandoCuenta,
+    abrirAcceso,
+    abrirSuscripcion,
+    salir,
+  } = cuenta;
 
   // El Mk5 es el modelo de referencia del catálogo, así que arranca en él si está.
   const [modeloId, setModeloId] = useState(
@@ -62,9 +78,40 @@ function App() {
     return () => window.removeEventListener("scroll", alScroll);
   }, []);
 
-  // Las reglas de qué objetivo descarta a cuál viven en el motor, no aquí.
+  // Al volver del pago (simulado o de Stripe) la URL trae la respuesta. El aviso sale del
+  // primer render, leyendo la URL tal cual llega; el efecto solo hace lo que no puede
+  // pasar durante el render: limpiar la barra de direcciones para que un F5 no la repita,
+  // y refrescar la cuenta para que la pastilla del plan ya diga "Taller".
+  const [avisoPago, setAvisoPago] = useState<string | null>(() => {
+    switch (new URLSearchParams(window.location.search).get("suscripcion")) {
+      case "lista":
+        return "Ya eres del taller. Combina objetivos y elige piezas cuando quieras.";
+      case "cancelada":
+        return "El pago se ha quedado a medias. Sigues en el plan gratuito.";
+      default:
+        return null;
+    }
+  });
+  useEffect(() => {
+    const resultado = new URLSearchParams(window.location.search).get("suscripcion");
+    if (!resultado) return;
+    window.history.replaceState({}, "", window.location.pathname);
+    if (resultado === "lista") void cuenta.refrescar();
+  }, [cuenta]);
+
+  // Las reglas de qué objetivo descarta a cuál viven en el motor, no aquí. Lo que sí
+  // decide la interfaz es si el resultado cabe en el plan: si no cabe, no se aplica y se
+  // enseña por qué, con la puerta abierta a suscribirse.
   const alternarObjetivo = (o: Objetivo) => {
-    setObjetivos((prev) => aplicarObjetivo(prev, o));
+    const siguiente = aplicarObjetivo(objetivos, o);
+    if (siguiente.length > objetivos.length) {
+      const motivo = motivoObjetivos(limites, siguiente.length);
+      if (motivo) {
+        abrirSuscripcion(motivo);
+        return;
+      }
+    }
+    setObjetivos(siguiente);
   };
 
   const elegirPieza = (grupo: string, piezaId: string) => {
@@ -88,6 +135,34 @@ function App() {
         </a>
 
         <div className="barra-acciones">
+          {/* Mientras no se sabe si hay sesión no se enseña nada de cuenta: mejor un hueco
+              en blanco medio segundo que un "Entrar" que luego se convierte en el correo. */}
+          {!cargandoCuenta && (
+            <div className="cuenta-barra">
+              {usuario ? (
+                <>
+                  <span className="cuenta-correo" title={usuario.correo}>
+                    {usuario.correo}
+                  </span>
+                  <button
+                    type="button"
+                    className={"chip plan-pill" + (planCuenta === "taller" ? " chip-gama" : "")}
+                    onClick={() => planCuenta === "gratis" && abrirSuscripcion(null)}
+                  >
+                    {planCuenta === "taller" ? "Taller" : "Gratis"}
+                  </button>
+                  <button type="button" className="btn btn-sm" onClick={() => void salir()}>
+                    <span>Cerrar sesión</span>
+                  </button>
+                </>
+              ) : (
+                <button type="button" className="btn btn-sm" onClick={() => abrirAcceso("entrar")}>
+                  <span>Entrar</span>
+                </button>
+              )}
+            </div>
+          )}
+
           {/* La portada es la misma en la web y en la app, asi que el destino tambien.
               Lo unico que cambia es que en el programa se puede salir, y en una web no. */}
           <a className="btn btn-sm volver" href="/">
@@ -115,6 +190,19 @@ function App() {
           </p>
         </div>
 
+        {avisoPago && (
+          <div className={"aviso-pago" + (planCuenta === "taller" ? " ok" : "")}>
+            <span>{avisoPago}</span>
+            <button
+              type="button"
+              className="aviso-pago-cerrar"
+              onClick={() => setAvisoPago(null)}
+            >
+              Cerrar
+            </button>
+          </div>
+        )}
+
         <div className="config">
           <div className="columna-controles">
             <Formulario
@@ -132,6 +220,7 @@ function App() {
               elecciones={elecciones}
               onElegir={elegirPieza}
               onLimpiarElecciones={() => setElecciones({})}
+              limites={limites}
             />
           </div>
 
@@ -145,6 +234,9 @@ function App() {
           </div>
         </div>
       </main>
+
+      <AccesoModal />
+      <SuscripcionModal />
     </div>
   );
 }

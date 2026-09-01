@@ -2,12 +2,14 @@ import { resolve } from 'node:path'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
-// El sitio tiene dos páginas:
-//   index.html        la landing (HTML plano, autónoma, sin React)
-//   herramienta.html  el planner en React, al que lleva el botón de la landing
+// El sitio tiene tres páginas:
+//   index.html            la landing (HTML plano, autónoma, sin React)
+//   herramienta.html      el planner en React, al que lleva el botón de la landing
+//   pago-simulado.html    la pasarela de pago simulada, plana como la landing
 //
-// Se declaran las dos como entradas para que `vite build` genere ambas. La landing no
-// carga React, así que quien solo abre la portada no se descarga el bundle de la app.
+// Se declaran las tres como entradas para que `vite build` genere todas. La landing y la
+// pasarela no cargan React, así que quien solo pasa por ahí no se descarga el bundle de
+// la app.
 export default defineConfig({
   plugins: [react()],
   server: {
@@ -26,6 +28,7 @@ export default defineConfig({
       input: {
         landing: resolve(import.meta.dirname, 'index.html'),
         herramienta: resolve(import.meta.dirname, 'herramienta.html'),
+        pagoSimulado: resolve(import.meta.dirname, 'pago-simulado.html'),
       },
     },
   },

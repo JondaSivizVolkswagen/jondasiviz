@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { cargarDatos } from './data/fuente.ts'
+import { CuentaProvider } from './cuenta/CuentaContext.tsx'
 
 // Antes de pintar nada se intenta traer el catálogo de la API, que lo sirve desde la
 // base de datos. Si no hay servidor (la app de escritorio, o la web a secas) se sigue
@@ -12,6 +13,8 @@ document.documentElement.dataset.origenDatos = origen
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <CuentaProvider>
+      <App />
+    </CuentaProvider>
   </StrictMode>,
 )
