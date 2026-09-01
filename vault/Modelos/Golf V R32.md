@@ -24,7 +24,7 @@ Tracción total · combustión · 2005-2008
 
 **De serie** haldex, dsg
 
-**Piezas que montan (35)**
+**Piezas que montan (38)**
 
 [[Categoría admisión]]: [[Filtro de aire de altas prestaciones (BMC - Pipercross)]]
 
@@ -42,6 +42,6 @@ Tracción total · combustión · 2005-2008
 
 [[Categoría seguridad]]: [[Baquet + arnés de 4-6 puntos + soporte]], [[Corte de batería + extintor homologado]], [[Jaula completa soldada homologada FIA]], [[Media jaula atornillada de 6 puntos]], [[Barra superior de torretas delantera]]
 
-[[Categoría suspensión]]: [[Barra estabilizadora trasera regulable (Whiteline - H&R)]], [[Brazos ajustables + silentblocks de poliuretano (Powerflex - SuperPro)]], [[Coilovers ajustables 3 vías (KW Clubsport - Bilstein B16)]], [[Coilovers de entrada (FK - Raceland - TA Technix)]], [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]], [[Inserto de soporte de motor trasero (dogbone) 034 - VF]], [[Kit de geometría completo con rótulas uniball]], [[Muelles de rebaje (Eibach Pro-Kit - H&R)]], [[Casquillos rígidos de subchasis y eje trasero (poliuretano-aluminio)]]
+[[Categoría suspensión]]: [[Barra estabilizadora trasera regulable (Whiteline - H&R)]], [[Brazos ajustables + silentblocks de poliuretano (Powerflex - SuperPro)]], [[Coilovers ajustables 3 vías (KW Clubsport - Bilstein B16)]], [[Coilovers de entrada (FK - Raceland - TA Technix)]], [[Coilovers con cancelador de Magnetic Ride (KW V3 - Bilstein)]], [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]], [[Inserto de soporte de motor trasero (dogbone) 034 - VF]], [[Kit de geometría completo con rótulas uniball]], [[Muelles de rebaje (Eibach Pro-Kit - H&R)]], [[Muelles de rebaje compatibles con Magnetic Ride (Eibach - H&R)]], [[Casquillos rígidos de subchasis y eje trasero (poliuretano-aluminio)]]
 
-[[Categoría transmisión]]: [[Diferencial autoblocante ATB (Quaife - Peloquin)]], [[Kit de recorrido corto de cambio (034 - Forge)]]
+[[Categoría transmisión]]: [[Servicio de embrague Haldex y filtro]], [[Diferencial autoblocante ATB (Quaife - Peloquin)]], [[Kit de recorrido corto de cambio (034 - Forge)]]

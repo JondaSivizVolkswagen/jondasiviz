@@ -45,6 +45,539 @@
       ]
     },
     {
+      "id": "audi-a1-8x",
+      "nombre": "Audi A1 8X",
+      "alias": [
+        "a1 8x",
+        "audi a1"
+      ],
+      "chasis": "PQ25",
+      "motor": "EA111",
+      "motorDetalle": "1.2-1.4 TFSI 86-185 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2010,
+        2018
+      ]
+    },
+    {
+      "id": "audi-a1-gb",
+      "nombre": "Audi A1 GB 40 TFSI",
+      "alias": [
+        "a1 gb",
+        "a1 40 tfsi",
+        "audi a1 2019"
+      ],
+      "chasis": "MQB-A0",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 200-207 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2018,
+        2026
+      ]
+    },
+    {
+      "id": "audi-a3-8p-tdi",
+      "nombre": "Audi A3 8P 2.0 TDI",
+      "alias": [
+        "a3 8p tdi"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA189",
+      "motorDetalle": "2.0 TDI common rail 140-170 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf"
+      ],
+      "anios": [
+        2008,
+        2012
+      ]
+    },
+    {
+      "id": "audi-a3-8p-tfsi",
+      "nombre": "Audi A3 8P 2.0 TFSI",
+      "alias": [
+        "a3 8p",
+        "a3 2.0 tfsi"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 200 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2004,
+        2012
+      ]
+    },
+    {
+      "id": "audi-a3-8v-tsi",
+      "nombre": "Audi A3 8V 2.0 TSI",
+      "alias": [
+        "a3 8v",
+        "a3 2.0 tsi"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 190 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2012,
+        2020
+      ]
+    },
+    {
+      "id": "audi-a3-8y",
+      "nombre": "Audi A3 8Y",
+      "alias": [
+        "a3 8y",
+        "audi a3 2020"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "1.5-2.0 TFSI 150-204 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "gpf",
+        "act"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "audi-a3-etron-8v",
+      "nombre": "Audi A3 e-tron 8V",
+      "alias": [
+        "a3 etron",
+        "a3 e-tron"
+      ],
+      "chasis": "MQB",
+      "motor": "EA211-PHEV",
+      "motorDetalle": "1.4 TFSI híbrido enchufable, 204 CV de sistema",
+      "traccion": "delantera",
+      "propulsion": "phev",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2014,
+        2020
+      ]
+    },
+    {
+      "id": "audi-q2",
+      "nombre": "Audi Q2",
+      "alias": [
+        "q2",
+        "audi q2"
+      ],
+      "chasis": "MQB",
+      "motor": "EA211-evo",
+      "motorDetalle": "1.5 TFSI 150 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "gpf",
+        "act"
+      ],
+      "anios": [
+        2016,
+        2024
+      ]
+    },
+    {
+      "id": "audi-q3-8u",
+      "nombre": "Audi Q3 8U",
+      "alias": [
+        "q3 8u",
+        "audi q3 2011"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 170-220 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg"
+      ],
+      "anios": [
+        2011,
+        2018
+      ]
+    },
+    {
+      "id": "audi-q3-f3",
+      "nombre": "Audi Q3 F3",
+      "alias": [
+        "q3 f3",
+        "audi q3 2018"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "1.5-2.0 TFSI 150-245 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2018,
+        2026
+      ]
+    },
+    {
+      "id": "audi-rs3-8p",
+      "nombre": "Audi RS3 8P",
+      "alias": [
+        "rs3 8p",
+        "rs3 340"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA855",
+      "motorDetalle": "2.5 TFSI 340 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2011,
+        2012
+      ]
+    },
+    {
+      "id": "audi-rs3-8v",
+      "nombre": "Audi RS3 8V",
+      "alias": [
+        "rs3 8v",
+        "rs3 400"
+      ],
+      "chasis": "MQB",
+      "motor": "EA855",
+      "motorDetalle": "2.5 TFSI 367-400 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "frenos-grandes",
+        "magnetic-ride"
+      ],
+      "anios": [
+        2015,
+        2020
+      ]
+    },
+    {
+      "id": "audi-rs3-8y",
+      "nombre": "Audi RS3 8Y",
+      "alias": [
+        "rs3 8y",
+        "rs3 2021"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA855",
+      "motorDetalle": "2.5 TFSI 400 CV, quattro con reparto vectorial",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "diferencial-trasero",
+        "frenos-grandes",
+        "gpf"
+      ],
+      "anios": [
+        2021,
+        2026
+      ]
+    },
+    {
+      "id": "audi-rsq3-8u",
+      "nombre": "Audi RS Q3 8U",
+      "alias": [
+        "rs q3 8u",
+        "rsq3 340"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA855",
+      "motorDetalle": "2.5 TFSI 310-340 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2013,
+        2018
+      ]
+    },
+    {
+      "id": "audi-rsq3-f3",
+      "nombre": "Audi RS Q3 F3",
+      "alias": [
+        "rs q3 f3",
+        "rsq3 400"
+      ],
+      "chasis": "MQB",
+      "motor": "EA855",
+      "motorDetalle": "2.5 TFSI 400 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "frenos-grandes",
+        "gpf"
+      ],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
+      "id": "audi-s1-8x",
+      "nombre": "Audi S1 8X",
+      "alias": [
+        "s1",
+        "audi s1 quattro"
+      ],
+      "chasis": "PQ25",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 231 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2014,
+        2018
+      ]
+    },
+    {
+      "id": "audi-s3-8p",
+      "nombre": "Audi S3 8P",
+      "alias": [
+        "s3 8p",
+        "audi s3 265"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 265 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg"
+      ],
+      "anios": [
+        2006,
+        2012
+      ]
+    },
+    {
+      "id": "audi-s3-8v",
+      "nombre": "Audi S3 8V",
+      "alias": [
+        "s3 8v",
+        "audi s3 300"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 300-310 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "magnetic-ride"
+      ],
+      "anios": [
+        2013,
+        2020
+      ]
+    },
+    {
+      "id": "audi-s3-8y",
+      "nombre": "Audi S3 8Y",
+      "alias": [
+        "s3 8y",
+        "audi s3 333"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TFSI 310-333 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "vaq",
+        "gpf"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "audi-tt-8j",
+      "nombre": "Audi TT 8J 2.0 TFSI",
+      "alias": [
+        "tt 8j",
+        "audi tt 2.0 tfsi"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 200-211 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2006,
+        2014
+      ]
+    },
+    {
+      "id": "audi-tt-8s",
+      "nombre": "Audi TT 8S 2.0 TFSI",
+      "alias": [
+        "tt 8s",
+        "audi tt 2015"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 180-230 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2014,
+        2023
+      ]
+    },
+    {
+      "id": "audi-ttrs-8j",
+      "nombre": "Audi TT RS 8J",
+      "alias": [
+        "tt rs 8j",
+        "ttrs 340"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA855",
+      "motorDetalle": "2.5 TFSI 340-360 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2009,
+        2014
+      ]
+    },
+    {
+      "id": "audi-ttrs-8s",
+      "nombre": "Audi TT RS 8S",
+      "alias": [
+        "tt rs 8s",
+        "ttrs 400"
+      ],
+      "chasis": "MQB",
+      "motor": "EA855",
+      "motorDetalle": "2.5 TFSI 400 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2016,
+        2023
+      ]
+    },
+    {
+      "id": "audi-tts-8j",
+      "nombre": "Audi TTS 8J",
+      "alias": [
+        "tts 8j",
+        "audi tts 272"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 272 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "magnetic-ride"
+      ],
+      "anios": [
+        2008,
+        2014
+      ]
+    },
+    {
+      "id": "audi-tts-8s",
+      "nombre": "Audi TTS 8S",
+      "alias": [
+        "tts 8s",
+        "audi tts 310"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 310 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "magnetic-ride"
+      ],
+      "anios": [
+        2014,
+        2023
+      ]
+    },
+    {
       "id": "beetle-turbo",
       "nombre": "Beetle Turbo 5C",
       "alias": [

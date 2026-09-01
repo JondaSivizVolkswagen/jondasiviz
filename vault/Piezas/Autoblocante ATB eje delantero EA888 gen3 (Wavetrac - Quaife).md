@@ -36,6 +36,6 @@ imagen: null
 
 **Marcas** [[Quaife]], [[Wavetrac]]
 
-**Monta en (17)** [[Arteon 2.0 TSI]], [[Arteon R]], [[Cupra Ateca]], [[Golf GTI Mk7]], [[Golf R Mk7]], [[Golf R Variant Mk7]], [[Ibiza Cupra 6J 1.8 TSI]], [[Kodiaq RS TSI]], [[León ST Cupra 4Drive]], [[Octavia III RS]], [[Passat B8 2.0 TSI]], [[Polo GTI AW]], [[Polo GTI 6C]], [[Superb III 2.0 TSI]], [[T-Roc R]], [[Tiguan 2.0 TSI]], [[Tiguan R]]
+**Monta en (25)** [[Arteon 2.0 TSI]], [[Arteon R]], [[Audi A1 GB 40 TFSI]], [[Audi A3 8V 2.0 TSI]], [[Audi Q3 8U]], [[Audi Q3 F3]], [[Audi S1 8X]], [[Audi S3 8V]], [[Audi TT 8S 2.0 TFSI]], [[Audi TTS 8S]], [[Cupra Ateca]], [[Golf GTI Mk7]], [[Golf R Mk7]], [[Golf R Variant Mk7]], [[Ibiza Cupra 6J 1.8 TSI]], [[Kodiaq RS TSI]], [[León ST Cupra 4Drive]], [[Octavia III RS]], [[Passat B8 2.0 TSI]], [[Polo GTI AW]], [[Polo GTI 6C]], [[Superb III 2.0 TSI]], [[T-Roc R]], [[Tiguan 2.0 TSI]], [[Tiguan R]]
 
 **Monta con avisos en (9)** [[Golf GTI Mk7 Performance]], [[Golf GTI Clubsport Mk7]], [[Golf GTI Clubsport S]], [[Golf GTI Mk7.5 Performance]], [[Golf GTI TCR]], [[León Cupra 5F 280]], [[León Cupra 5F 300]], [[León Cupra R 5F]], [[Octavia III RS 245]]

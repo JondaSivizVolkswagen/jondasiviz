@@ -24,7 +24,7 @@ Tracción total · combustión · 2007-2010
 
 **De serie** haldex, dsg
 
-**Piezas que montan (11)**
+**Piezas que montan (12)**
 
 [[Categoría admisión]]: [[Filtro de aire de altas prestaciones (BMC - Pipercross)]]
 
@@ -40,4 +40,4 @@ Tracción total · combustión · 2007-2010
 
 [[Categoría suspensión]]: [[Coilovers roscados PQ46 (KW V1 - BC Racing)]], [[Casquillos rígidos de subchasis PQ46]]
 
-[[Categoría transmisión]]: [[Diferencial autoblocante ATB (Quaife - Peloquin)]], [[Kit de recorrido corto de cambio (034 - Forge)]]
+[[Categoría transmisión]]: [[Servicio de embrague Haldex y filtro]], [[Diferencial autoblocante ATB (Quaife - Peloquin)]], [[Kit de recorrido corto de cambio (034 - Forge)]]

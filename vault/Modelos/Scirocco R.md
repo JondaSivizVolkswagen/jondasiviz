@@ -24,7 +24,7 @@ Tracción delantera · combustión · 2009-2017
 
 **De serie** dsg
 
-**Piezas que montan (59)**
+**Piezas que montan (62)**
 
 [[Categoría admisión]]: [[Sistema de recogida de aceite (catch can) Forge]], [[Válvula de descarga reforzada (Forge DV+)]], [[Filtro de aire de altas prestaciones (BMC - Pipercross)]], [[Intercooler barra y placa Stage 3 (Airtec - do88) + hard pipes]], [[Intercooler frontal (Forge - Wagner Competition)]], [[Tubo turbo inlet de alto flujo (Forge)]], [[Kit de admisión cerrada (Forge - Neuspeed P-Flo)]]
 
@@ -44,6 +44,6 @@ Tracción delantera · combustión · 2009-2017
 
 [[Categoría seguridad]]: [[Baquet + arnés de 4-6 puntos + soporte]], [[Corte de batería + extintor homologado]], [[Jaula completa soldada homologada FIA]], [[Media jaula atornillada de 6 puntos]], [[Barra superior de torretas delantera]]
 
-[[Categoría suspensión]]: [[Barra estabilizadora trasera regulable (Whiteline - H&R)]], [[Brazos ajustables + silentblocks de poliuretano (Powerflex - SuperPro)]], [[Coilovers ajustables 3 vías (KW Clubsport - Bilstein B16)]], [[Coilovers de entrada (FK - Raceland - TA Technix)]], [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]], [[Inserto de soporte de motor trasero (dogbone) 034 - VF]], [[Kit de geometría completo con rótulas uniball]], [[Muelles de rebaje (Eibach Pro-Kit - H&R)]], [[Casquillos rígidos de subchasis y eje trasero (poliuretano-aluminio)]]
+[[Categoría suspensión]]: [[Barra estabilizadora trasera regulable (Whiteline - H&R)]], [[Brazos ajustables + silentblocks de poliuretano (Powerflex - SuperPro)]], [[Coilovers ajustables 3 vías (KW Clubsport - Bilstein B16)]], [[Coilovers de entrada (FK - Raceland - TA Technix)]], [[Coilovers con cancelador de Magnetic Ride (KW V3 - Bilstein)]], [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]], [[Inserto de soporte de motor trasero (dogbone) 034 - VF]], [[Kit de geometría completo con rótulas uniball]], [[Muelles de rebaje (Eibach Pro-Kit - H&R)]], [[Muelles de rebaje compatibles con Magnetic Ride (Eibach - H&R)]], [[Soportes de motor y caja reforzados (034 - Forge)]], [[Casquillos rígidos de subchasis y eje trasero (poliuretano-aluminio)]]
 
 [[Categoría transmisión]]: [[Embrague de competición + volante aligerado]], [[Embrague reforzado Stage 2 + volante rígido (Sachs - Spec)]], [[Autoblocante de discos - Wavetrac con precarga ajustable]], [[Diferencial autoblocante ATB (Quaife - Peloquin)]], [[Palieres reforzados]], [[Kit de recorrido corto de cambio (034 - Forge)]]

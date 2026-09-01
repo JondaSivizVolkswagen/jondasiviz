@@ -35,6 +35,6 @@ imagen: null
 
 **Marcas** [[Milltek]], [[Akrapovic]]
 
-**Monta en (1)** [[Cupra Formentor VZ5]]
+**Monta en (8)** [[Audi RS3 8P]], [[Audi RS3 8V]], [[Audi RS3 8Y]], [[Audi RS Q3 8U]], [[Audi RS Q3 F3]], [[Audi TT RS 8J]], [[Audi TT RS 8S]], [[Cupra Formentor VZ5]]
 
 > El sonido de cinco cilindros es medio motivo de comprar el coche.

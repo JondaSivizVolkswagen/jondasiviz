@@ -24,7 +24,7 @@ Tracción total · combustión · 2002-2004
 
 **De serie** haldex, dsg
 
-**Piezas que montan (35)**
+**Piezas que montan (36)**
 
 [[Categoría admisión]]: [[Filtro de aire de altas prestaciones (BMC - Pipercross)]]
 
@@ -44,4 +44,4 @@ Tracción total · combustión · 2002-2004
 
 [[Categoría suspensión]]: [[Barra estabilizadora trasera regulable (Whiteline - H&R)]], [[Brazos ajustables + silentblocks de poliuretano (Powerflex - SuperPro)]], [[Coilovers ajustables 3 vías (KW Clubsport - Bilstein B16)]], [[Coilovers de entrada (FK - Raceland - TA Technix)]], [[Coilovers roscados (KW V1 - ST X - BC Racing BR)]], [[Inserto de soporte de motor trasero (dogbone) 034 - VF]], [[Kit de geometría completo con rótulas uniball]], [[Muelles de rebaje (Eibach Pro-Kit - H&R)]], [[Casquillos rígidos de subchasis y eje trasero (poliuretano-aluminio)]]
 
-[[Categoría transmisión]]: [[Diferencial autoblocante ATB (Quaife - Peloquin)]], [[Kit de recorrido corto de cambio (034 - Forge)]]
+[[Categoría transmisión]]: [[Servicio de embrague Haldex y filtro]], [[Diferencial autoblocante ATB (Quaife - Peloquin)]], [[Kit de recorrido corto de cambio (034 - Forge)]]

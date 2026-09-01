@@ -25,7 +25,7 @@ Tracción delantera · combustión · 2018-2026
 
 **De serie** dsg, gpf
 
-**Piezas que montan (40)**
+**Piezas que montan (41)**
 
 [[Categoría admisión]]: [[Sistema de recogida de aceite (catch can) Forge]], [[Válvula de descarga reforzada (Forge DV+)]], [[Filtro de aire de altas prestaciones (BMC - Pipercross)]], [[Intercooler barra y placa Stage 3 (Airtec - do88) + hard pipes]], [[Intercooler frontal EA888 gen3 (Wagner - do88 - IE)]], [[Intercooler frontal (Forge - Wagner Competition)]], [[Turbo inlet y charge pipe de alto flujo EA888 gen3 (Forge - IE)]], [[Kit de admisión cerrada EA888 gen3 (Eventuri - RacingLine - IE)]], [[Kit de admisión cerrada (Forge - Neuspeed P-Flo)]]
 
@@ -45,6 +45,6 @@ Tracción delantera · combustión · 2018-2026
 
 [[Categoría seguridad]]: [[Media jaula atornillada MQB-A0]]
 
-[[Categoría suspensión]]: [[Coilovers roscados MQB-A0 (KW V1 - ST XTA - BC Racing)]], [[Muelles de rebaje -30 mm MQB-A0 (Eibach - H&R)]]
+[[Categoría suspensión]]: [[Coilovers roscados MQB-A0 (KW V1 - ST XTA - BC Racing)]], [[Muelles de rebaje -30 mm MQB-A0 (Eibach - H&R)]], [[Soportes de motor y caja reforzados (034 - Forge)]]
 
 [[Categoría transmisión]]: [[Embrague DSG DQ250 reforzado + calibración de caja (Sachs - RacingLine)]], [[Embrague de competición + volante aligerado]], [[Embrague reforzado Stage 2 + volante rígido (Sachs - Spec)]], [[Autoblocante de discos - Wavetrac con precarga ajustable]], [[Autoblocante ATB eje delantero EA888 gen3 (Wavetrac - Quaife)]], [[Diferencial autoblocante ATB (Quaife - Peloquin)]], [[Palieres reforzados]], [[Kit de recorrido corto de cambio (034 - Forge)]]

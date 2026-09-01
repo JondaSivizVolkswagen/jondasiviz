@@ -35,6 +35,6 @@ imagen: null
 
 **Motor** [[EA111]]
 
-**Monta en (6)** [[Fabia RS 5J]], [[Golf V GT Sport]], [[Ibiza Cupra 6J]], [[Ibiza FR 6J]], [[Polo GTI 6R]], [[Rapid 1.4 TSI]]
+**Monta en (7)** [[Audi A1 8X]], [[Fabia RS 5J]], [[Golf V GT Sport]], [[Ibiza Cupra 6J]], [[Ibiza FR 6J]], [[Polo GTI 6R]], [[Rapid 1.4 TSI]]
 
 > El fallo conocido del twincharger es la cadena y su tensor. Antes de subir presión, esto.

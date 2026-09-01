@@ -41,6 +41,6 @@ imagen: null
 
 **Requiere** [[Intercooler de mayor volumen 2.0 TDI EA189 (Wagner - Forge)]], [[Downpipe sin DPF 2.0 TDI EA189 (Darkside Developments)]], [[Inyectores reforzados 2.0 TDI EA189 (Bosch - Darkside)]], [[Reprogramación Stage 2 2.0 TDI EA189 (Darkside - Revo)]]
 
-**Monta con avisos en (5)** [[Golf GTD Mk6]], [[León FR 1P TDI]], [[Octavia II RS TDI]], [[Passat B7 2.0 TDI]], [[Scirocco 2.0 TDI]]
+**Monta con avisos en (6)** [[Audi A3 8P 2.0 TDI]], [[Golf GTD Mk6]], [[León FR 1P TDI]], [[Octavia II RS TDI]], [[Passat B7 2.0 TDI]], [[Scirocco 2.0 TDI]]
 
 > Techo realista en 260-280 CV con inyectores y embrague a la altura.

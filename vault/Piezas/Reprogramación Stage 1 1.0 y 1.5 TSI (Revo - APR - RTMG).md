@@ -36,6 +36,6 @@ imagen: null
 
 **Marcas** [[Apr]], [[Revo]], [[Rtmg]]
 
-**Monta con avisos en (11)** [[Citigo]], [[Fabia NW 1.5 TSI]], [[Golf Mk8 1.5 TSI]], [[Ibiza FR KJ]], [[Kamiq 1.0 TSI]], [[Karoq 1.5 TSI]], [[Polo AW 1.0 TSI]], [[Scala 1.5 TSI]], [[SEAT Arona 1.0 TSI]], [[T-Roc 1.5 TSI]], [[up! GTI]]
+**Monta con avisos en (12)** [[Audi Q2]], [[Citigo]], [[Fabia NW 1.5 TSI]], [[Golf Mk8 1.5 TSI]], [[Ibiza FR KJ]], [[Kamiq 1.0 TSI]], [[Karoq 1.5 TSI]], [[Polo AW 1.0 TSI]], [[Scala 1.5 TSI]], [[SEAT Arona 1.0 TSI]], [[T-Roc 1.5 TSI]], [[up! GTI]]
 
 > En el 1.5 TSI EVO son 20 a 40 CV y 35 a 60 Nm más. Exige RON 98.

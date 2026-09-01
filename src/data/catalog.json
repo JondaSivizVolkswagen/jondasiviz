@@ -2154,6 +2154,38 @@
       "grupoExclusivo": "frenos-delanteros"
     },
     {
+      "id": "fren-bbk-audi-alta",
+      "nombre": "Big brake 370 mm para Audi transversal (AP Racing / Brembo GT)",
+      "categoria": "frenos",
+      "plataformas": [],
+      "chasis": [
+        "MQB",
+        "MQB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [
+        "frenos-grandes"
+      ],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 3200,
+        "estimado": 3900,
+        "max": 5000
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 4,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [],
+      "grupoExclusivo": "frenos-delanteros"
+    },
+    {
       "id": "fren-bbk-mqba0-alta",
       "nombre": "Kit big brake 330 mm MQB-A0 (Stoptech / HISPEC)",
       "categoria": "frenos",
@@ -3414,6 +3446,36 @@
       "grupoExclusivo": "llantas"
     },
     {
+      "id": "rueda-forjada-19-alta",
+      "nombre": "Llantas forjadas 19in para MQB y MQB Evo (BBS CI-R / OZ)",
+      "categoria": "ruedas",
+      "plataformas": [],
+      "chasis": [
+        "MQB",
+        "MQB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1900,
+        "estimado": 2400,
+        "max": 3100
+      },
+      "objetivos": {
+        "drift": 2,
+        "drag": 2,
+        "mas-cv": 0,
+        "estetica": 5
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "llantas"
+    },
+    {
       "id": "rueda-forjada-alta",
       "nombre": "Llantas forjadas 18\" (BBS CH-R / OZ Ultraleggera)",
       "categoria": "ruedas",
@@ -4112,6 +4174,42 @@
       "grupoExclusivo": "altura"
     },
     {
+      "id": "susp-coil-magride-alta",
+      "nombre": "Coilovers con cancelador de Magnetic Ride (KW V3 / Bilstein)",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "PQ35",
+        "MQB",
+        "MQB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [
+        "magnetic-ride"
+      ],
+      "exige": [
+        "magnetic-ride"
+      ],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 2200,
+        "estimado": 2700,
+        "max": 3500
+      },
+      "objetivos": {
+        "drift": 4,
+        "drag": 3,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 5,
+      "requiere": [],
+      "grupoExclusivo": "altura",
+      "nota": "Lleva el módulo que engaña al testigo de avería. Sin él, cuadro encendido y modo fallo."
+    },
+    {
       "id": "susp-coil-meb-alta",
       "nombre": "Coilovers KW V3 para ID.4 y ID.5",
       "categoria": "suspension",
@@ -4527,6 +4625,40 @@
       "grupoExclusivo": "altura"
     },
     {
+      "id": "susp-muelles-magride-media",
+      "nombre": "Muelles de rebaje compatibles con Magnetic Ride (Eibach / H&R)",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "PQ35",
+        "MQB",
+        "MQB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [
+        "magnetic-ride"
+      ],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 300,
+        "estimado": 400,
+        "max": 540
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 3
+      },
+      "impacto": 2,
+      "requiere": [],
+      "grupoExclusivo": "altura",
+      "nota": "Rebaja sin tocar la amortiguación adaptativa, que es lo que salva la garantía."
+    },
+    {
       "id": "susp-muelles-meb-baja",
       "nombre": "Muelles de rebaje -30 mm MEB (RacingLine / Eibach / H&R / AST)",
       "categoria": "suspension",
@@ -4682,6 +4814,38 @@
       "impacto": 2,
       "requiere": [],
       "grupoExclusivo": "altura"
+    },
+    {
+      "id": "susp-soportes-motor-media",
+      "nombre": "Soportes de motor y caja reforzados (034 / Forge)",
+      "categoria": "suspension",
+      "plataformas": [
+        "EA855",
+        "EA888-gen3",
+        "EA888-evo4",
+        "EA113"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 280,
+        "estimado": 380,
+        "max": 500
+      },
+      "objetivos": {
+        "drift": 2,
+        "drag": 3,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "nota": "Quita el balanceo del bloque al pisar. Sube algo de vibración en ralentí."
     },
     {
       "id": "susp-subframe-media",
@@ -4904,6 +5068,79 @@
       "grupoExclusivo": "embrague"
     },
     {
+      "id": "trans-haldex-media",
+      "nombre": "Controlador Haldex deportivo (034Motorsport / HPA)",
+      "categoria": "transmision",
+      "plataformas": [
+        "EA888-gen3",
+        "EA888-evo4",
+        "EA855",
+        "EA113"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [
+        "total"
+      ],
+      "sustituye": [],
+      "exige": [
+        "haldex"
+      ],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 480,
+        "estimado": 620,
+        "max": 820
+      },
+      "objetivos": {
+        "drift": 2,
+        "drag": 4,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "nota": "Adelanta el reparto al eje trasero. Se nota en salida y en apoyo, no en potencia."
+    },
+    {
+      "id": "trans-haldex-servicio-baja",
+      "nombre": "Servicio de embrague Haldex y filtro",
+      "categoria": "transmision",
+      "plataformas": [
+        "EA888-gen3",
+        "EA888-evo4",
+        "EA855",
+        "EA113",
+        "VR6"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [
+        "total"
+      ],
+      "sustituye": [],
+      "exige": [
+        "haldex"
+      ],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 180,
+        "estimado": 240,
+        "max": 320
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 1,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 2,
+      "requiere": [],
+      "nota": "Un Haldex sin mantenimiento reparte mal. Es lo más barato que devuelve tracción."
+    },
+    {
       "id": "trans-lsd-alta",
       "nombre": "Autoblocante de discos / Wavetrac con precarga ajustable",
       "categoria": "transmision",
@@ -5072,6 +5309,39 @@
       "impacto": 3,
       "requiere": [],
       "nota": "Recomendados por encima de 350 CV en tracción delantera."
+    },
+    {
+      "id": "trans-palieres-quattro-alta",
+      "nombre": "Palieres reforzados para quattro transversal",
+      "categoria": "transmision",
+      "plataformas": [
+        "EA855",
+        "EA888-gen3",
+        "EA888-evo4"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [
+        "total"
+      ],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1100,
+        "estimado": 1400,
+        "max": 1850
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "nota": "Por encima de 500 CV el palier de serie es el eslabón que rompe."
     },
     {
       "id": "trans-shifter-baja",

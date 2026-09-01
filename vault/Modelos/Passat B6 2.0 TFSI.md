@@ -20,7 +20,7 @@ anios:
 
 Tracción delantera · combustión · 2005-2010
 
-**Piezas que montan (33)**
+**Piezas que montan (34)**
 
 [[Categoría admisión]]: [[Sistema de recogida de aceite (catch can) Forge]], [[Válvula de descarga reforzada (Forge DV+)]], [[Filtro de aire de altas prestaciones (BMC - Pipercross)]], [[Intercooler barra y placa Stage 3 (Airtec - do88) + hard pipes]], [[Intercooler frontal (Forge - Wagner Competition)]], [[Tubo turbo inlet de alto flujo (Forge)]], [[Kit de admisión cerrada (Forge - Neuspeed P-Flo)]]
 
@@ -36,6 +36,6 @@ Tracción delantera · combustión · 2005-2010
 
 [[Categoría ruedas]]: [[Llantas 19in forjadas PQ46 (BBS - OZ)]]
 
-[[Categoría suspensión]]: [[Coilovers roscados PQ46 (KW V1 - BC Racing)]], [[Casquillos rígidos de subchasis PQ46]]
+[[Categoría suspensión]]: [[Coilovers roscados PQ46 (KW V1 - BC Racing)]], [[Soportes de motor y caja reforzados (034 - Forge)]], [[Casquillos rígidos de subchasis PQ46]]
 
 [[Categoría transmisión]]: [[Embrague de competición + volante aligerado]], [[Embrague reforzado Stage 2 + volante rígido (Sachs - Spec)]], [[Autoblocante de discos - Wavetrac con precarga ajustable]], [[Diferencial autoblocante ATB (Quaife - Peloquin)]], [[Palieres reforzados]], [[Kit de recorrido corto de cambio (034 - Forge)]]

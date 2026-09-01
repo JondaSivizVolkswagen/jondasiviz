@@ -35,3 +35,5 @@ imagen: null
 **Motor** [[EA855]]
 
 **Marcas** [[Milltek]], [[Scorpion]]
+
+**Monta con avisos en (5)** [[Audi RS3 8P]], [[Audi RS3 8V]], [[Audi RS Q3 8U]], [[Audi TT RS 8J]], [[Audi TT RS 8S]]
