@@ -33,9 +33,18 @@ function plataforma(): Plataforma {
   return "windows";
 }
 
-/** Extensiones de instalador por plataforma, en orden de preferencia. */
+/**
+ * Extensiones de instalador por plataforma, en orden de preferencia.
+ *
+ * En Windows va primero el instalador NSIS (`-setup.exe`) y no el .msi. El NSIS se
+ * instala solo para el usuario actual, asi que no pide elevacion y el sistema no
+ * enseña el aviso de UAC con "Editor desconocido". El .msi instala para toda la
+ * maquina y si la pide. Los dos siguen sin firmar, asi que SmartScreen avisa igual,
+ * pero al menos es un aviso y no dos. El .msi se mantiene como alternativa para
+ * quien despliegue por directiva de grupo.
+ */
 const EXTENSIONES: Record<Plataforma, string[]> = {
-  windows: [".msi", "-setup.exe", ".exe"],
+  windows: ["-setup.exe", ".msi", ".exe"],
   mac: ["aarch64.dmg", ".dmg"],
   linux: [".appimage", ".deb"],
 };
@@ -63,10 +72,16 @@ function arrancar() {
   const nota = document.querySelector<HTMLElement>("[data-descarga-nota]");
   if (!boton) return;
 
-  // Dentro de la propia aplicacion de escritorio el bloque no pinta nada.
+  // Dentro de la propia aplicacion de escritorio el bloque no pinta nada: ya la
+  // tienes instalada. Se quita la seccion y, con ella, su enlace de la barra, que
+  // si no se quedaria apuntando a un ancla que ya no existe.
   const enTauri = "__TAURI__" in window || "__TAURI_INTERNALS__" in window;
   if (enTauri) {
-    boton.closest("section")?.remove();
+    const seccion = boton.closest("section");
+    if (seccion?.id) {
+      document.querySelector(`.nav-links a[href="#${seccion.id}"]`)?.remove();
+    }
+    seccion?.remove();
     return;
   }
 

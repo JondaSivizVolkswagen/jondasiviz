@@ -93,10 +93,27 @@ jobs:
           releaseBody: |
             Planificador de presupuestos de preparacion para Volkswagen.
 
-            Descarga el fichero de tu sistema. Los binarios no van firmados todavia,
-            asi que Windows enseñara un aviso de SmartScreen ("Mas informacion" ->
-            "Ejecutar de todas formas") y macOS pedira permiso en Ajustes -> Privacidad
-            y seguridad.
+            ## Windows
+
+            Baja **JondaSiviz-Windows-instalador.exe**. Instala para tu usuario, asi que
+            no pide permisos de administrador. El .msi hace lo mismo pero para toda la
+            maquina, y es el que conviene si lo despliegas por directiva de grupo.
+
+            Windows enseñara una pantalla azul que dice "Windows protegio tu PC" y
+            "Editor desconocido". No es que el programa tenga nada: es que el instalador
+            no va firmado con un certificado de pago, y SmartScreen avisa de todo lo que
+            no reconoce. Para continuar: **Mas informacion** y luego **Ejecutar de todas
+            formas**.
+
+            Si prefieres comprobar que el fichero es el que salio de esta compilacion,
+            compara su huella con la de SHA256SUMS-Windows.txt:
+
+                Get-FileHash .\JondaSiviz-Windows-instalador.exe -Algorithm SHA256
+
+            ## macOS y Linux
+
+            macOS pedira permiso en Ajustes -> Privacidad y seguridad, por el mismo
+            motivo. En Linux el AppImage necesita permiso de ejecucion (`chmod +x`).
 
             Los precios del catalogo son orientativos. Proyecto personal, sin relacion
             con Volkswagen AG.
@@ -148,5 +165,22 @@ jobs:
             echo "::error::Ningun artefacto encajo con los nombres estables. Rutas: $RUTAS"
             exit 1
           fi
+
+          # Huella SHA-256 de cada instalador. Mientras los binarios no vayan firmados,
+          # es lo unico que permite a alguien comprobar que el fichero que se ha bajado
+          # es el que salio de esta compilacion y no algo que se colo por el camino.
+          # En Windows se comprueba con: Get-FileHash .\fichero -Algorithm SHA256
+          # macOS no trae `sha256sum` (es de coreutils); ahi el equivalente es
+          # `shasum -a 256`. Sin esto el paso reventaria en los dos runners de Apple.
+          # Un fichero por sistema. Los cuatro jobs suben a la misma Release con
+          # --clobber, asi que un nombre comun haria que el ultimo en terminar borrase
+          # las huellas de los demas.
+          HUELLAS="SHA256SUMS-${{ runner.os }}${SUFIJO}.txt"
+          if command -v sha256sum >/dev/null 2>&1; then
+            ( cd estables && sha256sum * > "$HUELLAS" )
+          else
+            ( cd estables && shasum -a 256 * > "$HUELLAS" )
+          fi
+          cat "estables/$HUELLAS"
 
           gh release upload "${{ github.ref_name }}" estables/* --clobber --repo "${{ github.repository }}"

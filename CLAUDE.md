@@ -76,8 +76,8 @@ instalar nada:
 - **`humanized-writing`** — reglas para que ningún texto suene a IA.
 
 Los tokens de color, radios y tipografía están en `src/index.css`. Se usan esos, no
-valores sueltos: es lo único que mantiene cuadradas la portada, el planner y el menú de
-escritorio, que son tres páginas distintas.
+valores sueltos: es lo único que mantiene cuadradas la portada y el planner, que son dos
+páginas distintas.
 
 La interfaz es solo oscura. Hubo un conmutador de tema claro/oscuro (`src/ui/theme.ts`) y
 se quitó con el rediseño: un taller con dos modos pierde carácter, y mantener la paleta
@@ -106,8 +106,16 @@ navegador.
 
 ## Escritorio
 
-`src-tauri/` empaqueta la app. **No hay una segunda versión del planner**: la ventana
-abre el mismo `herramienta.html` que sirve la web.
+`src-tauri/` empaqueta la app. **No hay una segunda versión de nada**: la ventana abre
+el mismo `index.html` que sirve la web, y desde ahí se entra al mismo `herramienta.html`.
+Hubo un `menu.html` propio del escritorio y se quitó: era una tercera pantalla que había
+que mantener a mano y que se quedaba descolgada cada vez que alguien retocaba la portada.
+Lo único que cambia dentro de la app lo resuelve `src/landing/descarga.ts`, que quita el
+bloque de descarga y su enlace de la barra.
+
+**Un binario solo enseña el código con el que se compiló.** Si la app no se parece a la
+web, lo primero que hay que mirar es la fecha de la release frente a la del último
+commit, antes de tocar una sola línea de CSS.
 
 Los binarios los compila GitHub Actions (`.github/workflows/escritorio.yml`), una máquina
 por sistema, porque el de macOS necesita el SDK de Apple. Se disparan al empujar una

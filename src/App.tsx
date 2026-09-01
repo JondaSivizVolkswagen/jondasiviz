@@ -82,17 +82,17 @@ function App() {
 
       <header className="barra">
         {/* La marca lleva a la portada, que es lo que espera cualquiera. */}
-        <a className="marca" href={escritorio ? "/menu.html" : "/"}>
+        <a className="marca" href="/">
           <i />
           Jondasiviz <span>Build Planner</span>
         </a>
 
         <div className="barra-acciones">
-          {/* En la app el destino no es una web, es el menú de inicio del programa, y
-              además se puede cerrar. En el navegador no existe "salir". */}
-          <a className="btn btn-sm volver" href={escritorio ? "/menu.html" : "/"}>
+          {/* La portada es la misma en la web y en la app, asi que el destino tambien.
+              Lo unico que cambia es que en el programa se puede salir, y en una web no. */}
+          <a className="btn btn-sm volver" href="/">
             <Icono nombre="flechaIzquierda" />
-            <span>{escritorio ? "Inicio" : "Portada"}</span>
+            <span>Portada</span>
           </a>
           {escritorio && (
             <button type="button" className="btn btn-sm volver" onClick={() => void cerrarApp()}>
