@@ -120,6 +120,20 @@ que mantener a mano y que se quedaba descolgada cada vez que alguien retocaba la
 Lo único que cambia dentro de la app lo resuelve `src/landing/descarga.ts`, que quita el
 bloque de descarga y su enlace de la barra.
 
+**La cuenta funciona igual en la app que en la web**: entrar, registrarse, salir, el
+perfil con su foto, la suscripción y el código de acceso, con los mismos componentes. Lo
+que no es igual es a qué servidor se le pide, porque dentro de Tauri una ruta `/api/...`
+no lleva a ningún sitio. De eso se encarga `raizApi()` en `src/ui/entorno.ts`, y ahí es
+donde va cualquier otra diferencia entre los dos entornos: no se reparten comprobaciones
+de Tauri por la interfaz. La app necesita la API levantada en la misma máquina
+(`npm run api`) o compilarse con `VITE_JONDA_API`; sin ninguna de las dos sigue
+funcionando entera en modo gratuito, como iba siempre.
+
+**Si se toca el CORS de `src/api/servidor.ts`, mirar antes `tests/cors.test.ts`.** Esas
+cabeceras son lo único que deja a la app hablar con la API, y es un fallo que no se ve
+probando con `curl`: el que se planta es el navegador. Quitar `Authorization` de las
+cabeceras permitidas deja la app sin cuenta, y quitar `PATCH` deja el perfil sin guardar.
+
 **Un binario solo enseña el código con el que se compiló.** Si la app no se parece a la
 web, lo primero que hay que mirar es la fecha de la release frente a la del último
 commit, antes de tocar una sola línea de CSS.

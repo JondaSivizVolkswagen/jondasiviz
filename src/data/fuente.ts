@@ -15,6 +15,7 @@
 import { usarCatalogo } from "../engine/catalog.ts";
 import { usarModelos } from "../engine/graph.ts";
 import type { Catalogo, CatalogoModelos } from "../engine/types.ts";
+import { urlApi } from "../ui/entorno.ts";
 
 /** Lo que se espera a la API antes de tirar de los JSON de casa. */
 const ESPERA_MAXIMA = 1000;
@@ -42,7 +43,10 @@ export async function cargarDatos(): Promise<Origen> {
 }
 
 async function pedir<T>(ruta: string): Promise<T> {
-  const respuesta = await fetch(ruta, {
+  // `urlApi` es lo que hace que esto también valga dentro de la app de escritorio: allí
+  // la ruta relativa no lleva a ningún sitio y siempre se caía al catálogo de casa,
+  // aunque hubiera un servidor levantado con datos más nuevos.
+  const respuesta = await fetch(urlApi(ruta), {
     headers: { Accept: "application/json" },
     signal: AbortSignal.timeout(ESPERA_MAXIMA),
   });

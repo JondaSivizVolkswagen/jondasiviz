@@ -9,6 +9,12 @@
 // escritorio no comparte origen con la API y ahí las cookies no llegan bien, así que
 // también se guarda el token y se manda en la cabecera Authorization. Guardarlo en
 // localStorage además sirve para no pedir la sesión otra vez cada vez que se abre la app.
+//
+// A qué servidor se le pide lo decide `src/ui/entorno.ts`, que no contesta lo mismo en la
+// web que en la app de escritorio. Aquí las rutas se escriben siempre relativas y ese
+// módulo les pone delante lo que haga falta.
+
+import { apiEnOtroOrigen, urlApi } from "../ui/entorno";
 
 const ESPERA_LECTURA = 3500;
 const ESPERA_ENVIO = 8000;
@@ -104,9 +110,7 @@ export interface CodigoActivado {
   precio: Precio;
 }
 
-/** Ruta de descarga de los datos personales. La respuesta ya trae la cabecera para que
- * el navegador la descargue como fichero; en la app de escritorio hay que abrirla en el
- * navegador del sistema, ver `descargarMisDatos` en `PerfilModal`. */
+/** Ruta de descarga de los datos personales. */
 export const RUTA_MIS_DATOS = "/api/auth/mis-datos";
 
 export type Resultado<T> = { ok: true; datos: T } | { ok: false; error: string; codigo?: number };
@@ -142,10 +146,14 @@ async function peticion<T>(
   opciones: { metodo?: string; cuerpo?: unknown; espera?: number } = {},
 ): Promise<Resultado<T>> {
   try {
-    const respuesta = await fetch(ruta, {
+    const respuesta = await fetch(urlApi(ruta), {
       method: opciones.metodo ?? "GET",
       headers: cabeceras(),
-      credentials: "include",
+      // Con la API en el mismo origen la sesión va en la cookie httpOnly, que es lo más
+      // seguro que hay aquí. Cuando está fuera (la app de escritorio) se pide sin
+      // credenciales a propósito: la cookie no llegaría igualmente, y exigirlas obligaría
+      // al servidor a dejar de contestar con `Access-Control-Allow-Origin: *`.
+      credentials: apiEnOtroOrigen() ? "omit" : "include",
       body: opciones.cuerpo !== undefined ? JSON.stringify(opciones.cuerpo) : undefined,
       signal: AbortSignal.timeout(opciones.espera ?? ESPERA_LECTURA),
     });
@@ -220,6 +228,35 @@ export async function entrarCuenta(correo: string, contrasena: string): Promise<
   });
   if (!resultado.ok) return resultado;
   return { ok: true, datos: normalizar(resultado.datos) };
+}
+
+/**
+ * Los datos personales, tal cual los guarda el servidor.
+ *
+ * Se piden con la sesión puesta y no llevando al navegador a la ruta, que es lo que se
+ * hacía antes. Una navegación normal no lleva la cabecera `Authorization`, así que solo
+ * funcionaba mientras valiera la cookie: en la app de escritorio no hay cookie que valga
+ * y siempre se llevaba un 401. Pidiéndolo así vale en los dos sitios, y quien llama se
+ * encarga de ofrecer el fichero.
+ */
+export async function misDatos(): Promise<Resultado<Blob>> {
+  try {
+    const respuesta = await fetch(urlApi(RUTA_MIS_DATOS), {
+      headers: cabeceras(),
+      credentials: apiEnOtroOrigen() ? "omit" : "include",
+      signal: AbortSignal.timeout(ESPERA_ENVIO),
+    });
+    if (!respuesta.ok) {
+      return {
+        ok: false,
+        error: respuesta.status === 401 ? "Vuelve a entrar en tu cuenta." : "No se pudieron sacar tus datos.",
+        codigo: respuesta.status,
+      };
+    }
+    return { ok: true, datos: await respuesta.blob() };
+  } catch {
+    return { ok: false, error: "No se pudo hablar con el servidor." };
+  }
 }
 
 export async function salirCuenta(): Promise<void> {

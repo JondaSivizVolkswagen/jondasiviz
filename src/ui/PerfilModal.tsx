@@ -15,9 +15,8 @@ import {
   borrarCuenta,
   cambiarContrasena,
   cancelarSuscripcion,
-  RUTA_MIS_DATOS,
+  misDatos,
 } from "../cuenta/api";
-import { abrirEnNavegador, enEscritorio } from "./entorno";
 import { Avatar } from "./Avatar";
 import { FotoInvalida, prepararFoto } from "./imagen";
 import { Icono } from "./icons";
@@ -57,6 +56,8 @@ export function PerfilModal() {
   const [guardando, setGuardando] = useState(false);
   const [avisoDatos, setAvisoDatos] = useState<string | null>(null);
   const [errorDatos, setErrorDatos] = useState<string | null>(null);
+  const [descargando, setDescargando] = useState(false);
+  const [errorDescarga, setErrorDescarga] = useState<string | null>(null);
 
   // La foto se guarda al momento de elegirla, aparte del resto del formulario: así un
   // "Guardar cambios" en nombre o ciudad nunca manda de rebote una imagen a medio
@@ -180,12 +181,27 @@ export function PerfilModal() {
     );
   };
 
+  // Se piden con la sesión puesta y se ofrecen como fichero desde aquí. Llevar el
+  // navegador a la ruta, que es lo que se hacía antes, solo funcionaba mientras valiera
+  // la cookie: dentro de la app de escritorio no la hay y siempre salía un 401.
   const descargarDatos = async () => {
-    if (enEscritorio()) {
-      await abrirEnNavegador(new URL(RUTA_MIS_DATOS, window.location.origin).toString());
-    } else {
-      window.location.href = RUTA_MIS_DATOS;
+    setErrorDescarga(null);
+    setDescargando(true);
+    const resultado = await misDatos();
+    setDescargando(false);
+    if (!resultado.ok) {
+      setErrorDescarga(resultado.error);
+      return;
     }
+
+    const url = URL.createObjectURL(resultado.datos);
+    const enlace = document.createElement("a");
+    enlace.href = url;
+    enlace.download = "mis-datos-jondasiviz.json";
+    enlace.click();
+    // Se suelta en cuanto el navegador ha cogido el fichero; si no, el blob se queda en
+    // memoria hasta que se cierre la pestaña.
+    URL.revokeObjectURL(url);
   };
 
   const enviarBorrado = async (e: FormEvent) => {
@@ -449,10 +465,21 @@ export function PerfilModal() {
                 Un JSON con el perfil, la suscripción y el uso que has hecho de la herramienta.
               </p>
             </div>
-            <button type="button" className="btn btn-sm" onClick={() => void descargarDatos()}>
-              <span>Descargar</span>
+            <button
+              type="button"
+              className="btn btn-sm"
+              onClick={() => void descargarDatos()}
+              disabled={descargando}
+            >
+              <span>{descargando ? "Preparando…" : "Descargar"}</span>
             </button>
           </div>
+
+          {errorDescarga && (
+            <p className="campo-error" role="alert">
+              {errorDescarga}
+            </p>
+          )}
 
           <div className="perfil-riesgo-fila">
             <div>

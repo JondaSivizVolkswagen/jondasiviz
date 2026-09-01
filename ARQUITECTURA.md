@@ -318,6 +318,42 @@ Dos formas de la misma aplicación, con el mismo código:
 npm run build             # compila las dos páginas
 ```
 
+### La cuenta dentro de la aplicación
+
+La app tiene lo mismo que la web: entrar, registrarse, salir, el perfil con su foto, la
+suscripción y el código de acceso. Son los mismos componentes de React, no una segunda
+versión, y para que funcionen hicieron falta tres cosas que no son obvias:
+
+- **A qué servidor se le pide.** En la web la página y la API comparten origen: en
+  desarrollo por el puente de Vite y en producción por el servidor que haya delante. En
+  la app no hay ni una cosa ni la otra, porque la ventana carga los ficheros por el
+  protocolo de Tauri, así que `/api/auth/yo` no lleva a ningún sitio. Lo resuelve
+  `raizApi()` en `src/ui/entorno.ts`: dentro de la app apunta a `http://localhost:3001`,
+  o a lo que diga `VITE_JONDA_API` al compilar.
+- **CORS.** Al llamar desde otro origen el navegador pregunta antes, y esa pregunta se
+  contesta en `src/api/servidor.ts`. Tiene que dejar pasar la cabecera `Authorization`, o
+  no se puede mandar la sesión, y el método `PATCH`, que es con el que se guarda el
+  perfil. Lo cubre `tests/cors.test.ts`, porque es un fallo que no se ve: a `curl` la API
+  le contesta igual de bien con las cabeceras mal puestas.
+- **La CSP de Tauri**, en `src-tauri/tauri.conf.json`. Sin `connect-src` la ventana no
+  puede llamar a ningún sitio, por mucho que el código lo intente.
+
+La sesión viaja distinto según dónde: cookie httpOnly en la web, cabecera `Authorization`
+en la app. Por eso la API contesta `Access-Control-Allow-Origin: *` y **nunca** acepta
+credenciales: el token está guardado en el origen de la app y otra página no puede
+leerlo, así que abrir el origen no le sirve de nada a nadie. Con cookies sería al revés y
+habría que ir nombrando orígenes uno a uno.
+
+**Lo que la app necesita para que la cuenta funcione es que la API esté levantada** en
+esa misma máquina (`npm run api`) o que se haya compilado con `VITE_JONDA_API` apuntando a
+una API publicada. Sin ninguna de las dos, la app sigue funcionando entera en modo
+gratuito con el catálogo empaquetado, que es como iba siempre.
+
+La única parte que no cabe dentro de la app es la **pasarela simulada**: manda a
+`pago-simulado.html`, que lo sirve la web, así que necesita la web levantada. El código de
+acceso no tiene ese problema y se resuelve entero dentro de la ventana. Con Stripe de
+verdad tampoco lo hay: el pago se abre en el navegador del sistema.
+
 Los instaladores se bajan de las releases del repositorio.
 
 ## 6. GitHub

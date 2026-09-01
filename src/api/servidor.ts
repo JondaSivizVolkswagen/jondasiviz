@@ -69,12 +69,28 @@ async function manejar(
   const ruta = url.pathname.replace(/\/+$/, "") || "/";
   const metodo = peticion.method ?? "GET";
 
-  // La web se sirve desde otro puerto en desarrollo, así que sin esto el navegador
-  // bloquea las respuestas. Solo lectura: el webhook no se llama desde un navegador.
+  // Quién puede llamar desde un navegador.
+  //
+  // En desarrollo la web va por el puente de Vite y comparte origen, así que esto no
+  // hace falta. Sí hace falta para la aplicación de escritorio, que carga sus páginas
+  // por el protocolo de Tauri y llama a la API por su puerto.
+  //
+  // Se contesta `*` y no un origen concreto porque aquí nunca se aceptan credenciales:
+  // quien llama desde fuera manda la sesión en la cabecera `Authorization`, con un token
+  // que solo está guardado en su propio origen. Una página cualquiera no puede leerlo,
+  // así que abrir el origen no le sirve de nada. Con cookies sería justo al revés y
+  // habría que ir nombrando orígenes uno a uno.
+  //
+  // `Authorization` tiene que estar en las cabeceras permitidas o el navegador tumba
+  // cualquier petición con sesión antes de mandarla, y `PATCH` en los métodos o se cae
+  // guardar el perfil, que es el único que no es GET ni POST.
   respuesta.setHeader("Access-Control-Allow-Origin", "*");
-  respuesta.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  respuesta.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  respuesta.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  respuesta.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, OPTIONS");
   if (metodo === "OPTIONS") {
+    // Un día de cache: sin esto el navegador pregunta antes de cada PATCH y cada
+    // petición con sesión, y son dos viajes en vez de uno.
+    respuesta.setHeader("Access-Control-Max-Age", "86400");
     respuesta.writeHead(204).end();
     return;
   }
