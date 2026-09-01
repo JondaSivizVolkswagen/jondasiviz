@@ -6,11 +6,20 @@
 //
 // La interfaz puede ocultar un botón, pero la API tiene que rechazar la petición igual.
 
+import { euros } from "../engine/format.ts";
+
 export type Plan = "gratis" | "taller";
 
 export type EstadoSuscripcion = "ninguna" | "activa" | "impagada" | "cancelada";
 
 export interface Limites {
+  /**
+   * Hasta cuánto dinero se puede planificar. Es el límite que más se nota y el que
+   * mejor se entiende, y a la vez el que menos estropea la herramienta: por debajo del
+   * techo la experiencia es la completa, con su lista, su desglose y sus avisos. No
+   * enseña una versión capada del producto, enseña el producto entero en pequeño.
+   */
+  presupuestoMaximo: number;
   /** Cuántos objetivos se pueden combinar en un mismo plan. */
   objetivos: number;
   /** Si se pueden fijar piezas a mano y que el motor rellene alrededor. */
@@ -23,12 +32,14 @@ export interface Limites {
 
 export const LIMITES: Record<Plan, Limites> = {
   gratis: {
+    presupuestoMaximo: 3000,
     objetivos: 1,
     eleccionesManuales: false,
     exportarPdf: false,
     planesPorDia: 5,
   },
   taller: {
+    presupuestoMaximo: Infinity,
     objetivos: 4,
     eleccionesManuales: true,
     exportarPdf: true,
@@ -63,9 +74,19 @@ export type Veredicto = { permitido: true } | { permitido: false; motivo: string
 /** Si una petición de plan cabe en los límites de quien la pide. */
 export function puedePedirPlan(
   limites: Limites,
-  peticion: { objetivos: unknown[]; elecciones?: unknown[] },
+  peticion: { objetivos: unknown[]; elecciones?: unknown[]; presupuesto?: number },
   planesHoy: number,
 ): Veredicto {
+  const presupuesto = peticion.presupuesto ?? 0;
+  if (presupuesto > limites.presupuestoMaximo) {
+    return {
+      permitido: false,
+      motivo:
+        `Con el plan gratuito se planifica hasta ${euros(limites.presupuestoMaximo)}. ` +
+        "Para proyectos más grandes hace falta la suscripción.",
+    };
+  }
+
   if (peticion.objetivos.length > limites.objetivos) {
     return {
       permitido: false,

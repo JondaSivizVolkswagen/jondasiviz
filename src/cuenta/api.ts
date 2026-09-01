@@ -23,7 +23,18 @@ export interface Usuario {
   alta: string;
 }
 
+export interface Perfil {
+  id: string;
+  correo: string;
+  nombre: string;
+  coche: string;
+  alta: string;
+  visto: string | null;
+}
+
 export interface Limites {
+  /** Hasta cuánto dinero se puede planificar. */
+  presupuestoMaximo: number;
   objetivos: number;
   eleccionesManuales: boolean;
   exportarPdf: boolean;
@@ -46,12 +57,43 @@ export interface Precio {
 
 export interface Acceso {
   usuario: Usuario | null;
+  perfil: Perfil | null;
   plan: Plan;
   limites: Limites;
   suscripcion: Suscripcion | null;
   planesHoy: number;
   precio: Precio;
 }
+
+/** Lo que devuelven GET y PATCH de /api/auth/perfil: el perfil más el resto del acceso. */
+export interface RespuestaPerfil {
+  perfil: Perfil;
+  plan: Plan;
+  limites: Limites;
+  suscripcion: Suscripcion | null;
+  planesHoy: number;
+  precio: Precio;
+}
+
+export interface CambioContrasena {
+  cambiada: true;
+  aviso: string;
+}
+
+export interface CancelacionSuscripcion {
+  cancelada: true;
+  /** Fecha ISO hasta la que sigue teniendo la herramienta completa, o null si es inmediato. */
+  hasta: string | null;
+}
+
+export interface CuentaBorrada {
+  borrada: true;
+}
+
+/** Ruta de descarga de los datos personales. La respuesta ya trae la cabecera para que
+ * el navegador la descargue como fichero; en la app de escritorio hay que abrirla en el
+ * navegador del sistema, ver `descargarMisDatos` en `PerfilModal`. */
+export const RUTA_MIS_DATOS = "/api/auth/mis-datos";
 
 export type Resultado<T> = { ok: true; datos: T } | { ok: false; error: string; codigo?: number };
 
@@ -111,6 +153,7 @@ async function peticion<T>(
 
 function normalizar(cruda: {
   usuario: Usuario | null;
+  perfil?: Perfil | null;
   plan: Plan;
   limites: Limites;
   suscripcion?: Suscripcion;
@@ -121,6 +164,7 @@ function normalizar(cruda: {
   if (cruda.token) guardarToken(cruda.token);
   return {
     usuario: cruda.usuario,
+    perfil: cruda.perfil ?? null,
     plan: cruda.plan,
     limites: cruda.limites,
     suscripcion: cruda.suscripcion ?? null,
@@ -140,10 +184,14 @@ export async function quienSoy(): Promise<Acceso | null> {
   return normalizar(resultado.datos);
 }
 
-export async function registrarCuenta(correo: string, contrasena: string): Promise<Resultado<Acceso>> {
+export async function registrarCuenta(
+  correo: string,
+  contrasena: string,
+  datos: { nombre?: string; coche?: string } = {},
+): Promise<Resultado<Acceso>> {
   const resultado = await peticion<Parameters<typeof normalizar>[0]>("/api/auth/registro", {
     metodo: "POST",
-    cuerpo: { correo, contrasena },
+    cuerpo: { correo, contrasena, ...datos },
     espera: ESPERA_ENVIO,
   });
   if (!resultado.ok) return resultado;
@@ -177,6 +225,53 @@ export async function confirmarSimulada(): Promise<Resultado<Acceso>> {
   );
   if (!resultado.ok) return resultado;
   return { ok: true, datos: normalizar(resultado.datos) };
+}
+
+/** Cambia nombre y coche. Lo que no se manda no se toca. */
+export async function actualizarPerfil(
+  cambios: { nombre?: string; coche?: string },
+): Promise<Resultado<RespuestaPerfil>> {
+  return peticion<RespuestaPerfil>("/api/auth/perfil", {
+    metodo: "PATCH",
+    cuerpo: cambios,
+    espera: ESPERA_ENVIO,
+  });
+}
+
+/**
+ * Cambia la contraseña. Si sale bien, el servidor ya ha cerrado todas las sesiones, así
+ * que aquí se olvida también el token guardado: seguir mandándolo solo daría un 401.
+ */
+export async function cambiarContrasena(
+  actual: string,
+  nueva: string,
+): Promise<Resultado<CambioContrasena>> {
+  const resultado = await peticion<CambioContrasena>("/api/auth/contrasena", {
+    metodo: "POST",
+    cuerpo: { actual, nueva },
+    espera: ESPERA_ENVIO,
+  });
+  if (resultado.ok) guardarToken(null);
+  return resultado;
+}
+
+/** Cancela la suscripción activa. 409 si no había ninguna. */
+export async function cancelarSuscripcion(): Promise<Resultado<CancelacionSuscripcion>> {
+  return peticion<CancelacionSuscripcion>("/api/suscripcion/cancelar", {
+    metodo: "POST",
+    espera: ESPERA_ENVIO,
+  });
+}
+
+/** Borra la cuenta. Exige la contraseña porque no tiene vuelta atrás. */
+export async function borrarCuenta(contrasena: string): Promise<Resultado<CuentaBorrada>> {
+  const resultado = await peticion<CuentaBorrada>("/api/auth/borrar", {
+    metodo: "POST",
+    cuerpo: { contrasena },
+    espera: ESPERA_ENVIO,
+  });
+  if (resultado.ok) guardarToken(null);
+  return resultado;
 }
 
 /**

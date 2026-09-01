@@ -13,6 +13,7 @@ import { useCuenta } from "./cuenta/useCuenta";
 import { motivoObjetivos } from "./cuenta/gating";
 import { AccesoModal } from "./ui/AccesoModal";
 import { SuscripcionModal } from "./ui/SuscripcionModal";
+import { PerfilModal } from "./ui/PerfilModal";
 import "./App.css";
 import "./ui/cuenta.css";
 
@@ -24,19 +25,35 @@ function App() {
 
   const cuenta = useCuenta();
   const {
+    modal: modalCuenta,
     usuario,
+    perfil,
     plan: planCuenta,
     limites,
     cargando: cargandoCuenta,
     abrirAcceso,
     abrirSuscripcion,
+    abrirPerfil,
     salir,
   } = cuenta;
 
-  // El Mk5 es el modelo de referencia del catálogo, así que arranca en él si está.
-  const [modeloId, setModeloId] = useState(
+  // El Mk5 es el modelo de referencia del catálogo, así que arranca en él si no hay
+  // cuenta o su coche no está en el vault. Mientras se sabe si hay cuenta, mientras
+  // tanto se enseña el mismo por defecto, no una casilla vacía.
+  const modeloPorDefecto = useMemo(
     () => (modelos.find((m) => m.id === "golf-gti-mk5") ?? modelos[0])?.id ?? "",
+    [modelos],
   );
+  // null en cuanto la persona toca el desplegable: a partir de ahí manda su elección, no
+  // el coche de su perfil, así que cambiarlo en el perfil no le mueve el build a medio
+  // hacer.
+  const [modeloElegido, setModeloElegido] = useState<string | null>(null);
+  const modeloId =
+    modeloElegido ??
+    (!cargandoCuenta && perfil?.coche && modelos.some((m) => m.id === perfil.coche)
+      ? perfil.coche
+      : modeloPorDefecto);
+
   const [presupuesto, setPresupuesto] = useState(6500);
   const [objetivos, setObjetivos] = useState<Objetivo[]>(["drag"]);
   // Pieza elegida a mano, por grupo. Se guarda por grupo y no como lista suelta para que
@@ -141,9 +158,14 @@ function App() {
             <div className="cuenta-barra">
               {usuario ? (
                 <>
-                  <span className="cuenta-correo" title={usuario.correo}>
+                  <button
+                    type="button"
+                    className="cuenta-correo"
+                    title="Ver tu perfil"
+                    onClick={() => abrirPerfil()}
+                  >
                     {usuario.correo}
-                  </span>
+                  </button>
                   <button
                     type="button"
                     className={"chip plan-pill" + (planCuenta === "taller" ? " chip-gama" : "")}
@@ -209,7 +231,7 @@ function App() {
               modelos={modelos}
               modeloId={modeloId}
               modeloResuelto={modeloResuelto}
-              onModeloId={setModeloId}
+              onModeloId={setModeloElegido}
               presupuesto={presupuesto}
               onPresupuesto={setPresupuesto}
               objetivos={objetivos}
@@ -237,6 +259,9 @@ function App() {
 
       <AccesoModal />
       <SuscripcionModal />
+      {/* Se monta solo mientras está abierto, para que cada apertura empiece de cero:
+          sin un "Borrar la cuenta" a medias ni un "Guardado" de la vez anterior. */}
+      {modalCuenta?.tipo === "perfil" && <PerfilModal />}
     </div>
   );
 }

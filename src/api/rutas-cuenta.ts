@@ -22,10 +22,20 @@ import {
   type Usuario,
 } from "../auth/cuentas.ts";
 import { correoValido, problemaCon } from "../auth/contrasenas.ts";
+import {
+  borrarCuenta,
+  cambiarContrasena,
+  exportarDatos,
+  guardarPerfil,
+  leerPerfil,
+  marcarVisto,
+} from "../auth/perfil.ts";
 import { accesoDe, anotarSuscripcion, usuarioPorReferencia } from "../suscripcion/estado.ts";
 import { LIMITES, PRECIO } from "../suscripcion/planes.ts";
+import { codigoCorrecto, hayCodigo } from "../suscripcion/codigo.ts";
 import {
   abrirCheckout,
+  cancelarEnStripe,
   conStripe,
   firmaStripeValida,
   type Configuracion,
@@ -41,7 +51,10 @@ export interface Contexto {
 }
 
 /** El usuario de una petición, o null si no viene identificada. */
-export function usuarioDePeticion(peticion: IncomingMessage, base: BaseDatos): Usuario | null {
+export function usuarioDePeticion(
+  peticion: IncomingMessage,
+  base: BaseDatos,
+): Promise<Usuario | null> {
   return usuarioDe(base, tokenDe(peticion));
 }
 
@@ -72,18 +85,23 @@ export async function manejarCuenta(
       return true;
     }
 
-    const alta = await registrar(base, correo, contrasena);
+    const alta = await registrar(base, correo, contrasena, {
+      nombre: datos.nombre === undefined ? undefined : String(datos.nombre),
+      coche: datos.coche === undefined ? undefined : String(datos.coche),
+    });
     if (!alta.ok) {
       responder(respuesta, 409, { error: alta.motivo });
       return true;
     }
 
-    const sesion = abrirSesion(base, alta.usuario.id);
+    const sesion = await abrirSesion(base, alta.usuario.id);
     ponerCookie(respuesta, sesion.token, sesion.caduca);
+    await marcarVisto(base, alta.usuario.id);
     responder(respuesta, 201, {
       usuario: alta.usuario,
+      perfil: await leerPerfil(base, alta.usuario.id),
       token: sesion.token,
-      ...accesoResumido(base, alta.usuario.id),
+      ...(await accesoResumido(base, alta.usuario.id)),
     });
     return true;
   }
@@ -101,12 +119,14 @@ export async function manejarCuenta(
       return true;
     }
 
-    const sesion = abrirSesion(base, usuario.id);
+    const sesion = await abrirSesion(base, usuario.id);
     ponerCookie(respuesta, sesion.token, sesion.caduca);
+    await marcarVisto(base, usuario.id);
     responder(respuesta, 200, {
       usuario,
+      perfil: await leerPerfil(base, usuario.id),
       token: sesion.token,
-      ...accesoResumido(base, usuario.id),
+      ...(await accesoResumido(base, usuario.id)),
     });
     return true;
   }
@@ -114,7 +134,7 @@ export async function manejarCuenta(
   // ──────────────────────────────── salir ─────────────────────────────────
   if (ruta === "/api/auth/salir" && metodo === "POST") {
     const token = tokenDe(peticion);
-    if (token) cerrarSesion(base, token);
+    if (token) await cerrarSesion(base, token);
     borrarCookie(respuesta);
     responder(respuesta, 200, { salido: true });
     return true;
@@ -122,7 +142,7 @@ export async function manejarCuenta(
 
   // ─────────────────────────── quién soy y qué puedo ──────────────────────
   if (ruta === "/api/auth/yo" && metodo === "GET") {
-    const usuario = usuarioDePeticion(peticion, base);
+    const usuario = await usuarioDePeticion(peticion, base);
     if (!usuario) {
       // Sin sesión no es un error: es un visitante, y se le dicen los límites que tendría.
       responder(respuesta, 200, {
@@ -133,19 +153,207 @@ export async function manejarCuenta(
       });
       return true;
     }
-    responder(respuesta, 200, { usuario, ...accesoResumido(base, usuario.id) });
+    responder(respuesta, 200, {
+      usuario,
+      perfil: await leerPerfil(base, usuario.id),
+      ...(await accesoResumido(base, usuario.id)),
+    });
+    return true;
+  }
+
+  // ──────────────────────────────── perfil ────────────────────────────────
+  if (ruta === "/api/auth/perfil" && (metodo === "GET" || metodo === "PATCH")) {
+    const usuario = await usuarioDePeticion(peticion, base);
+    if (!usuario) {
+      responder(respuesta, 401, { error: "Entra en tu cuenta." });
+      return true;
+    }
+
+    if (metodo === "GET") {
+      responder(respuesta, 200, {
+        perfil: await leerPerfil(base, usuario.id),
+        ...(await accesoResumido(base, usuario.id)),
+      });
+      return true;
+    }
+
+    const datos = await cuerpoJson(peticion, respuesta, ctx);
+    if (!datos) return true;
+
+    const guardado = await guardarPerfil(base, usuario.id, {
+      nombre: datos.nombre === undefined ? undefined : String(datos.nombre),
+      coche: datos.coche === undefined ? undefined : String(datos.coche),
+    });
+    if (!guardado.ok) {
+      responder(respuesta, 400, { error: guardado.motivo });
+      return true;
+    }
+
+    responder(respuesta, 200, {
+      perfil: guardado.perfil,
+      ...(await accesoResumido(base, usuario.id)),
+    });
+    return true;
+  }
+
+  // ────────────────────────── cambiar contraseña ──────────────────────────
+  if (ruta === "/api/auth/contrasena" && metodo === "POST") {
+    const usuario = await usuarioDePeticion(peticion, base);
+    if (!usuario) {
+      responder(respuesta, 401, { error: "Entra en tu cuenta." });
+      return true;
+    }
+
+    const datos = await cuerpoJson(peticion, respuesta, ctx);
+    if (!datos) return true;
+
+    const cambio = await cambiarContrasena(
+      base,
+      usuario.id,
+      String(datos.actual ?? ""),
+      String(datos.nueva ?? ""),
+    );
+    if (!cambio.ok) {
+      responder(respuesta, 400, { error: cambio.motivo });
+      return true;
+    }
+
+    // Cambiar la contraseña cierra todas las sesiones, incluida esta.
+    borrarCookie(respuesta);
+    responder(respuesta, 200, {
+      cambiada: true,
+      aviso: "Se han cerrado todas las sesiones. Vuelve a entrar con la contraseña nueva.",
+    });
+    return true;
+  }
+
+  // ────────────────────── llevarse los datos (RGPD) ───────────────────────
+  if (ruta === "/api/auth/mis-datos" && metodo === "GET") {
+    const usuario = await usuarioDePeticion(peticion, base);
+    if (!usuario) {
+      responder(respuesta, 401, { error: "Entra en tu cuenta." });
+      return true;
+    }
+
+    const datos = await exportarDatos(base, usuario.id);
+    if (!datos) {
+      responder(respuesta, 404, { error: "Esa cuenta ya no existe." });
+      return true;
+    }
+
+    respuesta.setHeader("Content-Disposition", 'attachment; filename="mis-datos-jondasiviz.json"');
+    responder(respuesta, 200, datos);
+    return true;
+  }
+
+  // ────────────────────────── borrar la cuenta ────────────────────────────
+  if (ruta === "/api/auth/borrar" && metodo === "POST") {
+    const usuario = await usuarioDePeticion(peticion, base);
+    if (!usuario) {
+      responder(respuesta, 401, { error: "Entra en tu cuenta." });
+      return true;
+    }
+
+    const datos = await cuerpoJson(peticion, respuesta, ctx);
+    if (!datos) return true;
+
+    const borrado = await borrarCuenta(base, usuario.id, String(datos.contrasena ?? ""));
+    if (!borrado.ok) {
+      responder(respuesta, 400, { error: borrado.motivo });
+      return true;
+    }
+
+    borrarCookie(respuesta);
+    responder(respuesta, 200, { borrada: true });
+    return true;
+  }
+
+  // ───────────────────────────── código maestro ───────────────────────────
+  if (ruta === "/api/suscripcion/codigo" && metodo === "POST") {
+    const usuario = await usuarioDePeticion(peticion, base);
+    if (!usuario) {
+      responder(respuesta, 401, { error: "Entra en tu cuenta." });
+      return true;
+    }
+
+    if (!hayCodigo()) {
+      // Sin código configurado la puerta no existe, y se contesta como cualquier ruta
+      // que no está: no se anuncia que podría existir.
+      responder(respuesta, 404, { error: "No disponible." });
+      return true;
+    }
+
+    const datos = await cuerpoJson(peticion, respuesta, ctx);
+    if (!datos) return true;
+
+    if (!codigoCorrecto(String(datos.codigo ?? ""))) {
+      console.warn(`Código maestro incorrecto para ${usuario.correo}.`);
+      responder(respuesta, 401, { error: "Ese código no es correcto." });
+      return true;
+    }
+
+    // Queda anotado con proveedor "codigo", así en la base se distingue a simple vista
+    // quién entró pagando y quién con el código.
+    await anotarSuscripcion(base, usuario.id, "activa", "codigo", null, null);
+    console.log(`Suscripción abierta con código maestro para ${usuario.correo}.`);
+
+    responder(respuesta, 200, { abierta: true, ...(await accesoResumido(base, usuario.id)) });
+    return true;
+  }
+
+  // ─────────────────────── cancelar la suscripción ────────────────────────
+  if (ruta === "/api/suscripcion/cancelar" && metodo === "POST") {
+    const usuario = await usuarioDePeticion(peticion, base);
+    if (!usuario) {
+      responder(respuesta, 401, { error: "Entra en tu cuenta." });
+      return true;
+    }
+
+    const acceso = await accesoDe(base, usuario.id);
+    if (acceso.plan !== "taller") {
+      responder(respuesta, 409, { error: "No tienes ninguna suscripción activa." });
+      return true;
+    }
+
+    const referencia = acceso.suscripcion.referencia;
+
+    // Con Stripe se le dice que no renueve y se deja el acceso hasta que acabe el mes ya
+    // pagado; el estado lo bajará su webhook cuando toque. Marcarla cancelada ahora
+    // seria quitarle algo que ha pagado. Con la pasarela simulada no hay nadie que avise
+    // despues, asi que se anota aqui.
+    if (conStripe(pasarela) && acceso.suscripcion.proveedor === "stripe" && referencia) {
+      try {
+        const { finPeriodo } = await cancelarEnStripe(pasarela, referencia);
+        responder(respuesta, 200, {
+          cancelada: true,
+          hasta: finPeriodo,
+          aviso: "No se renovará. Sigues teniendo la herramienta completa hasta esa fecha.",
+        });
+      } catch (error) {
+        console.error("No se pudo cancelar en Stripe:", error);
+        responder(respuesta, 502, { error: "La pasarela no responde. Inténtalo en un rato." });
+      }
+      return true;
+    }
+
+    await anotarSuscripcion(base, usuario.id, "cancelada", acceso.suscripcion.proveedor, referencia);
+    responder(respuesta, 200, {
+      cancelada: true,
+      hasta: null,
+      ...(await accesoResumido(base, usuario.id)),
+    });
     return true;
   }
 
   // ───────────────────────────── abrir el pago ────────────────────────────
   if (ruta === "/api/suscripcion/checkout" && metodo === "POST") {
-    const usuario = usuarioDePeticion(peticion, base);
+    const usuario = await usuarioDePeticion(peticion, base);
     if (!usuario) {
       responder(respuesta, 401, { error: "Entra en tu cuenta para suscribirte." });
       return true;
     }
 
-    const acceso = accesoDe(base, usuario.id);
+    const acceso = await accesoDe(base, usuario.id);
     if (acceso.plan === "taller") {
       responder(respuesta, 409, { error: "Ya tienes la suscripción activa." });
       return true;
@@ -155,7 +363,7 @@ export async function manejarCuenta(
       const checkout = await abrirCheckout(pasarela, usuario.id, usuario.correo);
 
       // Se guarda la referencia para reconocer la suscripción cuando llegue el webhook.
-      anotarSuscripcion(base, usuario.id, "ninguna", checkout.simulado ? "simulada" : "stripe", checkout.referencia);
+      await anotarSuscripcion(base, usuario.id, "ninguna", checkout.simulado ? "simulada" : "stripe", checkout.referencia);
 
       responder(respuesta, 200, { url: checkout.url, simulado: checkout.simulado });
     } catch (error) {
@@ -174,15 +382,15 @@ export async function manejarCuenta(
       return true;
     }
 
-    const usuario = usuarioDePeticion(peticion, base);
+    const usuario = await usuarioDePeticion(peticion, base);
     if (!usuario) {
       responder(respuesta, 401, { error: "Entra en tu cuenta." });
       return true;
     }
 
     const renueva = new Date(Date.now() + 30 * 86400_000).toISOString();
-    anotarSuscripcion(base, usuario.id, "activa", "simulada", `simulada_${usuario.id}`, renueva);
-    responder(respuesta, 200, { ...accesoResumido(base, usuario.id), simulado: true });
+    await anotarSuscripcion(base, usuario.id, "activa", "simulada", `simulada_${usuario.id}`, renueva);
+    responder(respuesta, 200, { ...(await accesoResumido(base, usuario.id)), simulado: true });
     return true;
   }
 
@@ -210,7 +418,7 @@ export async function manejarCuenta(
       return true;
     }
 
-    responder(respuesta, 200, { recibido: evento.type, ...aplicarEvento(base, evento) });
+    responder(respuesta, 200, { recibido: evento.type, ...(await aplicarEvento(base, evento)) });
     return true;
   }
 
@@ -223,10 +431,10 @@ export async function manejarCuenta(
  * Se responde 200 aunque el evento no interese: si se devuelve error, Stripe reintenta
  * la entrega una y otra vez de algo que nunca vamos a atender.
  */
-function aplicarEvento(
+async function aplicarEvento(
   base: BaseDatos,
   evento: { type: string; data: { object: Record<string, unknown> } },
-): { aplicado: boolean; motivo?: string } {
+): Promise<{ aplicado: boolean; motivo?: string }> {
   const objeto = evento.data?.object ?? {};
 
   switch (evento.type) {
@@ -236,26 +444,26 @@ function aplicarEvento(
       const suscripcionId = objeto.subscription ? String(objeto.subscription) : null;
       if (!usuarioId) return { aplicado: false, motivo: "El evento no trae usuario." };
 
-      anotarSuscripcion(base, usuarioId, "activa", "stripe", suscripcionId);
+      await anotarSuscripcion(base, usuarioId, "activa", "stripe", suscripcionId);
       return { aplicado: true };
     }
 
     case "invoice.payment_failed": {
-      const usuarioId = porSuscripcion(base, objeto.subscription);
+      const usuarioId = await porSuscripcion(base, objeto.subscription);
       if (!usuarioId) return { aplicado: false, motivo: "Suscripción desconocida." };
-      anotarSuscripcion(base, usuarioId, "impagada", "stripe", String(objeto.subscription));
+      await anotarSuscripcion(base, usuarioId, "impagada", "stripe", String(objeto.subscription));
       return { aplicado: true };
     }
 
     case "customer.subscription.deleted": {
-      const usuarioId = porSuscripcion(base, objeto.id);
+      const usuarioId = await porSuscripcion(base, objeto.id);
       if (!usuarioId) return { aplicado: false, motivo: "Suscripción desconocida." };
-      anotarSuscripcion(base, usuarioId, "cancelada", "stripe", String(objeto.id));
+      await anotarSuscripcion(base, usuarioId, "cancelada", "stripe", String(objeto.id));
       return { aplicado: true };
     }
 
     case "customer.subscription.updated": {
-      const usuarioId = porSuscripcion(base, objeto.id);
+      const usuarioId = await porSuscripcion(base, objeto.id);
       if (!usuarioId) return { aplicado: false, motivo: "Suscripción desconocida." };
 
       const estadoStripe = String(objeto.status ?? "");
@@ -283,12 +491,12 @@ function aplicarEvento(
   }
 }
 
-function porSuscripcion(base: BaseDatos, referencia: unknown): string | null {
-  return referencia ? usuarioPorReferencia(base, String(referencia)) : null;
+function porSuscripcion(base: BaseDatos, referencia: unknown): Promise<string | null> {
+  return referencia ? usuarioPorReferencia(base, String(referencia)) : Promise.resolve(null);
 }
 
-function accesoResumido(base: BaseDatos, usuarioId: string) {
-  const acceso = accesoDe(base, usuarioId);
+async function accesoResumido(base: BaseDatos, usuarioId: string) {
+  const acceso = await accesoDe(base, usuarioId);
   return {
     plan: acceso.plan,
     limites: sinInfinitos(acceso.limites),

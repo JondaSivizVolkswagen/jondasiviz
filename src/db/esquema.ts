@@ -125,12 +125,22 @@ CREATE TABLE IF NOT EXISTS siembra (
 -- La contraseña no se guarda: se guarda su huella con scrypt y una sal distinta por
 -- usuario, de forma que dos personas con la misma contraseña tengan huellas distintas y
 -- una filtración de la base no sirva para entrar en ningún sitio.
+-- Solo se pide lo que hace falta para que la herramienta sirva de algo: cómo llamar a
+-- la persona y con qué coche anda. Ni teléfono ni dirección ni fecha de nacimiento: son
+-- datos personales que habría que proteger y que aquí no pintan nada.
 CREATE TABLE IF NOT EXISTS usuario (
   id       TEXT PRIMARY KEY,
   correo   TEXT NOT NULL UNIQUE,
   huella   TEXT NOT NULL,
   sal      TEXT NOT NULL,
-  alta     TEXT NOT NULL
+  alta     TEXT NOT NULL,
+  nombre   TEXT NOT NULL DEFAULT '',
+  -- Su coche, para que el planner arranque ya en él. Sin clave foránea a propósito: si
+  -- un modelo desaparece del catálogo, la cuenta no se rompe, simplemente deja de
+  -- coincidir y el planner tira del que venga por defecto.
+  coche    TEXT NOT NULL DEFAULT '',
+  -- Cuándo entró por última vez, para poder enseñárselo en su perfil.
+  visto    TEXT
 );
 
 -- El correo se busca siempre en minúsculas, para que Ana@x.com y ana@x.com sean la

@@ -89,38 +89,38 @@ async function manejar(
   if (atendida) return;
 
   if (ruta === "/api/salud" && metodo === "GET") {
-    const sembrada = estaSembrada(base);
+    const sembrada = await estaSembrada(base);
     responder(respuesta, sembrada ? 200 : 503, {
       estado: sembrada ? "listo" : "sin sembrar",
-      catalogo: sembrada ? leerCatalogo(base).version : null,
-      piezas: sembrada ? leerCatalogo(base).piezas.length : 0,
-      modelos: sembrada ? leerModelos(base).modelos.length : 0,
-      ultimaSiembra: ultimaSiembra(base),
+      catalogo: sembrada ? (await leerCatalogo(base)).version : null,
+      piezas: sembrada ? (await leerCatalogo(base)).piezas.length : 0,
+      modelos: sembrada ? (await leerModelos(base)).modelos.length : 0,
+      ultimaSiembra: await ultimaSiembra(base),
     });
     return;
   }
 
   if (ruta === "/api/catalogo" && metodo === "GET") {
-    if (!exigirSembrada(base, respuesta)) return;
-    responder(respuesta, 200, leerCatalogo(base));
+    if (!(await exigirSembrada(base, respuesta))) return;
+    responder(respuesta, 200, await leerCatalogo(base));
     return;
   }
 
   if (ruta === "/api/modelos" && metodo === "GET") {
-    if (!exigirSembrada(base, respuesta)) return;
-    responder(respuesta, 200, leerModelos(base));
+    if (!(await exigirSembrada(base, respuesta))) return;
+    responder(respuesta, 200, await leerModelos(base));
     return;
   }
 
   if (ruta.startsWith("/api/modelos/") && metodo === "GET") {
-    if (!exigirSembrada(base, respuesta)) return;
+    if (!(await exigirSembrada(base, respuesta))) return;
     const id = decodeURIComponent(ruta.slice("/api/modelos/".length));
-    const modelo = leerModelos(base).modelos.find((m) => m.id === id);
+    const modelo = (await leerModelos(base)).modelos.find((m) => m.id === id);
     if (!modelo) {
       responder(respuesta, 404, { error: `No hay ningún modelo con id "${id}".` });
       return;
     }
-    const catalogo = leerCatalogo(base);
+    const catalogo = await leerCatalogo(base);
     responder(respuesta, 200, {
       modelo,
       piezasCompatibles: piezasDeModelo(modelo, catalogo).length,
@@ -130,7 +130,7 @@ async function manejar(
   }
 
   if (ruta === "/api/piezas" && metodo === "GET") {
-    if (!exigirSembrada(base, respuesta)) return;
+    if (!(await exigirSembrada(base, respuesta))) return;
 
     const plataforma = url.searchParams.get("plataforma");
     const objetivo = url.searchParams.get("objetivo");
@@ -153,13 +153,13 @@ async function manejar(
     responder(respuesta, 200, {
       plataforma,
       objetivo,
-      piezas: piezasPorObjetivo(base, plataforma as Plataforma, objetivo as Objetivo),
+      piezas: await piezasPorObjetivo(base, plataforma as Plataforma, objetivo as Objetivo),
     });
     return;
   }
 
   if (ruta === "/api/plan" && metodo === "POST") {
-    if (!exigirSembrada(base, respuesta)) return;
+    if (!(await exigirSembrada(base, respuesta))) return;
 
     const cuerpo = await leerCuerpo(peticion, respuesta);
     if (cuerpo === null) return;
@@ -172,7 +172,7 @@ async function manejar(
       return;
     }
 
-    const modelos = leerModelos(base).modelos;
+    const modelos = (await leerModelos(base)).modelos;
     const modelo = modelos.find(
       (m) => m.id === datos.modelo || m.nombre.toLowerCase() === (datos.modelo ?? "").toLowerCase(),
     );
@@ -206,12 +206,16 @@ async function manejar(
     //
     // Sin cuenta se trata como plan gratuito, pero sin contador diario: no hay a quién
     // apuntárselo. El tope por día empieza a contar cuando hay sesión.
-    const usuario = usuarioDePeticion(peticion, base);
+    const usuario = await usuarioDePeticion(peticion, base);
     const acceso = usuario
-      ? accesoDe(base, usuario.id)
+      ? await accesoDe(base, usuario.id)
       : { plan: "gratis" as const, limites: LIMITES.gratis, planesHoy: 0 };
 
-    const veredicto = puedePedirPlan(acceso.limites, { objetivos, elecciones }, acceso.planesHoy);
+    const veredicto = puedePedirPlan(
+      acceso.limites,
+      { objetivos, elecciones, presupuesto },
+      acceso.planesHoy,
+    );
     if (!veredicto.permitido) {
       responder(respuesta, 402, {
         error: veredicto.motivo,
@@ -230,11 +234,11 @@ async function manejar(
       elecciones,
     };
 
-    if (usuario) apuntarPlan(base, usuario.id);
+    if (usuario) await apuntarPlan(base, usuario.id);
 
     // El catálogo se le pasa desde la base: la regla de negocio no se toca, solo cambia
     // de dónde vienen los datos.
-    responder(respuesta, 200, generarPresupuesto(peticionPlan, leerCatalogo(base)));
+    responder(respuesta, 200, generarPresupuesto(peticionPlan, await leerCatalogo(base)));
     return;
   }
 
@@ -275,7 +279,7 @@ async function manejar(
       return;
     }
 
-    const resultado = sembrar(base, cargarCatalogo(), cargarModelos(), "webhook");
+    const resultado = await sembrar(base, cargarCatalogo(), cargarModelos(), "webhook");
     responder(respuesta, 200, { recibido: evento, resembrado: true, ...resultado });
     return;
   }
@@ -294,8 +298,8 @@ async function manejar(
   });
 }
 
-function exigirSembrada(base: BaseDatos, respuesta: ServerResponse): boolean {
-  if (estaSembrada(base)) return true;
+async function exigirSembrada(base: BaseDatos, respuesta: ServerResponse): Promise<boolean> {
+  if (await estaSembrada(base)) return true;
   responder(respuesta, 503, {
     error: "La base de datos está vacía.",
     solucion: "Lanza `npm run db:sembrar`.",

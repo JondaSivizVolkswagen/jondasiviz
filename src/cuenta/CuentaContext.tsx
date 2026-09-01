@@ -18,6 +18,7 @@ const ANONIMO: EstadoCuenta = {
   cargando: true,
   disponibleApi: false,
   usuario: null,
+  perfil: null,
   plan: "gratis",
   limites: LIMITES.gratis,
   suscripcion: null,
@@ -30,6 +31,7 @@ function deAcceso(acceso: Acceso): EstadoCuenta {
     cargando: false,
     disponibleApi: true,
     usuario: acceso.usuario,
+    perfil: acceso.perfil,
     plan: acceso.plan,
     limites: acceso.limites,
     suscripcion: acceso.suscripcion,
@@ -65,13 +67,16 @@ export function CuentaProvider({ children }: { children: ReactNode }) {
     return null;
   }, []);
 
-  const registrar = useCallback(async (correo: string, contrasena: string) => {
-    const resultado = await registrarCuenta(correo, contrasena);
-    if (!resultado.ok) return resultado.error;
-    setEstado(deAcceso(resultado.datos));
-    setModal(null);
-    return null;
-  }, []);
+  const registrar = useCallback(
+    async (correo: string, contrasena: string, datos?: { nombre?: string; coche?: string }) => {
+      const resultado = await registrarCuenta(correo, contrasena, datos);
+      if (!resultado.ok) return resultado.error;
+      setEstado(deAcceso(resultado.datos));
+      setModal(null);
+      return null;
+    },
+    [],
+  );
 
   const salir = useCallback(async () => {
     await salirCuenta();
@@ -87,8 +92,9 @@ export function CuentaProvider({ children }: { children: ReactNode }) {
       salir,
       refrescar,
       modal,
-      abrirAcceso: (modo = "entrar") => setModal({ tipo: "acceso", modo }),
+      abrirAcceso: (modo = "entrar", aviso) => setModal({ tipo: "acceso", modo, aviso }),
       abrirSuscripcion: (motivo = null) => setModal({ tipo: "suscripcion", motivo }),
+      abrirPerfil: () => setModal({ tipo: "perfil" }),
       cerrarModal: () => setModal(null),
     }),
     [estado, entrar, registrar, salir, refrescar, modal],

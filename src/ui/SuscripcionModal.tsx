@@ -82,7 +82,7 @@ export function SuscripcionModal() {
 
   return (
     <Modal eyebrow="Suscripción" titulo="Taller" onCerrar={cerrarModal}>
-      {modal.motivo && <p className="suscripcion-motivo">{modal.motivo}</p>}
+      {modal.motivo && <p className="modal-aviso">{modal.motivo}</p>}
 
       <div className="suscripcion-precio">
         <b>{precioExacto(precio.centimos)} €</b>

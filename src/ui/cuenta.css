@@ -15,6 +15,10 @@
 }
 
 .cuenta-correo {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
   font-family: var(--mono);
   font-size: 10.5px;
   letter-spacing: 0.05em;
@@ -23,6 +27,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: color 0.25s;
+}
+
+.cuenta-correo:hover {
+  color: var(--rojo-vivo);
 }
 
 .plan-pill {
@@ -71,6 +80,11 @@
   border: 1px solid var(--linea-fuerte);
   padding: 32px;
   animation: modal-panel-entra 0.4s var(--curva);
+}
+
+/* Para pantallas con varias secciones, como el perfil: la misma caja, más ancha. */
+.modal-panel-grande {
+  max-width: 640px;
 }
 
 @keyframes modal-panel-entra {
@@ -123,6 +137,19 @@
   .modal-panel {
     animation: none;
   }
+}
+
+/* Aviso de contexto arriba del todo, para el acceso y la suscripción: "querías combinar
+   objetivos" o "se han cerrado las sesiones". No es un error, así que va en rojo tenue,
+   no en el rojo de peligro. */
+.modal-aviso {
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  border-left: 2px solid var(--rojo);
+  background: var(--panel-2);
+  font-size: 13px;
+  color: var(--texto-2);
+  line-height: 1.55;
 }
 
 /* ============================== form de acceso ============================ */
@@ -185,17 +212,120 @@
   color: var(--rojo-vivo);
 }
 
-/* ============================== suscripcion ================================ */
+/* ================================= perfil ================================= */
 
-.suscripcion-motivo {
-  padding: 12px 14px;
-  margin-bottom: 20px;
-  border-left: 2px solid var(--rojo);
-  background: var(--panel-2);
+.perfil {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mismo criterio que .bloque en el planner (secciones que se pegan y comparten borde),
+   pero sin panel propio: aquí ya estamos dentro de uno, el del modal. */
+.perfil-seccion {
+  padding: 22px 0;
+  border-top: 1px solid var(--linea);
+}
+
+.perfil-seccion:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.perfil-seccion .eyebrow {
+  margin-bottom: 16px;
+}
+
+.perfil-dato {
+  font-size: 14px;
+  color: var(--texto-2);
+}
+
+.perfil-ok {
+  font-size: 12.5px;
+  color: var(--verde);
+}
+
+.perfil-plan {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.perfil-plan-texto {
   font-size: 13px;
+  color: var(--texto-2);
+}
+
+.perfil-confirmar {
+  margin-top: 12px;
+  padding: 14px;
+  border: 1px solid var(--linea);
+  background: var(--panel-2);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 12.5px;
   color: var(--texto-2);
   line-height: 1.55;
 }
+
+.perfil-confirmar-botones {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Zona de riesgo: exportar y borrar. Separada del resto con más aire y un hairline en
+   rojo tenue, no con una caja que grite. */
+.perfil-riesgo {
+  margin-top: 6px;
+  padding-top: 28px;
+  border-top: 1px solid color-mix(in srgb, var(--rojo) 30%, transparent);
+}
+
+.eyebrow-rojo::before {
+  background: var(--rojo-vivo);
+}
+
+.eyebrow-rojo {
+  color: var(--rojo-vivo);
+}
+
+.perfil-riesgo-fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+}
+
+.perfil-riesgo-fila + .perfil-riesgo-fila {
+  border-top: 1px solid var(--linea);
+}
+
+.perfil-riesgo-titulo {
+  font-size: 13.5px;
+  color: var(--texto);
+  margin-bottom: 4px;
+}
+
+.perfil-borrar {
+  margin-top: 4px;
+  padding: 16px;
+  border: 1px solid color-mix(in srgb, var(--rojo) 40%, transparent);
+  background: color-mix(in srgb, var(--rojo) 7%, transparent);
+}
+
+@media (max-width: 560px) {
+  .perfil-riesgo-fila {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ============================== suscripcion ================================ */
 
 .suscripcion-precio {
   display: flex;

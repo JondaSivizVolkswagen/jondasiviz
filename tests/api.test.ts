@@ -18,8 +18,8 @@ let servidor: Server;
 let raiz: string;
 
 beforeAll(async () => {
-  const base = abrirBase(":memory:");
-  sembrar(base, cargarCatalogo(), cargarModelos(), "test");
+  const base = await abrirBase(":memory:");
+  await sembrar(base, cargarCatalogo(), cargarModelos(), "test");
   servidor = crearServidor({ base, secretoWebhook: SECRETO });
 
   // Puerto 0: que lo elija el sistema, así los tests no chocan con la API que pueda
@@ -80,14 +80,15 @@ describe("API", () => {
     const respuesta = await fetch(`${raiz}/api/plan`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ modelo: modelo.id, presupuesto: 4000, objetivos: ["drag"] }),
+      // Por debajo del techo del plan gratuito: aquí se compara el motor, no los límites.
+      body: JSON.stringify({ modelo: modelo.id, presupuesto: 2500, objetivos: ["drag"] }),
     });
     expect(respuesta.status).toBe(200);
     const porApi = await respuesta.json();
 
     const enCasa = generarPresupuesto({
       plataforma: modelo.motor,
-      presupuesto: 4000,
+      presupuesto: 2500,
       objetivos: ["drag"],
       modelo: modelo.nombre,
       elecciones: [],

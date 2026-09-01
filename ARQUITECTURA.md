@@ -48,9 +48,37 @@ Con `npm run db:sembrar -- --ver` se ve qué hay dentro de la base sin tocarla.
 
 ## 1. Base de datos
 
-**Qué es.** SQLite, con el motor que Node trae de serie (`node:sqlite`). No hay que
-instalar ningún servidor ni abrir cuenta en ningún sitio: la base es el fichero
-`datos/jondasiviz.db`.
+**Qué es.** SQLite, hablando con libSQL. La misma conexión vale para los dos sitios donde
+puede vivir la base, y lo elige una variable de entorno:
+
+| | Dónde | Cuándo |
+|---|---|---|
+| Fichero | `datos/jondasiviz.db` | Mientras se programa y en los tests. Sin cuentas ni conexión |
+| Turso | `libsql://...` | Cuando la API deja de correr en el ordenador de uno |
+
+```bash
+# local: no hace falta poner nada
+npm run api
+
+# en Turso
+JONDA_DB_URL=libsql://jondasiviz-tu-usuario.turso.io \
+JONDA_DB_TOKEN=el-token \
+npm run api
+```
+
+El esquema, las consultas y los tests son exactamente los mismos en los dos casos, así que
+no hay una versión "de verdad" y otra de mentira que puedan separarse. Toda la capa es
+asíncrona aunque en local no haga falta, porque contra Turso cada consulta es una petición
+por la red.
+
+**Por qué hace falta que esté fuera.** Un fichero en el disco no lo pueden compartir dos
+servidores, no sobrevive a un despliegue y solo existe en un ordenador. En cuanto la API se
+publica para que la aplicación instalada de otra persona pueda iniciar sesión, la base tiene
+que estar en algún sitio al que lleguen los dos.
+
+**Para enchufar Turso**, que es gratis: crear cuenta en [turso.tech](https://turso.tech),
+crear una base, y de ahí salen la URL y el token que van en esas dos variables. Después,
+`npm run db:sembrar` con las variables puestas llena la base de la nube con el catálogo.
 
 **Dónde mirar.** El esquema está en `src/db/esquema.ts`. Son ocho tablas relacionadas,
 no un JSON metido en una columna: una pieza vale para varias plataformas y puntúa

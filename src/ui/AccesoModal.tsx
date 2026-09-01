@@ -1,10 +1,12 @@
 // Acceso a la cuenta: un solo sitio con dos modos, entrar y registrarse. Cambiar de uno a
 // otro no recarga nada, solo cambia qué botón manda el formulario y qué frase hay debajo.
 
-import { useId, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import type { FormEvent } from "react";
+import { listarModelos } from "../engine/graph";
 import { useCuenta } from "../cuenta/useCuenta";
 import { Modal } from "./Modal";
+import { SelectorCoche } from "./SelectorCoche";
 
 type CampoError = "correo" | "contrasena" | "general";
 
@@ -27,12 +29,17 @@ export function AccesoModal() {
   const { modal, cerrarModal, entrar, registrar } = useCuenta();
   const idCorreo = useId();
   const idContrasena = useId();
+  const idNombre = useId();
+  const idCoche = useId();
+  const modelos = useMemo(() => listarModelos(), []);
 
   const [modo, setModo] = useState<"entrar" | "registro">(
     modal?.tipo === "acceso" ? modal.modo : "entrar",
   );
   const [correo, setCorreo] = useState("");
   const [contrasena, setContrasena] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [coche, setCoche] = useState("");
   const [enviando, setEnviando] = useState(false);
   const [error, setError] = useState<{ campo: CampoError; texto: string } | null>(null);
 
@@ -44,8 +51,10 @@ export function AccesoModal() {
     setEnviando(true);
     setError(null);
 
-    const accion = modo === "entrar" ? entrar : registrar;
-    const fallo = await accion(correo.trim(), contrasena);
+    const fallo =
+      modo === "entrar"
+        ? await entrar(correo.trim(), contrasena)
+        : await registrar(correo.trim(), contrasena, { nombre: nombre.trim(), coche });
 
     if (fallo) {
       setError({ campo: campoDe(fallo), texto: fallo });
@@ -65,6 +74,8 @@ export function AccesoModal() {
       titulo={modo === "entrar" ? "Entra en tu cuenta" : "Date de alta"}
       onCerrar={cerrarModal}
     >
+      {modal.aviso && <p className="modal-aviso">{modal.aviso}</p>}
+
       <form className="form-acceso" onSubmit={(e) => void enviar(e)} noValidate>
         <label className="campo-acceso" htmlFor={idCorreo}>
           <span>Correo</span>
@@ -110,6 +121,29 @@ export function AccesoModal() {
             <span className="campo-ayuda">Al menos 8 caracteres.</span>
           )}
         </label>
+
+        {modo === "registro" && (
+          <>
+            <label className="campo-acceso" htmlFor={idNombre}>
+              <span>Nombre (opcional)</span>
+              <input
+                id={idNombre}
+                className="entrada"
+                type="text"
+                autoComplete="name"
+                maxLength={60}
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
+                placeholder="Como quieras que te llamemos"
+              />
+            </label>
+
+            <label className="campo-acceso" htmlFor={idCoche}>
+              <span>Tu coche (opcional)</span>
+              <SelectorCoche id={idCoche} modelos={modelos} valor={coche} onValor={setCoche} />
+            </label>
+          </>
+        )}
 
         {error?.campo === "general" && (
           <p className="campo-error campo-error-general" role="alert">

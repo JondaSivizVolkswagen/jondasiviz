@@ -40,12 +40,12 @@ describe("contraseñas", () => {
     expect(await comprobar(CLAVE + "x", guardada)).toBe(false);
   });
 
-  it("exige una longitud mínima", () => {
+  it("exige una longitud mínima", async () => {
     expect(problemaCon("corta")).not.toBeNull();
     expect(problemaCon(CLAVE)).toBeNull();
   });
 
-  it("filtra correos que no lo son", () => {
+  it("filtra correos que no lo son", async () => {
     expect(correoValido("alguien@taller.es")).toBe(true);
     expect(correoValido("alguien-arroba-taller")).toBe(false);
   });
@@ -53,7 +53,7 @@ describe("contraseñas", () => {
 
 describe("cuentas", () => {
   it("registra y deja entrar", async () => {
-    const base = abrirBase(":memory:");
+    const base = await abrirBase(":memory:");
     const alta = await registrar(base, CORREO, CLAVE);
     expect(alta.ok).toBe(true);
 
@@ -63,7 +63,7 @@ describe("cuentas", () => {
   });
 
   it("no deja registrar el mismo correo dos veces, ni cambiando mayúsculas", async () => {
-    const base = abrirBase(":memory:");
+    const base = await abrirBase(":memory:");
     await registrar(base, CORREO, CLAVE);
 
     const repetido = await registrar(base, CORREO, CLAVE);
@@ -74,95 +74,98 @@ describe("cuentas", () => {
   });
 
   it("deja entrar aunque el correo venga con otras mayúsculas", async () => {
-    const base = abrirBase(":memory:");
+    const base = await abrirBase(":memory:");
     await registrar(base, CORREO, CLAVE);
     expect(await autenticar(base, "TALLER@jondasiviz.es", CLAVE)).not.toBeNull();
   });
 
   it("empieza sin suscripción", async () => {
-    const base = abrirBase(":memory:");
+    const base = await abrirBase(":memory:");
     const alta = await registrar(base, CORREO, CLAVE);
     if (!alta.ok) throw new Error("no se registró");
 
-    const fila = base
-      .prepare("SELECT estado FROM suscripcion WHERE usuario_id = ?")
-      .get(alta.usuario.id) as { estado: string };
-    expect(fila.estado).toBe("ninguna");
+    const fila = await base.uno<{ estado: string }>(
+      "SELECT estado FROM suscripcion WHERE usuario_id = ?",
+      [alta.usuario.id],
+    );
+    expect(fila?.estado).toBe("ninguna");
   });
 });
 
 describe("sesiones", () => {
   it("el token no se guarda tal cual en la base", async () => {
-    const base = abrirBase(":memory:");
+    const base = await abrirBase(":memory:");
     const alta = await registrar(base, CORREO, CLAVE);
     if (!alta.ok) throw new Error("no se registró");
 
-    const sesion = abrirSesion(base, alta.usuario.id);
-    const guardado = base.prepare("SELECT huella_token FROM sesion").get() as {
-      huella_token: string;
-    };
+    const sesion = await abrirSesion(base, alta.usuario.id);
+    const guardado = await base.uno<{ huella_token: string }>(
+      "SELECT huella_token FROM sesion",
+    );
 
     // Quien lea la tabla no puede suplantar a nadie con lo que hay dentro.
-    expect(guardado.huella_token).not.toBe(sesion.token);
-    expect(usuarioDe(base, sesion.token)?.id).toBe(alta.usuario.id);
+    expect(guardado?.huella_token).not.toBe(sesion.token);
+    expect((await usuarioDe(base, sesion.token))?.id).toBe(alta.usuario.id);
   });
 
   it("un token inventado no vale", async () => {
-    const base = abrirBase(":memory:");
-    expect(usuarioDe(base, "me-lo-acabo-de-inventar")).toBeNull();
-    expect(usuarioDe(base, undefined)).toBeNull();
+    const base = await abrirBase(":memory:");
+    expect(await usuarioDe(base, "me-lo-acabo-de-inventar")).toBeNull();
+    expect(await usuarioDe(base, undefined)).toBeNull();
   });
 
   it("al salir, el token deja de servir", async () => {
-    const base = abrirBase(":memory:");
+    const base = await abrirBase(":memory:");
     const alta = await registrar(base, CORREO, CLAVE);
     if (!alta.ok) throw new Error("no se registró");
 
-    const sesion = abrirSesion(base, alta.usuario.id);
-    cerrarSesion(base, sesion.token);
-    expect(usuarioDe(base, sesion.token)).toBeNull();
+    const sesion = await abrirSesion(base, alta.usuario.id);
+    await cerrarSesion(base, sesion.token);
+    expect(await usuarioDe(base, sesion.token)).toBeNull();
   });
 
   it("una sesión caducada no deja entrar y se limpia sola", async () => {
-    const base = abrirBase(":memory:");
+    const base = await abrirBase(":memory:");
     const alta = await registrar(base, CORREO, CLAVE);
     if (!alta.ok) throw new Error("no se registró");
 
-    const sesion = abrirSesion(base, alta.usuario.id);
+    const sesion = await abrirSesion(base, alta.usuario.id);
 
     // Se envejece a mano en la base, que es más honesto que falsear el reloj.
-    base
-      .prepare("UPDATE sesion SET caduca = ?")
-      .run(new Date(Date.now() - 1000).toISOString());
+    await base.ejecutar("UPDATE sesion SET caduca = ?", [
+      new Date(Date.now() - 1000).toISOString(),
+    ]);
 
-    expect(usuarioDe(base, sesion.token)).toBeNull();
-    expect(base.prepare("SELECT COUNT(*) AS n FROM sesion").get()).toEqual({ n: 0 });
+    expect(await usuarioDe(base, sesion.token)).toBeNull();
+    const quedan = await base.uno<{ n: number }>("SELECT COUNT(*) AS n FROM sesion");
+    expect(Number(quedan?.n)).toBe(0);
   });
 
   it("limpiarSesiones se lleva las caducadas y respeta las vivas", async () => {
-    const base = abrirBase(":memory:");
+    const base = await abrirBase(":memory:");
     const alta = await registrar(base, CORREO, CLAVE);
     if (!alta.ok) throw new Error("no se registró");
 
-    abrirSesion(base, alta.usuario.id);
-    const viva = abrirSesion(base, alta.usuario.id);
-    base
-      .prepare("UPDATE sesion SET caduca = ? WHERE huella_token != (SELECT huella_token FROM sesion LIMIT 1)")
-      .run(new Date(Date.now() + 86400_000).toISOString());
+    await abrirSesion(base, alta.usuario.id);
+    const viva = await abrirSesion(base, alta.usuario.id);
+    await base.ejecutar(
+      "UPDATE sesion SET caduca = ? WHERE huella_token != (SELECT huella_token FROM sesion LIMIT 1)",
+      [new Date(Date.now() + 86400_000).toISOString()],
+    );
 
-    limpiarSesiones(base);
-    expect(usuarioDe(base, viva.token)).not.toBeNull();
+    await limpiarSesiones(base);
+    expect(await usuarioDe(base, viva.token)).not.toBeNull();
   });
 
   it("al borrar el usuario se van sus sesiones", async () => {
-    const base = abrirBase(":memory:");
+    const base = await abrirBase(":memory:");
     const alta = await registrar(base, CORREO, CLAVE);
     if (!alta.ok) throw new Error("no se registró");
 
-    const sesion = abrirSesion(base, alta.usuario.id);
-    base.prepare("DELETE FROM usuario WHERE id = ?").run(alta.usuario.id);
+    const sesion = await abrirSesion(base, alta.usuario.id);
+    await base.ejecutar("DELETE FROM usuario WHERE id = ?", [alta.usuario.id]);
 
     // Lo hace la clave foránea con ON DELETE CASCADE, no el código.
-    expect(usuarioDe(base, sesion.token)).toBeNull();
+    expect(await usuarioDe(base, sesion.token)).toBeNull();
   });
 });

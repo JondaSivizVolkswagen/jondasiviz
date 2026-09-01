@@ -18,26 +18,26 @@ import { LIMITES, planDe, puedePedirPlan } from "../src/suscripcion/planes.ts";
 import { firmaStripeValida } from "../src/suscripcion/pasarela.ts";
 
 describe("planes", () => {
-  it("solo la suscripción activa da el plan completo", () => {
+  it("solo la suscripción activa da el plan completo", async () => {
     expect(planDe("activa")).toBe("taller");
     expect(planDe("ninguna")).toBe("gratis");
     expect(planDe("cancelada")).toBe("gratis");
   });
 
-  it("un impago no corta el acceso de golpe", () => {
+  it("un impago no corta el acceso de golpe", async () => {
     // La pasarela reintenta el cobro varios días. Cortar al primer fallo echaría a gente
     // que solo ha cambiado de tarjeta.
     expect(planDe("impagada")).toBe("taller");
   });
 
-  it("el plan gratuito no combina objetivos ni elige piezas a mano", () => {
+  it("el plan gratuito no combina objetivos ni elige piezas a mano", async () => {
     const gratis = LIMITES.gratis;
     expect(puedePedirPlan(gratis, { objetivos: ["drift"] }, 0).permitido).toBe(true);
     expect(puedePedirPlan(gratis, { objetivos: ["drift", "drag"] }, 0).permitido).toBe(false);
     expect(puedePedirPlan(gratis, { objetivos: ["drift"], elecciones: ["x"] }, 0).permitido).toBe(false);
   });
 
-  it("el plan gratuito tiene tope diario y el de pago no", () => {
+  it("el plan gratuito tiene tope diario y el de pago no", async () => {
     expect(puedePedirPlan(LIMITES.gratis, { objetivos: ["drift"] }, 5).permitido).toBe(false);
     expect(puedePedirPlan(LIMITES.taller, { objetivos: ["drift"] }, 9999).permitido).toBe(true);
   });
@@ -54,21 +54,21 @@ describe("firma de la pasarela", () => {
     return `t=${momento},v1=${firma}`;
   }
 
-  it("acepta una firma buena", () => {
+  it("acepta una firma buena", async () => {
     expect(firmaStripeValida(cuerpo, cabeceraValida(), secreto).valida).toBe(true);
   });
 
-  it("rechaza si no hay cabecera o no hay secreto", () => {
+  it("rechaza si no hay cabecera o no hay secreto", async () => {
     expect(firmaStripeValida(cuerpo, undefined, secreto).valida).toBe(false);
     expect(firmaStripeValida(cuerpo, cabeceraValida(), "").valida).toBe(false);
   });
 
-  it("rechaza una firma de otro cuerpo", () => {
+  it("rechaza una firma de otro cuerpo", async () => {
     const otra = firmaStripeValida(Buffer.from('{"type":"otro"}'), cabeceraValida(), secreto);
     expect(otra.valida).toBe(false);
   });
 
-  it("rechaza una entrega vieja aunque la firma sea correcta", () => {
+  it("rechaza una entrega vieja aunque la firma sea correcta", async () => {
     // Sin esto, capturar una entrega válida permitiría reenviarla para revivir una
     // suscripción cancelada.
     const haceUnaHora = Math.floor(Date.now() / 1000) - 3600;
@@ -84,8 +84,8 @@ describe("la API cobra de verdad", () => {
   let usuarioId: string;
 
   beforeAll(async () => {
-    base = abrirBase(":memory:");
-    sembrar(base, cargarCatalogo(), cargarModelos(), "test");
+    base = await abrirBase(":memory:");
+    await sembrar(base, cargarCatalogo(), cargarModelos(), "test");
     servidor = crearServidor({ base, secretoWebhook: "x" });
     await new Promise<void>((listo) => servidor.listen(0, listo));
     const dir = servidor.address();
@@ -112,7 +112,9 @@ describe("la API cobra de verdad", () => {
         "Content-Type": "application/json",
         ...(conSesion ? { Authorization: `Bearer ${token}` } : {}),
       },
-      body: JSON.stringify({ modelo: "golf-gti-mk5", presupuesto: 4000, ...cuerpo }),
+      // 2500 cabe en el plan gratuito: así cada test comprueba el límite que le toca y
+      // no el del presupuesto, que tiene el suyo propio más abajo.
+      body: JSON.stringify({ modelo: "golf-gti-mk5", presupuesto: 2500, ...cuerpo }),
     });
   }
 
@@ -133,6 +135,12 @@ describe("la API cobra de verdad", () => {
     expect((await plan({ objetivos: ["drift"] })).status).toBe(200);
   });
 
+  it("sin pagar, un presupuesto por encima del techo se rechaza", async () => {
+    const respuesta = await plan({ objetivos: ["drift"], presupuesto: 9000 });
+    expect(respuesta.status).toBe(402);
+    expect((await respuesta.json()).error).toContain("3000");
+  });
+
   it("tampoco cuela sin iniciar sesión", async () => {
     // Si el límite se saltara quitando la sesión, no habría negocio que valga.
     const respuesta = await plan({ objetivos: ["drift", "estetica"] }, false);
@@ -150,16 +158,16 @@ describe("la API cobra de verdad", () => {
       });
       expect(respuesta.status).toBe(404);
     }
-    expect(accesoDe(base, usuarioId).plan).toBe("gratis");
+    expect((await accesoDe(base, usuarioId)).plan).toBe("gratis");
   });
 
   it("con la suscripción activa ya combina objetivos", async () => {
-    anotarSuscripcion(base, usuarioId, "activa", "test", "sub_prueba");
+    await anotarSuscripcion(base, usuarioId, "activa", "test", "sub_prueba");
     expect((await plan({ objetivos: ["drift", "estetica"] })).status).toBe(200);
   });
 
   it("y si se cancela, vuelve a cortar", async () => {
-    anotarSuscripcion(base, usuarioId, "cancelada", "test", "sub_prueba");
+    await anotarSuscripcion(base, usuarioId, "cancelada", "test", "sub_prueba");
     expect((await plan({ objetivos: ["drift", "estetica"] })).status).toBe(402);
   });
 
@@ -167,10 +175,10 @@ describe("la API cobra de verdad", () => {
     const otra = await registrar(base, "tope@jondasiviz.es", "contrasena-larga");
     if (!otra.ok) throw new Error("no se registró");
 
-    expect(accesoDe(base, otra.usuario.id).planesHoy).toBe(0);
-    apuntarPlan(base, otra.usuario.id);
-    apuntarPlan(base, otra.usuario.id);
-    expect(accesoDe(base, otra.usuario.id).planesHoy).toBe(2);
+    expect((await accesoDe(base, otra.usuario.id)).planesHoy).toBe(0);
+    await apuntarPlan(base, otra.usuario.id);
+    await apuntarPlan(base, otra.usuario.id);
+    expect((await accesoDe(base, otra.usuario.id)).planesHoy).toBe(2);
   });
 
   it("el webhook de pago rechaza una firma que no cuadra", async () => {

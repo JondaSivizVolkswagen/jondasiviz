@@ -105,6 +105,38 @@ export async function abrirCheckout(
 }
 
 /**
+ * Cancela una suscripción en Stripe al final del periodo ya pagado.
+ *
+ * No se corta en el acto a propósito: la persona ha pagado el mes entero, así que lo
+ * justo es que lo disfrute hasta el final y no se le renueve. Stripe avisará con
+ * `customer.subscription.deleted` cuando llegue el momento, y ahí el webhook baja el
+ * estado a cancelada. Hasta entonces no se toca nada en la base: si se marcase cancelada
+ * ya, se le estaría quitando algo que ha pagado.
+ */
+export async function cancelarEnStripe(
+  config: Configuracion,
+  referencia: string,
+): Promise<{ finPeriodo: string | null }> {
+  const respuesta = await fetch(`https://api.stripe.com/v1/subscriptions/${referencia}`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${config.claveSecreta}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: new URLSearchParams({ cancel_at_period_end: "true" }),
+  });
+
+  if (!respuesta.ok) {
+    const detalle = await respuesta.text();
+    throw new Error(`Stripe respondió ${respuesta.status}: ${detalle.slice(0, 300)}`);
+  }
+
+  const suscripcion = (await respuesta.json()) as { current_period_end?: number };
+  const fin = Number(suscripcion.current_period_end);
+  return { finPeriodo: Number.isFinite(fin) ? new Date(fin * 1000).toISOString() : null };
+}
+
+/**
  * Comprueba la firma de un webhook de Stripe.
  *
  * Stripe firma "timestamp.cuerpo" con HMAC SHA-256 y lo manda en la cabecera

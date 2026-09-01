@@ -10,9 +10,11 @@ interface Props {
   titulo: string;
   onCerrar: () => void;
   children: ReactNode;
+  /** "grande" es para pantallas con varias secciones, como el perfil. */
+  ancho?: "normal" | "grande";
 }
 
-export function Modal({ eyebrow, titulo, onCerrar, children }: Props) {
+export function Modal({ eyebrow, titulo, onCerrar, children, ancho = "normal" }: Props) {
   const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,7 +32,13 @@ export function Modal({ eyebrow, titulo, onCerrar, children }: Props) {
 
   return (
     <div className="modal-fondo" onMouseDown={(e) => e.target === e.currentTarget && onCerrar()}>
-      <div className="modal-panel" role="dialog" aria-modal="true" aria-label={titulo} ref={panelRef}>
+      <div
+        className={"modal-panel" + (ancho === "grande" ? " modal-panel-grande" : "")}
+        role="dialog"
+        aria-modal="true"
+        aria-label={titulo}
+        ref={panelRef}
+      >
         <button type="button" className="modal-cerrar" onClick={onCerrar} aria-label="Cerrar">
           <Icono nombre="cerrar" />
         </button>
