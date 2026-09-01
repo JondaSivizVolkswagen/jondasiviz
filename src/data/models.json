@@ -362,6 +362,26 @@
       ]
     },
     {
+      "id": "audi-a6-etron",
+      "nombre": "Audi A6 e-tron",
+      "alias": [
+        "a6 etron",
+        "a6 e-tron"
+      ],
+      "chasis": "PPE",
+      "motor": "PPE",
+      "motorDetalle": "286-503 CV, arquitectura de 800 V",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [
+        "dcc"
+      ],
+      "anios": [
+        2024,
+        2026
+      ]
+    },
+    {
       "id": "audi-a8-d5",
       "nombre": "Audi A8 D5",
       "alias": [
@@ -380,6 +400,27 @@
       ],
       "anios": [
         2017,
+        2026
+      ]
+    },
+    {
+      "id": "audi-etron-gt",
+      "nombre": "Audi e-tron GT",
+      "alias": [
+        "etron gt",
+        "e-tron gt"
+      ],
+      "chasis": "J1",
+      "motor": "J1",
+      "motorDetalle": "476-530 CV, arquitectura de 800 V",
+      "traccion": "total",
+      "propulsion": "bev",
+      "equipamiento": [
+        "suspension-neumatica",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2021,
         2026
       ]
     },
@@ -447,6 +488,24 @@
       ]
     },
     {
+      "id": "audi-q4-etron",
+      "nombre": "Audi Q4 e-tron",
+      "alias": [
+        "q4 etron",
+        "q4 e-tron"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "170-340 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2021,
+        2026
+      ]
+    },
+    {
       "id": "audi-q5-8r",
       "nombre": "Audi Q5 8R",
       "alias": [
@@ -483,6 +542,26 @@
       ],
       "anios": [
         2017,
+        2026
+      ]
+    },
+    {
+      "id": "audi-q6-etron",
+      "nombre": "Audi Q6 e-tron",
+      "alias": [
+        "q6 etron",
+        "q6 e-tron"
+      ],
+      "chasis": "PPE",
+      "motor": "PPE",
+      "motorDetalle": "306-517 CV, arquitectura de 800 V",
+      "traccion": "total",
+      "propulsion": "bev",
+      "equipamiento": [
+        "dcc"
+      ],
+      "anios": [
+        2024,
         2026
       ]
     },
@@ -574,6 +653,27 @@
       ],
       "anios": [
         2018,
+        2026
+      ]
+    },
+    {
+      "id": "audi-rs-etron-gt",
+      "nombre": "Audi RS e-tron GT",
+      "alias": [
+        "rs etron gt",
+        "rs e-tron gt"
+      ],
+      "chasis": "J1",
+      "motor": "J1",
+      "motorDetalle": "598-646 CV, arquitectura de 800 V",
+      "traccion": "total",
+      "propulsion": "bev",
+      "equipamiento": [
+        "suspension-neumatica",
+        "frenos-ceramicos"
+      ],
+      "anios": [
+        2021,
         2026
       ]
     },
@@ -1405,6 +1505,24 @@
       ]
     },
     {
+      "id": "cupra-born",
+      "nombre": "Cupra Born",
+      "alias": [
+        "born",
+        "cupra born"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "204-326 CV, motor trasero",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2021,
+        2026
+      ]
+    },
+    {
       "id": "cupra-formentor-vz",
       "nombre": "Cupra Formentor VZ",
       "alias": [
@@ -1489,6 +1607,23 @@
       ],
       "anios": [
         2020,
+        2026
+      ]
+    },
+    {
+      "id": "cupra-tavascan",
+      "nombre": "Cupra Tavascan",
+      "alias": [
+        "tavascan"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "286-340 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2024,
         2026
       ]
     },
@@ -3332,6 +3467,60 @@
       ]
     },
     {
+      "id": "skoda-elroq",
+      "nombre": "Škoda Elroq",
+      "alias": [
+        "elroq"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "170-299 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2024,
+        2026
+      ]
+    },
+    {
+      "id": "skoda-enyaq",
+      "nombre": "Škoda Enyaq",
+      "alias": [
+        "enyaq"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "179-286 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2021,
+        2026
+      ]
+    },
+    {
+      "id": "skoda-enyaq-rs",
+      "nombre": "Škoda Enyaq RS",
+      "alias": [
+        "enyaq rs",
+        "enyaq vrs"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "299-340 CV",
+      "traccion": "total",
+      "propulsion": "bev",
+      "equipamiento": [
+        "frenos-grandes"
+      ],
+      "anios": [
+        2022,
+        2026
+      ]
+    },
+    {
       "id": "superb-ii-20-tsi",
       "nombre": "Superb II 2.0 TSI",
       "alias": [
@@ -3586,6 +3775,139 @@
       "anios": [
         2018,
         2023
+      ]
+    },
+    {
+      "id": "vw-id-buzz",
+      "nombre": "Volkswagen ID.Buzz",
+      "alias": [
+        "id buzz",
+        "id.buzz",
+        "buzz"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "204-340 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2022,
+        2026
+      ]
+    },
+    {
+      "id": "vw-id3",
+      "nombre": "Volkswagen ID.3",
+      "alias": [
+        "id3",
+        "id.3"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "Motor trasero 148-231 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
+      "id": "vw-id3-gtx",
+      "nombre": "Volkswagen ID.3 GTX",
+      "alias": [
+        "id3 gtx",
+        "id.3 gtx"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "Motor trasero 286-326 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [
+        "frenos-grandes"
+      ],
+      "anios": [
+        2023,
+        2026
+      ]
+    },
+    {
+      "id": "vw-id4",
+      "nombre": "Volkswagen ID.4",
+      "alias": [
+        "id4",
+        "id.4"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "170-286 CV, trasera o 4Motion",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "vw-id4-gtx",
+      "nombre": "Volkswagen ID.4 GTX",
+      "alias": [
+        "id4 gtx",
+        "id.4 gtx"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "299-340 CV, 4Motion",
+      "traccion": "total",
+      "propulsion": "bev",
+      "equipamiento": [
+        "frenos-grandes"
+      ],
+      "anios": [
+        2021,
+        2026
+      ]
+    },
+    {
+      "id": "vw-id5",
+      "nombre": "Volkswagen ID.5",
+      "alias": [
+        "id5",
+        "id.5"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "174-340 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2021,
+        2026
+      ]
+    },
+    {
+      "id": "vw-id7",
+      "nombre": "Volkswagen ID.7",
+      "alias": [
+        "id7",
+        "id.7"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "286-340 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [
+        "dcc"
+      ],
+      "anios": [
+        2023,
+        2026
       ]
     }
   ]

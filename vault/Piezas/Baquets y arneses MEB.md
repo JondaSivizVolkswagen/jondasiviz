@@ -1,22 +1,21 @@
 ---
 tipo: pieza
-id: susp-coil-meb-alta
-nombre: Coilovers KW V3 para ID.4 y ID.5
-categoria: suspension
-gama: alta
+id: seg-baquet-meb-media
+nombre: Baquets y arneses MEB
+categoria: seguridad
+gama: media
 precio:
-  min: 2100
-  estimado: 2600
-  max: 3200
+  min: 1000
+  estimado: 1300
+  max: 1700
 objetivos:
   drift: 3
-  drag: 2
+  drag: 0
   mas-cv: 0
-  estetica: 4
-impacto: 4
+  estetica: 2
+impacto: 3
 requiere: []
-plataformas:
-  - MEB
+plataformas: []
 chasis:
   - MEB
 legalidad: requiere-ficha
@@ -24,18 +23,14 @@ traccion: []
 sustituye: []
 exige: []
 chocaCon: []
-grupoExclusivo: altura
+grupoExclusivo: null
 stage: null
-nota: Compatible con y sin DCC de fábrica.
+nota: null
 imagen: null
 ---
 
-[[Categoría suspensión]] · gama alta · requiere reforma de ficha técnica · [[Grupo altura]]
-
-**Motor** [[MEB]]
+[[Categoría seguridad]] · gama media · requiere reforma de ficha técnica
 
 **Chasis** [[Chasis MEB]]
 
 **Monta con avisos en (13)** [[Audi Q4 e-tron]], [[Cupra Born]], [[Cupra Tavascan]], [[Škoda Elroq]], [[Škoda Enyaq]], [[Škoda Enyaq RS]], [[Volkswagen ID.Buzz]], [[Volkswagen ID.3]], [[Volkswagen ID.3 GTX]], [[Volkswagen ID.4]], [[Volkswagen ID.4 GTX]], [[Volkswagen ID.5]], [[Volkswagen ID.7]]
-
-> Compatible con y sin DCC de fábrica.

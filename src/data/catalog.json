@@ -1133,6 +1133,34 @@
       "requiere": []
     },
     {
+      "id": "dir-brazos-meb-media",
+      "nombre": "Brazos y casquillos reforzados MEB",
+      "categoria": "direccion",
+      "plataformas": [],
+      "chasis": [
+        "MEB"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 380,
+        "estimado": 500,
+        "max": 650
+      },
+      "objetivos": {
+        "drift": 4,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": []
+    },
+    {
       "id": "dir-brazos-mlb-alta",
       "nombre": "Brazos ajustables y rótulas MLB (034Motorsport)",
       "categoria": "direccion",
@@ -2191,6 +2219,34 @@
       "grupoExclusivo": "altura"
     },
     {
+      "id": "est-bodykit-meb-media",
+      "nombre": "Kit estético MEB (difusor, faldones, vinilo de techo)",
+      "categoria": "estetica",
+      "plataformas": [],
+      "chasis": [
+        "MEB"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 700,
+        "estimado": 900,
+        "max": 1200
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
       "id": "est-bodykit-media",
       "nombre": "Kit de carrocería Votex / RVA completo",
       "categoria": "estetica",
@@ -2365,6 +2421,35 @@
         "drag": 0,
         "mas-cv": 0,
         "estetica": 4
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
+      "id": "est-bodykit-ppe-alta",
+      "nombre": "Detalles de carbono para PPE y J1",
+      "categoria": "estetica",
+      "plataformas": [],
+      "chasis": [
+        "PPE",
+        "J1"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1300,
+        "estimado": 1700,
+        "max": 2300
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 5
       },
       "impacto": 2,
       "requiere": []
@@ -2813,6 +2898,38 @@
       "impacto": 4,
       "requiere": [],
       "grupoExclusivo": "frenos-delanteros"
+    },
+    {
+      "id": "fren-discos-meb-media",
+      "nombre": "Discos y pastillas de alto rendimiento MEB (DBA / Brembo)",
+      "categoria": "frenos",
+      "plataformas": [],
+      "chasis": [
+        "MEB"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [
+        "frenos-grandes"
+      ],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 550,
+        "estimado": 700,
+        "max": 920
+      },
+      "objetivos": {
+        "drift": 2,
+        "drag": 2,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "frenos-delanteros",
+      "nota": "Con la retención regenerativa el freno trabaja poco, pero cuando trabaja pesa dos toneladas."
     },
     {
       "id": "fren-discos-media",
@@ -4323,6 +4440,38 @@
       "grupoExclusivo": "llantas"
     },
     {
+      "id": "rueda-electrico-alta",
+      "nombre": "Llantas forjadas 20in para eléctricos (OZ / BBS)",
+      "categoria": "ruedas",
+      "plataformas": [],
+      "chasis": [
+        "MEB",
+        "PPE",
+        "J1"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1800,
+        "estimado": 2200,
+        "max": 2900
+      },
+      "objetivos": {
+        "drift": 2,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 5
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "llantas",
+      "nota": "Bajar masa no suspendida es de lo poco que le mejora la autonomía y el tacto."
+    },
+    {
       "id": "rueda-forjada-19-alta",
       "nombre": "Llantas forjadas 19in para MQB y MQB Evo (BBS CI-R / OZ)",
       "categoria": "ruedas",
@@ -4513,6 +4662,37 @@
       "impacto": 3,
       "requiere": [],
       "grupoExclusivo": "llantas"
+    },
+    {
+      "id": "rueda-neumaticos-electrico-media",
+      "nombre": "Neumáticos deportivos de baja resistencia (Michelin / Continental)",
+      "categoria": "ruedas",
+      "plataformas": [],
+      "chasis": [
+        "MEB",
+        "PPE",
+        "J1"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 700,
+        "estimado": 900,
+        "max": 1200
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 3,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "nota": "El compuesto es el mayor cambio de agarre disponible en un eléctrico de serie."
     },
     {
       "id": "rueda-nsf-baja",
@@ -4712,6 +4892,34 @@
       "grupoExclusivo": "llantas"
     },
     {
+      "id": "seg-baquet-meb-media",
+      "nombre": "Baquets y arneses MEB",
+      "categoria": "seguridad",
+      "plataformas": [],
+      "chasis": [
+        "MEB"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 1000,
+        "estimado": 1300,
+        "max": 1700
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 2
+      },
+      "impacto": 3,
+      "requiere": []
+    },
+    {
       "id": "seg-baquet-media",
       "nombre": "Baquet + arnés de 4/6 puntos + soporte",
       "categoria": "seguridad",
@@ -4821,6 +5029,37 @@
       },
       "impacto": 2,
       "requiere": []
+    },
+    {
+      "id": "seg-corte-bev-media",
+      "nombre": "Corte de batería y extintor para eléctricos",
+      "categoria": "seguridad",
+      "plataformas": [],
+      "chasis": [
+        "MEB",
+        "PPE",
+        "J1"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 320,
+        "estimado": 400,
+        "max": 550
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "nota": "El corte de un eléctrico no es el de un gasolina: actúa sobre el contactor de alta tensión."
     },
     {
       "id": "seg-jaula-alta",
@@ -5043,6 +5282,35 @@
       "impacto": 3,
       "requiere": [],
       "nota": "Reduce el subviraje del tren delantero, muy efectivo por poco dinero."
+    },
+    {
+      "id": "susp-barra-meb-media",
+      "nombre": "Barra estabilizadora trasera MEB (Whiteline / H&R)",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "MEB"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 300,
+        "estimado": 380,
+        "max": 500
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "nota": "En un MEB de propulsión trasera es lo que más cambia el carácter en curva."
     },
     {
       "id": "susp-barras-mlb-media",
@@ -5535,6 +5803,39 @@
       "grupoExclusivo": "altura"
     },
     {
+      "id": "susp-coil-ppe-alta",
+      "nombre": "Coilovers y muelles para PPE y J1",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "PPE",
+        "J1"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [
+        "suspension-neumatica"
+      ],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 2200,
+        "estimado": 2800,
+        "max": 3600
+      },
+      "objetivos": {
+        "drift": 2,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 3
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "altura",
+      "nota": "Mercado muy joven: hoy hay poco más que kits de rebaje y algún roscado de KW."
+    },
+    {
       "id": "susp-coil-pq24-baja",
       "nombre": "Coilovers de entrada PQ24 (FK / TA Technix)",
       "categoria": "suspension",
@@ -5809,6 +6110,35 @@
       "requiere": [],
       "grupoExclusivo": "altura",
       "nota": "En un eléctrico hay un efecto secundario real: menos aire por debajo, menos resistencia, algo más de autonomía."
+    },
+    {
+      "id": "susp-muelles-meb-media",
+      "nombre": "Muelles de rebaje -30 mm MEB (Eibach / H&R / RacingLine)",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "MEB"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 250,
+        "estimado": 320,
+        "max": 430
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 3
+      },
+      "impacto": 2,
+      "requiere": [],
+      "grupoExclusivo": "altura"
     },
     {
       "id": "susp-muelles-mqba0-baja",

@@ -41,4 +41,6 @@ imagen: null
 
 **Marcas** [[Racingline]], [[Eibach]], [[H&R]]
 
+**Monta con avisos en (12)** [[Audi Q4 e-tron]], [[Cupra Born]], [[Cupra Tavascan]], [[Škoda Elroq]], [[Škoda Enyaq]], [[Škoda Enyaq RS]], [[Volkswagen ID.Buzz]], [[Volkswagen ID.3]], [[Volkswagen ID.3 GTX]], [[Volkswagen ID.4]], [[Volkswagen ID.4 GTX]], [[Volkswagen ID.5]]
+
 > En un eléctrico hay un efecto secundario real: menos aire por debajo, menos resistencia, algo más de autonomía.
