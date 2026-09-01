@@ -40,4 +40,4 @@ imagen: null
 
 **Requiere** [[Intercooler frontal (Forge - Wagner Competition)]], [[Kit de admisión cerrada (Forge - Neuspeed P-Flo)]], [[Downpipe 3in descatalizado o con cat deportivo (AWE - Milltek)]], [[Kit de bomba de alta presión reforzada (Autotech - APR)]], [[Calibración Stage 2+ - archivo K04]]
 
-**Monta con avisos en (1)** [[Golf GTI Mk5]]
+**Monta con avisos en (2)** [[Golf GTI Mk5]], [[Scirocco R]]

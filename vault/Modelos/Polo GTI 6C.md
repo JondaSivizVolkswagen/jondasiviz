@@ -7,8 +7,8 @@ alias:
   - 6c gti
   - polo 1.8
 chasis: PQ25
-motor: EA888
-motorDetalle: 1.8 TSI 192 CV (EA888)
+motor: EA888-gen3
+motorDetalle: 1.8 TSI 192 CV (EA888 gen3)
 traccion: delantera
 propulsion: combustion
 equipamiento:
@@ -18,7 +18,7 @@ anios:
   - 2017
 ---
 
-[[Chasis PQ25]] · [[EA888]] · 1.8 TSI 192 CV (EA888)
+[[Chasis PQ25]] · [[EA888-gen3]] · 1.8 TSI 192 CV (EA888 gen3)
 
 Tracción delantera · combustión · 2015-2017
 

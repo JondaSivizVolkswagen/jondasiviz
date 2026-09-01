@@ -18,7 +18,8 @@ requiere: []
 plataformas:
   - 1.8T-20v
   - EA113
-  - EA888
+  - EA888-gen2
+  - EA888-gen3
 chasis:
   - MQB
   - PQ25
@@ -37,7 +38,7 @@ imagen: null
 
 [[Categoría suspensión]] · gama alta · requiere reforma de ficha técnica
 
-**Motor** [[1.8T-20v]], [[EA113]], [[EA888]]
+**Motor** [[1.8T-20v]], [[EA113]], [[EA888-gen2]], [[EA888-gen3]]
 
 **Chasis** [[Chasis MQB]], [[Chasis PQ25]], [[Chasis PQ34]], [[Chasis PQ35]]
 

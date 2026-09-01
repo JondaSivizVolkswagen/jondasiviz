@@ -80,6 +80,14 @@ const ETIQUETA_EQUIPO: Record<Equipamiento, string> = {
   dsg: "cambio DSG",
   gpf: "filtro de partículas de gasolina",
   dpf: "filtro de partículas diésel",
+  "magnetic-ride": "amortiguación Magnetic Ride",
+  haldex: "tracción total Haldex",
+  torsen: "quattro permanente con Torsen",
+  act: "desactivación de cilindros",
+  "scr-adblue": "postratamiento con AdBlue",
+  "hibridacion-48v": "red de 48 voltios",
+  "suspension-neumatica": "suspensión neumática",
+  "frenos-ceramicos": "frenos carbono-cerámicos",
 };
 
 /**
@@ -179,11 +187,13 @@ export function evaluar(
 
   // 5. Legalidad.
   if (pieza.legalidad === "solo-circuito") {
-    const filtro = modelo.equipamiento.includes("dpf")
-      ? " El coche lleva DPF de serie."
-      : modelo.equipamiento.includes("gpf")
-        ? " El coche lleva GPF de serie."
-        : "";
+    const filtro = modelo.equipamiento.includes("scr-adblue")
+      ? " El coche lleva DPF con AdBlue: quitarlo deja el postratamiento inservible."
+      : modelo.equipamiento.includes("dpf")
+        ? " El coche lleva DPF de serie."
+        : modelo.equipamiento.includes("gpf")
+          ? " El coche lleva GPF de serie."
+          : "";
     aviso("legalidad", `Deja el coche fuera de homologación en la UE.${filtro} Uso en circuito.`);
   } else if (pieza.legalidad === "requiere-ficha") {
     aviso("legalidad", "Necesita reforma de ficha técnica para pasar la ITV.");

@@ -3,9 +3,12 @@
 export type Plataforma =
   | "1.8T-20v"
   | "EA113"
-  | "EA888"
   | "VR6"
   | "TDI"
+  // El 2.0 TSI se parte en dos: el gen2 lleva cadena y se come el aceite, el gen3
+  // lleva correa y colector integrado. Un turbo de uno no monta en el otro.
+  | "EA888-gen2"
+  | "EA888-gen3"
   // Añadidas con los coches de vw_europa_modelos_1 y vw_europa_golf_variantes.
   | "EA888-evo4"
   | "EA211"
@@ -15,15 +18,50 @@ export type Plataforma =
   | "EA288-evo"
   // El 1.6 TDI va aparte del 2.0: otro turbo, otros inyectores y otro techo de potencia.
   | "EA288-16"
-  | "MEB";
+  // Gasolina del grupo que no es de cuatro cilindros transversales.
+  | "EA111" // 1.2/1.4 TSI, incluido el 1.4 twincharger
+  | "EA855" // 2.5 TFSI cinco cilindros: RS3, TT RS, RS Q3, Formentor VZ5
+  | "EA837" // 3.0 TFSI con compresor volumétrico: S4/S5 B8
+  | "EA839" // 3.0 TFSI turbo y 2.9 biturbo: S4/S5 B9, RS4/RS5, SQ5
+  | "EA825" // 4.0 TFSI V8 biturbo: RS6, RS7, SQ7, RS Q8, Touareg R
+  | "V8-FSI" // 4.2 FSI atmosférico: RS4 B8, RS5 8T, Q7 4L
+  // Diésel common rail anterior al EA288.
+  | "EA189"
+  | "EA189-16"
+  // Diésel de seis y ocho cilindros.
+  | "EA897" // 3.0 TDI V6
+  | "EA824" // 4.0 TDI V8
+  // Tracciones eléctricas. Cada una es una arquitectura distinta, no una variante.
+  | "MEB"
+  | "PPE"
+  | "J1";
 
 /**
  * Plataforma de chasis. Es ortogonal al motor: un Golf 8 GTI y un Tiguan Mk3
  * comparten motor y no comparten ni un brazo de suspensión.
  */
-export type Chasis = "A2" | "PQ25" | "PQ34" | "PQ35" | "MQB" | "MQB Evo" | "MEB";
+export type Chasis =
+  | "A2"
+  | "PQ24"
+  | "PQ25"
+  | "PQ34"
+  | "PQ35"
+  | "PQ46"
+  | "NSF"
+  | "MQB"
+  | "MQB-A0"
+  | "MQB Evo"
+  // Longitudinales de Audi. Nada de lo transversal les vale.
+  | "MLB"
+  | "MLB Evo"
+  | "PL71"
+  // Eléctricas.
+  | "MEB"
+  | "PPE"
+  | "J1";
 
-export type Propulsion = "combustion" | "phev" | "bev";
+/** `mhev` es la hibridación ligera de 48 V, que condiciona gestión y alternador. */
+export type Propulsion = "combustion" | "mhev" | "phev" | "bev";
 
 /** Situación de la pieza frente a la homologación europea. */
 export type Legalidad = "homologable" | "requiere-ficha" | "solo-circuito";
@@ -41,7 +79,15 @@ export type Equipamiento =
   | "frenos-grandes" // pinzas y discos de 357 mm o más
   | "dsg" // cambio de doble embrague
   | "gpf" // filtro de partículas de gasolina
-  | "dpf"; // filtro de partículas diésel
+  | "dpf" // filtro de partículas diésel
+  | "magnetic-ride" // amortiguación magnetorreológica de Audi, el equivalente al DCC
+  | "haldex" // tracción total Haldex transversal
+  | "torsen" // quattro longitudinal permanente
+  | "act" // desactivación de cilindros
+  | "scr-adblue" // postratamiento diésel con AdBlue
+  | "hibridacion-48v" // red de 48 V
+  | "suspension-neumatica" // neumática de serie
+  | "frenos-ceramicos"; // discos carbono-cerámicos de fábrica
 
 export type Gama = "baja" | "media" | "alta";
 
@@ -113,7 +159,8 @@ export interface Catalogo {
   piezas: Pieza[];
 }
 
-export type Traccion = "delantera" | "total";
+/** `trasera` existe por los eléctricos: el ID.3, el Born y el Enyaq de acceso lo son. */
+export type Traccion = "delantera" | "trasera" | "total";
 
 export interface ModeloVW {
   id: string;

@@ -9,7 +9,7 @@
         "arteon shooting brake r"
       ],
       "chasis": "MQB",
-      "motor": "EA888",
+      "motor": "EA888-gen3",
       "motorDetalle": "2.0 TSI 320 CV (EA888 gen3), 4Motion",
       "traccion": "total",
       "propulsion": "combustion",
@@ -53,8 +53,8 @@
         "5k gtd"
       ],
       "chasis": "PQ35",
-      "motor": "TDI",
-      "motorDetalle": "2.0 TDI 170 CV (CBBB)",
+      "motor": "EA189",
+      "motorDetalle": "2.0 TDI common rail 170 CV (CBBB, EA189)",
       "traccion": "delantera",
       "propulsion": "combustion",
       "equipamiento": [
@@ -244,7 +244,7 @@
         "gti mk7"
       ],
       "chasis": "MQB",
-      "motor": "EA888",
+      "motor": "EA888-gen3",
       "motorDetalle": "2.0 TSI 220-230 CV (EA888 gen3)",
       "traccion": "delantera",
       "propulsion": "combustion",
@@ -407,7 +407,7 @@
         "golf 7 r"
       ],
       "chasis": "MQB",
-      "motor": "EA888",
+      "motor": "EA888-gen3",
       "motorDetalle": "2.0 TSI 300-310 CV (EA888 gen3)",
       "traccion": "total",
       "propulsion": "combustion",
@@ -531,8 +531,8 @@
         "polo 1.8"
       ],
       "chasis": "PQ25",
-      "motor": "EA888",
-      "motorDetalle": "1.8 TSI 192 CV (EA888)",
+      "motor": "EA888-gen3",
+      "motorDetalle": "1.8 TSI 192 CV (EA888 gen3)",
       "traccion": "delantera",
       "propulsion": "combustion",
       "equipamiento": [
@@ -552,8 +552,8 @@
         "scirocco 2.0"
       ],
       "chasis": "PQ35",
-      "motor": "EA888",
-      "motorDetalle": "2.0 TSI 265 CV (EA888 gen2)",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TSI 265 CV (CDLA, bloque EA113 con K04)",
       "traccion": "delantera",
       "propulsion": "combustion",
       "equipamiento": [
@@ -573,7 +573,7 @@
         "t-roc r"
       ],
       "chasis": "MQB",
-      "motor": "EA888",
+      "motor": "EA888-gen3",
       "motorDetalle": "2.0 TSI 300 CV (EA888 gen3), 4Motion",
       "traccion": "total",
       "propulsion": "combustion",
@@ -594,7 +594,7 @@
         "tiguan mk2 r"
       ],
       "chasis": "MQB",
-      "motor": "EA888",
+      "motor": "EA888-gen3",
       "motorDetalle": "2.0 TSI 320 CV (EA888 gen3), 4Motion",
       "traccion": "total",
       "propulsion": "combustion",

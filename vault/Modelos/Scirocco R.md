@@ -7,8 +7,8 @@ alias:
   - roc r
   - scirocco 2.0
 chasis: PQ35
-motor: EA888
-motorDetalle: 2.0 TSI 265 CV (EA888 gen2)
+motor: EA113
+motorDetalle: '2.0 TSI 265 CV (CDLA, bloque EA113 con K04)'
 traccion: delantera
 propulsion: combustion
 equipamiento:
@@ -18,15 +18,17 @@ anios:
   - 2017
 ---
 
-[[Chasis PQ35]] · [[EA888]] · 2.0 TSI 265 CV (EA888 gen2)
+[[Chasis PQ35]] · [[EA113]] · 2.0 TSI 265 CV (CDLA, bloque EA113 con K04)
 
 Tracción delantera · combustión · 2009-2017
 
 **De serie** dsg
 
-**Piezas que montan (52)**
+**Piezas que montan (59)**
 
-[[Categoría admisión]]: [[Sistema de recogida de aceite (catch can) Forge]], [[Válvula de descarga reforzada (Forge DV+)]], [[Filtro de aire de altas prestaciones (BMC - Pipercross)]], [[Intercooler barra y placa Stage 3 (Airtec - do88) + hard pipes]], [[Intercooler frontal (Forge - Wagner Competition)]], [[Kit de admisión cerrada (Forge - Neuspeed P-Flo)]]
+[[Categoría admisión]]: [[Sistema de recogida de aceite (catch can) Forge]], [[Válvula de descarga reforzada (Forge DV+)]], [[Filtro de aire de altas prestaciones (BMC - Pipercross)]], [[Intercooler barra y placa Stage 3 (Airtec - do88) + hard pipes]], [[Intercooler frontal (Forge - Wagner Competition)]], [[Tubo turbo inlet de alto flujo (Forge)]], [[Kit de admisión cerrada (Forge - Neuspeed P-Flo)]]
+
+[[Categoría turbo]]: [[Inyectores de mayor caudal + bomba de gasolina en depósito]], [[Kit de alimentación Stage 3 (rieles, inyectores 1000cc, bomba externa)]], [[Kit big turbo top-mount (Garrett GTX - Precision)]], [[Kit de bomba de alta presión reforzada (Autotech - APR)]], [[Turbo híbrido K04-064 (clásico del Mk5 GTI)]]
 
 [[Categoría dirección]]: [[Kit de ángulo de dirección + espaciadores]], [[Eje trasero rígido soldado + refuerzos (conversión drift FWD)]], [[Freno de mano hidráulico + pinza trasera dedicada]]
 
@@ -36,7 +38,7 @@ Tracción delantera · combustión · 2009-2017
 
 [[Categoría frenos]]: [[Kit big brake 4-6 pistones 330-355 mm (Stoptech - HISPEC)]], [[Discos de dos piezas + pastillas racing eje delantero (DBA - Brembo)]], [[Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1]], [[Discos y pastillas traseras de altas prestaciones]]
 
-[[Categoría gestión]]: [[Reprogramación Stage 1 genérica]], [[Reprogramación Stage 1 de marca (APR - Revo - Unitronic)]], [[Reprogramación Stage 2]], [[Gestión standalone (Syvecs - Emerald)]]
+[[Categoría gestión]]: [[Reprogramación Stage 1 genérica]], [[Reprogramación Stage 1 de marca (APR - Revo - Unitronic)]], [[Reprogramación Stage 2]], [[Calibración Stage 2+ - archivo K04]], [[Gestión standalone (Syvecs - Emerald)]]
 
 [[Categoría ruedas]]: [[Llantas réplica 18in + neumáticos de calle (tipo BBS LM)]], [[Set de llantas y neumáticos sacrificables para drift]], [[Llantas forjadas 18in (BBS CH-R - OZ Ultraleggera)]], [[Juego de neumáticos semi-slick (Federal 595RS-RR - Nankang AR-1)]], [[Llantas ligeras 17in para circuito (Team Dynamics Pro Race)]]
 

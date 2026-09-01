@@ -9,7 +9,7 @@ alias:
   - 5g gti
   - gti mk7
 chasis: MQB
-motor: EA888
+motor: EA888-gen3
 motorDetalle: 2.0 TSI 220-230 CV (EA888 gen3)
 traccion: delantera
 propulsion: combustion
@@ -20,7 +20,7 @@ anios:
   - 2020
 ---
 
-[[Chasis MQB]] · [[EA888]] · 2.0 TSI 220-230 CV (EA888 gen3)
+[[Chasis MQB]] · [[EA888-gen3]] · 2.0 TSI 220-230 CV (EA888 gen3)
 
 Tracción delantera · combustión · 2013-2020
 

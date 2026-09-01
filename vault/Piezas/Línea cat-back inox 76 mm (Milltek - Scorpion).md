@@ -18,7 +18,8 @@ requiere: []
 plataformas:
   - 1.8T-20v
   - EA113
-  - EA888
+  - EA888-gen2
+  - EA888-gen3
   - VR6
 chasis: []
 legalidad: requiere-ficha
@@ -34,7 +35,7 @@ imagen: null
 
 [[Categoría escape]] · gama media · requiere reforma de ficha técnica
 
-**Motor** [[1.8T-20v]], [[EA113]], [[EA888]], [[VR6]]
+**Motor** [[1.8T-20v]], [[EA113]], [[EA888-gen2]], [[EA888-gen3]], [[VR6]]
 
 **Marcas** [[Milltek]], [[Scorpion]]
 

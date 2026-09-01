@@ -18,7 +18,8 @@ requiere: []
 plataformas:
   - 1.8T-20v
   - EA113
-  - EA888
+  - EA888-gen2
+  - EA888-gen3
 chasis: []
 legalidad: homologable
 traccion: []
@@ -33,7 +34,7 @@ imagen: null
 
 [[Categoría transmisión]] · gama alta · homologable
 
-**Motor** [[1.8T-20v]], [[EA113]], [[EA888]]
+**Motor** [[1.8T-20v]], [[EA113]], [[EA888-gen2]], [[EA888-gen3]]
 
 **Monta en (9)** [[Arteon R]], [[Golf GTI Mk5]], [[Golf GTI Mk7]], [[Golf Mk4 1.8T]], [[Golf R Mk7]], [[Polo GTI 6C]], [[Scirocco R]], [[T-Roc R]], [[Tiguan R]]
 

@@ -72,6 +72,7 @@ const NOMBRE_CATEGORIA: Record<Categoria, string> = {
 
 const NOMBRE_PROPULSION: Record<Propulsion, string> = {
   combustion: "combustión",
+  mhev: "combustión con hibridación ligera de 48 V",
   phev: "híbrido enchufable",
   bev: "eléctrico",
 };

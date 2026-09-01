@@ -7,7 +7,7 @@ alias:
   - t roc r
   - t-roc r
 chasis: MQB
-motor: EA888
+motor: EA888-gen3
 motorDetalle: '2.0 TSI 300 CV (EA888 gen3), 4Motion'
 traccion: total
 propulsion: combustion
@@ -19,7 +19,7 @@ anios:
   - 2025
 ---
 
-[[Chasis MQB]] · [[EA888]] · 2.0 TSI 300 CV (EA888 gen3), 4Motion
+[[Chasis MQB]] · [[EA888-gen3]] · 2.0 TSI 300 CV (EA888 gen3), 4Motion
 
 Tracción total · combustión · 2019-2025
 

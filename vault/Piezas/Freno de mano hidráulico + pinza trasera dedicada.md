@@ -18,7 +18,8 @@ requiere: []
 plataformas:
   - 1.8T-20v
   - EA113
-  - EA888
+  - EA888-gen2
+  - EA888-gen3
   - VR6
   - TDI
 chasis:
@@ -41,7 +42,7 @@ imagen: null
 
 [[Categoría dirección]] · gama media · requiere reforma de ficha técnica
 
-**Motor** [[1.8T-20v]], [[EA113]], [[EA888]], [[VR6]], [[TDI]]
+**Motor** [[1.8T-20v]], [[EA113]], [[EA888-gen2]], [[EA888-gen3]], [[VR6]], [[TDI]]
 
 **Chasis** [[Chasis A2]], [[Chasis MQB]], [[Chasis PQ25]], [[Chasis PQ34]], [[Chasis PQ35]]
 

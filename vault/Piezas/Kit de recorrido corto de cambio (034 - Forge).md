@@ -18,7 +18,8 @@ requiere: []
 plataformas:
   - 1.8T-20v
   - EA113
-  - EA888
+  - EA888-gen2
+  - EA888-gen3
   - VR6
 chasis: []
 legalidad: homologable
@@ -34,7 +35,7 @@ imagen: null
 
 [[Categoría transmisión]] · gama baja · homologable
 
-**Motor** [[1.8T-20v]], [[EA113]], [[EA888]], [[VR6]]
+**Motor** [[1.8T-20v]], [[EA113]], [[EA888-gen2]], [[EA888-gen3]], [[VR6]]
 
 **Marcas** [[Forge]], [[034]]
 

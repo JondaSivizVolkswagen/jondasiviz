@@ -9,7 +9,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888"
+        "EA888-gen2",
+        "EA888-gen3"
       ],
       "chasis": [],
       "legalidad": "homologable",
@@ -40,7 +41,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888"
+        "EA888-gen2",
+        "EA888-gen3"
       ],
       "chasis": [],
       "legalidad": "homologable",
@@ -70,7 +72,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI",
         "EA888-evo4",
@@ -78,7 +81,17 @@
         "EA211-evo",
         "EA288",
         "EA288-evo",
-        "EA288-16"
+        "EA288-16",
+        "EA111",
+        "EA189",
+        "EA189-16",
+        "EA855",
+        "EA837",
+        "EA839",
+        "EA825",
+        "V8-FSI",
+        "EA897",
+        "EA824"
       ],
       "chasis": [],
       "legalidad": "homologable",
@@ -108,7 +121,8 @@
       "categoria": "admision",
       "plataformas": [
         "EA113",
-        "EA888"
+        "EA888-gen2",
+        "EA888-gen3"
       ],
       "chasis": [],
       "legalidad": "homologable",
@@ -263,7 +277,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888"
+        "EA888-gen2",
+        "EA888-gen3"
       ],
       "chasis": [],
       "legalidad": "homologable",
@@ -412,7 +427,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888"
+        "EA888-gen2",
+        "EA888-gen3"
       ],
       "chasis": [],
       "legalidad": "homologable",
@@ -559,7 +575,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -597,7 +614,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -638,7 +656,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -709,7 +728,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6"
       ],
       "chasis": [],
@@ -740,7 +760,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888"
+        "EA888-gen2",
+        "EA888-gen3"
       ],
       "chasis": [],
       "legalidad": "solo-circuito",
@@ -896,7 +917,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888"
+        "EA888-gen2",
+        "EA888-gen3"
       ],
       "chasis": [],
       "legalidad": "requiere-ficha",
@@ -926,7 +948,8 @@
       "categoria": "escape",
       "plataformas": [
         "EA113",
-        "EA888"
+        "EA888-gen2",
+        "EA888-gen3"
       ],
       "chasis": [],
       "legalidad": "requiere-ficha",
@@ -988,7 +1011,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -1029,7 +1053,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -1067,7 +1092,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -1107,7 +1133,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -1145,7 +1172,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -1183,7 +1211,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888"
+        "EA888-gen2",
+        "EA888-gen3"
       ],
       "chasis": [
         "MQB",
@@ -1218,7 +1247,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6"
       ],
       "chasis": [
@@ -1293,7 +1323,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -1334,7 +1365,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -1374,7 +1406,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -1412,8 +1445,12 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
-        "TDI"
+        "EA888-gen2",
+        "EA888-gen3",
+        "TDI",
+        "EA111",
+        "EA189",
+        "EA189-16"
       ],
       "chasis": [],
       "legalidad": "requiere-ficha",
@@ -1571,8 +1608,18 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
-        "TDI"
+        "EA888-gen2",
+        "EA888-gen3",
+        "TDI",
+        "EA111",
+        "EA189",
+        "EA189-16",
+        "EA855",
+        "EA837",
+        "EA839",
+        "EA825",
+        "EA897",
+        "EA824"
       ],
       "chasis": [],
       "legalidad": "requiere-ficha",
@@ -1777,8 +1824,18 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
-        "TDI"
+        "EA888-gen2",
+        "EA888-gen3",
+        "TDI",
+        "EA111",
+        "EA189",
+        "EA189-16",
+        "EA855",
+        "EA837",
+        "EA839",
+        "EA825",
+        "EA897",
+        "EA824"
       ],
       "chasis": [],
       "legalidad": "requiere-ficha",
@@ -1844,7 +1901,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6"
       ],
       "chasis": [],
@@ -1876,7 +1934,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -1915,7 +1974,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -1954,7 +2014,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6"
       ],
       "chasis": [
@@ -2028,7 +2089,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -2068,7 +2130,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -2107,7 +2170,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -2147,7 +2211,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -2187,7 +2252,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -2228,7 +2294,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -2270,7 +2337,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -2308,7 +2376,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -2347,7 +2416,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -2385,7 +2455,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6"
       ],
       "chasis": [
@@ -2425,7 +2496,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -2498,7 +2570,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -2649,7 +2722,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "TDI"
       ],
       "chasis": [
@@ -2685,7 +2759,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888"
+        "EA888-gen2",
+        "EA888-gen3"
       ],
       "chasis": [
         "MQB",
@@ -2720,7 +2795,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
         "TDI"
       ],
@@ -2831,7 +2907,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "TDI"
       ],
       "chasis": [
@@ -2898,7 +2975,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888"
+        "EA888-gen2",
+        "EA888-gen3"
       ],
       "chasis": [],
       "legalidad": "homologable",
@@ -2929,7 +3007,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888"
+        "EA888-gen2",
+        "EA888-gen3"
       ],
       "chasis": [],
       "legalidad": "homologable",
@@ -2960,7 +3039,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888"
+        "EA888-gen2",
+        "EA888-gen3"
       ],
       "chasis": [],
       "legalidad": "homologable",
@@ -3026,9 +3106,14 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6",
-        "TDI"
+        "TDI",
+        "EA111",
+        "EA189",
+        "EA189-16",
+        "EA855"
       ],
       "chasis": [],
       "legalidad": "homologable",
@@ -3061,7 +3146,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888"
+        "EA888-gen2",
+        "EA888-gen3"
       ],
       "chasis": [],
       "legalidad": "homologable",
@@ -3092,7 +3178,8 @@
       "plataformas": [
         "1.8T-20v",
         "EA113",
-        "EA888",
+        "EA888-gen2",
+        "EA888-gen3",
         "VR6"
       ],
       "chasis": [],

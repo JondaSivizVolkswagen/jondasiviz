@@ -8,7 +8,7 @@ alias:
   - 5g r
   - golf 7 r
 chasis: MQB
-motor: EA888
+motor: EA888-gen3
 motorDetalle: 2.0 TSI 300-310 CV (EA888 gen3)
 traccion: total
 propulsion: combustion
@@ -20,7 +20,7 @@ anios:
   - 2020
 ---
 
-[[Chasis MQB]] · [[EA888]] · 2.0 TSI 300-310 CV (EA888 gen3)
+[[Chasis MQB]] · [[EA888-gen3]] · 2.0 TSI 300-310 CV (EA888 gen3)
 
 Tracción total · combustión · 2014-2020
 

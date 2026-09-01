@@ -19,8 +19,18 @@ requiere:
 plataformas:
   - 1.8T-20v
   - EA113
-  - EA888
+  - EA888-gen2
+  - EA888-gen3
   - TDI
+  - EA111
+  - EA189
+  - EA189-16
+  - EA855
+  - EA837
+  - EA839
+  - EA825
+  - EA897
+  - EA824
 chasis: []
 legalidad: requiere-ficha
 traccion: []
@@ -35,7 +45,7 @@ imagen: null
 
 [[Categoría gestión]] · gama media · requiere reforma de ficha técnica · stage2 · [[Grupo remap]]
 
-**Motor** [[1.8T-20v]], [[EA113]], [[EA888]], [[TDI]]
+**Motor** [[1.8T-20v]], [[EA113]], [[EA888-gen2]], [[EA888-gen3]], [[TDI]], [[EA111]], [[EA189]], [[EA189-16]], [[EA855]], [[EA837]], [[EA839]], [[EA825]], [[EA897]], [[EA824]]
 
 **Requiere** [[Downpipe 3in descatalizado o con cat deportivo (AWE - Milltek)]]
 

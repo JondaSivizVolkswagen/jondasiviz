@@ -17,7 +17,8 @@ impacto: 4
 requiere: []
 plataformas:
   - EA113
-  - EA888
+  - EA888-gen2
+  - EA888-gen3
 chasis: []
 legalidad: homologable
 traccion: []
@@ -32,7 +33,7 @@ imagen: null
 
 [[Categoría admisión]] · gama alta · homologable · [[Grupo intercooler]]
 
-**Motor** [[EA113]], [[EA888]]
+**Motor** [[EA113]], [[EA888-gen2]], [[EA888-gen3]]
 
 **Marcas** [[Airtec]], [[Do88]]
 

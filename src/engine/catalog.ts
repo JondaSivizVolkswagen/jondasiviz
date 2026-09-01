@@ -14,9 +14,26 @@ import type {
 } from "./types";
 import catalogoJson from "../data/catalog.json";
 
-const CHASIS: readonly Chasis[] = ["A2", "PQ25", "PQ34", "PQ35", "MQB", "MQB Evo", "MEB"];
+const CHASIS: readonly Chasis[] = [
+  "A2",
+  "PQ24",
+  "PQ25",
+  "PQ34",
+  "PQ35",
+  "PQ46",
+  "NSF",
+  "MQB",
+  "MQB-A0",
+  "MQB Evo",
+  "MLB",
+  "MLB Evo",
+  "PL71",
+  "MEB",
+  "PPE",
+  "J1",
+];
 const LEGALIDADES: readonly Legalidad[] = ["homologable", "requiere-ficha", "solo-circuito"];
-const TRACCIONES: readonly Traccion[] = ["delantera", "total"];
+const TRACCIONES: readonly Traccion[] = ["delantera", "trasera", "total"];
 const EQUIPAMIENTOS: readonly Equipamiento[] = [
   "dcc",
   "vaq",
@@ -25,14 +42,23 @@ const EQUIPAMIENTOS: readonly Equipamiento[] = [
   "dsg",
   "gpf",
   "dpf",
+  "magnetic-ride",
+  "haldex",
+  "torsen",
+  "act",
+  "scr-adblue",
+  "hibridacion-48v",
+  "suspension-neumatica",
+  "frenos-ceramicos",
 ];
 
 const PLATAFORMAS: readonly Plataforma[] = [
   "1.8T-20v",
   "EA113",
-  "EA888",
   "VR6",
   "TDI",
+  "EA888-gen2",
+  "EA888-gen3",
   "EA888-evo4",
   "EA211",
   "EA211-evo",
@@ -40,7 +66,19 @@ const PLATAFORMAS: readonly Plataforma[] = [
   "EA288",
   "EA288-evo",
   "EA288-16",
+  "EA111",
+  "EA855",
+  "EA837",
+  "EA839",
+  "EA825",
+  "V8-FSI",
+  "EA189",
+  "EA189-16",
+  "EA897",
+  "EA824",
   "MEB",
+  "PPE",
+  "J1",
 ];
 const GAMAS: readonly Gama[] = ["baja", "media", "alta"];
 const OBJETIVOS: readonly Objetivo[] = ["drift", "drag", "mas-cv", "estetica"];

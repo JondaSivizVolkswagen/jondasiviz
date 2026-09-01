@@ -18,7 +18,8 @@ requiere: []
 plataformas:
   - 1.8T-20v
   - EA113
-  - EA888
+  - EA888-gen2
+  - EA888-gen3
   - TDI
 chasis:
   - MQB
@@ -38,7 +39,7 @@ imagen: null
 
 [[Categoría suspensión]] · gama baja · homologable
 
-**Motor** [[1.8T-20v]], [[EA113]], [[EA888]], [[TDI]]
+**Motor** [[1.8T-20v]], [[EA113]], [[EA888-gen2]], [[EA888-gen3]], [[TDI]]
 
 **Chasis** [[Chasis MQB]], [[Chasis PQ25]], [[Chasis PQ34]], [[Chasis PQ35]]
 

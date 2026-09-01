@@ -8,8 +8,8 @@ alias:
   - mk6 gtd
   - 5k gtd
 chasis: PQ35
-motor: TDI
-motorDetalle: 2.0 TDI 170 CV (CBBB)
+motor: EA189
+motorDetalle: '2.0 TDI common rail 170 CV (CBBB, EA189)'
 traccion: delantera
 propulsion: combustion
 equipamiento:
@@ -20,7 +20,7 @@ anios:
   - 2013
 ---
 
-[[Chasis PQ35]] · [[TDI]] · 2.0 TDI 170 CV (CBBB)
+[[Chasis PQ35]] · [[EA189]] · 2.0 TDI common rail 170 CV (CBBB, EA189)
 
 Tracción delantera · combustión · 2009-2013
 

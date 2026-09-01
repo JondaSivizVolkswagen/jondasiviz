@@ -18,7 +18,8 @@ requiere: []
 plataformas:
   - 1.8T-20v
   - EA113
-  - EA888
+  - EA888-gen2
+  - EA888-gen3
 chasis: []
 legalidad: requiere-ficha
 traccion: []
@@ -33,7 +34,7 @@ imagen: null
 
 [[Categoría escape]] · gama media · requiere reforma de ficha técnica · [[Grupo downpipe]]
 
-**Motor** [[1.8T-20v]], [[EA113]], [[EA888]]
+**Motor** [[1.8T-20v]], [[EA113]], [[EA888-gen2]], [[EA888-gen3]]
 
 **Marcas** [[Milltek]]
 

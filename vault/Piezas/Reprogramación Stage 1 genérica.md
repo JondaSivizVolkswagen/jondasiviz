@@ -18,8 +18,12 @@ requiere: []
 plataformas:
   - 1.8T-20v
   - EA113
-  - EA888
+  - EA888-gen2
+  - EA888-gen3
   - TDI
+  - EA111
+  - EA189
+  - EA189-16
 chasis: []
 legalidad: requiere-ficha
 traccion: []
@@ -34,6 +38,6 @@ imagen: null
 
 [[Categoría gestión]] · gama baja · requiere reforma de ficha técnica · stage1 · [[Grupo remap]]
 
-**Motor** [[1.8T-20v]], [[EA113]], [[EA888]], [[TDI]]
+**Motor** [[1.8T-20v]], [[EA113]], [[EA888-gen2]], [[EA888-gen3]], [[TDI]], [[EA111]], [[EA189]], [[EA189-16]]
 
 **Monta con avisos en (10)** [[Arteon R]], [[Golf GTD Mk6]], [[Golf GTI Mk5]], [[Golf GTI Mk7]], [[Golf Mk4 1.8T]], [[Golf R Mk7]], [[Polo GTI 6C]], [[Scirocco R]], [[T-Roc R]], [[Tiguan R]]
