@@ -86,6 +86,53 @@ CREATE TABLE IF NOT EXISTS siembra (
   modelos INTEGER NOT NULL
 );
 
+-- ─────────────────────────────── cuentas ───────────────────────────────
+--
+-- La contraseña no se guarda: se guarda su huella con scrypt y una sal distinta por
+-- usuario, de forma que dos personas con la misma contraseña tengan huellas distintas y
+-- una filtración de la base no sirva para entrar en ningún sitio.
+CREATE TABLE IF NOT EXISTS usuario (
+  id       TEXT PRIMARY KEY,
+  correo   TEXT NOT NULL UNIQUE,
+  huella   TEXT NOT NULL,
+  sal      TEXT NOT NULL,
+  alta     TEXT NOT NULL
+);
+
+-- El correo se busca siempre en minúsculas, para que Ana@x.com y ana@x.com sean la
+-- misma cuenta y nadie pueda registrar la de otro cambiando una mayúscula.
+CREATE UNIQUE INDEX IF NOT EXISTS idx_usuario_correo ON usuario(lower(correo));
+
+-- De la sesión se guarda la huella del token, no el token. Quien lea la base no puede
+-- suplantar a nadie con lo que hay dentro.
+CREATE TABLE IF NOT EXISTS sesion (
+  huella_token TEXT PRIMARY KEY,
+  usuario_id   TEXT NOT NULL REFERENCES usuario(id) ON DELETE CASCADE,
+  creada       TEXT NOT NULL,
+  caduca       TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_sesion_usuario ON sesion(usuario_id);
+
+-- Una fila por usuario. 'estado' es lo que manda para dar o no acceso: lo escribe el
+-- webhook de la pasarela, nunca el navegador.
+CREATE TABLE IF NOT EXISTS suscripcion (
+  usuario_id     TEXT PRIMARY KEY REFERENCES usuario(id) ON DELETE CASCADE,
+  estado         TEXT NOT NULL CHECK (estado IN ('ninguna','activa','impagada','cancelada')),
+  proveedor      TEXT NOT NULL,
+  referencia     TEXT,
+  renueva        TEXT,
+  actualizada    TEXT NOT NULL
+);
+
+-- Cuántos planes ha pedido cada usuario cada día, para el tope del plan gratuito.
+CREATE TABLE IF NOT EXISTS uso_diario (
+  usuario_id TEXT NOT NULL REFERENCES usuario(id) ON DELETE CASCADE,
+  dia        TEXT NOT NULL,
+  planes     INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (usuario_id, dia)
+);
+
 -- El motor filtra siempre por plataforma, y la API por categoría y por objetivo.
 CREATE INDEX IF NOT EXISTS idx_pieza_categoria    ON pieza(categoria);
 CREATE INDEX IF NOT EXISTS idx_pieza_grupo        ON pieza(grupo_exclusivo);

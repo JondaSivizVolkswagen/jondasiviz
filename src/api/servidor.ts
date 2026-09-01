@@ -30,6 +30,10 @@ import {
 import { sembrar } from "../db/sembrar.ts";
 import type { BaseDatos } from "../db/sqlite.ts";
 import { pideResiembra, verificarFirma } from "./webhook.ts";
+import { manejarCuenta, usuarioDePeticion } from "./rutas-cuenta.ts";
+import { accesoDe, apuntarPlan } from "../suscripcion/estado.ts";
+import { LIMITES, PRECIO, puedePedirPlan } from "../suscripcion/planes.ts";
+import { configurar as configurarPasarela } from "../suscripcion/pasarela.ts";
 
 const OBJETIVOS: Objetivo[] = ["drift", "drag", "mas-cv", "estetica"];
 
@@ -43,8 +47,10 @@ export interface OpcionesApi {
 }
 
 export function crearServidor({ base, secretoWebhook = "" }: OpcionesApi): Server {
+  const pasarela = configurarPasarela();
+
   return createServer((peticion, respuesta) => {
-    manejar(peticion, respuesta, base, secretoWebhook).catch((error: unknown) => {
+    manejar(peticion, respuesta, base, secretoWebhook, pasarela).catch((error: unknown) => {
       // Un fallo no previsto no puede tumbar el proceso ni dejar la petición colgada.
       console.error("Error sin controlar en la API:", error);
       if (!respuesta.headersSent) responder(respuesta, 500, { error: "Error interno." });
@@ -57,6 +63,7 @@ async function manejar(
   respuesta: ServerResponse,
   base: BaseDatos,
   secretoWebhook: string,
+  pasarela: ReturnType<typeof configurarPasarela>,
 ): Promise<void> {
   const url = new URL(peticion.url ?? "/", "http://localhost");
   const ruta = url.pathname.replace(/\/+$/, "") || "/";
@@ -71,6 +78,15 @@ async function manejar(
     respuesta.writeHead(204).end();
     return;
   }
+
+  // Cuentas y suscripción viven en su propio módulo. Si la ruta era suya, ya está.
+  const atendida = await manejarCuenta(peticion, respuesta, ruta, metodo, {
+    base,
+    pasarela,
+    leerCuerpo,
+    responder,
+  });
+  if (atendida) return;
 
   if (ruta === "/api/salud" && metodo === "GET") {
     const sembrada = estaSembrada(base);
@@ -182,13 +198,39 @@ async function manejar(
       return;
     }
 
+    const elecciones = datos.elecciones ?? [];
+
+    // Aquí se decide qué puede pedir cada cual. Se comprueba en el servidor a propósito:
+    // la interfaz puede esconder botones, pero eso se salta abriendo las herramientas
+    // del navegador. Esto no.
+    //
+    // Sin cuenta se trata como plan gratuito, pero sin contador diario: no hay a quién
+    // apuntárselo. El tope por día empieza a contar cuando hay sesión.
+    const usuario = usuarioDePeticion(peticion, base);
+    const acceso = usuario
+      ? accesoDe(base, usuario.id)
+      : { plan: "gratis" as const, limites: LIMITES.gratis, planesHoy: 0 };
+
+    const veredicto = puedePedirPlan(acceso.limites, { objetivos, elecciones }, acceso.planesHoy);
+    if (!veredicto.permitido) {
+      responder(respuesta, 402, {
+        error: veredicto.motivo,
+        plan: acceso.plan,
+        necesitaSuscripcion: true,
+        precio: PRECIO,
+      });
+      return;
+    }
+
     const peticionPlan: PeticionPresupuesto = {
       plataforma: modelo.motor,
       presupuesto,
       objetivos,
       modelo: modelo.nombre,
-      elecciones: datos.elecciones ?? [],
+      elecciones,
     };
+
+    if (usuario) apuntarPlan(base, usuario.id);
 
     // El catálogo se le pasa desde la base: la regla de negocio no se toca, solo cambia
     // de dónde vienen los datos.

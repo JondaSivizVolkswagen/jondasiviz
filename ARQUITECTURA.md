@@ -1,23 +1,29 @@
 # Arquitectura y cómo comprobarla
 
-Este documento existe para poder enseñar, con comandos concretos, que el proyecto tiene
-las cuatro piezas que se le piden: base de datos, API con webhook, aplicación y un
-historial real en GitHub. Cada apartado dice qué mirar y qué tiene que salir.
+Este documento existe para poder enseñar, con comandos concretos, cada pieza del
+proyecto: base de datos, API con webhook, cuentas con suscripción de pago, aplicación y
+un historial real en GitHub. Cada apartado dice qué mirar y qué tiene que salir.
 
 ## El mapa
 
 ```
    navegador                       Node                        fichero
   ───────────                  ───────────                   ───────────
-   index.html
-   herramienta.html  ──HTTP──>  API :3001  ──SQL──>  SQLite  datos/jondasiviz.db
-        │                           ▲
-        │                           │ POST /api/webhook/github (firmado)
-        │                           │
-        │                        GitHub  ──push──>  Actions  ──>  Releases
+   index.html                                                catálogo
+   herramienta.html  ──HTTP──>  API :3001  ──SQL──>  SQLite   cuentas
+        │                        ▲     ▲             datos/jondasiviz.db
+        │                        │     │
+        │      GitHub ──push──>  │     │  <──firmado── Stripe
+        │      (resiembra)       │     │   (cobro de la suscripción)
+        │                        │     │
+        │                     Actions ──> Releases (binarios)
         │
         └── app de escritorio (Tauri) con el mismo HTML, sin servidor
 ```
+
+Los dos webhooks que entran, el de GitHub y el de Stripe, van firmados y se comprueban
+antes de hacer nada. Son las dos únicas puertas por las que algo de fuera cambia el
+estado: una resiembra el catálogo, la otra decide quién tiene la suscripción pagada.
 
 El motor de negocio (`src/engine/`) es TypeScript puro, sin React ni nada de navegador.
 Por eso corre igual en los tres sitios: en la pestaña, en la API y en la CLI. No hay una
@@ -176,7 +182,86 @@ fuera. En Ajustes del repositorio, Webhooks, añadir la URL pública terminada e
 `/api/webhook/github`, tipo `application/json` y el mismo secreto que la variable de
 entorno.
 
-## 4. Aplicación
+## 4. Cuentas y suscripción
+
+**Qué es.** Registro con correo y contraseña, sesiones, y una suscripción mensual de
+4,99 € que abre la herramienta entera. Sin ella se puede usar, pero recortada.
+
+| | Gratis | Suscrito |
+|---|---|---|
+| Objetivos a la vez | 1 | los 4 |
+| Elegir piezas a mano | no | sí |
+| Exportar a PDF | no | sí |
+| Presupuestos al día | 5 | sin tope |
+
+**Dónde mirar.** Los límites están en `src/suscripcion/planes.ts`, en un solo sitio y
+como dato, no repartidos por la interfaz. Las contraseñas, en `src/auth/contrasenas.ts`.
+
+**Lo que hay que saber defender.**
+
+La contraseña no se guarda: se guarda su huella con **scrypt**, que viene en Node y está
+pensado para esto, porque es lento y consume memoria a propósito. Un SHA-256 pelado, que
+es el error habitual, se prueba a miles de millones por segundo en una tarjeta gráfica.
+Cada usuario lleva su propia sal, así dos personas con la misma contraseña tienen huellas
+distintas.
+
+Del token de sesión tampoco se guarda el token, sino su huella. Quien consiga leer la
+base no puede suplantar a nadie con lo que hay dentro.
+
+**El control se hace en el servidor, no en la pantalla.** La interfaz deshabilita lo que
+no toca, pero eso se salta abriendo las herramientas del navegador. Quien decide es
+`POST /api/plan`, que responde **402** cuando la petición se pasa del plan. Compruébalo
+saltándote la interfaz por completo:
+
+```bash
+TOKEN=... # el que devuelve /api/auth/entrar
+
+curl -i -X POST http://localhost:3001/api/plan \
+  -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN" \
+  -d '{"modelo":"golf-gti-mk5","presupuesto":4000,"objetivos":["drift","estetica"]}'
+# HTTP/1.1 402 Payment Required
+```
+
+**Nadie puede darse la suscripción a sí mismo.** No existe ninguna ruta que acepte un
+"ya he pagado" viniendo del cliente: el estado solo lo escribe el webhook de la pasarela.
+Hay un test que lo comprueba intentando justamente eso.
+
+**Cómo se paga.** `POST /api/suscripcion/checkout` devuelve la URL a la que hay que
+mandar al usuario. Hay dos pasarelas y la que se usa depende de si hay claves:
+
+- **Stripe**, cuando existe `STRIPE_SECRET_KEY`. Se habla con su API por HTTP, sin añadir
+  su librería. Su webhook llega firmado con HMAC y se comprueba, incluido que la entrega
+  no sea vieja: si no, capturar una entrega válida permitiría reenviarla para revivir una
+  suscripción cancelada.
+- **Simulada**, cuando no hay claves. Marca al usuario como suscrito sin cobrar nada, para
+  poder probar el flujo en cualquier ordenador. Con Stripe configurado, esa puerta
+  devuelve 404: si no, sería la forma de suscribirse gratis.
+
+```bash
+# el ciclo entero con la pasarela simulada
+curl -X POST http://localhost:3001/api/auth/registro -H "Content-Type: application/json" \
+  -d '{"correo":"prueba@jondasiviz.es","contrasena":"contrasena-larga"}'
+
+curl -X POST http://localhost:3001/api/suscripcion/checkout -H "Authorization: Bearer $TOKEN"
+curl -X POST http://localhost:3001/api/suscripcion/simulada/confirmar -H "Authorization: Bearer $TOKEN"
+```
+
+**Para cobrar de verdad** hacen falta tres variables de entorno y nada de código:
+
+```bash
+STRIPE_SECRET_KEY=sk_test_...      # de prueba: sk_test_, real: sk_live_
+STRIPE_WEBHOOK_SECRET=whsec_...
+JONDA_URL=https://tu-dominio        # a dónde vuelve el navegador tras pagar
+```
+
+La clave secreta vive solo en el servidor. **Nunca en el repositorio ni dentro de la
+aplicación de escritorio**, porque cualquiera puede abrir el ejecutable y sacarla.
+
+Y antes de cobrar a personas reales hace falta lo que no es código: una cuenta de Stripe
+verificada a nombre de alguien con su entidad fiscal, condiciones de uso, política de
+privacidad y cumplimiento de RGPD, porque a partir de ahí se guardan datos personales.
+
+## 5. Aplicación
 
 Dos formas de la misma aplicación, con el mismo código:
 
@@ -190,7 +275,7 @@ npm run build             # compila las dos páginas
 
 Los instaladores se bajan de las releases del repositorio.
 
-## 5. GitHub
+## 6. GitHub
 
 - Repositorio público con historial de varias personas.
 - Etiquetas de versión y releases con los binarios de los cuatro sistemas.
