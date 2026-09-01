@@ -40,6 +40,6 @@ imagen: null
 
 **Requiere** [[Downpipe sin DPF 2.0 TDI]], [[Intercooler de mayor volumen 2.0 TDI]]
 
-**Monta con avisos en (2)** [[Golf GTD Mk8]], [[Golf GTD Mk8.5]]
+**Monta con avisos en (4)** [[Golf GTD Mk8]], [[Golf GTD Mk8.5]], [[Golf GTD Mk7]], [[Golf Mk8 2.0 TDI]]
 
 > Techo del EA288 con intercooler, downpipe y EGR anulada. Fuera de homologación en la UE: solo circuito.

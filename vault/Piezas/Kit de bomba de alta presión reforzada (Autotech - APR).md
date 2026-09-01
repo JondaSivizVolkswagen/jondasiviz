@@ -35,6 +35,6 @@ imagen: null
 
 **Marcas** [[Apr]]
 
-**Monta en (2)** [[Golf GTI Mk5]], [[Scirocco R]]
+**Monta en (6)** [[Golf GTI Mk5]], [[Golf GTI Edition 30]], [[Golf GTI Pirelli]], [[Golf R Mk6]], [[Passat B6 2.0 TFSI]], [[Scirocco R]]
 
 > En el EA113 la HPFP es de leva. Necesaria para Stage 2+ y para el K04.

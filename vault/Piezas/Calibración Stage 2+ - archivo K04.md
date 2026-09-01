@@ -36,4 +36,4 @@ imagen: null
 
 **Requiere** [[Intercooler frontal (Forge - Wagner Competition)]]
 
-**Monta con avisos en (2)** [[Golf GTI Mk5]], [[Scirocco R]]
+**Monta con avisos en (6)** [[Golf GTI Mk5]], [[Golf GTI Edition 30]], [[Golf GTI Pirelli]], [[Golf R Mk6]], [[Passat B6 2.0 TFSI]], [[Scirocco R]]

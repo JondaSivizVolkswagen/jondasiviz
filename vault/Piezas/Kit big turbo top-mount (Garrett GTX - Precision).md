@@ -41,6 +41,6 @@ imagen: null
 
 **Requiere** [[Intercooler barra y placa Stage 3 (Airtec - do88) + hard pipes]], [[Escape turbo-back completo inox (Milltek Race)]], [[Kit de alimentación Stage 3 (rieles, inyectores 1000cc, bomba externa)]], [[Gestión standalone (Syvecs - Emerald)]]
 
-**Monta con avisos en (2)** [[Golf GTI Mk5]], [[Scirocco R]]
+**Monta con avisos en (6)** [[Golf GTI Mk5]], [[Golf GTI Edition 30]], [[Golf GTI Pirelli]], [[Golf R Mk6]], [[Passat B6 2.0 TFSI]], [[Scirocco R]]
 
 > Pide bloque preparado para fiabilidad a más de 400 CV.

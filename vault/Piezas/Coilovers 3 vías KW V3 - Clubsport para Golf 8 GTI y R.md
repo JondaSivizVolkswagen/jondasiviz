@@ -42,6 +42,6 @@ imagen: null
 
 **Chasis** [[Chasis MQB Evo]]
 
-**Monta con avisos en (4)** [[Golf GTD Mk8]], [[Golf GTD Mk8.5]], [[Golf GTI Mk8]], [[Golf GTI Mk8.5]]
+**Monta con avisos en (9)** [[Golf GTD Mk8]], [[Golf GTD Mk8.5]], [[Golf GTI Mk8]], [[Golf GTI Mk8.5]], [[Golf Mk8 1.5 TSI]], [[Golf Mk8 2.0 TDI]], [[Golf GTE Mk8]], [[Passat B9 2.0 TSI]], [[Tiguan Mk3 eTSI]]
 
 > 16 clics de extensión y 12 de compresión. La versión Clubsport con torretas ajustables ronda los 3.600 €.

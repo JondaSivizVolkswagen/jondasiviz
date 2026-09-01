@@ -39,7 +39,7 @@ imagen: null
 
 **Marcas** [[Quaife]], [[Wavetrac]]
 
-**Monta en (2)** [[Golf GTI Mk8]], [[Golf GTI Mk8.5]]
+**Monta en (4)** [[Golf GTI Mk8]], [[Golf GTI Mk8.5]], [[Passat B9 2.0 TSI]], [[Tiguan Mk3 eTSI]]
 
 **Monta con avisos en (10)** [[Golf GTI Clubsport 45]], [[Golf GTI Clubsport Mk8]], [[Golf GTI Clubsport Mk8.5]], [[Golf GTI Edition 50]], [[Golf R 20 Years]], [[Golf R 333 Limited Edition]], [[Golf R Mk8]], [[Golf R Mk8.5]], [[Golf R Variant Mk8]], [[Golf R Variant Mk8.5]]
 

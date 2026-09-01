@@ -39,4 +39,4 @@ imagen: null
 
 **Marcas** [[Syvecs]]
 
-**Monta con avisos en (10)** [[Arteon R]], [[Corrado VR6]], [[Golf GTI Mk5]], [[Golf GTI Mk7]], [[Golf Mk4 1.8T]], [[Golf R Mk7]], [[Polo GTI 6C]], [[Scirocco R]], [[T-Roc R]], [[Tiguan R]]
+**Monta con avisos en (33)** [[Arteon 2.0 TSI]], [[Arteon R]], [[Beetle Turbo 5C]], [[Corrado VR6]], [[Golf GTI Mk5]], [[Golf GTI Mk7]], [[Golf IV R32]], [[Golf Mk4 1.8T]], [[Golf R Mk7]], [[Golf GTI Edition 30]], [[Golf GTI Pirelli]], [[Golf V R32]], [[Golf GTI Mk6]], [[Golf GTI Edition 35]], [[Golf GTI Mk7 Performance]], [[Golf R Mk6]], [[Golf GTI Clubsport Mk7]], [[Golf GTI Clubsport S]], [[Golf R Variant Mk7]], [[Golf GTI Mk7.5 Performance]], [[Golf GTI TCR]], [[Passat B6 2.0 TFSI]], [[Passat B8 2.0 TSI]], [[Passat CC 2.0 TSI]], [[Passat R36]], [[Polo GTI 9N]], [[Polo GTI AW]], [[Polo GTI 6C]], [[Scirocco 2.0 TSI]], [[Scirocco R]], [[T-Roc R]], [[Tiguan 2.0 TSI]], [[Tiguan R]]

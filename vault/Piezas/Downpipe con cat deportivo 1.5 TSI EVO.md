@@ -33,3 +33,5 @@ imagen: null
 [[Categoría escape]] · gama media · requiere reforma de ficha técnica · stage2 · [[Grupo downpipe]]
 
 **Motor** [[EA211]], [[EA211-evo]]
+
+**Monta con avisos en (4)** [[Golf Mk8 1.5 TSI]], [[Polo AW 1.0 TSI]], [[T-Roc 1.5 TSI]], [[up! GTI]]

@@ -36,4 +36,6 @@ imagen: null
 
 **Marcas** [[Apr]], [[Revo]], [[Rtmg]]
 
+**Monta con avisos en (4)** [[Golf Mk8 1.5 TSI]], [[Polo AW 1.0 TSI]], [[T-Roc 1.5 TSI]], [[up! GTI]]
+
 > En el 1.5 TSI EVO son 20 a 40 CV y 35 a 60 Nm más. Exige RON 98.

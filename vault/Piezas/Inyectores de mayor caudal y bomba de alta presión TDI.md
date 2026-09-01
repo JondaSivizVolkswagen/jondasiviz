@@ -34,4 +34,4 @@ imagen: null
 
 **Motor** [[EA288]], [[EA288-evo]]
 
-**Monta en (2)** [[Golf GTD Mk8]], [[Golf GTD Mk8.5]]
+**Monta en (4)** [[Golf GTD Mk8]], [[Golf GTD Mk8.5]], [[Golf GTD Mk7]], [[Golf Mk8 2.0 TDI]]

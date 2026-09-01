@@ -35,3 +35,5 @@ imagen: null
 **Motor** [[EA211]], [[EA211-evo]]
 
 **Marcas** [[Forge]], [[Rtmg]], [[Eventuri]]
+
+**Monta en (4)** [[Golf Mk8 1.5 TSI]], [[Polo AW 1.0 TSI]], [[T-Roc 1.5 TSI]], [[up! GTI]]

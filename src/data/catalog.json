@@ -35,6 +35,35 @@
       "nota": "Mantiene limpia la admisión en motores de inyección directa exigidos."
     },
     {
+      "id": "adm-catchcan-gen2-baja",
+      "nombre": "Separador de aceite (catch can) EA888 gen2 (Forge / 034)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA888-gen2"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 140,
+        "estimado": 180,
+        "max": 240
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 1,
+        "estetica": 0
+      },
+      "impacto": 2,
+      "requiere": [],
+      "nota": "El gen2 consume aceite y ensucia la admisión. Esto le quita hierro."
+    },
+    {
       "id": "adm-dv-baja",
       "nombre": "Válvula de descarga reforzada (Forge DV+)",
       "categoria": "admision",
@@ -139,6 +168,93 @@
       "objetivos": {
         "drift": 0,
         "drag": 5,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "intercooler"
+    },
+    {
+      "id": "adm-fmic-ea111-media",
+      "nombre": "Intercooler frontal 1.4 TSI (Forge / Airtec)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA111"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 320,
+        "estimado": 420,
+        "max": 560
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "intercooler"
+    },
+    {
+      "id": "adm-fmic-ea189-16-media",
+      "nombre": "Intercooler de mayor volumen 1.6 TDI (Wagner)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA189-16"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 290,
+        "estimado": 380,
+        "max": 500
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 2,
+        "mas-cv": 2,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "intercooler"
+    },
+    {
+      "id": "adm-fmic-ea189-media",
+      "nombre": "Intercooler de mayor volumen 2.0 TDI EA189 (Wagner / Forge)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA189"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 360,
+        "estimado": 480,
+        "max": 640
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
         "mas-cv": 3,
         "estetica": 0
       },
@@ -271,6 +387,64 @@
       "nota": "Clave en circuito: el intercooler de serie del evo4 satura en tandas largas."
     },
     {
+      "id": "adm-fmic-gen2-media",
+      "nombre": "Intercooler frontal EA888 gen2 (Forge / Wagner)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA888-gen2"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 400,
+        "estimado": 520,
+        "max": 680
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "intercooler"
+    },
+    {
+      "id": "adm-fmic-gen3-media",
+      "nombre": "Intercooler frontal EA888 gen3 (Wagner / do88 / IE)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA888-gen3"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 550,
+        "estimado": 700,
+        "max": 950
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "intercooler"
+    },
+    {
       "id": "adm-fmic-media",
       "nombre": "Intercooler frontal (Forge / Wagner Competition)",
       "categoria": "admision",
@@ -332,6 +506,34 @@
       "stage": "stage2"
     },
     {
+      "id": "adm-inlet-gen3-media",
+      "nombre": "Turbo inlet y charge pipe de alto flujo EA888 gen3 (Forge / IE)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA888-gen3"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 300,
+        "estimado": 380,
+        "max": 500
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 2,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": []
+    },
+    {
       "id": "adm-inlet-media",
       "nombre": "Tubo turbo inlet de alto flujo (Forge)",
       "categoria": "admision",
@@ -358,6 +560,35 @@
       },
       "impacto": 2,
       "requiere": []
+    },
+    {
+      "id": "adm-intake-ea111-media",
+      "nombre": "Kit de admisión abierta 1.4 TSI (Forge / RTMG)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA111"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 180,
+        "estimado": 240,
+        "max": 320
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 2,
+        "mas-cv": 2,
+        "estetica": 0
+      },
+      "impacto": 2,
+      "requiere": [],
+      "grupoExclusivo": "admision-filtro"
     },
     {
       "id": "adm-intake-ea211-baja",
@@ -419,6 +650,64 @@
       "requiere": [],
       "grupoExclusivo": "admision-filtro",
       "stage": "stage2"
+    },
+    {
+      "id": "adm-intake-gen2-media",
+      "nombre": "Kit de admisión cerrada EA888 gen2 (Forge / Neuspeed)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA888-gen2"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 240,
+        "estimado": 320,
+        "max": 420
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 2,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "admision-filtro"
+    },
+    {
+      "id": "adm-intake-gen3-media",
+      "nombre": "Kit de admisión cerrada EA888 gen3 (Eventuri / RacingLine / IE)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA888-gen3"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 450,
+        "estimado": 600,
+        "max": 850
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 3,
+        "estetica": 2
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "admision-filtro"
     },
     {
       "id": "adm-intake-media",
@@ -691,6 +980,94 @@
       "requiere": []
     },
     {
+      "id": "dist-cadena-ea111-media",
+      "nombre": "Kit de cadena de distribución reforzada 1.4 TSI",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA111"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 420,
+        "estimado": 550,
+        "max": 750
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 1,
+        "mas-cv": 1,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "distribucion",
+      "nota": "El fallo conocido del twincharger es la cadena y su tensor. Antes de subir presión, esto."
+    },
+    {
+      "id": "dist-cadena-gen2-media",
+      "nombre": "Kit de cadena de distribución reforzada EA888 gen2 (INA / Febi)",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA888-gen2"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 480,
+        "estimado": 620,
+        "max": 820
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 1,
+        "mas-cv": 1,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "distribucion",
+      "nota": "Tensor de cadena de nueva generación. En el gen2 no es una mejora, es un seguro."
+    },
+    {
+      "id": "esc-catback-ea111-media",
+      "nombre": "Línea cat-back inox 1.4 TSI (Milltek / Scorpion)",
+      "categoria": "escape",
+      "plataformas": [
+        "EA111"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 550,
+        "estimado": 700,
+        "max": 900
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 2,
+        "mas-cv": 2,
+        "estetica": 3
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
       "id": "esc-catback-ea211-media",
       "nombre": "Línea cat-back inox (Milltek / Scorpion) 1.0-1.5 TSI",
       "categoria": "escape",
@@ -782,6 +1159,97 @@
         "estetica": 0
       },
       "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "downpipe"
+    },
+    {
+      "id": "esc-dp-ea111-media",
+      "nombre": "Downpipe con cat deportivo 1.4 TSI (Milltek / Scorpion)",
+      "categoria": "escape",
+      "plataformas": [
+        "EA111"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 380,
+        "estimado": 480,
+        "max": 620
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "downpipe"
+    },
+    {
+      "id": "esc-dp-ea189-16-media",
+      "nombre": "Downpipe sin DPF 1.6 TDI (Darkside Developments)",
+      "categoria": "escape",
+      "plataformas": [
+        "EA189-16"
+      ],
+      "chasis": [],
+      "legalidad": "solo-circuito",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [
+        "scr-adblue"
+      ],
+      "gama": "media",
+      "precio": {
+        "min": 350,
+        "estimado": 450,
+        "max": 580
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "downpipe"
+    },
+    {
+      "id": "esc-dp-ea189-media",
+      "nombre": "Downpipe sin DPF 2.0 TDI EA189 (Darkside Developments)",
+      "categoria": "escape",
+      "plataformas": [
+        "EA189"
+      ],
+      "chasis": [],
+      "legalidad": "solo-circuito",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [
+        "scr-adblue"
+      ],
+      "gama": "media",
+      "precio": {
+        "min": 400,
+        "estimado": 520,
+        "max": 680
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 4,
       "requiere": [],
       "grupoExclusivo": "downpipe"
     },
@@ -911,6 +1379,64 @@
       "nota": "La versión descatalizada no pasa ITV en la UE. La de cat deportivo sí en casi toda Europa."
     },
     {
+      "id": "esc-dp-gen2-media",
+      "nombre": "Downpipe 3in EA888 gen2 (Milltek / AWE)",
+      "categoria": "escape",
+      "plataformas": [
+        "EA888-gen2"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 380,
+        "estimado": 480,
+        "max": 620
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "downpipe"
+    },
+    {
+      "id": "esc-dp-gen3-media",
+      "nombre": "Downpipe 3in con cat 400 cpsi EA888 gen3 (Milltek / Scorpion)",
+      "categoria": "escape",
+      "plataformas": [
+        "EA888-gen3"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 600,
+        "estimado": 750,
+        "max": 980
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "downpipe"
+    },
+    {
       "id": "esc-dp-media",
       "nombre": "Downpipe 3\" descatalizado o con cat deportivo (AWE / Milltek)",
       "categoria": "escape",
@@ -1003,6 +1529,35 @@
       "grupoExclusivo": "downpipe",
       "stage": "stage2",
       "nota": "Incluye downpipe. El de titanio de Akrapovic se va a los 5.000 €."
+    },
+    {
+      "id": "esc-turboback-gen3-alta",
+      "nombre": "Escape turbo-back con valvulería EA888 gen3 (Milltek Race / Akrapovic)",
+      "categoria": "escape",
+      "plataformas": [
+        "EA888-gen3"
+      ],
+      "chasis": [],
+      "legalidad": "solo-circuito",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1800,
+        "estimado": 2200,
+        "max": 2900
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 4,
+        "estetica": 3
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "downpipe"
     },
     {
       "id": "est-airride-alta",
@@ -1439,6 +1994,40 @@
       "requiere": []
     },
     {
+      "id": "gestion-e85-gen3-alta",
+      "nombre": "Calibración Stage 2 E85 EA888 gen3 (Unitronic / MACHGRADE)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA888-gen3"
+      ],
+      "chasis": [],
+      "legalidad": "solo-circuito",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 820,
+        "estimado": 1000,
+        "max": 1300
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "esc-dp-gen3-media",
+        "adm-intake-gen3-media",
+        "turbo-hpfp-gen3-media"
+      ],
+      "grupoExclusivo": "remap",
+      "stage": "stage2"
+    },
+    {
       "id": "gestion-stage1-baja",
       "nombre": "Reprogramación Stage 1 genérica",
       "categoria": "gestion",
@@ -1474,6 +2063,99 @@
       "requiere": [],
       "grupoExclusivo": "remap",
       "stage": "stage1"
+    },
+    {
+      "id": "gestion-stage1-ea111-media",
+      "nombre": "Reprogramación Stage 1 1.4 TSI (Revo / APR / Unitronic)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA111"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 380,
+        "estimado": 480,
+        "max": 620
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "remap",
+      "stage": "stage1",
+      "nota": "Unos 210 CV desde los 180 de serie."
+    },
+    {
+      "id": "gestion-stage1-ea189-16-baja",
+      "nombre": "Reprogramación Stage 1 1.6 TDI EA189 (Celtic Tuning)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA189-16"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 250,
+        "estimado": 320,
+        "max": 420
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 2,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "remap",
+      "stage": "stage1",
+      "nota": "De 105 a unos 135 CV. El techo del 1.6 está cerca."
+    },
+    {
+      "id": "gestion-stage1-ea189-baja",
+      "nombre": "Reprogramación Stage 1 2.0 TDI EA189 (Celtic Tuning / Superchips)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA189"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 320,
+        "estimado": 400,
+        "max": 520
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "remap",
+      "stage": "stage1",
+      "nota": "De 170 a unos 205 CV y bastante par abajo."
     },
     {
       "id": "gestion-stage1-ea211-baja",
@@ -1602,6 +2284,68 @@
       "nota": "GTI 245 sube a unos 300-310 CV; R 320 a unos 380 CV. Sin hardware."
     },
     {
+      "id": "gestion-stage1-gen2-media",
+      "nombre": "Reprogramación Stage 1 EA888 gen2 (APR / Revo / Unitronic)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA888-gen2"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 450,
+        "estimado": 550,
+        "max": 700
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "remap",
+      "stage": "stage1",
+      "nota": "Unos 260 CV desde los 210 del GTI Mk6."
+    },
+    {
+      "id": "gestion-stage1-gen3-media",
+      "nombre": "Reprogramación Stage 1 EA888 gen3 (APR / Unitronic / Revo / IE)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA888-gen3"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 500,
+        "estimado": 600,
+        "max": 780
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "remap",
+      "stage": "stage1",
+      "nota": "Unos 300 CV en un GTI Mk7 y 360 en un R."
+    },
+    {
       "id": "gestion-stage1-media",
       "nombre": "Reprogramación Stage 1 de marca (APR / Revo / Unitronic)",
       "categoria": "gestion",
@@ -1679,6 +2423,72 @@
       "grupoExclusivo": "remap",
       "stage": "stage2",
       "nota": "Hasta 417 CV y 578 Nm con downpipe y E85. Exige tener etanol cerca."
+    },
+    {
+      "id": "gestion-stage2-ea111-media",
+      "nombre": "Reprogramación Stage 2 1.4 TSI",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA111"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 520,
+        "estimado": 650,
+        "max": 850
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "esc-dp-ea111-media",
+        "dist-cadena-ea111-media"
+      ],
+      "grupoExclusivo": "remap",
+      "stage": "stage2",
+      "nota": "Unos 230 CV. Pide downpipe y cadena sana: el Stage 2 sobre una cadena vieja es dinero tirado."
+    },
+    {
+      "id": "gestion-stage2-ea189-media",
+      "nombre": "Reprogramación Stage 2 2.0 TDI EA189 (Darkside / Revo)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA189"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 480,
+        "estimado": 600,
+        "max": 780
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "esc-dp-ea189-media"
+      ],
+      "grupoExclusivo": "remap",
+      "stage": "stage2"
     },
     {
       "id": "gestion-stage2-ea211-media",
@@ -1816,6 +2626,74 @@
       "grupoExclusivo": "remap",
       "stage": "stage2",
       "nota": "Necesita downpipe y admisión. Unos 350 CV en GTI y 420 CV en R."
+    },
+    {
+      "id": "gestion-stage2-gen2-media",
+      "nombre": "Reprogramación Stage 2 EA888 gen2 (APR / Integrated Engineering)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA888-gen2"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 600,
+        "estimado": 750,
+        "max": 980
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "esc-dp-gen2-media",
+        "adm-intake-gen2-media",
+        "dist-cadena-gen2-media"
+      ],
+      "grupoExclusivo": "remap",
+      "stage": "stage2",
+      "nota": "Unos 300 CV. La cadena entra como requisito: el gen2 es conocido por saltarla."
+    },
+    {
+      "id": "gestion-stage2-gen3-media",
+      "nombre": "Reprogramación Stage 2 EA888 gen3 (APR / Unitronic)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA888-gen3"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 650,
+        "estimado": 800,
+        "max": 1050
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "esc-dp-gen3-media",
+        "adm-intake-gen3-media"
+      ],
+      "grupoExclusivo": "remap",
+      "stage": "stage2"
     },
     {
       "id": "gestion-stage2-media",
@@ -2969,6 +3847,37 @@
       "nota": "El DQ381 patina por encima de unos 450 Nm con el software de serie. No es el DQ250 del Mk7."
     },
     {
+      "id": "trans-dsg-gen3-alta",
+      "nombre": "Embrague DSG DQ250 reforzado + calibración de caja (Sachs / RacingLine)",
+      "categoria": "transmision",
+      "plataformas": [
+        "EA888-gen3"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [
+        "dsg"
+      ],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1450,
+        "estimado": 1800,
+        "max": 2400
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 1,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [],
+      "grupoExclusivo": "embrague"
+    },
+    {
       "id": "trans-embrague-alta",
       "nombre": "Embrague de competición + volante aligerado",
       "categoria": "transmision",
@@ -2994,6 +3903,35 @@
         "drift": 3,
         "drag": 5,
         "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "embrague"
+    },
+    {
+      "id": "trans-embrague-ea189-media",
+      "nombre": "Embrague reforzado 2.0 TDI EA189 (Sachs / Spec)",
+      "categoria": "transmision",
+      "plataformas": [
+        "EA189"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 720,
+        "estimado": 900,
+        "max": 1150
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 1,
         "estetica": 0
       },
       "impacto": 4,
@@ -3098,6 +4036,37 @@
       "requiere": [],
       "grupoExclusivo": "diferencial",
       "nota": "Innecesario en Clubsport, Edition 50 y R: ya traen VAQ o diferencial trasero vectorial."
+    },
+    {
+      "id": "trans-lsd-gen3-alta",
+      "nombre": "Autoblocante ATB eje delantero EA888 gen3 (Wavetrac / Quaife)",
+      "categoria": "transmision",
+      "plataformas": [
+        "EA888-gen3"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [
+        "vaq"
+      ],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1200,
+        "estimado": 1500,
+        "max": 1950
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 4,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "diferencial"
     },
     {
       "id": "trans-lsd-media",
@@ -3238,6 +4207,41 @@
       "grupoExclusivo": "turbo-principal",
       "stage": "stage3",
       "nota": "Pide bloque preparado para fiabilidad a más de 400 CV."
+    },
+    {
+      "id": "turbo-hibrido-ea189-alta",
+      "nombre": "Turbo híbrido 2.0 TDI EA189 (Darkside / BorgWarner)",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA189"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1200,
+        "estimado": 1500,
+        "max": 2000
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "adm-fmic-ea189-media",
+        "esc-dp-ea189-media",
+        "turbo-inyectores-ea189-media",
+        "gestion-stage2-ea189-media"
+      ],
+      "grupoExclusivo": "turbo-principal",
+      "nota": "Techo realista en 260-280 CV con inyectores y embrague a la altura."
     },
     {
       "id": "turbo-hibrido-ea211-alta",
@@ -3384,6 +4388,99 @@
       "nota": "Rueda compresora billet sobre carcasa Continental de origen. Montaje plug and play. 500-550 CV."
     },
     {
+      "id": "turbo-hibrido-gen3-alta",
+      "nombre": "Turbo híbrido sobre IS38 (MuchBoost / TTE)",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA888-gen3"
+      ],
+      "chasis": [],
+      "legalidad": "solo-circuito",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1900,
+        "estimado": 2400,
+        "max": 3100
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "adm-fmic-gen3-media",
+        "adm-intake-gen3-media",
+        "esc-turboback-gen3-alta",
+        "turbo-hpfp-gen3-media",
+        "gestion-e85-gen3-alta",
+        "trans-dsg-gen3-alta"
+      ],
+      "grupoExclusivo": "turbo-principal",
+      "nota": "Más de 450 CV. El DQ250 de serie no aguanta ese par, por eso arrastra embrague."
+    },
+    {
+      "id": "turbo-hpfp-gen2-media",
+      "nombre": "Bomba de alta presión reforzada EA888 gen2 (Autotech / APR)",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA888-gen2"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 380,
+        "estimado": 480,
+        "max": 620
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": []
+    },
+    {
+      "id": "turbo-hpfp-gen3-media",
+      "nombre": "Bomba de alta presión EA888 gen3 (APR / IE)",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA888-gen3"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 520,
+        "estimado": 650,
+        "max": 850
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": []
+    },
+    {
       "id": "turbo-hpfp-media",
       "nombre": "Kit de bomba de alta presión reforzada (Autotech / APR)",
       "categoria": "turbo",
@@ -3411,6 +4508,70 @@
       "impacto": 3,
       "requiere": [],
       "nota": "En el EA113 la HPFP es de leva. Necesaria para Stage 2+ y para el K04."
+    },
+    {
+      "id": "turbo-inyectores-ea189-media",
+      "nombre": "Inyectores reforzados 2.0 TDI EA189 (Bosch / Darkside)",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA189"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 560,
+        "estimado": 700,
+        "max": 900
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": []
+    },
+    {
+      "id": "turbo-is38-gen3-alta",
+      "nombre": "Turbo híbrido IS38 sobre IS20 (MuchBoost / MACHGRADE)",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA888-gen3"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1400,
+        "estimado": 1700,
+        "max": 2200
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "adm-fmic-gen3-media",
+        "adm-intake-gen3-media",
+        "esc-dp-gen3-media",
+        "turbo-hpfp-gen3-media",
+        "gestion-stage2-gen3-media"
+      ],
+      "grupoExclusivo": "turbo-principal",
+      "nota": "El salto clásico del GTI Mk7: pasar del IS20 al IS38 del Golf R. Unos 380 CV."
     },
     {
       "id": "turbo-k04-alta",
@@ -3447,6 +4608,72 @@
       ],
       "grupoExclusivo": "turbo-principal",
       "stage": "stage3"
+    },
+    {
+      "id": "turbo-k04-gen2-alta",
+      "nombre": "Turbo híbrido K04 para EA888 gen2 (MuchBoost / Loba)",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA888-gen2"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1500,
+        "estimado": 1900,
+        "max": 2500
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "adm-fmic-gen2-media",
+        "adm-intake-gen2-media",
+        "esc-dp-gen2-media",
+        "turbo-hpfp-gen2-media",
+        "gestion-stage2-gen2-media"
+      ],
+      "grupoExclusivo": "turbo-principal",
+      "nota": "Unos 350 CV. Es el salto grande del Golf VI GTI y del Passat CC."
+    },
+    {
+      "id": "turbo-polea-ea111-media",
+      "nombre": "Polea de compresor reducida 1.4 TSI (Forge / VWR)",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA111"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 240,
+        "estimado": 320,
+        "max": 420
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "polea-compresor",
+      "nota": "Solo tiene sentido con el compresor volumétrico del twincharger, no en los 1.4 TSI de un turbo."
     },
     {
       "id": "turbo-powermax-evo4-alta",

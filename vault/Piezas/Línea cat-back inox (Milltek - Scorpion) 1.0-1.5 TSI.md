@@ -36,4 +36,6 @@ imagen: null
 
 **Marcas** [[Milltek]], [[Scorpion]]
 
+**Monta con avisos en (4)** [[Golf Mk8 1.5 TSI]], [[Polo AW 1.0 TSI]], [[T-Roc 1.5 TSI]], [[up! GTI]]
+
 > Aquí el motivo real es el sonido, no la potencia.
