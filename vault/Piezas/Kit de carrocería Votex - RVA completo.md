@@ -33,13 +33,13 @@ traccion: []
 sustituye: []
 exige: []
 chocaCon: []
-grupoExclusivo: null
+grupoExclusivo: carroceria
 stage: null
 nota: null
 imagen: null
 ---
 
-[[Categoría estética]] · gama media · requiere reforma de ficha técnica
+[[Categoría estética]] · gama media · requiere reforma de ficha técnica · [[Grupo carroceria]]
 
 **Motor** [[1.8T-20v]], [[EA113]], [[EA888-gen2]], [[EA888-gen3]], [[VR6]], [[TDI]]
 

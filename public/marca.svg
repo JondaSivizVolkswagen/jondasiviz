@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!--
+    Marca de la aplicación: la misma cuña roja inclinada que lleva la barra
+    superior de la web, con dos estelas detrás. Nada de logotipos de Volkswagen
+    ni de Honda: el proyecto no tiene relación con ninguna de las dos marcas y
+    usar el suyo sería un problema.
+
+    El PNG, el .ico y el .icns de src-tauri/icons/ salen de esta misma
+    composición: se generan con `python3 herramientas/generar-iconos.py`.
+  -->
+  <defs>
+    <linearGradient id="fondo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14171B"/>
+      <stop offset="1" stop-color="#0A0B0D"/>
+    </linearGradient>
+    <filter id="halo" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+    <clipPath id="tarjeta">
+      <rect width="512" height="512" rx="105"/>
+    </clipPath>
+  </defs>
+
+  <rect width="512" height="512" rx="105" fill="url(#fondo)"/>
+
+  <g clip-path="url(#tarjeta)">
+    <path d="M313 106H403L307 406H217Z" fill="#E3121C" opacity=".59" filter="url(#halo)"/>
+    <path d="M188 154H210L144 358H123Z" fill="#EEF0F3" opacity=".35"/>
+    <path d="M240 128H277L195 384H158Z" fill="#EEF0F3" opacity=".75"/>
+    <path d="M313 106H403L307 406H217Z" fill="#E3121C"/>
+  </g>
+
+  <rect x="11" y="11" width="490" height="490" rx="95" fill="none"
+        stroke="#FFFFFF" stroke-opacity=".10" stroke-width="2"/>
+</svg>

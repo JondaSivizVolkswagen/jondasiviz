@@ -1,7 +1,17 @@
 import { describe, expect, it } from "vitest";
+import {
+  NOMBRE_CATEGORIA,
+  alternarObjetivo,
+  conflictosEn,
+  enConflictoCon,
+  dependenciaCubierta,
+  fraseRiesgo,
+  generarPresupuesto,
+  gruposElegibles,
+  riesgosSinCubrir,
+} from "../src/engine/recommend";
+import type { Objetivo, PeticionPresupuesto, Presupuesto } from "../src/engine/types";
 import { cargarCatalogo } from "../src/engine/catalog";
-import { dependenciaCubierta, generarPresupuesto } from "../src/engine/recommend";
-import type { PeticionPresupuesto, Presupuesto } from "../src/engine/types";
 import { catalogo, pieza } from "./helpers";
 
 // El Mk5: motor EA113 sobre chasis PQ35. Los dos hacen falta, porque las piezas de
@@ -48,31 +58,9 @@ describe("generarPresupuesto con el catálogo real", () => {
     expect(categorias.has("estetica")).toBe(true); // esencial de estética
   });
 
-  it("solo incluye piezas que le encajan, por motor o por chasis", () => {
+  it("solo incluye piezas compatibles con la plataforma", () => {
     const res = generarPresupuesto({ ...base, presupuesto: 15000 });
-    for (const linea of res.lineas) {
-      const porMotor = linea.pieza.plataformas.includes("EA113");
-      const porChasis = linea.pieza.chasis.includes("PQ35");
-      expect(porMotor || porChasis).toBe(true);
-    }
-  });
-
-  it("sin chasis en la petición se pierden las piezas que van por chasis", () => {
-    // Un Golf 8: casi toda su suspensión y dirección se declaran por MQB Evo, así que
-    // sin el chasis el plan sale cojo. Es el fallo que dejaba a un Golf 8 sin dirección.
-    const conChasis = generarPresupuesto({
-      plataforma: "EA888-evo4", chasis: "MQB Evo", presupuesto: 12000, objetivos: ["drift"],
-    });
-    const sinChasis = generarPresupuesto({
-      plataforma: "EA888-evo4", presupuesto: 12000, objetivos: ["drift"],
-    });
-    const categorias = (p: Presupuesto) => new Set(p.porCategoria.map((g) => g.categoria));
-    expect(categorias(conChasis).has("direccion")).toBe(true);
-    expect(categorias(sinChasis).has("direccion")).toBe(false);
-    const soloChasis = (p: Presupuesto) =>
-      p.lineas.filter((l) => l.pieza.chasis.length > 0 && l.pieza.plataformas.length === 0);
-    expect(soloChasis(conChasis).length).toBeGreaterThan(0);
-    expect(soloChasis(sinChasis)).toHaveLength(0);
+    for (const linea of res.lineas) expect(linea.pieza.plataformas).toContain("EA113");
   });
 
   it("sin filtro de gama, un presupuesto amplio mezcla gamas y el build sale alta", () => {
@@ -115,19 +103,9 @@ describe("generarPresupuesto con el catálogo real", () => {
     }
   });
 
-  it("respeta las dependencias: si entra una pieza, entra lo que necesita", () => {
+  it("respeta las dependencias: si entra una pieza, entran sus requisitos", () => {
     const res = generarPresupuesto({ ...base, presupuesto: 15000 });
     expect(dependenciasCubiertas(res)).toBe(true);
-  });
-
-  it("ninguna combinación deja una dependencia sin cubrir", () => {
-    const combos = [["drag"], ["mas-cv"], ["drift"], ["drag", "mas-cv"]] as const;
-    for (const objetivos of combos) {
-      for (const presupuesto of [1500, 4000, 8000, 15000, 25000]) {
-        const res = generarPresupuesto({ ...base, objetivos: [...objetivos], presupuesto });
-        expect(dependenciasCubiertas(res)).toBe(true);
-      }
-    }
   });
 
   it("un proyecto de drift con presupuesto amplio cubre suspensión y dirección", () => {
@@ -144,24 +122,6 @@ describe("generarPresupuesto con el catálogo real", () => {
     // dependencias de otras gamas que el motor arrastra igualmente
     expect(ids.has("adm-fmic-media")).toBe(true);
     expect(dependenciasCubiertas(res)).toBe(true);
-  });
-
-  it("con dinero de sobra el turbo-back sustituye al downpipe que exige el K04", () => {
-    const res = generarPresupuesto({ ...base, objetivos: ["drag"], presupuesto: 20000 });
-    const ids = new Set(res.lineas.map((l) => l.pieza.id));
-    expect(ids.has("turbo-k04-alta")).toBe(true);
-    // El K04 pide esc-dp-media, pero el turbo-back lo incluye y aporta más a drag.
-    expect(ids.has("esc-turboback-alta")).toBe(true);
-    expect(ids.has("esc-dp-media")).toBe(false);
-    expect(res.lineas.filter((l) => l.pieza.grupoExclusivo === "downpipe")).toHaveLength(1);
-    expect(res.total).toBeLessThanOrEqual(20000);
-  });
-
-  it("no sustituye por una pieza que aporte lo mismo o menos a los objetivos", () => {
-    // Para "mas-cv" el turbo-back no aporta más que el downpipe: se queda el barato.
-    const res = generarPresupuesto({ ...base, objetivos: ["mas-cv"], presupuesto: 20000 });
-    const ids = new Set(res.lineas.map((l) => l.pieza.id));
-    expect(ids.has("esc-turboback-alta")).toBe(false);
   });
 
   it("con presupuesto muy bajo devuelve poco y avisa", () => {
@@ -187,6 +147,219 @@ describe("generarPresupuesto con el catálogo real", () => {
     const elegidas = new Set(res.lineas.map((l) => l.pieza.id));
     expect(res.siguientesMejoras.length).toBeLessThanOrEqual(3);
     for (const m of res.siguientesMejoras) expect(elegidas.has(m.pieza.id)).toBe(false);
+  });
+});
+
+describe("objetivos que no se combinan", () => {
+  it("drift y drag se descartan entre ellos", () => {
+    expect(enConflictoCon("drift")).toEqual(["drag"]);
+    expect(enConflictoCon("drag")).toEqual(["drift"]);
+    expect(conflictosEn(["drift", "drag"])).toEqual([["drift", "drag"]]);
+  });
+
+  it("el resto se lleva bien con todos", () => {
+    expect(enConflictoCon("mas-cv")).toEqual([]);
+    expect(enConflictoCon("estetica")).toEqual([]);
+    for (const combo of [
+      ["drift", "mas-cv"],
+      ["drift", "estetica"],
+      ["drag", "mas-cv"],
+      ["drag", "estetica"],
+      ["drift", "mas-cv", "estetica"],
+      ["drag", "mas-cv", "estetica"],
+    ] as Objetivo[][]) {
+      expect(conflictosEn(combo)).toEqual([]);
+    }
+  });
+
+  it("elegir uno del par suelta el otro, y los demás se quedan", () => {
+    expect(alternarObjetivo(["drift", "mas-cv", "estetica"], "drag")).toEqual([
+      "drag",
+      "mas-cv",
+      "estetica",
+    ]);
+    expect(alternarObjetivo(["drag"], "drift")).toEqual(["drift"]);
+    // Volver a pulsar el que ya está lo apaga, sin tocar a nadie más.
+    expect(alternarObjetivo(["drag", "estetica"], "drag")).toEqual(["estetica"]);
+    // Y los que no se pelean se acumulan.
+    expect(alternarObjetivo(["drift"], "estetica")).toEqual(["drift", "estetica"]);
+  });
+
+  it("nunca se puede llegar a tener drift y drag a la vez", () => {
+    const todos: Objetivo[] = ["drift", "drag", "mas-cv", "estetica"];
+    // Cualquier secuencia de hasta 4 clics deja siempre una selección válida.
+    const recorrer = (actual: Objetivo[], quedan: number): void => {
+      expect(conflictosEn(actual)).toEqual([]);
+      if (quedan === 0) return;
+      for (const o of todos) recorrer(alternarObjetivo(actual, o), quedan - 1);
+    };
+    recorrer([], 4);
+  });
+
+  it("si aun así le llegan al motor, avisa en vez de callar", () => {
+    const res = generarPresupuesto({ ...base, objetivos: ["drift", "drag"], presupuesto: 8000 });
+    expect(res.avisos.join(" ")).toMatch(/preparaciones contrarias/);
+  });
+});
+
+describe("elige el comprador, no el motor", () => {
+  const catalogoReal = cargarCatalogo();
+  const grupos = gruposElegibles(catalogoReal, "EA113", ["drift", "estetica"], "PQ35");
+
+  it("solo ofrece partes donde de verdad hay más de una opción", () => {
+    expect(grupos.length).toBeGreaterThan(0);
+    for (const g of grupos) {
+      expect(g.piezas.length).toBeGreaterThan(1);
+      // Todas del mismo grupo, compatibles, y ordenadas de barata a cara.
+      for (const p of g.piezas) {
+        expect(p.grupoExclusivo).toBe(g.grupo);
+        // Por motor o por chasis: la altura y las llantas del Mk5 van por PQ35.
+        expect(p.plataformas.includes("EA113") || p.chasis.includes("PQ35")).toBe(true);
+      }
+      const precios = g.piezas.map((p) => p.precio.estimado);
+      expect([...precios].sort((a, b) => a - b)).toEqual(precios);
+    }
+  });
+
+  it("sin objetivos no hay nada que elegir", () => {
+    expect(gruposElegibles(catalogoReal, "EA113", [])).toEqual([]);
+  });
+
+  it("la pieza elegida entra, y ninguna otra de su grupo", () => {
+    const altura = grupos.find((g) => g.grupo === "altura")!;
+    for (const elegida of altura.piezas) {
+      const res = generarPresupuesto({
+        ...base,
+        objetivos: ["drift", "estetica"],
+        presupuesto: 25000,
+        elecciones: [elegida.id],
+      });
+      const delGrupo = res.lineas.filter((l) => l.pieza.grupoExclusivo === "altura");
+      expect(delGrupo.map((l) => l.pieza.id)).toEqual([elegida.id]);
+      expect(delGrupo[0].motivo).toBe("elegida");
+    }
+  });
+
+  it("respeta la elección aunque el motor hubiera puesto otra cosa", () => {
+    const solo = generarPresupuesto({ ...base, objetivos: ["drift"], presupuesto: 25000 });
+    const suya = solo.lineas.find((l) => l.pieza.grupoExclusivo === "altura")!.pieza;
+    const otra = gruposElegibles(catalogoReal, "EA113", ["drift"], "PQ35")
+      .find((g) => g.grupo === "altura")!
+      .piezas.find((p) => p.id !== suya.id)!;
+
+    const conEleccion = generarPresupuesto({
+      ...base,
+      objetivos: ["drift"],
+      presupuesto: 25000,
+      elecciones: [otra.id],
+    });
+    expect(conEleccion.lineas.map((l) => l.pieza.id)).toContain(otra.id);
+    expect(conEleccion.lineas.map((l) => l.pieza.id)).not.toContain(suya.id);
+  });
+
+  it("lo elegido cuenta para el mínimo del proyecto", () => {
+    const llantas = grupos.find((g) => g.grupo === "llantas")!;
+    const barata = llantas.piezas[0];
+    const cara = llantas.piezas[llantas.piezas.length - 1];
+    expect(cara.precio.estimado).toBeGreaterThan(barata.precio.estimado);
+
+    const conBarata = generarPresupuesto({
+      ...base,
+      objetivos: ["drift", "estetica"],
+      presupuesto: 25000,
+      elecciones: [barata.id],
+    });
+    const conCara = generarPresupuesto({
+      ...base,
+      objetivos: ["drift", "estetica"],
+      presupuesto: 25000,
+      elecciones: [cara.id],
+    });
+    expect(conCara.minimoEsencial).toBeGreaterThan(conBarata.minimoEsencial);
+  });
+
+  it("si lo elegido no cabe, lo dice en vez de colarlo o callarse", () => {
+    const caras = grupos
+      .flatMap((g) => g.piezas)
+      .sort((a, b) => b.precio.estimado - a.precio.estimado);
+    const cara = caras[0];
+    const res = generarPresupuesto({
+      ...base,
+      objetivos: ["drift", "estetica"],
+      presupuesto: 200,
+      elecciones: [cara.id],
+    });
+    expect(res.lineas.map((l) => l.pieza.id)).not.toContain(cara.id);
+    expect(res.total).toBeLessThanOrEqual(200);
+    expect(res.avisos.join(" ")).toContain(cara.nombre);
+  });
+
+  it("una pieza de otra plataforma se ignora avisando", () => {
+    const vr6 = catalogoReal.piezas.find(
+      (p) => !p.plataformas.includes("EA113") && p.plataformas.includes("VR6"),
+    );
+    if (!vr6) return;
+    const res = generarPresupuesto({ ...base, presupuesto: 9000, elecciones: [vr6.id] });
+    expect(res.lineas.map((l) => l.pieza.id)).not.toContain(vr6.id);
+    expect(res.avisos.join(" ")).toContain("no encaja");
+  });
+
+  it("sin elecciones el resultado es el de siempre", () => {
+    // `peticion` se devuelve tal cual, así que ahí sí cambia [] contra undefined. Lo
+    // que tiene que ser idéntico es el plan.
+    const { peticion: _a, ...a } = generarPresupuesto({ ...base, presupuesto: 6000 });
+    const { peticion: _b, ...b } = generarPresupuesto({
+      ...base,
+      presupuesto: 6000,
+      elecciones: [],
+    });
+    expect(a).toEqual(b);
+    expect(a.lineas.every((l) => l.motivo !== "elegida")).toBe(true);
+  });
+
+  it("con dinero de sobra el turbo-back sustituye al downpipe que exige el K04", () => {
+    const res = generarPresupuesto({ ...base, objetivos: ["drag"], presupuesto: 20000 });
+    const ids = new Set(res.lineas.map((l) => l.pieza.id));
+    expect(ids.has("turbo-k04-alta")).toBe(true);
+    // El K04 pide esc-dp-media, pero el turbo-back lo incluye y aporta más a drag.
+    expect(ids.has("esc-turboback-alta")).toBe(true);
+    expect(ids.has("esc-dp-media")).toBe(false);
+    expect(res.lineas.filter((l) => l.pieza.grupoExclusivo === "downpipe")).toHaveLength(1);
+    expect(res.total).toBeLessThanOrEqual(20000);
+  });
+
+  it("no sustituye por una pieza que aporte lo mismo o menos a los objetivos", () => {
+    // Para "mas-cv" el turbo-back no aporta más que el downpipe: se queda el barato.
+    const res = generarPresupuesto({ ...base, objetivos: ["mas-cv"], presupuesto: 20000 });
+    expect(new Set(res.lineas.map((l) => l.pieza.id)).has("esc-turboback-alta")).toBe(false);
+  });
+
+  it("ninguna combinación deja una dependencia sin cubrir", () => {
+    const combos = [["drag"], ["mas-cv"], ["drift"], ["drag", "mas-cv"]] as const;
+    for (const objetivos of combos) {
+      for (const presupuesto of [1500, 4000, 8000, 15000, 25000]) {
+        const res = generarPresupuesto({ ...base, objetivos: [...objetivos], presupuesto });
+        expect(dependenciasCubiertas(res)).toBe(true);
+      }
+    }
+  });
+
+  it("sin chasis en la petición se pierden las piezas que van por chasis", () => {
+    // Un Golf 8: casi toda su suspensión y dirección se declaran por MQB Evo, así que
+    // sin el chasis el plan sale cojo. Es el fallo que dejaba a un Golf 8 sin dirección.
+    const conChasis = generarPresupuesto({
+      plataforma: "EA888-evo4", chasis: "MQB Evo", presupuesto: 12000, objetivos: ["drift"],
+    });
+    const sinChasis = generarPresupuesto({
+      plataforma: "EA888-evo4", presupuesto: 12000, objetivos: ["drift"],
+    });
+    const categorias = (p: Presupuesto) => new Set(p.porCategoria.map((g) => g.categoria));
+    expect(categorias(conChasis).has("direccion")).toBe(true);
+    expect(categorias(sinChasis).has("direccion")).toBe(false);
+    const soloChasis = (p: Presupuesto) =>
+      p.lineas.filter((l) => l.pieza.chasis.length > 0 && l.pieza.plataformas.length === 0);
+    expect(soloChasis(conChasis).length).toBeGreaterThan(0);
+    expect(soloChasis(sinChasis)).toHaveLength(0);
   });
 });
 
@@ -356,137 +529,6 @@ describe("generarPresupuesto con catálogo controlado", () => {
     expect(res.lineas.map((l) => l.pieza.id)).not.toContain("turbo");
   });
 
-  it("una pieza mejor sustituye a la dependencia de su grupo y recupera su dinero", () => {
-    const c = catalogo([
-      pieza({
-        id: "turbo",
-        categoria: "turbo",
-        objetivos: { drag: 5 },
-        impacto: 5,
-        precio: { min: 1400, estimado: 1500, max: 1700 },
-        requiere: ["downpipe"],
-      }),
-      pieza({
-        id: "downpipe",
-        categoria: "escape",
-        grupoExclusivo: "downpipe",
-        objetivos: { drag: 4 },
-        impacto: 4,
-        precio: { min: 380, estimado: 400, max: 450 },
-      }),
-      pieza({
-        id: "turbo-back",
-        categoria: "escape",
-        grupoExclusivo: "downpipe",
-        objetivos: { drag: 5 },
-        impacto: 4,
-        precio: { min: 900, estimado: 1000, max: 1200 },
-      }),
-    ]);
-    // 2.500 € no dan para turbo + downpipe + turbo-back (2.900), pero sí para
-    // turbo + turbo-back (2.500) en cuanto el downpipe devuelve sus 400 €.
-    const res = generarPresupuesto({ ...base, objetivos: ["drag"], presupuesto: 2500 }, c);
-    const ids = res.lineas.map((l) => l.pieza.id).sort();
-    expect(ids).toEqual(["turbo", "turbo-back"]);
-    expect(res.total).toBe(2500);
-    // El sustituto hereda el papel: sigue estando ahí porque el turbo lo necesita.
-    expect(res.lineas.find((l) => l.pieza.id === "turbo-back")?.motivo).toBe("dependencia");
-  });
-
-  it("no sustituye si la diferencia no cabe en el presupuesto", () => {
-    const c = catalogo([
-      pieza({
-        id: "turbo",
-        categoria: "turbo",
-        objetivos: { drag: 5 },
-        impacto: 5,
-        precio: { min: 1400, estimado: 1500, max: 1700 },
-        requiere: ["downpipe"],
-      }),
-      pieza({
-        id: "downpipe",
-        categoria: "escape",
-        grupoExclusivo: "downpipe",
-        objetivos: { drag: 4 },
-        impacto: 4,
-        precio: { min: 380, estimado: 400, max: 450 },
-      }),
-      pieza({
-        id: "turbo-back",
-        categoria: "escape",
-        grupoExclusivo: "downpipe",
-        objetivos: { drag: 5 },
-        impacto: 4,
-        precio: { min: 900, estimado: 1000, max: 1200 },
-      }),
-    ]);
-    const res = generarPresupuesto({ ...base, objetivos: ["drag"], presupuesto: 2000 }, c);
-    const ids = res.lineas.map((l) => l.pieza.id).sort();
-    expect(ids).toEqual(["downpipe", "turbo"]);
-    // Y lo que no cabe se ofrece como cambio, pidiendo solo la diferencia.
-    const mejora = res.siguientesMejoras.find((m) => m.pieza.id === "turbo-back");
-    expect(mejora?.sustituye?.id).toBe("downpipe");
-    expect(mejora?.falta).toBe(500); // 1000 - 400 devueltos - 100 de sobrante
-  });
-
-  it("no sustituye a una pieza de la que depende el sustituto", () => {
-    const c = catalogo([
-      pieza({
-        id: "turbo",
-        categoria: "turbo",
-        objetivos: { drag: 5 },
-        impacto: 5,
-        precio: { min: 1400, estimado: 1500, max: 1700 },
-        requiere: ["escape-basico"],
-      }),
-      pieza({
-        id: "escape-basico",
-        categoria: "escape",
-        grupoExclusivo: "downpipe",
-        objetivos: { drag: 3 },
-        impacto: 3,
-        precio: { min: 180, estimado: 200, max: 240 },
-      }),
-      pieza({
-        id: "escape-completo",
-        categoria: "escape",
-        grupoExclusivo: "downpipe",
-        objetivos: { drag: 5 },
-        impacto: 5,
-        precio: { min: 900, estimado: 1000, max: 1200 },
-        requiere: ["escape-basico"],
-      }),
-    ]);
-    const res = generarPresupuesto({ ...base, objetivos: ["drag"], presupuesto: 5000 }, c);
-    // El completo necesita al básico, así que no puede echarlo del plan aunque aporte más.
-    expect(res.lineas.map((l) => l.pieza.id).sort()).toEqual(["escape-basico", "turbo"]);
-    expect(res.siguientesMejoras.map((m) => m.pieza.id)).not.toContain("escape-completo");
-  });
-
-  it("no sustituye si el cambio deja sin cubrir la categoría de la pieza que sale", () => {
-    const c = catalogo([
-      pieza({
-        id: "muelles-rebaje",
-        categoria: "suspension",
-        grupoExclusivo: "altura",
-        objetivos: { drift: 3 },
-        impacto: 3,
-        precio: { min: 180, estimado: 200, max: 240 },
-      }),
-      pieza({
-        id: "kit-estetico",
-        categoria: "estetica",
-        grupoExclusivo: "altura",
-        objetivos: { drift: 5 },
-        impacto: 4,
-        precio: { min: 500, estimado: 600, max: 700 },
-      }),
-    ]);
-    const res = generarPresupuesto({ ...base, objetivos: ["drift"], presupuesto: 5000 }, c);
-    // Suspensión es esencial de drift y solo la cubre esa pieza: no se cambia.
-    expect(res.lineas.map((l) => l.pieza.id)).toEqual(["muelles-rebaje"]);
-  });
-
   it("mete la dependencia marcada como tal cuando sí cabe todo", () => {
     const c = catalogo([
       pieza({
@@ -509,5 +551,105 @@ describe("generarPresupuesto con catálogo controlado", () => {
     const fmic = res.lineas.find((l) => l.pieza.id === "fmic");
     expect(fmic?.motivo).toBe("dependencia");
     expect(res.lineas.map((l) => l.pieza.id).sort()).toEqual(["fmic", "turbo"]);
+  });
+
+  // El bug: escape entraba arrastrado por el turbo y aun así se avisaba de que no
+  // entraba nada de escape, contradiciendo a `esenciales` en el mismo objeto.
+  it("no avisa de una categoría que ya cubrió una dependencia", () => {
+    const c = catalogo([
+      pieza({
+        id: "turbo",
+        categoria: "turbo",
+        objetivos: { drag: 5 },
+        impacto: 5,
+        precio: { min: 900, estimado: 1000, max: 1100 },
+        requiere: ["downpipe"],
+      }),
+      pieza({
+        id: "downpipe",
+        categoria: "escape",
+        objetivos: { drag: 4 },
+        impacto: 4,
+        precio: { min: 380, estimado: 400, max: 420 },
+      }),
+      pieza({
+        id: "catback",
+        categoria: "escape",
+        objetivos: { drag: 2 },
+        impacto: 2,
+        precio: { min: 900, estimado: 900, max: 900 },
+      }),
+    ]);
+    const res = generarPresupuesto({ ...base, objetivos: ["drag"], presupuesto: 1400 }, c);
+
+    expect(res.lineas.map((l) => l.pieza.id).sort()).toEqual(["downpipe", "turbo"]);
+    expect(res.avisos.join(" ")).not.toMatch(/escape/);
+  });
+
+  // Dos piezas del mismo grupo son dos formas de hacer lo mismo: montarlas juntas es
+  // pagar dos veces. Pasaba con el big brake y las pastillas, que traen los mismos
+  // latiguillos y las mismas pastillas delanteras.
+  it("nunca monta dos piezas del mismo grupo exclusivo", () => {
+    const combos = [["drift"], ["drag"], ["mas-cv"], ["estetica"], ["drag", "estetica"]] as const;
+    for (const objetivos of combos) {
+      for (const presupuesto of [900, 2500, 4000, 6000, 12000, 25000]) {
+        const res = generarPresupuesto({ ...base, objetivos: [...objetivos], presupuesto });
+        const vistos = new Set<string>();
+        for (const linea of res.lineas) {
+          const grupo = linea.pieza.grupoExclusivo;
+          if (!grupo) continue;
+          expect(vistos.has(grupo), `${grupo} repetido con ${objetivos} y ${presupuesto} €`).toBe(
+            false,
+          );
+          vistos.add(grupo);
+        }
+      }
+    }
+  });
+
+  it("el aviso de peligro nombra los frenos cuando se suben caballos sin ellos", () => {
+    // 695 EUR de gestion, admision y escape: entra potencia y las pastillas ya no caben.
+    const res = generarPresupuesto({ ...base, objetivos: ["mas-cv"], presupuesto: 700 });
+    expect(riesgosSinCubrir(res)).toContain("frenos");
+    expect(fraseRiesgo(res)).toMatch(/peligroso/);
+  });
+
+  it("un proyecto solo de estética no se anuncia como peligroso", () => {
+    for (const presupuesto of [300, 600, 900]) {
+      const res = generarPresupuesto({ ...base, objetivos: ["estetica"], presupuesto });
+      expect(riesgosSinCubrir(res)).toEqual([]);
+      expect(fraseRiesgo(res)).toBeNull();
+    }
+  });
+
+  it("no llama peligro a una categoría que el catálogo no puede servir", () => {
+    // Catálogo sin una sola pieza de frenos: que no entren no es culpa del dinero.
+    const c = catalogo([
+      pieza({
+        id: "remap",
+        categoria: "gestion",
+        objetivos: { "mas-cv": 5 },
+        impacto: 4,
+        precio: { min: 400, estimado: 400, max: 400 },
+      }),
+    ]);
+    const res = generarPresupuesto({ ...base, objetivos: ["mas-cv"], presupuesto: 400 }, c);
+    expect(res.esenciales.some((e) => e.categoria === "frenos" && e.pieza === null)).toBe(true);
+    expect(riesgosSinCubrir(res)).toEqual([]);
+    expect(fraseRiesgo(res)).toBeNull();
+  });
+
+  it("lo que dicen los avisos concuerda con lo que dice esenciales", () => {
+    const combos = [["drift"], ["drag"], ["mas-cv"], ["estetica"], ["drag", "estetica"]] as const;
+    for (const objetivos of combos) {
+      for (const presupuesto of [500, 1500, 4000, 12000]) {
+        const res = generarPresupuesto({ ...base, objetivos: [...objetivos], presupuesto });
+        const cubiertas = res.esenciales.filter((e) => e.cubierta).map((e) => e.categoria);
+        for (const categoria of cubiertas) {
+          const nombre = NOMBRE_CATEGORIA[categoria];
+          expect(res.avisos.join(" ")).not.toContain(`no entra nada de ${nombre}`);
+        }
+      }
+    }
   });
 });

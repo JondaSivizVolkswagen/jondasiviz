@@ -15,11 +15,14 @@ Fecha de la copia: febrero 2026.
 | `SKILLS_AGENTES.md` | `~/.claude/SKILLS_AGENTES.md` |
 | `RTK.md` | `~/.claude/RTK.md` |
 | `settings.json` | `~/.claude/settings.json` |
-| `agents/app-designer.md` | `~/.claude/agents/app-designer.md` |
-| `skills/apple-minimal-style-guide/SKILL.md` | `~/.claude/skills/apple-minimal-style-guide/SKILL.md` |
-| `skills/design-research/SKILL.md` | `~/.claude/skills/design-research/SKILL.md` |
-| `skills/humanized-writing/SKILL.md` | `~/.claude/skills/humanized-writing/SKILL.md` |
+| `../.claude/agents/app-designer.md` | `~/.claude/agents/app-designer.md` |
+| `../.claude/skills/*/SKILL.md` | `~/.claude/skills/*/SKILL.md` |
 | `caveman-config.json` | `%APPDATA%\caveman\config.json` (Windows) |
+
+El subagente `app-designer` y sus tres skills **no están duplicados aquí**: viven en
+`../.claude/` del repo, que es donde Claude Code los carga solo para cualquiera que
+clone el proyecto. Se restauran copiándolos desde ahí. Una única copia, para que no se
+separen con el tiempo.
 
 ## Qué NO contiene (a propósito)
 

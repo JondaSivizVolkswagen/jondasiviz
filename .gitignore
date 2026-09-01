@@ -28,3 +28,13 @@ dist-ssr
 
 # Estado local de la interfaz de Obsidian (paneles abiertos, no es configuracion compartida)
 vault/.obsidian/workspace.json
+# Exportación a Cypher de la bóveda: se regenera con build-neo4j.mjs
+boveda-vw/.generador/salida/
+
+# Estado de la ventana de Obsidian: cambia cada vez que alguien abre la bóveda
+boveda-vw/.obsidian/workspace.json
+boveda-vw/.obsidian/workspace-mobile.json
+boveda-vw/.obsidian/graph.json
+
+# Notas diarias que crea Obsidian al abrir la bóveda
+boveda-vw/20??-??-??.md

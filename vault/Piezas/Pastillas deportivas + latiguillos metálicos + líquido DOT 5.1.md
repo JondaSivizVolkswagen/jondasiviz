@@ -11,7 +11,7 @@ precio:
 objetivos:
   drift: 2
   drag: 2
-  mas-cv: 1
+  mas-cv: 2
   estetica: 0
 impacto: 2
 requiere: []
@@ -35,13 +35,13 @@ traccion: []
 sustituye: []
 exige: []
 chocaCon: []
-grupoExclusivo: null
+grupoExclusivo: frenos-delanteros
 stage: null
 nota: null
 imagen: null
 ---
 
-[[Categoría frenos]] · gama baja · homologable
+[[Categoría frenos]] · gama baja · homologable · [[Grupo frenos-delanteros]]
 
 **Motor** [[1.8T-20v]], [[EA113]], [[EA888-gen2]], [[EA888-gen3]], [[VR6]], [[TDI]]
 

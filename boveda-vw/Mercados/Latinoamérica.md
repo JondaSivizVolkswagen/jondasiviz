@@ -1,0 +1,55 @@
+---
+tipo: mercado
+nombre: "Latinoamérica"
+modelos: 45
+---
+
+# Latinoamérica
+
+Modelos vendidos en este mercado durante el periodo cubierto.
+
+- [[Amarok Mk1]]
+- [[Amarok Mk2]]
+- [[Beetle (A5)]]
+- [[Caddy Mk3]]
+- [[Crafter Mk1]]
+- [[Crafter Mk2]]
+- [[Eos]]
+- [[Fox (Brasil)]]
+- [[Gol G4]]
+- [[Gol G5]]
+- [[Gol G6]]
+- [[Gol G7 - G8]]
+- [[Golf Mk4 (producción tardía)]]
+- [[Golf Mk5]]
+- [[Golf Mk6]]
+- [[Golf Mk7]]
+- [[Golf Mk7.5]]
+- [[Jetta A5 (Mk5)]]
+- [[Jetta A6 (Mk6)]]
+- [[Jetta A7 (Mk7)]]
+- [[Jetta Clásico (México)]]
+- [[New Beetle (A4)]]
+- [[Passat B6]]
+- [[Passat B7]]
+- [[Polo Mk4 (9N - 9N3)]]
+- [[Polo Mk5 (6R - 6C)]]
+- [[Polo Mk6 (AW)]]
+- [[Saveiro G5 - G6 - G7]]
+- [[Scirocco Mk3]]
+- [[T-Cross]]
+- [[T-Roc Mk1]]
+- [[Taigo (Europa) · Nivus (Brasil)]]
+- [[Taos (América) · Tharu (China)]]
+- [[Tiguan Mk1]]
+- [[Tiguan Mk2]]
+- [[Touareg Mk1]]
+- [[Touareg Mk2]]
+- [[Touareg Mk3]]
+- [[Touran Mk1]]
+- [[Transporter T5]]
+- [[Transporter T6]]
+- [[Vento (México)]]
+- [[Virtus]]
+- [[Voyage G5 - G6 - G7]]
+- [[up! (Brasil)]]

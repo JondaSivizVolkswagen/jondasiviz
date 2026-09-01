@@ -11,7 +11,7 @@ precio:
 objetivos:
   drift: 3
   drag: 3
-  mas-cv: 0
+  mas-cv: 3
   estetica: 3
 impacto: 4
 requiere: []

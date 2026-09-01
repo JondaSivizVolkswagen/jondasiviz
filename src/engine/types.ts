@@ -210,9 +210,30 @@ export interface PeticionPresupuesto {
   /** Uno o más objetivos del proyecto. Sus pesos se suman al puntuar las piezas. */
   objetivos: Objetivo[];
   modelo?: string;
+  /**
+   * Ids de piezas que ha elegido el comprador a mano. Entran antes que nada y bloquean
+   * su grupo, así que el motor ya no decide por él en esa parte del coche. Lo que no
+   * elija sigue eligiéndolo el motor.
+   */
+  elecciones?: string[];
 }
 
-export type MotivoLinea = "esencial" | "valor" | "dependencia";
+export type MotivoLinea = "elegida" | "esencial" | "valor" | "dependencia";
+
+/**
+ * Una parte del coche con varias alternativas entre las que se puede elegir: el grupo
+ * exclusivo y las piezas compatibles que caen dentro. Es lo que alimenta el selector
+ * de piezas del formulario.
+ */
+export interface GrupoElegible {
+  /** El `grupoExclusivo` que comparten. */
+  grupo: string;
+  /** Nombre legible del grupo, para enseñarlo. */
+  nombre: string;
+  categoria: Categoria;
+  /** Alternativas compatibles con el coche, de más barata a más cara. */
+  piezas: Pieza[];
+}
 
 export interface LineaPresupuesto {
   pieza: Pieza;

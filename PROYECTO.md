@@ -1,8 +1,8 @@
-﻿# JondaSiviz — Dossier completo del proyecto
+# JondaSiviz — Dossier completo del proyecto
 
 Este documento recoge todo el contexto del proyecto para poder retomarlo desde cero
 (por ejemplo, en una cuenta o sesión nueva de Claude Code) sin haber leído las
-conversaciones anteriores. Última actualización: 1 de septiembre de 2026.
+conversaciones anteriores. Última actualización: febrero 2026.
 
 ---
 
@@ -24,8 +24,14 @@ piezas alta) y limitaba el resultado sin motivo: dejaba fuera la pieza sensata s
 por estar en otro cajón, y un presupuesto corto en gama alta devolvía casi nada. Ahora
 el presupuesto es el único techo, el pool son todas las piezas compatibles con el
 motor del coche, y la gama sale como **resultado**, ponderada por el dinero que se
-lleva cada pieza. `floors.json` pasa de ser un filtro a ser la escala que traduce
-dinero a expectativa de gama.
+lleva cada pieza. `floors.json` pasa de ser un filtro a ser la escala de presupuestos
+que merece la pena probar para ver si subir el dinero cambia algo.
+
+**Una sola gama y un solo mínimo.** Durante un tiempo convivieron dos de cada: la gama
+que predecía `floors.json` y la que salía del build, el suelo de `floors.json` y el
+mínimo calculado del catálogo. Se contradecían en pantalla (el formulario decía "gama
+media" y el resultado "gama alta"). Ahora la verdad es siempre la que sale del motor:
+`Presupuesto.gamaResultante` y `Presupuesto.minimoEsencial`.
 
 Los precios son orientativos. Proyecto personal, sin relación con Volkswagen AG.
 
@@ -49,7 +55,7 @@ Página promocional de una sola página, publicada como Artifact de Claude:
   todavía no está lista. Se conectará cuando exista el binario (Fase 4).
 
 La landing la construyó el subagente `app-designer`. La herramienta real es este
-repositorio (`C:\Users\Manuel\Desktop\proyecto\Herramienta\JondaSiviz\JondaSiviz`).
+repositorio (`C:\Users\alexa\Desktop\JondaSiviz`).
 
 ---
 
@@ -76,15 +82,8 @@ vault/                 Red relacional autoría en Obsidian (fuente de verdad de 
   _meta.md               Versión de catálogo/modelos y moneda.
   Modelos/*.md            Un modelo VW por nota (frontmatter: chasis, motor, tracción, años; enlaces [[...]]).
   Piezas/*.md             Una pieza por nota (categoría, gama, precio, pesos por objetivo, dependencias, grupo exclusivo).
-  Plataformas/*.md        Nodo por plataforma de motor. Generado.
-  Chasis/*.md             Nodo por plataforma de chasis. Generado.
-  Categorias/*.md         Nodo por categoría de pieza. Generado.
-  Grupos/*.md             Nodo por grupo exclusivo. Generado.
-  Marcas/*.md             Nodo por marca con al menos una pieza. Generado.
-
-Las cinco carpetas de nodos generados no aportan datos al motor: son las que
-convierten el vault en una red navegable. Las escribe `escribirVault`, así que
-`npm run vault:export` las regenera y no se pueden quedar desincronizadas.
+  Plataformas/*.md        Nodos de contexto para el grafo de Obsidian.
+  Marcas/*.md             Nodos de contexto para el grafo de Obsidian.
 
 src/
   engine/              Lógica pura, sin UI.
@@ -92,21 +91,20 @@ src/
     format.ts            euros(). Única implementación, la usan interfaz, PDF y CLI.
     catalog.ts           Carga + validación del catálogo (ids únicos, dependencias, ciclos, rangos).
     graph.ts             Capa relacional en memoria: buscarModelo (id/nombre/alias) y piezasDeModelo.
-    compat.ts            Grafo de restricciones pieza <-> coche: encaje, fallos y legalidad.
     recommend.ts         Motor de recomendación (selección con restricción de presupuesto).
     index.ts             Barrel.
   agents/              Subagentes (deterministas; misma interfaz que tendría un LLM).
     clasificador-gama.ts     Reparte las piezas de un modelo en baja / media / alta.
-    selector-presupuesto.ts  Resuelve el modelo, calcula el suelo de gasto y delega en el motor.
+    selector-presupuesto.ts  Resuelve el modelo, delega en el motor y busca el siguiente escalón.
     index.ts
   ingest/
     obsidian.ts          Parser vault <-> JSON (las dos direcciones).
     run.ts               CLI de ingesta (export / ingest).
   data/               Generado desde el vault. NO editar a mano (salvo brands/floors).
-    catalog.json         98 piezas. Generado por `npm run vault:ingest`.
-    models.json          26 modelos VW. Generado por `npm run vault:ingest`.
+    catalog.json         59 piezas. Generado por `npm run vault:ingest`.
+    models.json          8 modelos VW. Generado por `npm run vault:ingest`.
     brands.json          Config a mano: niveles de marca y bandas de precio por categoría.
-    floors.json          Config a mano: gasto mínimo por gama y objetivo.
+    floors.json          Config a mano: escala de presupuestos a probar por objetivo.
   export/             Salida a documento.
     pdf.ts               Documento del presupuesto con pdfmake, cargado con import() dinámico.
     iconos-pdf.ts        Iconos vectoriales por categoría, como cadenas SVG.
@@ -116,15 +114,15 @@ src/
     icons.tsx           Familia de iconos de línea.
     theme.ts            Hook useTema (sistema por defecto, elección en localStorage `jondasiviz-tema`, `data-theme` en <html>).
     opciones.ts         Gamas y las 4 tarjetas de objetivo con su frase.
-    Formulario.tsx      Modelo con datalist, presupuesto (número + slider 500-30000), objetivos multi-selección, suelo y gama esperada en vivo.
+    Formulario.tsx      Modelo en desplegable agrupado por motor, presupuesto (número libre + barra con suelo en el mínimo del proyecto), objetivos multi-selección, gama del build en vivo y aviso de peligro por debajo del mínimo.
+    Elecciones.tsx      Selector plegable: por cada parte con varias alternativas, elige el comprador o el motor.
     Requisitos.tsx      Desglose en vivo: mínimo del proyecto y qué categorías entran y cuáles no. Se usa bajo los objetivos del formulario.
-    Resultado.tsx       Cabecera con chip de gama resultante, barra de gasto, aviso de suelo con botón "ver qué sale con X €", piezas por categoría (cada línea con su gama), invitación al siguiente escalón, siguientes mejoras.
+    Resultado.tsx       Cabecera con chip de gama resultante, barra de gasto, aviso de mínimo con botón "ver qué sale con X €", piezas por categoría (cada línea con su gama), invitación al siguiente escalón, siguientes mejoras.
     PiezasCompatibles.tsx  Panel plegable con pestañas baja/media/alta.
   App.tsx             Orquesta el estado y llama a crearSelector().seleccionar(...).
   App.css, index.css  Sistema visual (acento rojo GTI, tokens, tema claro/oscuro, grid 8pt, prefers-reduced-motion).
   cli/plan.ts         CLI para probar el motor sin interfaz.
-  cli/probar.ts       CLI de sondeo de compatibilidad (prueba y error).
-tests/               Vitest. 79 tests.
+tests/               Vitest. 80 tests.
 ```
 
 ### Flujo de datos
@@ -168,21 +166,11 @@ Pasos:
    un solo turbo / downpipe / embrague / diferencial / juego de llantas, filtro vs
    admisión completa). Si una dependencia comparte grupo con algo ya elegido, se da
    por cubierta y el motor usa la pieza superior en vez de duplicar.
-7. **Sustitución** (`sustituirEnGrupo`): cuando el relleno llega a una pieza cuyo grupo
-   ya está ocupado, en vez de descartarla evalúa el cambio. Entra si aporta más `valor`
-   a los objetivos que la montada, no depende de ella, la categoría de la que sale
-   sigue cubierta, y la diferencia cabe una vez que la saliente devuelve su dinero
-   (`cabeSustituyendo`). El sustituto hereda el motivo de la saliente cuando cubre su
-   misma categoría, así que un turbo-back que releva al downpipe del K04 sigue saliendo
-   como `dependencia`. Sin esto, la primera pieza que pillaba el grupo lo bloqueaba para
-   siempre, incluso siendo una dependencia barata fijada por el paso de esenciales.
-8. Devuelve: líneas agrupadas por categoría, total, sobrante, `gamaResultante`, avisos
+7. Devuelve: líneas agrupadas por categoría, total, sobrante, `gamaResultante`, avisos
    (categorías prioritarias que no han entrado) y hasta 3 mejoras siguientes con
-   "faltan X €". Una mejora que choca de `grupoExclusivo` con algo montado solo aparece
-   si es un cambio válido, y entonces lleva `sustituye` con la pieza a la que releva y
-   un `falta` que ya descuenta lo que esa pieza devuelve. No repiten grupo entre ellas:
-   sería la misma mejora contada dos veces.
-9. Y `esenciales` + `minimoEsencial` (`minimosEsenciales`): recorre las categorías
+   "faltan X €". Las mejoras descartan lo que choque de `grupoExclusivo` con algo ya
+   montado, y no repiten grupo entre ellas: sería la misma mejora contada dos veces.
+8. Y `esenciales` + `minimoEsencial` (`minimosEsenciales`): recorre las categorías
    prioritarias cogiendo la **más barata** de cada una con sus dependencias, sin límite
    de dinero, y marca cuáles cubre el presupuesto real. Lo compartido se cuenta una vez
    (si el turbo ya trae downpipe, cubrir escape sale a 0). La mecánica de selección
@@ -215,62 +203,6 @@ Con varios objetivos se combinan sin repetir.
 
 ---
 
-## 5b. El grafo de restricciones (`src/engine/compat.ts`)
-
-Responde a "¿puedo montar esta pieza en este coche?" con tres respuestas a la vez:
-si encaja, si va a dar algún fallo, y si el coche sigue pasando la ITV.
-
-`evaluar(pieza, modelo, { catalogo, montadas })` devuelve un veredicto
-(`compatible` | `con-avisos` | `incompatible`), si es `homologable`, la lista de
-hallazgos con su motivo y gravedad, las dependencias que arrastra y el coste total.
-
-Reglas, en orden:
-
-| Motivo | Qué comprueba |
-|---|---|
-| `propulsion` | Un eléctrico no tiene admisión, escape, turbo ni gestión. Un PHEV no admite reprogramación. |
-| `plataforma` | Piezas de motor y transmisión: la plataforma de motor del coche debe estar en la pieza. |
-| `chasis` | El resto de piezas: el chasis del coche debe estar en la pieza. Lista vacía = va por motor. |
-| `traccion` | La conversión de eje rígido para drift no tiene sentido en un 4Motion. |
-| `equipamiento` | `chocaCon` da fallo (coilover convencional en un coche con DCC), `exige` avisa de gasto inútil. |
-| `redundancia` | `sustituye` avisa de lo que el coche ya trae (VAQ, eje trasero vectorial, frenos de 357). |
-| `legalidad` | `solo-circuito` y `requiere-ficha`, propagando lo que arrastren las dependencias. |
-| `dependencia` | Resuelve `requiere` en cadena; una dependencia incompatible bloquea la pieza entera. |
-| `grupo` | Choque de `grupoExclusivo` con lo que ya está montado. |
-| `carga` | Turbo de impacto 5 sobre un DSG de serie sin embrague reforzado. |
-
-`encaja(pieza, modelo)` es el predicado base y lo usa también `piezasDeModelo` en
-`graph.ts`, para que la recomendación y el sondeo no puedan discrepar.
-
-Es **determinista**, no aprende. La capa de embeddings de la sección 8 se apoyaría en
-esta matriz: es el sustrato que le hace falta para entrenarse con algo.
-
-### Campos que lo alimentan
-
-En `Pieza`: `chasis`, `legalidad`, `traccion`, `sustituye`, `exige`, `chocaCon`.
-En `ModeloVW`: `propulsion`, `equipamiento`.
-
-`equipamiento` recoge la especificación europea más común de cada versión, no las
-opciones. El DCC va marcado en Clubsport, Edition 50 y los R, donde es de serie, y no
-en el GTI base, donde es opcional.
-
-### El bucle de prueba y error
-
-```bash
-npm run probar -- --modelo "Golf R Mk8" --pieza susp-coil-mqbevo-alta   # un par
-npm run probar -- --modelo "Golf GTI Mk8"        # las 98 piezas contra ese coche
-npm run probar -- --pieza turbo-k04-alta         # esa pieza contra los 26 coches
-npm run probar -- --matriz                       # 26 x 98, resumido
-npm run probar -- --listar-piezas
-```
-
-Los barridos son la parte que descubre cosas. Un ejemplo real: sondear el kit KW V3
-contra los 25 coches sacó que los kits específicos de Golf 8 aparecían también en
-coches MQB, porque el chasis se dedujo de las plataformas de motor y el 1.5 TSI vive
-en Golf 7 y en Golf 8. Se corrigió con un chasis explícito en esas cinco piezas.
-
----
-
 ## 6. Los subagentes (`src/agents/`)
 
 ### Clasificador de gama (`clasificador-gama.ts`)
@@ -293,61 +225,44 @@ en Golf 7 y en Golf 8. Se corrigió con un chasis explícito en esas cinco pieza
 
 - Resuelve el modelo con `buscarModelo` (id, nombre o alias; tolerante a acentos y
   mayúsculas). Si no lo reconoce: `modelo: null` + aviso con la lista de modelos.
-- Traduce dinero a gama con cuatro funciones puras y exportadas, para que la interfaz
-  las use en vivo sin calcular el presupuesto entero:
-  - `umbralGama(objetivos, gama)` = **suma** de `floors.json` -> `suelos[o][gama]`.
-    Pedir varias cosas a la vez sube el listón.
-  - `sueloDe(objetivos)` = `umbralGama(objetivos, "baja")`, el mínimo para que el
-    proyecto tenga sentido.
-  - `gamaEsperada(objetivos, presupuesto)` = gama más alta que cubre el dinero, o
-    `null` si no llega ni al suelo.
-  - `siguienteEscalon(objetivos, presupuesto)` = `{ gama, presupuesto }` del siguiente
-    escalón, o `null` si ya se está en alta. Es lo que alimenta el botón "ver qué sale
-    con X €".
-- `cumpleSuelo` = presupuesto >= suelo. Si no llega: aviso, **pero devuelve igualmente
-  lo que entra**. Antes en ese caso la lista salía casi vacía.
-- Devuelve `{ modelo, presupuesto, suelo, cumpleSuelo, gamaEsperada, siguienteEscalon, avisos }`.
+- `umbralGama(objetivos, gama)` (pura, exportada) = **suma** de `floors.json` ->
+  `suelos[o][gama]`. Pedir varias cosas a la vez sube el listón. Es lo único que queda
+  de `floors.json`: una escala de presupuestos que probar, no una predicción.
+- `siguienteEscalon`: recorre esa escala por encima del presupuesto actual, pasa cada
+  candidato por el motor y devuelve el primero que de verdad da un build de gama más
+  alta, con la gama **comprobada**. `null` si ninguno la sube. Alimenta el botón "ver
+  qué sale con X €". Antes salía de `floors.json` sin mirar el build y llegaba a
+  prometer una gama que la lista de piezas ya tenía.
+- `minimo` = `Presupuesto.minimoEsencial`, calculado por el motor sobre el catálogo.
+  Es el único mínimo del proyecto; ya no hay un suelo a mano compitiendo con él.
+- `cumpleMinimo` = presupuesto >= minimo. Si no llega: se marca, **pero devuelve
+  igualmente lo que entra**. Antes en ese caso la lista salía casi vacía.
+- Devuelve `{ modelo, presupuesto, minimo, cumpleMinimo, siguienteEscalon, avisos }`.
+  Los avisos son los del motor tal cual: el selector ya no antepone ninguno, así que
+  la interfaz no depende de qué índice ocupa cada uno.
 
 ---
 
 ## 7. Datos
 
-### Modelos (`src/data/models.json`, 26)
+### Modelos (`src/data/models.json`, 187)
 
-**Los 8 originales**: Golf GTI Mk5 (EA113, PQ35) · Golf GTI Mk7 (EA888, MQB) ·
-Golf R Mk7 (EA888, MQB, tracción total) · Scirocco R (EA888, PQ35) ·
-Polo GTI 6C (EA888, PQ25) · Golf Mk4 1.8T (1.8T-20v, PQ34) · Corrado VR6 (VR6, A2) ·
-Golf GTD Mk6 (TDI, PQ35).
+Veinte años del grupo Volkswagen, de 2006 a 2026: Volkswagen, SEAT, Cupra, Škoda y Audi.
+El mapa completo, con el porqué de cada plataforma, está en
+`INVESTIGACION_GRUPO_VW_20_ANIOS.md`.
 
-**Los 17 añadidos desde los PDFs de `Datos/`**, todos MQB o MQB Evo:
+Cada modelo enlaza con **dos** cosas, y esa es la clave de que 187 coches no necesiten
+187 catálogos:
 
-- GTI sobre `EA888-evo4`: Golf GTI Mk8 (245) · Clubsport Mk8 (300) · Clubsport 45 (300) ·
-  Golf GTI Mk8.5 (265) · Clubsport Mk8.5 (300) · Edition 50 (325).
-- R sobre `EA888-evo4`, todos 4Motion: Golf R Mk8 (320) · R Variant Mk8 (320) ·
-  R 333 Limited Edition (333) · R 20 Years (333) · Golf R Mk8.5 (333) · R Variant Mk8.5 (333).
-- Diésel sobre `EA288-evo`: Golf GTD Mk8 (200) · Golf GTD Mk8.5 (200).
-- Los otros tres "R" de la gama, sobre `EA888` gen3 y 4Motion: T-Roc R (300) ·
-  Tiguan R (320) · Arteon R (320).
-- Golf Mk7 1.6 TDI (105-115 CV, `EA288-16`, chasis MQB, 2013-2020). No sale en los dos
-  PDFs, que solo desglosan el Mk8; se añadió a mano. Va en **plataforma propia**, no en
-  `EA288`, porque el 1.6 tiene otro turbo, otros inyectores y un techo de 165-175 CV:
-  compartir las piezas del 2.0 le habría dado presupuestos con cifras que no son suyas.
+- una **plataforma de motor** (26), que conecta con admisión, escape, turbo y gestión;
+- un **chasis** (16), que conecta con suspensión, frenos, dirección, ruedas, seguridad y
+  estética.
 
-Cada modelo enlaza con una **plataforma de motor**, que es lo que conecta con las piezas.
-Hay trece: las cinco originales (`1.8T-20v`, `EA113`, `EA888`, `VR6`, `TDI`), siete
-añadidas con los coches de los PDFs (`EA888-evo4`, `EA211`, `EA211-evo`, `EA211-PHEV`,
-`EA288`, `EA288-evo`, `MEB`) y `EA288-16` para el 1.6 TDI.
+Un Golf 8 GTI, un Cupra León, un Octavia RS y un Audi S3 8Y son el mismo `EA888-evo4`
+sobre el mismo `MQB Evo`: comparten casi todo el catálogo. Por eso los modelos crecieron
+×7 y las piezas solo ×2,5.
 
-La lista es **cerrada**: vive a la vez en el tipo `Plataforma` de `src/engine/types.ts` y
-en la constante `PLATAFORMAS` de `src/engine/catalog.ts`. Añadir una pieza con una
-plataforma que no esté en las dos hace que `npm run vault:ingest` falle con
-"plataforma desconocida".
-
-Tienen catálogo profundo el **Mk5 / EA113** y el **Golf 8 / EA888-evo4**. `EA211`,
-`EA211-evo`, `EA211-PHEV` y `MEB` tienen piezas en el catálogo pero **ningún modelo que
-las use** todavía: son los 1.0 y 1.5 TSI, el GTE y los ID.*, que no se han poblado.
-
-### Catálogo (`src/data/catalog.json`, 98 piezas, v0.2.0)
+### Catálogo (`src/data/catalog.json`, 243 piezas, v0.2.0)
 
 Cada pieza:
 
@@ -372,14 +287,10 @@ Categorías: `admision`, `escape`, `turbo`, `gestion`, `suspension`, `transmisio
 `frenos`, `direccion`, `seguridad`, `ruedas`, `estetica`.
 
 Cadenas de dependencia destacadas:
-- **Turbo híbrido K04-064** (`turbo-k04-alta`, EA113) arrastra FMIC + admisión +
-  downpipe + HPFP + calibración Stage 2+.
-- **Big turbo** (`turbo-bigturbo-alta`, EA113) arrastra FMIC Stage 3 + turbo-back +
+- **Turbo híbrido K04-064** (`turbo-k04-alta`) arrastra FMIC + admisión + downpipe +
+  HPFP + calibración Stage 2+.
+- **Big turbo** (`turbo-bigturbo-alta`) arrastra FMIC Stage 3 + turbo-back +
   alimentación Stage 3 + gestión standalone.
-- **Turbo híbrido evo4** (`turbo-hibrido-evo4-alta`) arrastra FMIC + admisión +
-  downpipe + bomba de alta y calibración Stage 2 E85.
-- **Turbo híbrido EA288 evo2** (`turbo-hibrido-ea288-alta`) arrastra intercooler +
-  downpipe sin DPF + Stage 2 + inyectores.
 
 Grupos exclusivos definidos: `intercooler`, `admision-filtro`, `remap`,
 `turbo-principal`, `altura`, `downpipe`, `embrague`, `diferencial`,
@@ -394,7 +305,7 @@ Grupos exclusivos definidos: `intercooler`, `admision-filtro`, `remap`,
 `bandasPrecio`: por categoría, `{ baja: <=X, media: <=Y }`. Precio <= baja -> baja;
 <= media -> media; si no -> alta.
 
-### `floors.json` (escala de gama por objetivo)
+### `floors.json` (escala de presupuestos a probar, por objetivo)
 
 ```
 drift:    baja 1200, media 3000, alta 8000
@@ -403,9 +314,10 @@ mas-cv:   baja 500,  media 1500, alta 5000
 estetica: baja 400,  media 1500, alta 5000
 ```
 
-El umbral de una combinación de objetivos es la suma de estos valores. La columna
-`baja` es además el **suelo real** del proyecto: por debajo, avisa. Las otras dos son
-referencia para situar el presupuesto en una gama.
+El umbral de una combinación de objetivos es la suma de estos valores. No deciden nada
+del resultado: son los presupuestos que `siguienteEscalon` prueba contra el motor para
+ver si poner más dinero sube de gama. El mínimo del proyecto sale del catálogo
+(`minimoEsencial`), no de aquí.
 
 ---
 
@@ -443,103 +355,179 @@ referencia para situar el presupuesto en una gama.
   las mejoras ya no chocan de grupo ni con lo montado ni entre ellas. Datos: se agrupan
   las dos jaulas en `jaula`, y el set de llantas sacrificables entra en `llantas` con
   peso 0 de estética (se colaba en builds de estética por no tener grupo). 52 tests.
-- **(f) Gama europea: Golf 8 y los "R"** — a partir de dos PDFs con la gama VW europea
-  (`proyecto/Datos/vw_europa_modelos_1.pdf`, 28 modelos, y
-  `vw_europa_golf_variantes.pdf`, 23 variantes de Golf Mk8 y Mk8.5) se amplía el
-  catálogo de 59 a **93 piezas** y de 8 a **25 modelos**. Se abren siete plataformas de
-  motor (`EA888-evo4`, `EA211`, `EA211-evo`, `EA211-PHEV`, `EA288`, `EA288-evo`, `MEB`)
-  en `types.ts` y `catalog.ts`, con precios y marcas reales de proveedores europeos
-  (Unitronic, APR, Integrated Engineering, 034Motorsport, Milltek, Wagner, do88,
-  Eventuri, KW, MuchBoost, MACHGRADE, RacingLine). Se añade `vault/Piezas por coche.md`,
-  el índice que relaciona los 51 coches con sus piezas para el grafo de Obsidian. La
-  investigación completa, con el mapa coche -> chasis -> motor y las fichas de las 34
-  piezas nuevas, está en `proyecto/INVESTIGACION_PIEZAS.md`. 59 tests.
-- **(g) Grafo de restricciones y saneado de la red** — el vault pasa de ser una lista
-  de fichas a una red navegable: 155 nodos con 6 enlaces rotos, 1 duplicado
-  (`Ta Technix` / `Ta-Technix`, que venía de una clave repetida en `brands.json`) y 66
-  nodos aislados, a **204 nodos, 0 rotos, 0 duplicados y 0 aislados**. Se añaden cuatro
-  tipos de nodo de contexto (chasis, categoría, grupo exclusivo, marca) y los enlaces
-  pasan de ~1.000 a ~3.900. Las notas de pieza y de modelo las escribe ahora
-  `escribirVault` con la matriz de compatibilidad ya calculada, así que el grafo no
-  puede desincronizarse del catálogo. En el motor entra `compat.ts` (sección 5b) con
-  seis campos nuevos en `Pieza` y dos en `ModeloVW`, y el CLI `npm run probar`. 79 tests.
-- **(h) Golf Mk7 1.6 TDI** — primer coche que no sale de los PDFs. Plataforma propia
-  `EA288-16` y cinco piezas suyas con precios y potencias reales (Celtic Tuning,
-  Superchips, Darkside Developments, Wagner, Forge, BorgWarner/KKK). Se corrige de paso
-  el filtro de aire, que estaba limitado a las cinco plataformas antiguas y dejaba sin
-  nada de admisión a todos los TDI y TSI modernos: pasa de 5 a 11 plataformas. Catálogo
-  de 93 a **98 piezas**, modelos de 25 a **26**, marcas de 43 a **48**. El grafo sigue
-  en 0 enlaces rotos, 0 duplicados y 0 nodos aislados, con 215 nodos.
 
-- **(i) Sustitución dentro del grupo exclusivo** — cierra el pendiente 1. Hasta ahora la
-  primera pieza que ocupaba un grupo lo bloqueaba para siempre: el downpipe de 420 € que
-  entra como dependencia del K04 dejaba fuera al turbo-back de 1.000 €, que lo incluye y
-  aporta más, aunque sobrase dinero. Ahora el paso de relleno, cuando el grupo está
-  ocupado, evalúa el cambio: si la entrante aporta más `valor` a los objetivos, la
-  saliente devuelve su dinero y la diferencia cabe, se hace la sustitución. En el Mk5
-  drag con 20.000 € el escape pasa del downpipe al turbo-back, marcado `[dependencia]`
-  porque sigue cubriendo lo que el turbo exige. Lo que no cabe se ofrece como mejora con
-  `sustituye` y el `falta` ya descontado el reembolso ("faltan 515 €", no 1.000 €).
-  Tres guardas impiden cambios que rompan el plan: el sustituto no puede depender de la
-  pieza a la que sustituye, la categoría de la saliente no puede quedarse sin cubrir, y
-  el cambio nunca se pasa del presupuesto. 86 tests.
+- **(e) Coherencia: una gama, un mínimo, avisos que no se contradicen** — cuatro
+  arreglos sobre lo anterior:
+  1. El motor avisaba de "no entra nada de escape" con el downpipe en la lista. Los
+     huecos se miraban en el paso de esenciales, que no ve lo que tapan las
+     dependencias ni el relleno; ahora salen de la selección final, así que un aviso
+     no puede contradecir a `esenciales[].cubierta`. El paso de esenciales además
+     salta una categoría ya cubierta en vez de comprarle una segunda pieza.
+  2. Se elimina `gamaEsperada`: la gama del build es solo `gamaResultante`. El
+     formulario y el resultado decían gamas distintas a la vez.
+  3. `siguienteEscalon` pasa a comprobarse contra el motor en vez de leerse de
+     `floors.json`. Antes prometía subir a una gama que el build ya tenía.
+  4. Se elimina `sueloDe`: el mínimo del proyecto es solo `minimoEsencial`. El
+     formulario mostraba 1500 € (floors) y el desglose de debajo 1825 € (catálogo).
 
-- **(j) a (p): el grupo Volkswagen entero, 2006-2026** — de 26 a **187 modelos** y de 98 a
-  **243 piezas**, con VW, SEAT, Cupra, Škoda y Audi. La investigación previa está en
-  `INVESTIGACION_GRUPO_VW_20_ANIOS.md`. Siete fases:
-  - **(j)** Modelo de datos: chasis de 7 a 16, plataformas de motor de 13 a 26,
-    `Traccion` gana `trasera`, `Propulsion` gana `mhev` y `Equipamiento` ocho valores.
-    `EA888` se parte en `EA888-gen2` y `EA888-gen3`. Dos correcciones de dato: el Golf
-    GTD Mk6 estaba como bomba-inyector llevando common rail `EA189`, y el Scirocco R
-    pasa a `EA113`, que es el bloque de su CDLA.
-  - **(k)** Volkswagen: 41 coches y 40 piezas (EA111, EA189, EA189-16, gen2, gen3).
-  - **(l)** SEAT, Cupra y Škoda: 43 coches y 33 piezas, con el 2.5 TFSI y el chasis de
-    PQ24, PQ46, MQB-A0 y NSF.
-  - **(m)** Audi transversal: 25 coches y 8 piezas (Haldex y Magnetic Ride).
-  - **(n)** Audi longitudinal: 35 coches y 39 piezas (EA837, EA839, EA825, V8-FSI,
-    EA897, EA824, y el chasis MLB, MLB Evo y PL71).
-  - **(o)** Eléctricos: 17 coches y 11 piezas. Ninguna de motor: en un BEV del grupo la
-    potencia va cerrada y `compat.ts` ya bloquea esas categorías por propulsión.
-  - **(p)** MQB Evo deja de ser el chasis pobre: 14 piezas de dirección, seguridad,
-    estética, suspensión y frenos. Cierra el pendiente 4. `brands.json` de 55 a 72.
-  - Y el chasis entra en `generarPresupuesto`, que cierra el pendiente 5: hasta ahora
-    el pool se armaba solo por motor y las piezas que van por chasis no llegaban a
-    ningún presupuesto. Un Golf 8 pedía drift y no recibía nada de dirección.
-  89 tests, typecheck, lint y build en verde. Vault: 563 notas.
+  De paso: `Resultado` ya no depende de que el aviso de mínimo sea `avisos[0]` (ese
+  índice se rompía sin objetivos), se quita el copy que aún pedía "baja la gama", y la
+  CLI y el PDF normalizan el orden de objetivos como el motor. 80 tests.
+
+- **(f) El mínimo como suelo real de la barra** — encargo: que la barra de presupuesto
+  no deje bajar del mínimo, avisando de que por debajo puede ser fatal. Para que ese
+  suelo no fuese decorativo hubo que arreglar antes el motor:
+  1. **Reserva en el paso de esenciales**: antes de gastar en una categoría se reserva
+     lo que cuesta cubrir por lo mínimo las que vienen detrás. Cierra el pendiente de
+     starvation: drag con 4.000 € dejaba fuera transmisión, frenos y ruedas, y ahora
+     con el mínimo justo (1.825 €) entran todas. Hay un test que lo comprueba con los
+     8 modelos × 6 combinaciones de objetivos, así que un coche nuevo del vault entra
+     solo en la garantía.
+  2. **`frenos` pasa a ser esencial de `mas-cv`**. No lo era: un build de ganar
+     caballos montaba el K04 y dejaba el freno de serie sin decir nada. El mínimo de
+     `mas-cv` sube de 995 € a 1.175 €.
+  3. **`fraseRiesgo(presupuesto)`** en el motor: distingue "el proyecto está a medias"
+     de "el coche es peligroso". Solo llama peligro a `frenos`, `ruedas`, `direccion` y
+     `seguridad`, solo si hay un objetivo de marcha (`drift`/`drag`/`mas-cv`) en juego,
+     y solo si el catálogo puede servir esa categoría para ese motor (si no, es un
+     hueco de datos, no algo que el usuario arregle con dinero). Lo usan formulario,
+     resultado, PDF y CLI, así que los cuatro dicen la misma frase.
+  4. **UI**: el `min` de la barra es `minimoEsencial`. Se puede escribir a mano una
+     cifra menor, y entonces sale el aviso con un botón "subir a X €". No se bloquea el
+     cálculo: sigue devolviendo lo que entra, que era una decisión ya tomada. 80 tests.
+  5. **Datos**: las cuatro piezas de freno tenían peso `mas-cv` 0 salvo unas pastillas
+     con 1, así que un build de caballos no podía llegar a un freno serio ni con dinero.
+     Ahora pastillas y traseros van a 2, discos delanteros a 3 y big brake a 3, en la
+     misma escala del resto (5 remaps, 4 turbo y downpipe, 3 intercooler y alimentación,
+     1 embrague y diferencial). El freno escala con el presupuesto: pastillas de 180 €
+     en el mínimo, discos de 400 € sobre 2.500 €, big brake de 1.350 € a partir de
+     4.000 €. El mínimo de `mas-cv` no se mueve (1.175 €), porque el cálculo del mínimo
+     coge la opción más barata de cada categoría.
+  6. **Datos**: `fren-pastillas-baja` entra en el grupo `frenos-delanteros`, donde ya
+     estaban el big brake y los discos de dos piezas. Le faltaba la etiqueta, así que
+     con presupuesto amplio salía el kit big brake **y además** las pastillas y los
+     latiguillos que ese kit ya incluye: 180 € pagados dos veces. Pasaba en drift y
+     drag desde antes, y salió a la luz al darle peso a los frenos en `mas-cv`. Los
+     traseros siguen sin grupo, que son del otro eje y sí suman. Test nuevo que barre
+     objetivos y presupuestos comprobando que ningún grupo exclusivo sale repetido en
+     una misma lista. 80 tests.
+
+- **(g) Elige el comprador, elige el motor** — tres encargos del usuario:
+  1. **Drift y drag dejan de combinarse.** Piden preparaciones contrarias. La regla vive
+     en el motor (`INCOMPATIBLES`, `enConflictoCon`, `conflictosEn`, `alternarObjetivo`),
+     la comparten web y CLI. Al marcar uno se suelta el otro; `mas-cv` y `estetica` se
+     suman con cualquiera. La tarjeta que va a soltar a otra se marca antes de pulsar.
+     Test que recorre todas las secuencias de hasta 4 clics: no hay camino que los junte.
+  2. **El modelo pasa a `<select>`** agrupado por plataforma de motor, pensando en que la
+     lista va a crecer. Los `optgroup` salen del campo `motor`, sin configurar nada. Se
+     va el "no reconozco ese modelo" y sus chips, que ya no pueden pasar. El estado deja
+     de ser texto libre (`modeloTexto`) y pasa a ser el id (`modeloId`).
+  3. **Selector de piezas concretas.** `PeticionPresupuesto.elecciones` (ids) y un paso 0
+     en el motor que las mete antes que nada, con `motivo: "elegida"`. `gruposElegibles`
+     saca del catálogo las partes con dos o más alternativas compatibles; el eje son los
+     `grupoExclusivo`, así que unos parachoques nuevos en el vault aparecen solos.
+     `minimosEsenciales` acepta las elecciones, así que el suelo de la barra sube al
+     pedir una pieza cara. El selector filtra lo que no aplica al coche actual sin
+     borrarlo. UI en `src/ui/Elecciones.tsx`, plegable bajo los objetivos.
+
+  Datos: los dos kits de carrocería (`est-widebody-alta`, `est-bodykit-media`) entran en
+  el grupo `carroceria`; les faltaba y el motor los montaba los dos a la vez. 80 tests.
+
+- **(h) La barra va del mínimo al techo útil** — la barra iba de 500 a 30.000 fijos y la
+  casilla del número rechazaba cifras fuera del `step` con el mensaje del navegador
+  ("los dos valores válidos más cercanos son 9000 y 9100"). Ahora:
+  1. `noValidate` en el formulario: se puede escribir la cifra exacta que uno tenga. El
+     `step` de 100 se queda solo para las flechas del teclado.
+  2. Nuevo `techoUtil(catalogo, plataforma, objetivos, elecciones)` en el motor: pasa el
+     motor con un tope que no puede limitar y devuelve lo gastado. Es un punto fijo
+     (con ese dinero exacto salen las mismas decisiones que sin límite) y está ajustado
+     (con 100 € menos ya cambia la lista). Test en 8 modelos × 6 objetivos.
+  3. La barra va de `minimoEsencial` a `techoUtil`, ambos redondeados al centenar hacia
+     arriba, porque un `range` cuenta sus pasos desde su propio `min` y con un mínimo de
+     1.825 € las posiciones eran 1.825, 1.925... Mk5 drag: 1.900-21.700 en saltos de 100.
+  4. Aviso gris con botón "ajustar" al escribir por encima del techo, simétrico al de
+     peligro por debajo del mínimo. 80 tests.
+
+### Rediseño visual (agosto 2026)
+
+Cambio completo de piel, sin tocar el motor. El sistema pasa de una base clara tipo Apple
+a uno oscuro, industrial: trama de carbono, hairlines en vez de sombras, radio de 2 px,
+Archivo para titulares y JetBrains Mono para toda cifra o etiqueta técnica, y un solo
+acento rojo (`#E3121C`) reservado al estado activo, al peligro y a los índices.
+
+Decisiones que conviene no deshacer sin motivo:
+
+1. **Se quitó el tema claro** (`src/ui/theme.ts` borrado). Mantener dos paletas del sistema
+   entero costaba más de lo que aportaba, y un taller con dos modos pierde carácter.
+2. **La escena 3D vive en `src/landing/`, no en `src/ui/`.** La portada es HTML plano sin
+   React por diseño; meter el visor en el bundle de la app habría obligado a cargar React y
+   `three` a quien solo mira la portada.
+3. **El Civic está modelado a mano, no descargado.** Un `.glb` decente son varios megas y
+   una licencia que vigilar. La carrocería es un casco lofteado por secciones (ver el
+   README): la forma vive en cuatro tablas de curvas y el reparto chapa/cristal/bajos es
+   una regla geométrica, no una lista de piezas. Se puede cambiar la forma del coche
+   editando números, que es justo lo que no permitiría un modelo importado.
+
+   Se probó antes con un perfil lateral extruido y se descartó: daba un coche de costados
+   planos, sin caída de techo y con los pasos de rueda como arcos pintados.
+4. **El mapa de entorno es un canvas pintado a mano** pasado por `PMREMGenerator`. Es lo
+   que hace que la chapa refleje. Sin él, con solo luces, el metal se ve mate.
+5. **Los ángulos de las vistas fijas están calculados contra `AZIMUT = 0.55`.** Si se mueve
+   la cámara hay que recalcular los tres giros de `VISTAS` o las vistas se descuadran.
+6. **El icono de escritorio se genera, no se dibuja.** `herramientas/generar-iconos.py`
+   escribe los quince PNG, el `.ico` y el `.icns` a partir de la misma marca que lleva la
+   barra superior de la web, dibujada a 4x y reducida con Lanczos. Editar el icono es
+   editar ese script y volver a ejecutarlo, no abrir quince archivos.
+7. **La CSP de Tauri tuvo que abrirse a Google Fonts.** Con la anterior, el navegador
+   embebido bloqueaba las tipografías y la app de escritorio caía a las del sistema. Lo
+   correcto a medio plazo es servirlas desde `public/` y volver a cerrar la CSP.
+8. La guía de estilo de `.claude/` se reescribió (`racing-atelier-style-guide`) y la
+   anterior se borró. Si se hubiera dejado, la siguiente pantalla que se le pidiese a Claude
+   Code habría vuelto al estilo claro.
+
+- **(i) a (p): sustitución dentro del grupo y el grupo VW entero** — el motor deja de
+  bloquear un grupo exclusivo para siempre: si una pieza aporta más que la que lo ocupa,
+  la sustituye y recupera su dinero, aunque la saliente hubiera entrado como dependencia.
+  El turbo-back releva al downpipe que exige el K04. Lo que no cabe se ofrece como cambio,
+  con `sustituye` y el `falta` ya descontado el reembolso.
+
+  Con eso resuelto, los datos pasan de 26 a **187 modelos** y de 98 a **243 piezas**:
+  Volkswagen, SEAT, Cupra, Škoda y Audi de 2006 a 2026, en siete fases. Chasis de 7 a 16,
+  plataformas de motor de 13 a 26, `EA888` partido en gen2 y gen3, `Traccion` con
+  `trasera` (el ID.3 y el Born son de propulsión trasera), `Propulsion` con `mhev` y ocho
+  valores nuevos de `Equipamiento` para poder decirle a un RS6 que sus cerámicos ya son
+  mejores que el big brake que se le iba a ofrecer.
+
+  Tres arreglos de motor que salieron por el camino:
+
+  - El catálogo exigía plataforma de motor a **toda** pieza, imposible de cumplir para
+    unos coilovers, que no miran si el coche es TSI o TDI. Ahora vale motor o chasis.
+  - `generarPresupuesto` armaba el pool solo por motor, así que las piezas que van por
+    chasis no llegaban a ningún presupuesto: un Golf 8 pedía drift y salía sin dirección.
+  - La reserva del paso de esenciales apartaba dinero para categorías que la propia pieza
+    elegida dejaba sin opciones, y con el techo justo salía un plan distinto al de dinero
+    infinito. Se calcula por candidata y mirando qué grupos bloquea.
+
+  106 tests, typecheck, lint y build en verde.
 
 ### Pendientes
 
 1. **Fase 3b** — Guardar builds (localStorage o archivo) y exportar a CSV. El PDF ya
    está hecho.
-2. **Fase 4** — Empaquetar el escritorio con Tauri (requiere instalar Rust), build
-   web, y conectar el botón de descarga de la landing.
-3. **Piezas sin modelo que las use**: `EA211`, `EA211-evo` (los 1.0 y 1.5 TSI del Polo,
-   T-Cross, Taigo, T-Roc y Golf 8 base), `EA211-PHEV` (GTE) y `MEB` (los ID.*) tienen
-   piezas en el catálogo pero ninguna ficha de modelo. Están mapeados en
-   `INVESTIGACION_PIEZAS.md`, solo falta escribir las notas de `vault/Modelos/`. Las
-   reglas de `propulsion` (bev y phev) están implementadas y con tests, pero no las
-   dispara ningún coche real hasta que existan esas fichas.
-4. **Catálogo de chasis MQB Evo muy corto.** Con el filtro por chasis en marcha se ve
-   que un Golf 8 solo tiene 26 piezas compatibles frente a las 59 de un Mk5: faltan
-   entradas de seguridad, estética y dirección para MQB Evo. La matriz de
-   `npm run probar -- --matriz` lo enseña de un vistazo.
-5. **Llevar el filtro de chasis también a `recommend.ts`.** Hoy `generarPresupuesto`
-   sigue armando el pool por plataforma de motor, mientras que `piezasDeModelo` y el
-   sondeo ya usan `encaja`. Coinciden en la práctica porque el selector resuelve el
-   modelo antes, pero son dos caminos distintos y conviene unificarlos.
+2. **Fase 4** — Empaquetar el escritorio con Tauri, build web, y conectar el botón de
+   descarga de la landing.
 3. **Capa de embeddings** (la parte "neuronal") sobre los datos ya poblados. Ahora tiene
-   sustrato: la matriz de `compat.ts` es lo que le faltaba para entrenarse con algo.
+   sustrato de verdad: 187 modelos y 243 piezas con su matriz de compatibilidad.
 4. **Opción con API de LLM** para los subagentes, cuando se decida salir del modo
    100% offline.
-5. Afinar la matriz `floors.json` y los pesos por objetivo del catálogo con uso real.
-   Los suelos actuales se calibraron con un Mk5 de 2005 y se quedan cortos para el
-   Golf 8: con 8.000 € para `drag + mas-cv`, un GTI Mk8 cumple el suelo de sobra y aun
-   así se queda sin transmisión, frenos ni ruedas.
-6. **Starvation entre categorías esenciales**: sin filtro de gama, una categoría que
-   va primero puede llevarse todo el dinero y dejar sin nada a las siguientes (drag con
-   4.000 € se va entero en el paquete del K04 y no entran transmisión, escape ni
-   frenos). Ahora se avisa, que es honesto, pero se podría reservar parte del
-   presupuesto para las categorías esenciales que quedan por cubrir.
+5. Afinar la matriz `floors.json` y los pesos por objetivo con uso real. Se calibró con
+   un Mk5 de 2005 y se queda corta para los V8 de Audi, donde un Stage 1 son 1.800 €.
+6. **Catálogo corto en las plataformas nuevas**: MLB, MLB Evo, PL71, PPE y J1 tienen
+   entre cinco y siete piezas de chasis cada una. Es honesto para PPE y J1, donde el
+   mercado casi no existe, pero MLB y MLB Evo suman 34 coches y merecen más.
+7. **Decisiones abiertas** de `INVESTIGACION_GRUPO_VW_20_ANIOS.md`: el Audi R8, el SEAT
+   Exeo y el Q8 e-tron se dejaron fuera, y el Golf VI R y el Scirocco R se asignaron a
+   `EA113` a falta de confirmación de taller.
 
 ---
 
@@ -547,7 +535,7 @@ referencia para situar el presupuesto en una gama.
 
 ```bash
 npm install
-npm test                 # 79 tests (Vitest)
+npm test                 # 80 tests (Vitest)
 npm run typecheck        # tsc -b --noEmit
 npm run build            # type-check + build de producción
 
@@ -556,14 +544,6 @@ npm run dev              # arranca la interfaz en http://localhost:5173
 npm run plan -- --listar-modelos
 npm run plan -- --modelo "Golf GTI Mk5" --presupuesto 4000 --objetivo drag
 npm run plan -- --modelo mk5 --presupuesto 12000 --objetivo drift,estetica
-npm run plan -- --modelo "Golf GTI Mk8" --presupuesto 8000 --objetivo mas-cv,drag
-npm run plan -- --modelo "gtd mk8" --presupuesto 6000 --objetivo mas-cv
-
-npm run probar -- --modelo "Golf R Mk8" --pieza susp-coil-mqbevo-alta
-npm run probar -- --modelo "Golf GTI Mk8"    # barrido de las 98 piezas
-npm run probar -- --pieza turbo-k04-alta     # barrido de los 26 coches
-npm run probar -- --matriz                   # la matriz 26 x 98, resumida
-npm run probar -- --listar-piezas
 
 npm run vault:ingest     # vault/ -> src/data/catalog.json + models.json
 npm run vault:export     # src/data/*.json -> vault/
@@ -576,8 +556,7 @@ coma, de `drift|drag|mas-cv|estetica`.
 
 ## 10. Estado de git
 
-- Local: `C:\Users\Manuel\Desktop\proyecto\Herramienta\JondaSiviz\JondaSiviz`, rama `main`.
-  (La ruta anterior, `C:\Users\alexa\Desktop\JondaSiviz`, era la de la máquina antigua.)
+- Local: `C:\Users\alexa\Desktop\JondaSiviz`, rama `main`.
 - Remoto: **https://github.com/JondaSivizVolkswagen/jondasiviz** (privado), cuenta de
   GitHub `JondaSivizVolkswagen`. `origin/main` al día.
 
@@ -609,10 +588,9 @@ nueva no hay auth: `gh auth login` (interactivo) o `gh auth login --with-token`.
 
 ## 11. Cómo retomar en una sesión o cuenta nueva de Claude Code
 
-1. Abrir Claude Code en `C:\Users\Manuel\Desktop\proyecto\Herramienta\JondaSiviz\JondaSiviz`.
-2. Pedirle que lea este `PROYECTO.md`, el `README.md` y, si toca datos, el
-   `INVESTIGACION_PIEZAS.md` de `proyecto/`.
-3. `npm install` y `npm test` para confirmar que todo pasa (59 tests).
+1. Abrir Claude Code en `C:\Users\alexa\Desktop\JondaSiviz`.
+2. Pedirle que lea este `PROYECTO.md` y el `README.md`.
+3. `npm install` y `npm test` para confirmar que todo pasa (80 tests).
 4. `npm run dev` para ver la interfaz.
 5. Continuar por la lista de **Pendientes** (sección 8).
 
@@ -621,7 +599,7 @@ conversación anterior ni de la cuenta.
 
 ---
 
-## 12. Entorno de Claude Code del usuario (`C:\Users\Manuel\.claude\`)
+## 12. Entorno de Claude Code del usuario (`C:\Users\alexa\.claude\`)
 
 Esto es **local a la máquina**, no a la cuenta premium. Cambiar de cuenta no lo
 borra ni lo modifica. Se documenta aquí como copia de seguridad portable.
@@ -629,11 +607,12 @@ borra ni lo modifica. Se documenta aquí como copia de seguridad portable.
 ### Archivos de configuración
 
 - `~/.claude/CLAUDE.md` — instrucciones globales del usuario para todos los proyectos.
-  Incluye la "Política de modelo adaptativo" (Haiku o Fable para lo simple, Sonnet para
-  desarrollo estándar, Opus solo para lo complejo), reglas generales (nunca
-  `sudo npm install -g`; invocar `app-designer` para cualquier trabajo de UI/UX; etc.),
-  la rutina de cierre de sesión, y una sección "Por ruta/proyecto" con el bloque de
-  contexto de JondaSiviz. Importa `@RTK.md`.
+  Incluye la "Política de Inteligencia Adaptativa" (elige nivel de razonamiento solo),
+  reglas generales (nunca `sudo npm install -g`; mantener catálogos al día;
+  invocar `app-designer` para cualquier trabajo de UI/UX; elegir el modelo más
+  óptimo entre Haiku/Sonnet/Opus/Fable; etc.), la rutina de cierre de sesión, y una
+  sección "Por ruta/proyecto" con el bloque de contexto de JondaSiviz. Importa
+  `@RTK.md` y `@SKILLS_AGENTES.md`.
 - `~/.claude/SKILLS_AGENTES.md` — catálogo de todo lo personalizado (ver abajo). Se
   carga siempre.
 - `~/.claude/RTK.md` — referencia de RTK.
@@ -648,7 +627,7 @@ borra ni lo modifica. Se documenta aquí como copia de seguridad portable.
 
 ### Skills (`~/.claude/skills/`)
 
-- **apple-minimal-style-guide** — sistema de diseño visual fijo tipo Apple (color,
+- **racing-atelier-style-guide** — sistema de diseño visual fijo del proyecto (color,
   tipografía, iconos, espaciado, movimiento). Solo cambia el acento por proyecto.
 - **design-research** — investiga en internet patrones de UX y arquitectura de
   información según el tipo de producto, antes de construir. No decide nada visual.
@@ -685,27 +664,3 @@ borra ni lo modifica. Se documenta aquí como copia de seguridad portable.
 3. Copiar `%APPDATA%\caveman\config.json`.
 4. Instalar el binario `rtk.exe` en `~/.local/bin/` (de `rtk-ai/rtk`).
 5. Abrir Claude Code: cargará CLAUDE.md y SKILLS_AGENTES.md solo, con todo disponible.
-### Pendientes
-
-1. **Fase 3b** — Guardar builds (localStorage o archivo) y exportar a CSV. El PDF ya
-   está hecho.
-2. **Fase 4** — Empaquetar el escritorio con Tauri (requiere instalar Rust), build
-   web, y conectar el botón de descarga de la landing.
-3. **Capa de embeddings** (la parte "neuronal") sobre los datos ya poblados. Ahora tiene
-   sustrato de verdad: 187 modelos y 243 piezas con su matriz de compatibilidad.
-4. **Opción con API de LLM** para los subagentes, cuando se decida salir del modo
-   100% offline.
-5. Afinar la matriz `floors.json` y los pesos por objetivo del catálogo con uso real.
-   Los suelos se calibraron con un Mk5 de 2005 y se quedan cortos para el Golf 8, y
-   ahora también para los V8 de Audi, donde un Stage 1 solo ya son 1.800 €.
-6. **Starvation entre categorías esenciales**: sin filtro de gama, una categoría que
-   va primero puede llevarse todo el dinero y dejar sin nada a las siguientes (drag con
-   4.000 € se va entero en el paquete del K04 y no entran transmisión, escape ni
-   frenos). Ahora se avisa, que es honesto, pero se podría reservar parte del
-   presupuesto para las categorías esenciales que quedan por cubrir.
-7. **Catálogo corto en las plataformas nuevas**: MLB, MLB Evo, PL71, PPE y J1 tienen
-   entre cinco y siete piezas de chasis cada una. Es honesto para PPE y J1, donde el
-   mercado casi no existe, pero MLB y MLB Evo suman 34 coches y merecen más.
-8. **Decisiones que quedaron abiertas** en `INVESTIGACION_GRUPO_VW_20_ANIOS.md`: el
-   Audi R8, el SEAT Exeo y el Q8 e-tron se dejaron fuera del volcado, y el Golf VI R
-   y el Scirocco R se asignaron a `EA113` a falta de confirmación de taller.

@@ -5,7 +5,14 @@
 
 import { cargarCatalogo } from "../engine/catalog";
 import { listarModelos, piezasDeModelo } from "../engine/graph";
-import { NOMBRE_CATEGORIA, NOMBRE_OBJETIVO } from "../engine/recommend";
+import {
+  NOMBRE_CATEGORIA,
+  NOMBRE_OBJETIVO,
+  conflictosEn,
+  fraseRiesgo,
+  normalizarObjetivos,
+} from "../engine/recommend";
+import { euros as eur } from "../engine/format";
 import { crearClasificadorReglas, crearSelector } from "../agents/index";
 import type { Objetivo } from "../engine/types";
 
@@ -22,10 +29,6 @@ function parseArgs(argv: string[]): Record<string, string> {
     }
   }
   return out;
-}
-
-function eur(n: number): string {
-  return `${n.toLocaleString("es-ES")} €`;
 }
 
 function salirConAyuda(mensaje: string): never {
@@ -62,6 +65,12 @@ if (objetivos.length === 0 || objetivos.some((o) => !OBJETIVOS.includes(o))) {
 if (!Number.isFinite(presupuesto) || presupuesto <= 0) {
   salirConAyuda(`Presupuesto inválido: "${args.presupuesto ?? ""}"`);
 }
+for (const [a, b] of conflictosEn(objetivos)) {
+  salirConAyuda(
+    `${NOMBRE_OBJETIVO[a]} y ${NOMBRE_OBJETIVO[b]} no se combinan: piden preparaciones ` +
+      "contrarias. Elige uno de los dos.",
+  );
+}
 
 const catalogo = cargarCatalogo();
 const selector = crearSelector(catalogo);
@@ -77,7 +86,9 @@ const clasificador = crearClasificadorReglas();
 const grupos = clasificador.agrupar(piezasDeModelo(modelo, catalogo));
 const plan = res.presupuesto!;
 
-const etiquetaObjetivos = objetivos.map((o) => NOMBRE_OBJETIVO[o]).join(" + ");
+const etiquetaObjetivos = normalizarObjetivos(objetivos)
+  .map((o) => NOMBRE_OBJETIVO[o])
+  .join(" + ");
 
 console.log(`\n${modelo.nombre}  ·  ${modelo.motorDetalle}  ·  chasis ${modelo.chasis}`);
 console.log(`${eur(presupuesto)}  ·  ${etiquetaObjetivos}`);
@@ -86,13 +97,12 @@ console.log(
 );
 
 console.log(
-  `Suelo del proyecto (${etiquetaObjetivos}): ${eur(res.suelo)}` +
-    (res.cumpleSuelo ? "  [cumple]" : "  [por debajo]"),
+  `Mínimo del proyecto (${etiquetaObjetivos}): ${eur(res.minimo)}` +
+    (res.cumpleMinimo ? "  [cumple]" : "  [por debajo]"),
 );
-console.log(
-  `Gama que da el dinero: ${res.gamaEsperada ?? "por debajo de baja"}` +
-    `  ·  gama del build: ${plan.gamaResultante ?? "vacío"}`,
-);
+console.log(`Gama del build: ${plan.gamaResultante ?? "vacío"}`);
+const riesgo = fraseRiesgo(plan);
+if (riesgo) console.log(`[PELIGRO] ${riesgo}`);
 for (const aviso of res.avisos) console.log(`[aviso] ${aviso}`);
 console.log("");
 

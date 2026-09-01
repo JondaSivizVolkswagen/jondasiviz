@@ -2429,7 +2429,8 @@
         "estetica": 5
       },
       "impacto": 2,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "carroceria"
     },
     {
       "id": "est-bodykit-mlb-alta",
@@ -2893,7 +2894,8 @@
         "estetica": 5
       },
       "impacto": 3,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "carroceria"
     },
     {
       "id": "fren-bbk-alta",
@@ -2929,7 +2931,7 @@
       "objetivos": {
         "drift": 3,
         "drag": 3,
-        "mas-cv": 0,
+        "mas-cv": 3,
         "estetica": 3
       },
       "impacto": 4,
@@ -3224,7 +3226,7 @@
       "objetivos": {
         "drift": 3,
         "drag": 3,
-        "mas-cv": 0,
+        "mas-cv": 3,
         "estetica": 0
       },
       "impacto": 3,
@@ -3322,11 +3324,12 @@
       "objetivos": {
         "drift": 2,
         "drag": 2,
-        "mas-cv": 1,
+        "mas-cv": 2,
         "estetica": 0
       },
       "impacto": 2,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "frenos-delanteros"
     },
     {
       "id": "fren-pastillas-pq24-baja",
@@ -3389,7 +3392,7 @@
       "objetivos": {
         "drift": 2,
         "drag": 2,
-        "mas-cv": 0,
+        "mas-cv": 2,
         "estetica": 0
       },
       "impacto": 2,

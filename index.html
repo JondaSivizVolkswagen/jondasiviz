@@ -1,13 +1,261 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>jondasiviz</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="apple-touch-icon" href="/logo-180.png" />
+    <meta
+      name="description"
+      content="Planifica la preparación de tu Volkswagen: modelo, presupuesto y objetivo, y te devuelve la lista de piezas con precios estimados. Funciona en el navegador."
+    />
+    <title>Jondasiviz · Volkswagen Build Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div class="progreso"></div>
+
+    <header class="barra-sup">
+      <div class="contenedor">
+        <a class="marca" href="#top"><i></i>Jondasiviz <span>Build Planner v0.1</span></a>
+        <nav class="nav-links">
+          <a href="#metodo">Método</a>
+          <a href="#objetivos">Objetivos</a>
+          <a href="#escritorio">Escritorio</a>
+          <a class="btn btn-rojo btn-sm" href="/herramienta.html"><span>Abrir el planner</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-fondo"></div>
+      <div class="hero-rejilla"></div>
+
+      <div class="contenedor">
+        <div class="hero-texto">
+          <p class="eyebrow">Preparación por presupuesto</p>
+          <h1>Dinero<br />primero.<em>Piezas<br />después.</em></h1>
+          <p class="hero-lead">
+            Dinos el coche, cuánto hay y para qué es. El motor recorre el catálogo compatible,
+            reserva lo que hace falta para frenar y arma la lista que de verdad cabe. La gama no
+            se elige: la marca el dinero.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-rojo" href="/herramienta.html"><span>Abrir el planner</span></a>
+            <a class="btn" href="#metodo"><span>Cómo decide</span></a>
+          </div>
+
+          <div class="hero-datos">
+            <div><b>59</b><span>Piezas</span></div>
+            <div><b>8</b><span>Modelos</span></div>
+            <div><b>11</b><span>Categorías</span></div>
+            <div><b>0 €</b><span>Suscripción</span></div>
+          </div>
+        </div>
+
+        <!-- El visor 3D se monta aquí. Si no hay WebGL, se queda la silueta. -->
+        <div class="escena" id="escena">
+          <div class="escena-hud">
+            <div class="hud-fila">
+              <span class="hud-etiqueta"><i class="hud-punto"></i>Honda Civic EK · <b>1998</b></span>
+              <span class="hud-etiqueta">Arrastra para girar</span>
+            </div>
+            <div class="hud-fila">
+              <div class="pinturas" role="group" aria-label="Color de la carrocería">
+                <button
+                  class="pintura"
+                  data-pintura="rojo"
+                  style="background: #b4141b"
+                  aria-pressed="true"
+                  aria-label="Rojo"
+                ></button>
+                <button
+                  class="pintura"
+                  data-pintura="blanco"
+                  style="background: #d8dbdd"
+                  aria-pressed="false"
+                  aria-label="Blanco"
+                ></button>
+                <button
+                  class="pintura"
+                  data-pintura="negro"
+                  style="background: #121417"
+                  aria-pressed="false"
+                  aria-label="Negro"
+                ></button>
+                <button
+                  class="pintura"
+                  data-pintura="amarillo"
+                  style="background: #d9a626"
+                  aria-pressed="false"
+                  aria-label="Amarillo"
+                ></button>
+                <button
+                  class="pintura"
+                  data-pintura="azul"
+                  style="background: #1d4f8c"
+                  aria-pressed="false"
+                  aria-label="Azul"
+                ></button>
+              </div>
+              <span class="hud-etiqueta vistas">
+                <a href="#" data-vista="lateral">Lateral</a>
+                <a href="#" data-vista="frontal">Frontal</a>
+                <a href="#" data-vista="tresCuartos">3/4</a>
+              </span>
+            </div>
+          </div>
+
+          <div class="escena-aviso">
+            <svg
+              viewBox="0 0 420 150"
+              width="300"
+              fill="none"
+              stroke="#6e757e"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path
+                d="M18 112h384M46 112a22 22 0 1 0 44 0 22 22 0 1 0-44 0M318 112a22 22 0 1 0 44 0 22 22 0 1 0-44 0"
+              />
+              <path d="M24 112V86l14-8 44-34h108l52 34 74 8 24 14v12" />
+              <path d="M96 44l-10 34h112V44M212 44v34h96l-46-34z" />
+            </svg>
+            <p>No se pudo cargar el visor 3D. Tu navegador no tiene WebGL disponible.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="metodo">
+      <div class="contenedor">
+        <div class="seccion-cab revela">
+          <div>
+            <p class="eyebrow">Método</p>
+            <h2>Cómo decide</h2>
+          </div>
+          <p>
+            Tres reglas que evitan el error clásico: gastarlo todo en potencia y dejar el coche
+            sin frenar.
+          </p>
+        </div>
+
+        <div class="manifiesto revela">
+          <div class="tarjeta-m">
+            <b>01</b>
+            <h3>Reserva</h3>
+            <p>
+              Antes de gastar en una categoría se aparta lo que costaría cubrir por lo mínimo las
+              que vienen detrás. El turbo no se come el dinero de los frenos.
+            </p>
+          </div>
+          <div class="tarjeta-m">
+            <b>02</b>
+            <h3>Mínimo real</h3>
+            <p>
+              El suelo del presupuesto sale del catálogo, no de una tabla escrita a mano. Con esa
+              cifra exacta entran todas las categorías esenciales del objetivo.
+            </p>
+          </div>
+          <div class="tarjeta-m">
+            <b>03</b>
+            <h3>Sin duplicados</h3>
+            <p>
+              Nunca monta dos intercoolers, ni coilovers con air ride, ni remap con standalone. Y
+              si sobra dinero, sube a la mejor opción del grupo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="objetivos">
+      <div class="contenedor">
+        <div class="seccion-cab revela">
+          <div>
+            <p class="eyebrow">Objetivos</p>
+            <h2>Cuatro listas distintas</h2>
+          </div>
+          <p>
+            El mismo coche y el mismo dinero dan cuatro presupuestos que no se parecen. Drift y
+            drag no se combinan: piden preparaciones contrarias.
+          </p>
+        </div>
+
+        <div class="manifiesto revela">
+          <div class="tarjeta-m">
+            <b>Drift</b>
+            <h3>Ángulo</h3>
+            <p>
+              Eje trasero rígido, más ángulo de dirección, freno de mano hidráulico y
+              autoblocante.
+            </p>
+          </div>
+          <div class="tarjeta-m">
+            <b>Drag</b>
+            <h3>Salida</h3>
+            <p>
+              Turbo, admisión, escape, gestión electrónica y un embrague que aguante la salida.
+            </p>
+          </div>
+          <div class="tarjeta-m">
+            <b>Caballos · Estética</b>
+            <h3>Calle</h3>
+            <p>
+              Stage 1 y bolt-ons sin abrir el motor, o llantas con el offset justo y la altura
+              buena. Los dos se suman a cualquier otro objetivo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="escritorio">
+      <div class="contenedor">
+        <div class="descarga revela">
+          <div>
+            <h3>También de escritorio</h3>
+            <p>
+              La misma herramienta empaquetada con Tauri para Windows, macOS y Linux, sin navegador
+              y sin conexión. Los binarios se publican en las releases del repositorio.
+            </p>
+            <p class="descarga-nota" data-descarga-nota></p>
+          </div>
+          <div class="descarga-acciones">
+            <!-- El href es el de reserva: src/landing/descarga.ts lo cambia por el
+                 instalador de la ultima release en cuanto GitHub responde. -->
+            <a
+              class="btn btn-rojo"
+              href="https://github.com/JondaSivizVolkswagen/jondasiviz/releases/latest"
+              rel="noopener"
+              data-descarga
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3v12M7 11l5 5 5-5" />
+                <path d="M4 20h16" />
+              </svg>
+              <span>Descargar para Windows</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="pie">
+      <div class="contenedor">
+        <span>Jondasiviz · Build Planner v0.1</span>
+        <span>Precios orientativos</span>
+        <span>Sin relación con Volkswagen AG ni Honda Motor Co.</span>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/landing/civic.ts"></script>
+    <script type="module" src="/src/landing/descarga.ts"></script>
   </body>
 </html>

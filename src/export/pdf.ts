@@ -7,7 +7,13 @@
 
 import type { Content, TDocumentDefinitions } from "pdfmake/interfaces";
 import type { Gama, ModeloVW, Pieza, Presupuesto, RequisitoCategoria } from "../engine/types";
-import { NOMBRE_CATEGORIA, NOMBRE_OBJETIVO, fraseMinimo } from "../engine/recommend";
+import {
+  NOMBRE_CATEGORIA,
+  NOMBRE_OBJETIVO,
+  fraseMinimo,
+  fraseRiesgo,
+  normalizarObjetivos,
+} from "../engine/recommend";
 import { euros } from "../engine/format";
 import { iconoCategoria, marcaSvg } from "./iconos-pdf";
 
@@ -183,9 +189,14 @@ function bloquesCategorias(plan: Presupuesto, imagenes: Record<string, string>):
               { stack: descripcion },
               distintivoGama(linea.pieza.gama),
               {
-                text: linea.motivo === "dependencia" ? "dep." : "",
+                text:
+                  linea.motivo === "dependencia"
+                    ? "dep."
+                    : linea.motivo === "elegida"
+                      ? "tuya"
+                      : "",
                 fontSize: 7,
-                color: COLOR.suave,
+                color: linea.motivo === "elegida" ? COLOR.acento : COLOR.suave,
                 alignment: "center",
                 margin: [0, 1, 0, 0],
               },
@@ -205,13 +216,16 @@ export interface DatosPdf {
   avisos: string[];
 }
 
+/** Documento listo para pdfmake. Exportado para poder probarlo sin navegador. */
 export function construirDocumento(
   datos: DatosPdf,
   imagenes: Record<string, string>,
 ): TDocumentDefinitions {
   const { modelo, plan } = datos;
   const pet = plan.peticion;
-  const objetivos = pet.objetivos.map((o) => NOMBRE_OBJETIVO[o]).join(" + ");
+  const objetivos = normalizarObjetivos(pet.objetivos)
+    .map((o) => NOMBRE_OBJETIVO[o])
+    .join(" + ");
   const sobrante = Math.max(0, plan.restante);
 
   const cabeceraDerecha: Content[] = [
@@ -272,8 +286,31 @@ export function construirDocumento(
     },
 
     seccion("Qué pide este proyecto", fraseMinimo(plan)),
-    tablaRequisitos(plan.esenciales),
   ];
+
+  // El aviso de seguridad va antes de la tabla, no perdido entre los avisos del final:
+  // si el papel acaba en el taller, es lo primero que hay que leer.
+  const riesgo = fraseRiesgo(plan);
+  if (riesgo) {
+    contenido.push({
+      margin: [0, 0, 0, 10],
+      table: {
+        widths: ["*"],
+        body: [[{ text: riesgo, fontSize: 9, bold: true, color: COLOR.acento, margin: [10, 8, 10, 8] }]],
+      },
+      layout: {
+        hLineWidth: () => 0,
+        vLineWidth: (i: number) => (i === 0 ? 2 : 0),
+        vLineColor: () => COLOR.acento,
+        paddingTop: () => 0,
+        paddingBottom: () => 0,
+        paddingLeft: () => 0,
+        paddingRight: () => 0,
+      },
+    });
+  }
+
+  contenido.push(tablaRequisitos(plan.esenciales));
 
   if (datos.avisos.length > 0) {
     contenido.push(seccion("A tener en cuenta"), {
@@ -281,11 +318,14 @@ export function construirDocumento(
     });
   }
 
+  const hayElegidas = plan.lineas.some((l) => l.motivo === "elegida");
   contenido.push(
     seccion(
       "Piezas seleccionadas",
       `${plan.lineas.length} piezas. Las marcadas como "dep." entran arrastradas por otra ` +
-        "que las necesita para funcionar.",
+        "que las necesita para funcionar" +
+        (hayElegidas ? ', y las marcadas como "tuya" las elegiste tú' : "") +
+        ".",
     ),
   );
 
@@ -305,16 +345,10 @@ export function construirDocumento(
       {
         layout: LAYOUT_LISTA,
         table: {
-          widths: ["*", 140, 92],
+          widths: ["*", 80, 92],
           body: plan.siguientesMejoras.map((m) => [
             { text: m.pieza.nombre, fontSize: 9, color: COLOR.texto },
-            {
-              text: m.sustituye
-                ? `${NOMBRE_CATEGORIA[m.pieza.categoria]} · en lugar de ${m.sustituye.nombre}`
-                : NOMBRE_CATEGORIA[m.pieza.categoria],
-              fontSize: 8.5,
-              color: COLOR.suave,
-            },
+            { text: NOMBRE_CATEGORIA[m.pieza.categoria], fontSize: 8.5, color: COLOR.suave },
             {
               text:
                 m.falta === 0
@@ -386,11 +420,9 @@ export function construirDocumento(
   };
 }
 
-/** Documento listo para pdfmake. Exportado para poder probarlo sin navegador. */
-
 /** Nombre de archivo legible: modelo, objetivos y dinero. */
 export function nombreArchivo(datos: DatosPdf): string {
-  const objetivos = datos.plan.peticion.objetivos.join("-");
+  const objetivos = normalizarObjetivos(datos.plan.peticion.objetivos).join("-");
   return `jondasiviz-${trozoUrl(datos.modelo.nombre)}-${objetivos}-${datos.plan.peticion.presupuesto}e.pdf`;
 }
 

@@ -19,17 +19,17 @@ export const OBJETIVOS: {
     valor: "drift",
     etiqueta: "Drift",
     icono: "drift",
-    frase: "Eje trasero rígido, más ángulo de dirección, freno de mano hidráulico y autoblocante.",
+    frase: "Eje trasero rígido, más ángulo de dirección, hidráulico y autoblocante.",
   },
   {
     valor: "drag",
     etiqueta: "Drag",
     icono: "drag",
-    frase: "Turbo, admisión, escape, gestión electrónica y un embrague que aguante la salida.",
+    frase: "Turbo, admisión, escape, gestión y un embrague que aguante la salida.",
   },
   {
     valor: "mas-cv",
-    etiqueta: "Ganar caballos",
+    etiqueta: "Caballos",
     icono: "rayo",
     frase: "Stage 1 y bolt-ons: admisión, escape y remap sin abrir el motor.",
   },
@@ -37,6 +37,6 @@ export const OBJETIVOS: {
     valor: "estetica",
     etiqueta: "Estética",
     icono: "estrella",
-    frase: "Llantas con el offset justo, retoques de carrocería y bajar el coche a la altura buena.",
+    frase: "Llantas con el offset justo, carrocería y la altura buena.",
   },
 ];
