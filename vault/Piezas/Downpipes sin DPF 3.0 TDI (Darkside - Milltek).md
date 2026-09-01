@@ -35,6 +35,6 @@ imagen: null
 
 **Motor** [[EA897]], [[EA824]]
 
-**Marcas** [[Milltek]], [[Darkside]]
+**Marcas** [[Darkside]], [[Milltek]]
 
 **Monta con avisos en (4)** [[Audi A6 C7 3.0 TDI]], [[Audi Q7 4L]], [[Audi SQ5 8R TDI]], [[Touareg 7P 3.0 TDI]]

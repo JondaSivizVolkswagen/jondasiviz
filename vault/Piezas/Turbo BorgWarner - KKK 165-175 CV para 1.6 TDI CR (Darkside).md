@@ -38,7 +38,7 @@ imagen: null
 
 **Motor** [[EA288-16]]
 
-**Marcas** [[Darkside]], [[Borgwarner]], [[Kkk]]
+**Marcas** [[Borgwarner]], [[Darkside]], [[Kkk]]
 
 **Requiere** [[Intercooler Competition 1.6 TDI (Wagner - Forge)]], [[Downpipe 2.5in sin DPF 1.6 TDI (Darkside Developments)]], [[Reprogramación Stage 2 1.6 TDI]]
 

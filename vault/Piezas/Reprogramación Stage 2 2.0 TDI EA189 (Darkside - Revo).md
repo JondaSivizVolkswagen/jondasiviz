@@ -34,7 +34,7 @@ imagen: null
 
 **Motor** [[EA189]]
 
-**Marcas** [[Revo]], [[Darkside]]
+**Marcas** [[Darkside]], [[Revo]]
 
 **Requiere** [[Downpipe sin DPF 2.0 TDI EA189 (Darkside Developments)]]
 

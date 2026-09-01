@@ -38,6 +38,8 @@ imagen: null
 
 **Motor** [[EA855]]
 
+**Marcas** [[Loba]], [[Tte]]
+
 **Requiere** [[Intercooler Competition 2.5 TFSI (Wagner - do88)]], [[Kit de admisión de carbono 2.5 TFSI (Eventuri - Wagner)]], [[Downpipe sin cat 2.5 TFSI (Milltek - Scorpion)]], [[Reprogramación Stage 2 2.5 TFSI (APR - MTM - ABT)]], [[Kit de refrigeración de aceite 2.5 TFSI (Setrab - Forge)]]
 
 **Monta con avisos en (8)** [[Audi RS3 8P]], [[Audi RS3 8V]], [[Audi RS3 8Y]], [[Audi RS Q3 8U]], [[Audi RS Q3 F3]], [[Audi TT RS 8J]], [[Audi TT RS 8S]], [[Cupra Formentor VZ5]]

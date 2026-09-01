@@ -1094,6 +1094,35 @@
       "requiere": []
     },
     {
+      "id": "dir-angulo-evo-media",
+      "nombre": "Kit de ángulo de dirección y espaciadores MQB Evo",
+      "categoria": "direccion",
+      "plataformas": [],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 560,
+        "estimado": 700,
+        "max": 950
+      },
+      "objetivos": {
+        "drift": 5,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "nota": "Sin esto un MQB Evo no pasa de un derrape corto: se queda sin recorrido de volante."
+    },
+    {
       "id": "dir-angulo-media",
       "nombre": "Kit de ángulo de dirección + espaciadores",
       "categoria": "direccion",
@@ -1130,6 +1159,34 @@
         "estetica": 0
       },
       "impacto": 4,
+      "requiere": []
+    },
+    {
+      "id": "dir-brazos-evo-media",
+      "nombre": "Brazos ajustables y silentblocks MQB Evo (Powerflex / SuperPro)",
+      "categoria": "direccion",
+      "plataformas": [],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 400,
+        "estimado": 500,
+        "max": 660
+      },
+      "objetivos": {
+        "drift": 4,
+        "drag": 2,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 3,
       "requiere": []
     },
     {
@@ -1313,6 +1370,35 @@
       "impacto": 4,
       "requiere": [],
       "nota": "Bloquea la barra de torsión trasera para forzar el sobreviraje."
+    },
+    {
+      "id": "dir-hidraulico-evo-alta",
+      "nombre": "Freno de mano hidráulico MQB Evo con pinza dedicada",
+      "categoria": "direccion",
+      "plataformas": [],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 700,
+        "estimado": 900,
+        "max": 1200
+      },
+      "objetivos": {
+        "drift": 5,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "nota": "En un coche con freno de mano eléctrico de serie, es la única vía para bloquear el eje."
     },
     {
       "id": "dir-hidraulico-media",
@@ -2188,6 +2274,38 @@
       "grupoExclusivo": "altura"
     },
     {
+      "id": "est-airride-evo-alta",
+      "nombre": "Suspensión neumática gestionada MQB Evo (Air Lift 3P)",
+      "categoria": "estetica",
+      "plataformas": [],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [
+        "dcc"
+      ],
+      "gama": "alta",
+      "precio": {
+        "min": 2600,
+        "estimado": 3200,
+        "max": 4200
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 5
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "altura",
+      "nota": "Con DCC de serie hace falta módulo de cancelación aparte, y aun así da avisos."
+    },
+    {
       "id": "est-airride-pq46-alta",
       "nombre": "Suspensión neumática gestionada PQ46 (Air Lift 3P)",
       "categoria": "estetica",
@@ -2217,6 +2335,34 @@
       "impacto": 3,
       "requiere": [],
       "grupoExclusivo": "altura"
+    },
+    {
+      "id": "est-bodykit-evo-alta",
+      "nombre": "Kit de carrocería completo MQB Evo (faldones, difusor, alerón)",
+      "categoria": "estetica",
+      "plataformas": [],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1200,
+        "estimado": 1500,
+        "max": 2000
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 5
+      },
+      "impacto": 2,
+      "requiere": []
     },
     {
       "id": "est-bodykit-meb-media",
@@ -2552,6 +2698,34 @@
       "requiere": []
     },
     {
+      "id": "est-detalles-evo-baja",
+      "nombre": "Molduras en negro brillo y vinilo de techo MQB Evo",
+      "categoria": "estetica",
+      "plataformas": [],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 280,
+        "estimado": 380,
+        "max": 520
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 3
+      },
+      "impacto": 1,
+      "requiere": []
+    },
+    {
       "id": "est-opticas-baja",
       "nombre": "Ópticas ahumadas + intermitentes dinámicos",
       "categoria": "estetica",
@@ -2588,6 +2762,62 @@
         "estetica": 3
       },
       "impacto": 1,
+      "requiere": []
+    },
+    {
+      "id": "est-opticas-evo-media",
+      "nombre": "Ópticas ahumadas e intermitentes dinámicos MQB Evo",
+      "categoria": "estetica",
+      "plataformas": [],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 550,
+        "estimado": 700,
+        "max": 950
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
+      "id": "est-tapiceria-evo-media",
+      "nombre": "Retapizado deportivo y volante de base plana MQB Evo",
+      "categoria": "estetica",
+      "plataformas": [],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 950,
+        "estimado": 1200,
+        "max": 1600
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 2,
       "requiere": []
     },
     {
@@ -2900,6 +3130,34 @@
       "grupoExclusivo": "frenos-delanteros"
     },
     {
+      "id": "fren-discos-evo-alta",
+      "nombre": "Discos de dos piezas y pastillas racing MQB Evo (DBA / Brembo)",
+      "categoria": "frenos",
+      "plataformas": [],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1500,
+        "estimado": 1900,
+        "max": 2500
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 4,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": []
+    },
+    {
       "id": "fren-discos-meb-media",
       "nombre": "Discos y pastillas de alto rendimiento MEB (DBA / Brembo)",
       "categoria": "frenos",
@@ -3127,6 +3385,34 @@
         "min": 130,
         "estimado": 190,
         "max": 280
+      },
+      "objetivos": {
+        "drift": 2,
+        "drag": 2,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
+      "id": "fren-traseros-evo-baja",
+      "nombre": "Discos y pastillas traseras de altas prestaciones MQB Evo",
+      "categoria": "frenos",
+      "plataformas": [],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 300,
+        "estimado": 400,
+        "max": 540
       },
       "objetivos": {
         "drift": 2,
@@ -5104,6 +5390,35 @@
       "grupoExclusivo": "jaula"
     },
     {
+      "id": "seg-jaula-evo-media",
+      "nombre": "Media jaula atornillada de 6 puntos MQB Evo",
+      "categoria": "seguridad",
+      "plataformas": [],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 880,
+        "estimado": 1100,
+        "max": 1450
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "jaula"
+    },
+    {
       "id": "seg-jaula-media",
       "nombre": "Media jaula atornillada de 6 puntos",
       "categoria": "seguridad",
@@ -5244,6 +5559,34 @@
       "requiere": []
     },
     {
+      "id": "seg-strutbar-evo-baja",
+      "nombre": "Barra superior de torretas MQB Evo",
+      "categoria": "seguridad",
+      "plataformas": [],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 130,
+        "estimado": 180,
+        "max": 250
+      },
+      "objetivos": {
+        "drift": 2,
+        "drag": 1,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
       "id": "susp-barra-baja",
       "nombre": "Barra estabilizadora trasera regulable (Whiteline / H&R)",
       "categoria": "suspension",
@@ -5311,6 +5654,34 @@
       "impacto": 3,
       "requiere": [],
       "nota": "En un MEB de propulsión trasera es lo que más cambia el carácter en curva."
+    },
+    {
+      "id": "susp-barras-evo-media",
+      "nombre": "Barras estabilizadoras regulables MQB Evo (H&R / Whiteline)",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 320,
+        "estimado": 420,
+        "max": 560
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 2,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": []
     },
     {
       "id": "susp-barras-mlb-media",
@@ -6325,6 +6696,34 @@
       "impacto": 3,
       "requiere": [],
       "nota": "Quita el balanceo del bloque al pisar. Sube algo de vibración en ralentí."
+    },
+    {
+      "id": "susp-subframe-evo-media",
+      "nombre": "Casquillos rígidos de subchasis MQB Evo",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 240,
+        "estimado": 320,
+        "max": 430
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 2,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": []
     },
     {
       "id": "susp-subframe-media",

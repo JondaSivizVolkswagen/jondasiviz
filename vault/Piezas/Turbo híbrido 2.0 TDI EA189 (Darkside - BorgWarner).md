@@ -37,7 +37,7 @@ imagen: null
 
 **Motor** [[EA189]]
 
-**Marcas** [[Darkside]], [[Borgwarner]]
+**Marcas** [[Borgwarner]], [[Darkside]]
 
 **Requiere** [[Intercooler de mayor volumen 2.0 TDI EA189 (Wagner - Forge)]], [[Downpipe sin DPF 2.0 TDI EA189 (Darkside Developments)]], [[Inyectores reforzados 2.0 TDI EA189 (Bosch - Darkside)]], [[Reprogramación Stage 2 2.0 TDI EA189 (Darkside - Revo)]]
 

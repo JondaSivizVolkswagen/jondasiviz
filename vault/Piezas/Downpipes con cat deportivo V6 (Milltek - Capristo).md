@@ -34,6 +34,6 @@ imagen: null
 
 **Motor** [[EA839]], [[EA837]]
 
-**Marcas** [[Milltek]], [[Apr]]
+**Marcas** [[Apr]], [[Capristo]], [[Milltek]]
 
 **Monta con avisos en (7)** [[Audi A6 C8]], [[Audi A8 D5]], [[Audi RS4 B9]], [[Audi RS5 F5]], [[Audi S4 B8]], [[Audi S4 B9]], [[Audi SQ5 FY]]

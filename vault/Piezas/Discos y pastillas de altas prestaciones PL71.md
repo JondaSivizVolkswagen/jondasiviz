@@ -33,4 +33,6 @@ imagen: null
 
 **Chasis** [[Chasis PL71]]
 
+**Marcas** [[Ast]]
+
 **Monta en (3)** [[Audi Q7 4L]], [[Audi Q7 4L 4.2 FSI]], [[Touareg 7P 3.0 TDI]]

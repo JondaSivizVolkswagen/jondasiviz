@@ -33,4 +33,6 @@ imagen: null
 
 **Chasis** [[Chasis PQ24]]
 
+**Marcas** [[Ast]]
+
 **Monta en (4)** [[Fabia RS 6Y]], [[Ibiza Cupra 6L]], [[Ibiza FR 6L TDI]], [[Polo GTI 9N]]

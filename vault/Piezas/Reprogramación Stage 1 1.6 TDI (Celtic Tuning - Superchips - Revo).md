@@ -35,7 +35,7 @@ imagen: null
 
 **Motor** [[EA288-16]]
 
-**Marcas** [[Revo]], [[Celtic Tuning]], [[Superchips]]
+**Marcas** [[Celtic Tuning]], [[Revo]], [[Superchips]]
 
 **Monta con avisos en (1)** [[Golf Mk7 1.6 TDI]]
 

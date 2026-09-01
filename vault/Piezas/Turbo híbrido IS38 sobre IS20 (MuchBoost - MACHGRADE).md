@@ -38,7 +38,7 @@ imagen: null
 
 **Motor** [[EA888-gen3]]
 
-**Marcas** [[Muchboost]], [[Machgrade]]
+**Marcas** [[Machgrade]], [[Muchboost]]
 
 **Requiere** [[Intercooler frontal EA888 gen3 (Wagner - do88 - IE)]], [[Kit de admisión cerrada EA888 gen3 (Eventuri - RacingLine - IE)]], [[Downpipe 3in con cat 400 cpsi EA888 gen3 (Milltek - Scorpion)]], [[Bomba de alta presión EA888 gen3 (APR - IE)]], [[Reprogramación Stage 2 EA888 gen3 (APR - Unitronic)]]
 

@@ -33,4 +33,6 @@ imagen: null
 
 **Chasis** [[Chasis NSF]]
 
+**Marcas** [[Ast]]
+
 **Monta en (2)** [[Citigo]], [[up! GTI]]

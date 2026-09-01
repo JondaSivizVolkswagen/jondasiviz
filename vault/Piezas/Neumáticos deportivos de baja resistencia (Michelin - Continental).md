@@ -35,6 +35,8 @@ imagen: null
 
 **Chasis** [[Chasis MEB]], [[Chasis PPE]], [[Chasis J1]]
 
+**Marcas** [[Continental]], [[Michelin]]
+
 **Monta en (17)** [[Audi A6 e-tron]], [[Audi e-tron GT]], [[Audi Q4 e-tron]], [[Audi Q6 e-tron]], [[Audi RS e-tron GT]], [[Cupra Born]], [[Cupra Tavascan]], [[Škoda Elroq]], [[Škoda Enyaq]], [[Škoda Enyaq RS]], [[Volkswagen ID.Buzz]], [[Volkswagen ID.3]], [[Volkswagen ID.3 GTX]], [[Volkswagen ID.4]], [[Volkswagen ID.4 GTX]], [[Volkswagen ID.5]], [[Volkswagen ID.7]]
 
 > El compuesto es el mayor cambio de agarre disponible en un eléctrico de serie.

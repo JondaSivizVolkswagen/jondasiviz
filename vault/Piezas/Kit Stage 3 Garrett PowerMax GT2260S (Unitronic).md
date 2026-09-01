@@ -39,7 +39,7 @@ imagen: null
 
 **Motor** [[EA888-evo4]]
 
-**Marcas** [[Unitronic]], [[Garrett]]
+**Marcas** [[Garrett]], [[Unitronic]]
 
 **Requiere** [[Intercooler frontal de altas prestaciones (IE FDS - Wagner - do88)]], [[Admisión cerrada de carbono (Eventuri - RacingLine R600 - IE)]], [[Downpipe 3.5in con cat deportivo 400 cpsi (Unitronic - Scorpion - Milltek)]], [[Bomba de alta presión e inyectores reforzados evo4]]
 

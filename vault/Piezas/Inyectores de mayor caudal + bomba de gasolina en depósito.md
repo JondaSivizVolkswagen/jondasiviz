@@ -33,4 +33,6 @@ imagen: null
 
 **Motor** [[EA113]]
 
+**Marcas** [[Ina]]
+
 **Monta en (14)** [[Audi A3 8P 2.0 TFSI]], [[Audi S3 8P]], [[Audi TT 8J 2.0 TFSI]], [[Audi TTS 8J]], [[Golf GTI Mk5]], [[Golf GTI Edition 30]], [[Golf GTI Pirelli]], [[Golf R Mk6]], [[León Cupra 1P]], [[León Cupra R 1P]], [[León FR 1P]], [[Octavia II RS]], [[Passat B6 2.0 TFSI]], [[Scirocco R]]

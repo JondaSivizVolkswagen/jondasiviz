@@ -41,7 +41,7 @@ imagen: null
 
 **Motor** [[EA888-gen3]]
 
-**Marcas** [[Muchboost]]
+**Marcas** [[Muchboost]], [[Tte]]
 
 **Requiere** [[Intercooler frontal EA888 gen3 (Wagner - do88 - IE)]], [[Kit de admisión cerrada EA888 gen3 (Eventuri - RacingLine - IE)]], [[Escape turbo-back con valvulería EA888 gen3 (Milltek Race - Akrapovic)]], [[Bomba de alta presión EA888 gen3 (APR - IE)]], [[Calibración Stage 2 E85 EA888 gen3 (Unitronic - MACHGRADE)]], [[Embrague DSG DQ250 reforzado + calibración de caja (Sachs - RacingLine)]]
 

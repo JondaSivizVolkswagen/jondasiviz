@@ -34,6 +34,6 @@ imagen: null
 
 **Motor** [[EA825]], [[V8-FSI]]
 
-**Marcas** [[Apr]], [[Akrapovic]]
+**Marcas** [[Akrapovic]], [[Apr]], [[Capristo]]
 
 **Monta en (12)** [[Audi Q7 4L 4.2 FSI]], [[Audi RS4 B8]], [[Audi RS5 8T]], [[Audi RS6 C7]], [[Audi RS6 C8]], [[Audi RS7 4G]], [[Audi RS7 4K]], [[Audi RS Q8]], [[Audi S5 8T 4.2 FSI]], [[Audi S6 C7]], [[Audi SQ7 TFSI]], [[Audi SQ8]]

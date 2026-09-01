@@ -35,6 +35,8 @@ imagen: null
 
 **Motor** [[V8-FSI]]
 
+**Marcas** [[Abt]], [[Mtm]]
+
 **Monta en (4)** [[Audi Q7 4L 4.2 FSI]], [[Audi RS4 B8]], [[Audi RS5 8T]], [[Audi S5 8T 4.2 FSI]]
 
 > Sin turbo no hay milagro: unos 20 CV. En un atmosférico el dinero rinde más en escape y peso.

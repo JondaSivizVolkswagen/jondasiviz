@@ -38,7 +38,7 @@ imagen: null
 
 **Motor** [[EA888-gen2]]
 
-**Marcas** [[Muchboost]]
+**Marcas** [[Loba]], [[Muchboost]]
 
 **Requiere** [[Intercooler frontal EA888 gen2 (Forge - Wagner)]], [[Kit de admisión cerrada EA888 gen2 (Forge - Neuspeed)]], [[Downpipe 3in EA888 gen2 (Milltek - AWE)]], [[Bomba de alta presión reforzada EA888 gen2 (Autotech - APR)]], [[Reprogramación Stage 2 EA888 gen2 (APR - Integrated Engineering)]]
 

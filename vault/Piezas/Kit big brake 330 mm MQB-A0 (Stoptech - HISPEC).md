@@ -34,6 +34,6 @@ imagen: null
 
 **Chasis** [[Chasis MQB-A0]]
 
-**Marcas** [[Stoptech]], [[Hispec]]
+**Marcas** [[Hispec]], [[Stoptech]]
 
 **Monta en (8)** [[Audi A1 GB 40 TFSI]], [[Fabia NW 1.5 TSI]], [[Ibiza FR KJ]], [[Kamiq 1.0 TSI]], [[Polo AW 1.0 TSI]], [[Polo GTI AW]], [[Scala 1.5 TSI]], [[SEAT Arona 1.0 TSI]]

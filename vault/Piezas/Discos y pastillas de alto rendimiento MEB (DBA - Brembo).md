@@ -36,7 +36,7 @@ imagen: null
 
 **Chasis** [[Chasis MEB]]
 
-**Marcas** [[Dba]]
+**Marcas** [[Ast]], [[Dba]]
 
 **Monta en (10)** [[Audi Q4 e-tron]], [[Cupra Born]], [[Cupra Tavascan]], [[Škoda Elroq]], [[Škoda Enyaq]], [[Volkswagen ID.Buzz]], [[Volkswagen ID.3]], [[Volkswagen ID.4]], [[Volkswagen ID.5]], [[Volkswagen ID.7]]
 

@@ -39,7 +39,7 @@ imagen: null
 
 **Chasis** [[Chasis MEB]]
 
-**Marcas** [[Racingline]], [[Eibach]], [[H&R]]
+**Marcas** [[Ast]], [[Eibach]], [[H&R]], [[Racingline]]
 
 **Monta con avisos en (12)** [[Audi Q4 e-tron]], [[Cupra Born]], [[Cupra Tavascan]], [[Škoda Elroq]], [[Škoda Enyaq]], [[Škoda Enyaq RS]], [[Volkswagen ID.Buzz]], [[Volkswagen ID.3]], [[Volkswagen ID.3 GTX]], [[Volkswagen ID.4]], [[Volkswagen ID.4 GTX]], [[Volkswagen ID.5]]
 

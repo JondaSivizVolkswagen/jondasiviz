@@ -33,6 +33,8 @@ imagen: null
 
 **Motor** [[EA824]]
 
+**Marcas** [[Abt]], [[Mtm]]
+
 **Monta en (1)** [[Audi SQ7 TDI]]
 
 > Del SQ7: de 435 a unos 520 CV y más de 1.000 Nm.

@@ -35,6 +35,8 @@ imagen: null
 
 **Motor** [[EA888-gen2]]
 
+**Marcas** [[Febi]], [[Ina]]
+
 **Monta en (8)** [[Audi A4 B8 2.0 TFSI]], [[Audi A5 8T 2.0 TFSI]], [[Beetle Turbo 5C]], [[Golf GTI Mk6]], [[Golf GTI Edition 35]], [[Passat CC 2.0 TSI]], [[Scirocco 2.0 TSI]], [[Superb II 2.0 TSI]]
 
 > Tensor de cadena de nueva generación. En el gen2 no es una mejora, es un seguro.
