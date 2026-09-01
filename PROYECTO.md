@@ -2,7 +2,7 @@
 
 Este documento recoge todo el contexto del proyecto para poder retomarlo desde cero
 (por ejemplo, en una cuenta o sesión nueva de Claude Code) sin haber leído las
-conversaciones anteriores. Última actualización: agosto de 2026.
+conversaciones anteriores. Última actualización: 1 de septiembre de 2026.
 
 ---
 
@@ -484,6 +484,29 @@ referencia para situar el presupuesto en una gama.
   pieza a la que sustituye, la categoría de la saliente no puede quedarse sin cubrir, y
   el cambio nunca se pasa del presupuesto. 86 tests.
 
+- **(j) a (p): el grupo Volkswagen entero, 2006-2026** — de 26 a **187 modelos** y de 98 a
+  **243 piezas**, con VW, SEAT, Cupra, Škoda y Audi. La investigación previa está en
+  `INVESTIGACION_GRUPO_VW_20_ANIOS.md`. Siete fases:
+  - **(j)** Modelo de datos: chasis de 7 a 16, plataformas de motor de 13 a 26,
+    `Traccion` gana `trasera`, `Propulsion` gana `mhev` y `Equipamiento` ocho valores.
+    `EA888` se parte en `EA888-gen2` y `EA888-gen3`. Dos correcciones de dato: el Golf
+    GTD Mk6 estaba como bomba-inyector llevando common rail `EA189`, y el Scirocco R
+    pasa a `EA113`, que es el bloque de su CDLA.
+  - **(k)** Volkswagen: 41 coches y 40 piezas (EA111, EA189, EA189-16, gen2, gen3).
+  - **(l)** SEAT, Cupra y Škoda: 43 coches y 33 piezas, con el 2.5 TFSI y el chasis de
+    PQ24, PQ46, MQB-A0 y NSF.
+  - **(m)** Audi transversal: 25 coches y 8 piezas (Haldex y Magnetic Ride).
+  - **(n)** Audi longitudinal: 35 coches y 39 piezas (EA837, EA839, EA825, V8-FSI,
+    EA897, EA824, y el chasis MLB, MLB Evo y PL71).
+  - **(o)** Eléctricos: 17 coches y 11 piezas. Ninguna de motor: en un BEV del grupo la
+    potencia va cerrada y `compat.ts` ya bloquea esas categorías por propulsión.
+  - **(p)** MQB Evo deja de ser el chasis pobre: 14 piezas de dirección, seguridad,
+    estética, suspensión y frenos. Cierra el pendiente 4. `brands.json` de 55 a 72.
+  - Y el chasis entra en `generarPresupuesto`, que cierra el pendiente 5: hasta ahora
+    el pool se armaba solo por motor y las piezas que van por chasis no llegaban a
+    ningún presupuesto. Un Golf 8 pedía drift y no recibía nada de dirección.
+  89 tests, typecheck, lint y build en verde. Vault: 563 notas.
+
 ### Pendientes
 
 1. **Fase 3b** — Guardar builds (localStorage o archivo) y exportar a CSV. El PDF ya
@@ -504,15 +527,15 @@ referencia para situar el presupuesto en una gama.
    sigue armando el pool por plataforma de motor, mientras que `piezasDeModelo` y el
    sondeo ya usan `encaja`. Coinciden en la práctica porque el selector resuelve el
    modelo antes, pero son dos caminos distintos y conviene unificarlos.
-6. **Capa de embeddings** (la parte "neuronal") sobre los datos ya poblados. Ahora tiene
+3. **Capa de embeddings** (la parte "neuronal") sobre los datos ya poblados. Ahora tiene
    sustrato: la matriz de `compat.ts` es lo que le faltaba para entrenarse con algo.
-7. **Opción con API de LLM** para los subagentes, cuando se decida salir del modo
+4. **Opción con API de LLM** para los subagentes, cuando se decida salir del modo
    100% offline.
-8. Afinar la matriz `floors.json` y los pesos por objetivo del catálogo con uso real.
+5. Afinar la matriz `floors.json` y los pesos por objetivo del catálogo con uso real.
    Los suelos actuales se calibraron con un Mk5 de 2005 y se quedan cortos para el
    Golf 8: con 8.000 € para `drag + mas-cv`, un GTI Mk8 cumple el suelo de sobra y aun
    así se queda sin transmisión, frenos ni ruedas.
-9. **Starvation entre categorías esenciales**: sin filtro de gama, una categoría que
+6. **Starvation entre categorías esenciales**: sin filtro de gama, una categoría que
    va primero puede llevarse todo el dinero y dejar sin nada a las siguientes (drag con
    4.000 € se va entero en el paquete del K04 y no entran transmisión, escape ni
    frenos). Ahora se avisa, que es honesto, pero se podría reservar parte del
@@ -662,3 +685,27 @@ borra ni lo modifica. Se documenta aquí como copia de seguridad portable.
 3. Copiar `%APPDATA%\caveman\config.json`.
 4. Instalar el binario `rtk.exe` en `~/.local/bin/` (de `rtk-ai/rtk`).
 5. Abrir Claude Code: cargará CLAUDE.md y SKILLS_AGENTES.md solo, con todo disponible.
+### Pendientes
+
+1. **Fase 3b** — Guardar builds (localStorage o archivo) y exportar a CSV. El PDF ya
+   está hecho.
+2. **Fase 4** — Empaquetar el escritorio con Tauri (requiere instalar Rust), build
+   web, y conectar el botón de descarga de la landing.
+3. **Capa de embeddings** (la parte "neuronal") sobre los datos ya poblados. Ahora tiene
+   sustrato de verdad: 187 modelos y 243 piezas con su matriz de compatibilidad.
+4. **Opción con API de LLM** para los subagentes, cuando se decida salir del modo
+   100% offline.
+5. Afinar la matriz `floors.json` y los pesos por objetivo del catálogo con uso real.
+   Los suelos se calibraron con un Mk5 de 2005 y se quedan cortos para el Golf 8, y
+   ahora también para los V8 de Audi, donde un Stage 1 solo ya son 1.800 €.
+6. **Starvation entre categorías esenciales**: sin filtro de gama, una categoría que
+   va primero puede llevarse todo el dinero y dejar sin nada a las siguientes (drag con
+   4.000 € se va entero en el paquete del K04 y no entran transmisión, escape ni
+   frenos). Ahora se avisa, que es honesto, pero se podría reservar parte del
+   presupuesto para las categorías esenciales que quedan por cubrir.
+7. **Catálogo corto en las plataformas nuevas**: MLB, MLB Evo, PL71, PPE y J1 tienen
+   entre cinco y siete piezas de chasis cada una. Es honesto para PPE y J1, donde el
+   mercado casi no existe, pero MLB y MLB Evo suman 34 coches y merecen más.
+8. **Decisiones que quedaron abiertas** en `INVESTIGACION_GRUPO_VW_20_ANIOS.md`: el
+   Audi R8, el SEAT Exeo y el Q8 e-tron se dejaron fuera del volcado, y el Golf VI R
+   y el Scirocco R se asignaron a `EA113` a falta de confirmación de taller.
