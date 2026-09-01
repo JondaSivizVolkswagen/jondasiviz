@@ -356,6 +356,35 @@
       "stage": "stage2"
     },
     {
+      "id": "adm-fmic-ea855-alta",
+      "nombre": "Intercooler Competition 2.5 TFSI (Wagner / do88)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA855"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 880,
+        "estimado": 1100,
+        "max": 1450
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [],
+      "grupoExclusivo": "intercooler"
+    },
+    {
       "id": "adm-fmic-evo4-media",
       "nombre": "Intercooler frontal de altas prestaciones (IE FDS / Wagner / do88)",
       "categoria": "admision",
@@ -620,6 +649,35 @@
       "requiere": [],
       "grupoExclusivo": "admision-filtro",
       "stage": "stage1"
+    },
+    {
+      "id": "adm-intake-ea855-alta",
+      "nombre": "Kit de admisión de carbono 2.5 TFSI (Eventuri / Wagner)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA855"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 720,
+        "estimado": 900,
+        "max": 1200
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 3,
+        "estetica": 3
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "admision-filtro"
     },
     {
       "id": "adm-intake-evo4-media",
@@ -897,6 +955,62 @@
       "requiere": []
     },
     {
+      "id": "dir-brazos-mqba0-media",
+      "nombre": "Brazos ajustables MQB-A0 (Powerflex / SuperPro)",
+      "categoria": "direccion",
+      "plataformas": [],
+      "chasis": [
+        "MQB-A0"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 310,
+        "estimado": 400,
+        "max": 520
+      },
+      "objetivos": {
+        "drift": 4,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": []
+    },
+    {
+      "id": "dir-brazos-pq24-media",
+      "nombre": "Brazos ajustables y silentblocks PQ24 (Powerflex)",
+      "categoria": "direccion",
+      "plataformas": [],
+      "chasis": [
+        "PQ24"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 250,
+        "estimado": 320,
+        "max": 420
+      },
+      "objetivos": {
+        "drift": 4,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": []
+    },
+    {
       "id": "dir-eje-rigido-alta",
       "nombre": "Eje trasero rígido soldado + refuerzos (conversión drift FWD)",
       "categoria": "direccion",
@@ -1097,6 +1211,35 @@
       "requiere": [],
       "stage": "stage1",
       "nota": "Aquí el motivo real es el sonido, no la potencia."
+    },
+    {
+      "id": "esc-catback-ea855-alta",
+      "nombre": "Escape cat-back valvular 2.5 TFSI (Akrapovic / Milltek)",
+      "categoria": "escape",
+      "plataformas": [
+        "EA855"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 2600,
+        "estimado": 3200,
+        "max": 4200
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 2,
+        "estetica": 5
+      },
+      "impacto": 3,
+      "requiere": [],
+      "nota": "El sonido de cinco cilindros es medio motivo de comprar el coche."
     },
     {
       "id": "esc-catback-media",
@@ -1346,6 +1489,37 @@
       "grupoExclusivo": "downpipe",
       "stage": "stage2",
       "nota": "Fuera de homologación en la UE. Solo circuito."
+    },
+    {
+      "id": "esc-dp-ea855-alta",
+      "nombre": "Downpipe sin cat 2.5 TFSI (Milltek / Scorpion)",
+      "categoria": "escape",
+      "plataformas": [
+        "EA855"
+      ],
+      "chasis": [],
+      "legalidad": "solo-circuito",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [
+        "gpf"
+      ],
+      "gama": "alta",
+      "precio": {
+        "min": 950,
+        "estimado": 1200,
+        "max": 1550
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "downpipe"
     },
     {
       "id": "esc-dp-evo4-media",
@@ -1602,6 +1776,37 @@
       "grupoExclusivo": "altura"
     },
     {
+      "id": "est-airride-pq46-alta",
+      "nombre": "Suspensión neumática gestionada PQ46 (Air Lift 3P)",
+      "categoria": "estetica",
+      "plataformas": [],
+      "chasis": [
+        "PQ46"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [
+        "suspension-neumatica"
+      ],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 2100,
+        "estimado": 2600,
+        "max": 3400
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 5
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "altura"
+    },
+    {
       "id": "est-bodykit-media",
       "nombre": "Kit de carrocería Votex / RVA completo",
       "categoria": "estetica",
@@ -1636,6 +1841,118 @@
         "drag": 0,
         "mas-cv": 0,
         "estetica": 5
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
+      "id": "est-bodykit-mqba0-media",
+      "nombre": "Kit estético MQB-A0 (faldones, difusor, alerón)",
+      "categoria": "estetica",
+      "plataformas": [],
+      "chasis": [
+        "MQB-A0"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 540,
+        "estimado": 700,
+        "max": 920
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
+      "id": "est-bodykit-nsf-baja",
+      "nombre": "Kit estético NSF (molduras, vinilos, alerón)",
+      "categoria": "estetica",
+      "plataformas": [],
+      "chasis": [
+        "NSF"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 340,
+        "estimado": 450,
+        "max": 600
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
+      "id": "est-bodykit-pq24-media",
+      "nombre": "Kit de faldones y alerón PQ24",
+      "categoria": "estetica",
+      "plataformas": [],
+      "chasis": [
+        "PQ24"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 380,
+        "estimado": 500,
+        "max": 680
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
+      "id": "est-bodykit-pq46-media",
+      "nombre": "Kit estético PQ46 (faldones, difusor, molduras)",
+      "categoria": "estetica",
+      "plataformas": [],
+      "chasis": [
+        "PQ46"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 620,
+        "estimado": 800,
+        "max": 1050
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 4
       },
       "impacto": 2,
       "requiere": []
@@ -1837,6 +2154,37 @@
       "grupoExclusivo": "frenos-delanteros"
     },
     {
+      "id": "fren-bbk-mqba0-alta",
+      "nombre": "Kit big brake 330 mm MQB-A0 (Stoptech / HISPEC)",
+      "categoria": "frenos",
+      "plataformas": [],
+      "chasis": [
+        "MQB-A0"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [
+        "frenos-grandes"
+      ],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1200,
+        "estimado": 1500,
+        "max": 1950
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 3,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "frenos-delanteros"
+    },
+    {
       "id": "fren-bbk-mqbevo-alta",
       "nombre": "Big brake 4/6 pistones 355-380 mm (Brembo GT / AP Racing)",
       "categoria": "frenos",
@@ -1870,6 +2218,37 @@
       "requiere": [],
       "grupoExclusivo": "frenos-delanteros",
       "nota": "Los Clubsport, Edition 50 y R ya montan 357 mm de serie: el salto real es menor de lo que parece."
+    },
+    {
+      "id": "fren-bbk-pq46-alta",
+      "nombre": "Kit big brake 330 mm PQ46 (Stoptech / HISPEC)",
+      "categoria": "frenos",
+      "plataformas": [],
+      "chasis": [
+        "PQ46"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [
+        "frenos-grandes"
+      ],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1100,
+        "estimado": 1400,
+        "max": 1850
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 3,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "frenos-delanteros"
     },
     {
       "id": "fren-discos-media",
@@ -1914,6 +2293,34 @@
       "grupoExclusivo": "frenos-delanteros"
     },
     {
+      "id": "fren-discos-nsf-baja",
+      "nombre": "Discos y pastillas de altas prestaciones NSF",
+      "categoria": "frenos",
+      "plataformas": [],
+      "chasis": [
+        "NSF"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 290,
+        "estimado": 380,
+        "max": 500
+      },
+      "objetivos": {
+        "drift": 2,
+        "drag": 2,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": []
+    },
+    {
       "id": "fren-pastillas-baja",
       "nombre": "Pastillas deportivas + latiguillos metálicos + líquido DOT 5.1",
       "categoria": "frenos",
@@ -1952,6 +2359,34 @@
         "estetica": 0
       },
       "impacto": 2,
+      "requiere": []
+    },
+    {
+      "id": "fren-pastillas-pq24-baja",
+      "nombre": "Pastillas deportivas y latiguillos PQ24",
+      "categoria": "frenos",
+      "plataformas": [],
+      "chasis": [
+        "PQ24"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 200,
+        "estimado": 260,
+        "max": 340
+      },
+      "objetivos": {
+        "drift": 2,
+        "drag": 2,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 3,
       "requiere": []
     },
     {
@@ -2251,6 +2686,37 @@
       "grupoExclusivo": "remap",
       "stage": "stage1",
       "nota": "Unos 30 CV más y buen empujón de par abajo. Legal mientras no se toque el postratamiento."
+    },
+    {
+      "id": "gestion-stage1-ea855-alta",
+      "nombre": "Reprogramación Stage 1 2.5 TFSI (APR / Unitronic / MTM)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA855"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 780,
+        "estimado": 950,
+        "max": 1250
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "remap",
+      "stage": "stage1",
+      "nota": "De 400 a unos 470 CV sin tocar hierro."
     },
     {
       "id": "gestion-stage1-evo4-media",
@@ -2594,6 +3060,39 @@
       "nota": "Techo del EA288 con intercooler, downpipe y EGR anulada. Fuera de homologación en la UE: solo circuito."
     },
     {
+      "id": "gestion-stage2-ea855-alta",
+      "nombre": "Reprogramación Stage 2 2.5 TFSI (APR / MTM / ABT)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA855"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1050,
+        "estimado": 1300,
+        "max": 1700
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "esc-dp-ea855-alta",
+        "adm-intake-ea855-alta"
+      ],
+      "grupoExclusivo": "remap",
+      "stage": "stage2"
+    },
+    {
       "id": "gestion-stage2-evo4-media",
       "nombre": "Reprogramación Stage 2 EA888 evo4",
       "categoria": "gestion",
@@ -2806,6 +3305,35 @@
       "grupoExclusivo": "remap"
     },
     {
+      "id": "refr-aceite-ea855-media",
+      "nombre": "Kit de refrigeración de aceite 2.5 TFSI (Setrab / Forge)",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA855"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 560,
+        "estimado": 700,
+        "max": 920
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 2,
+        "mas-cv": 1,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "refrigeracion"
+    },
+    {
       "id": "rueda-calle-baja",
       "nombre": "Llantas réplica 18\" + neumáticos de calle (tipo BBS LM)",
       "categoria": "ruedas",
@@ -2957,6 +3485,122 @@
         "estetica": 5
       },
       "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "llantas"
+    },
+    {
+      "id": "rueda-mqba0-media",
+      "nombre": "Llantas 18in y neumáticos deportivos MQB-A0",
+      "categoria": "ruedas",
+      "plataformas": [],
+      "chasis": [
+        "MQB-A0"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 1100,
+        "estimado": 1400,
+        "max": 1850
+      },
+      "objetivos": {
+        "drift": 2,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "llantas"
+    },
+    {
+      "id": "rueda-nsf-baja",
+      "nombre": "Llantas 16in ligeras NSF",
+      "categoria": "ruedas",
+      "plataformas": [],
+      "chasis": [
+        "NSF"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 620,
+        "estimado": 800,
+        "max": 1050
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "llantas"
+    },
+    {
+      "id": "rueda-pq24-media",
+      "nombre": "Llantas 17in y neumáticos deportivos PQ24",
+      "categoria": "ruedas",
+      "plataformas": [],
+      "chasis": [
+        "PQ24"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 700,
+        "estimado": 900,
+        "max": 1200
+      },
+      "objetivos": {
+        "drift": 2,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "llantas"
+    },
+    {
+      "id": "rueda-pq46-alta",
+      "nombre": "Llantas 19in forjadas PQ46 (BBS / OZ)",
+      "categoria": "ruedas",
+      "plataformas": [],
+      "chasis": [
+        "PQ46"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1250,
+        "estimado": 1600,
+        "max": 2100
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 5
+      },
+      "impacto": 3,
       "requiere": [],
       "grupoExclusivo": "llantas"
     },
@@ -3207,6 +3851,64 @@
       "requiere": [],
       "grupoExclusivo": "jaula",
       "nota": "Obligatoria en la mayoría de reglamentos de competición."
+    },
+    {
+      "id": "seg-jaula-mqba0-media",
+      "nombre": "Media jaula atornillada MQB-A0",
+      "categoria": "seguridad",
+      "plataformas": [],
+      "chasis": [
+        "MQB-A0"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 800,
+        "estimado": 1000,
+        "max": 1300
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "jaula"
+    },
+    {
+      "id": "seg-jaula-pq24-media",
+      "nombre": "Media jaula atornillada PQ24",
+      "categoria": "seguridad",
+      "plataformas": [],
+      "chasis": [
+        "PQ24"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 700,
+        "estimado": 900,
+        "max": 1200
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "jaula"
     },
     {
       "id": "seg-strutbar-baja",
@@ -3484,6 +4186,35 @@
       "grupoExclusivo": "altura"
     },
     {
+      "id": "susp-coil-mqba0-media",
+      "nombre": "Coilovers roscados MQB-A0 (KW V1 / ST XTA / BC Racing)",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "MQB-A0"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 950,
+        "estimado": 1200,
+        "max": 1600
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "altura"
+    },
+    {
       "id": "susp-coil-mqbevo-alta",
       "nombre": "Coilovers 3 vías KW V3 / Clubsport para Golf 8 GTI y R",
       "categoria": "suspension",
@@ -3586,6 +4317,93 @@
       "objetivos": {
         "drift": 4,
         "drag": 3,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "altura"
+    },
+    {
+      "id": "susp-coil-nsf-media",
+      "nombre": "Coilovers roscados NSF (KW V1)",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "NSF"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 750,
+        "estimado": 950,
+        "max": 1250
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "altura"
+    },
+    {
+      "id": "susp-coil-pq24-baja",
+      "nombre": "Coilovers de entrada PQ24 (FK / TA Technix)",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "PQ24"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 340,
+        "estimado": 450,
+        "max": 600
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "altura"
+    },
+    {
+      "id": "susp-coil-pq46-media",
+      "nombre": "Coilovers roscados PQ46 (KW V1 / BC Racing)",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "PQ46"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 850,
+        "estimado": 1100,
+        "max": 1450
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 0,
         "mas-cv": 0,
         "estetica": 4
       },
@@ -3743,6 +4561,35 @@
       "nota": "En un eléctrico hay un efecto secundario real: menos aire por debajo, menos resistencia, algo más de autonomía."
     },
     {
+      "id": "susp-muelles-mqba0-baja",
+      "nombre": "Muelles de rebaje -30 mm MQB-A0 (Eibach / H&R)",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "MQB-A0"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 230,
+        "estimado": 300,
+        "max": 400
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 3
+      },
+      "impacto": 2,
+      "requiere": [],
+      "grupoExclusivo": "altura"
+    },
+    {
       "id": "susp-muelles-mqbevo-baja",
       "nombre": "Muelles de rebaje -30 mm MQB Evo (Eibach Pro-Kit / H&R)",
       "categoria": "suspension",
@@ -3779,6 +4626,64 @@
       "grupoExclusivo": "altura"
     },
     {
+      "id": "susp-muelles-nsf-baja",
+      "nombre": "Muelles de rebaje NSF (Eibach / H&R)",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "NSF"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 180,
+        "estimado": 240,
+        "max": 320
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 3
+      },
+      "impacto": 2,
+      "requiere": [],
+      "grupoExclusivo": "altura"
+    },
+    {
+      "id": "susp-muelles-pq24-baja",
+      "nombre": "Muelles de rebaje PQ24 (Eibach / H&R)",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "PQ24"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 170,
+        "estimado": 220,
+        "max": 300
+      },
+      "objetivos": {
+        "drift": 1,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 3
+      },
+      "impacto": 2,
+      "requiere": [],
+      "grupoExclusivo": "altura"
+    },
+    {
       "id": "susp-subframe-media",
       "nombre": "Casquillos rígidos de subchasis y eje trasero (poliuretano/aluminio)",
       "categoria": "suspension",
@@ -3809,6 +4714,34 @@
       "objetivos": {
         "drift": 4,
         "drag": 2,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": []
+    },
+    {
+      "id": "susp-subframe-pq46-media",
+      "nombre": "Casquillos rígidos de subchasis PQ46",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "PQ46"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 220,
+        "estimado": 280,
+        "max": 370
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 0,
         "mas-cv": 0,
         "estetica": 0
       },
@@ -4349,6 +5282,42 @@
       "grupoExclusivo": "turbo-principal",
       "stage": "stage3",
       "nota": "Comparte referencia con Passat B8, Arteon, Audi A4 B9 y Skoda Octavia IV."
+    },
+    {
+      "id": "turbo-hibrido-ea855-alta",
+      "nombre": "Turbo híbrido 2.5 TFSI (TTE / Loba)",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA855"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 3000,
+        "estimado": 3800,
+        "max": 5000
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "adm-fmic-ea855-alta",
+        "adm-intake-ea855-alta",
+        "esc-dp-ea855-alta",
+        "gestion-stage2-ea855-alta",
+        "refr-aceite-ea855-media"
+      ],
+      "grupoExclusivo": "turbo-principal",
+      "nota": "Más de 600 CV. A esa potencia la refrigeración de aceite deja de ser opcional."
     },
     {
       "id": "turbo-hibrido-evo4-alta",

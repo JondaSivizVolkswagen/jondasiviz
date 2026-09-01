@@ -42,6 +42,6 @@ imagen: null
 
 **Chasis** [[Chasis MQB Evo]]
 
-**Monta con avisos en (19)** [[Golf GTD Mk8]], [[Golf GTD Mk8.5]], [[Golf GTI Clubsport 45]], [[Golf GTI Clubsport Mk8]], [[Golf GTI Clubsport Mk8.5]], [[Golf GTI Edition 50]], [[Golf GTI Mk8]], [[Golf GTI Mk8.5]], [[Golf R 20 Years]], [[Golf R 333 Limited Edition]], [[Golf R Mk8]], [[Golf R Mk8.5]], [[Golf R Variant Mk8]], [[Golf R Variant Mk8.5]], [[Golf Mk8 1.5 TSI]], [[Golf Mk8 2.0 TDI]], [[Golf GTE Mk8]], [[Passat B9 2.0 TSI]], [[Tiguan Mk3 eTSI]]
+**Monta con avisos en (28)** [[Cupra Formentor VZ]], [[Cupra Formentor VZ5]], [[Cupra León KL]], [[Cupra León eHybrid]], [[Cupra Terramar]], [[Golf GTD Mk8]], [[Golf GTD Mk8.5]], [[Golf GTI Clubsport 45]], [[Golf GTI Clubsport Mk8]], [[Golf GTI Clubsport Mk8.5]], [[Golf GTI Edition 50]], [[Golf GTI Mk8]], [[Golf GTI Mk8.5]], [[Golf R 20 Years]], [[Golf R 333 Limited Edition]], [[Golf R Mk8]], [[Golf R Mk8.5]], [[Golf R Variant Mk8]], [[Golf R Variant Mk8.5]], [[Golf Mk8 1.5 TSI]], [[Golf Mk8 2.0 TDI]], [[Golf GTE Mk8]], [[Octavia IV RS]], [[Octavia IV RS iV]], [[Octavia IV RS TDI]], [[Passat B9 2.0 TSI]], [[Superb IV 2.0 TDI]], [[Tiguan Mk3 eTSI]]
 
 > Necesario si el coche lleva DCC de serie: mantiene la centralita adaptativa sin dar fallo.

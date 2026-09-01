@@ -35,6 +35,6 @@ imagen: null
 
 **Marcas** [[Unitronic]], [[Apr]], [[Revo]]
 
-**Monta con avisos en (14)** [[Golf GTI Clubsport 45]], [[Golf GTI Clubsport Mk8]], [[Golf GTI Clubsport Mk8.5]], [[Golf GTI Edition 50]], [[Golf GTI Mk8]], [[Golf GTI Mk8.5]], [[Golf R 20 Years]], [[Golf R 333 Limited Edition]], [[Golf R Mk8]], [[Golf R Mk8.5]], [[Golf R Variant Mk8]], [[Golf R Variant Mk8.5]], [[Passat B9 2.0 TSI]], [[Tiguan Mk3 eTSI]]
+**Monta con avisos en (18)** [[Cupra Formentor VZ]], [[Cupra León KL]], [[Cupra Terramar]], [[Golf GTI Clubsport 45]], [[Golf GTI Clubsport Mk8]], [[Golf GTI Clubsport Mk8.5]], [[Golf GTI Edition 50]], [[Golf GTI Mk8]], [[Golf GTI Mk8.5]], [[Golf R 20 Years]], [[Golf R 333 Limited Edition]], [[Golf R Mk8]], [[Golf R Mk8.5]], [[Golf R Variant Mk8]], [[Golf R Variant Mk8.5]], [[Octavia IV RS]], [[Passat B9 2.0 TSI]], [[Tiguan Mk3 eTSI]]
 
 > GTI 245 sube a unos 300-310 CV; R 320 a unos 380 CV. Sin hardware.

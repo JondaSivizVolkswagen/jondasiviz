@@ -45,6 +45,6 @@ imagen: null
 
 **Requiere** [[Intercooler frontal EA888 gen3 (Wagner - do88 - IE)]], [[Kit de admisión cerrada EA888 gen3 (Eventuri - RacingLine - IE)]], [[Escape turbo-back con valvulería EA888 gen3 (Milltek Race - Akrapovic)]], [[Bomba de alta presión EA888 gen3 (APR - IE)]], [[Calibración Stage 2 E85 EA888 gen3 (Unitronic - MACHGRADE)]], [[Embrague DSG DQ250 reforzado + calibración de caja (Sachs - RacingLine)]]
 
-**Monta con avisos en (16)** [[Arteon 2.0 TSI]], [[Arteon R]], [[Golf GTI Mk7]], [[Golf R Mk7]], [[Golf GTI Mk7 Performance]], [[Golf GTI Clubsport Mk7]], [[Golf GTI Clubsport S]], [[Golf R Variant Mk7]], [[Golf GTI Mk7.5 Performance]], [[Golf GTI TCR]], [[Passat B8 2.0 TSI]], [[Polo GTI AW]], [[Polo GTI 6C]], [[T-Roc R]], [[Tiguan 2.0 TSI]], [[Tiguan R]]
+**Monta con avisos en (26)** [[Arteon 2.0 TSI]], [[Arteon R]], [[Cupra Ateca]], [[Golf GTI Mk7]], [[Golf R Mk7]], [[Golf GTI Mk7 Performance]], [[Golf GTI Clubsport Mk7]], [[Golf GTI Clubsport S]], [[Golf R Variant Mk7]], [[Golf GTI Mk7.5 Performance]], [[Golf GTI TCR]], [[Ibiza Cupra 6J 1.8 TSI]], [[Kodiaq RS TSI]], [[León Cupra 5F 280]], [[León Cupra 5F 300]], [[León Cupra R 5F]], [[León ST Cupra 4Drive]], [[Octavia III RS]], [[Octavia III RS 245]], [[Passat B8 2.0 TSI]], [[Polo GTI AW]], [[Polo GTI 6C]], [[Superb III 2.0 TSI]], [[T-Roc R]], [[Tiguan 2.0 TSI]], [[Tiguan R]]
 
 > Más de 450 CV. El DQ250 de serie no aguanta ese par, por eso arrastra embrague.

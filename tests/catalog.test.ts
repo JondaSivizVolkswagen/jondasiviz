@@ -48,6 +48,17 @@ describe("validarCatalogo", () => {
     expect(validarCatalogo(c).some((p) => p.includes("min <= estimado <= max"))).toBe(true);
   });
 
+  it("acepta una pieza que solo dice el chasis", () => {
+    // Unos coilovers no dependen de si el coche es TSI o TDI: van por chasis.
+    const c = catalogo([pieza({ id: "coilovers", plataformas: [], chasis: ["MQB Evo"] })]);
+    expect(validarCatalogo(c)).toEqual([]);
+  });
+
+  it("detecta una pieza que no dice dónde monta", () => {
+    const c = catalogo([pieza({ id: "huerfana", plataformas: [], chasis: [] })]);
+    expect(validarCatalogo(c).some((p) => p.includes("ni plataformas ni chasis"))).toBe(true);
+  });
+
   it("detecta objetivo fuera de rango", () => {
     const p = pieza({ id: "a" });
     p.objetivos.drift = 9;

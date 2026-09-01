@@ -41,6 +41,6 @@ imagen: null
 
 **Requiere** [[Intercooler de mayor volumen 2.0 TDI]], [[Downpipe sin DPF 2.0 TDI]], [[Reprogramación Stage 2 2.0 TDI (~270 CV)]], [[Inyectores de mayor caudal y bomba de alta presión TDI]]
 
-**Monta con avisos en (3)** [[Golf GTD Mk8]], [[Golf GTD Mk8.5]], [[Golf Mk8 2.0 TDI]]
+**Monta con avisos en (5)** [[Golf GTD Mk8]], [[Golf GTD Mk8.5]], [[Golf Mk8 2.0 TDI]], [[Octavia IV RS TDI]], [[Superb IV 2.0 TDI]]
 
 > Comparte referencia con Passat B8, Arteon, Audi A4 B9 y Skoda Octavia IV.

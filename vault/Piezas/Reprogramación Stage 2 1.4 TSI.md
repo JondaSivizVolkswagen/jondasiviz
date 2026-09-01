@@ -39,6 +39,6 @@ imagen: null
 
 **Requiere** [[Downpipe con cat deportivo 1.4 TSI (Milltek - Scorpion)]], [[Kit de cadena de distribución reforzada 1.4 TSI]]
 
-**Monta con avisos en (2)** [[Golf V GT Sport]], [[Polo GTI 6R]]
+**Monta con avisos en (6)** [[Fabia RS 5J]], [[Golf V GT Sport]], [[Ibiza Cupra 6J]], [[Ibiza FR 6J]], [[Polo GTI 6R]], [[Rapid 1.4 TSI]]
 
 > Unos 230 CV. Pide downpipe y cadena sana: el Stage 2 sobre una cadena vieja es dinero tirado.

@@ -40,4 +40,4 @@ imagen: null
 
 **Requiere** [[Intercooler frontal (Forge - Wagner Competition)]], [[Kit de admisión cerrada (Forge - Neuspeed P-Flo)]], [[Downpipe 3in descatalizado o con cat deportivo (AWE - Milltek)]], [[Kit de bomba de alta presión reforzada (Autotech - APR)]], [[Calibración Stage 2+ - archivo K04]]
 
-**Monta con avisos en (6)** [[Golf GTI Mk5]], [[Golf GTI Edition 30]], [[Golf GTI Pirelli]], [[Golf R Mk6]], [[Passat B6 2.0 TFSI]], [[Scirocco R]]
+**Monta con avisos en (10)** [[Golf GTI Mk5]], [[Golf GTI Edition 30]], [[Golf GTI Pirelli]], [[Golf R Mk6]], [[León Cupra 1P]], [[León Cupra R 1P]], [[León FR 1P]], [[Octavia II RS]], [[Passat B6 2.0 TFSI]], [[Scirocco R]]

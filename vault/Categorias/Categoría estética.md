@@ -3,4 +3,4 @@ tipo: categoria
 nombre: estetica
 ---
 
-**Piezas (6)** [[Suspensión neumática gestionada (Air Lift 3P)]], [[Kit de carrocería Votex - RVA completo]], [[Rejilla sin logos + molduras en negro brillo + vinilo de techo]], [[Ópticas ahumadas + intermitentes dinámicos]], [[Retapizado a cuadros GTI + volante de base plana]], [[Kit de aletas anchas + alerón GT + capó de fibra]]
+**Piezas (11)** [[Suspensión neumática gestionada (Air Lift 3P)]], [[Suspensión neumática gestionada PQ46 (Air Lift 3P)]], [[Kit de carrocería Votex - RVA completo]], [[Kit estético MQB-A0 (faldones, difusor, alerón)]], [[Kit estético NSF (molduras, vinilos, alerón)]], [[Kit de faldones y alerón PQ24]], [[Kit estético PQ46 (faldones, difusor, molduras)]], [[Rejilla sin logos + molduras en negro brillo + vinilo de techo]], [[Ópticas ahumadas + intermitentes dinámicos]], [[Retapizado a cuadros GTI + volante de base plana]], [[Kit de aletas anchas + alerón GT + capó de fibra]]

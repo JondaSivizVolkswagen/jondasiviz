@@ -36,6 +36,6 @@ imagen: null
 
 **Motor** [[EA288]], [[EA288-evo]]
 
-**Monta con avisos en (4)** [[Golf GTD Mk8]], [[Golf GTD Mk8.5]], [[Golf GTD Mk7]], [[Golf Mk8 2.0 TDI]]
+**Monta con avisos en (8)** [[Golf GTD Mk8]], [[Golf GTD Mk8.5]], [[Golf GTD Mk7]], [[Golf Mk8 2.0 TDI]], [[Kodiaq RS BiTDI]], [[Octavia III RS TDI]], [[Octavia IV RS TDI]], [[Superb IV 2.0 TDI]]
 
 > Unos 30 CV más y buen empujón de par abajo. Legal mientras no se toque el postratamiento.

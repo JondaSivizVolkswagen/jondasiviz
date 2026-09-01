@@ -38,4 +38,4 @@ imagen: null
 
 **Requiere** [[Downpipe sin DPF 2.0 TDI EA189 (Darkside Developments)]]
 
-**Monta con avisos en (3)** [[Golf GTD Mk6]], [[Passat B7 2.0 TDI]], [[Scirocco 2.0 TDI]]
+**Monta con avisos en (5)** [[Golf GTD Mk6]], [[León FR 1P TDI]], [[Octavia II RS TDI]], [[Passat B7 2.0 TDI]], [[Scirocco 2.0 TDI]]

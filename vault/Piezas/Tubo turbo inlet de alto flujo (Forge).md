@@ -35,4 +35,4 @@ imagen: null
 
 **Marcas** [[Forge]]
 
-**Monta en (6)** [[Golf GTI Mk5]], [[Golf GTI Edition 30]], [[Golf GTI Pirelli]], [[Golf R Mk6]], [[Passat B6 2.0 TFSI]], [[Scirocco R]]
+**Monta en (10)** [[Golf GTI Mk5]], [[Golf GTI Edition 30]], [[Golf GTI Pirelli]], [[Golf R Mk6]], [[León Cupra 1P]], [[León Cupra R 1P]], [[León FR 1P]], [[Octavia II RS]], [[Passat B6 2.0 TFSI]], [[Scirocco R]]

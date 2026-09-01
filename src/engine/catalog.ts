@@ -124,9 +124,16 @@ export function validarCatalogo(catalogo: Catalogo): string[] {
     if (!GAMAS.includes(pieza.gama)) {
       problemas.push(`Pieza ${ref}: gama desconocida "${pieza.gama}"`);
     }
-    if (!Array.isArray(pieza.plataformas) || pieza.plataformas.length === 0) {
-      problemas.push(`Pieza ${ref}: sin plataformas`);
-    } else {
+    // Una pieza tiene que decir dónde monta, pero vale cualquiera de las dos vías: por
+    // plataforma de motor si cuelga del motor, o por chasis si cuelga del coche. Exigir
+    // siempre plataforma es de cuando el campo `chasis` no existía, y obligaba a listar
+    // motores que la pieza ni mira: unos coilovers no dependen de si es TSI o TDI.
+    const sinMotor = !Array.isArray(pieza.plataformas) || pieza.plataformas.length === 0;
+    const sinChasis = !Array.isArray(pieza.chasis) || pieza.chasis.length === 0;
+    if (sinMotor && sinChasis) {
+      problemas.push(`Pieza ${ref}: no dice dónde monta, ni plataformas ni chasis`);
+    }
+    if (!sinMotor) {
       for (const p of pieza.plataformas) {
         if (!PLATAFORMAS.includes(p)) problemas.push(`Pieza ${ref}: plataforma desconocida "${p}"`);
       }

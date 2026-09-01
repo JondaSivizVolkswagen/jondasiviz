@@ -37,6 +37,6 @@ imagen: null
 
 **Marcas** [[Forge]]
 
-**Monta con avisos en (2)** [[Golf V GT Sport]], [[Polo GTI 6R]]
+**Monta con avisos en (6)** [[Fabia RS 5J]], [[Golf V GT Sport]], [[Ibiza Cupra 6J]], [[Ibiza FR 6J]], [[Polo GTI 6R]], [[Rapid 1.4 TSI]]
 
 > Solo tiene sentido con el compresor volumétrico del twincharger, no en los 1.4 TSI de un turbo.

@@ -42,4 +42,4 @@ imagen: null
 
 **Marcas** [[Bc Racing]], [[Kw V1]]
 
-**Monta con avisos en (9)** [[Golf GTD Mk8]], [[Golf GTD Mk8.5]], [[Golf GTI Mk8]], [[Golf GTI Mk8.5]], [[Golf Mk8 1.5 TSI]], [[Golf Mk8 2.0 TDI]], [[Golf GTE Mk8]], [[Passat B9 2.0 TSI]], [[Tiguan Mk3 eTSI]]
+**Monta con avisos en (18)** [[Cupra Formentor VZ]], [[Cupra Formentor VZ5]], [[Cupra León KL]], [[Cupra León eHybrid]], [[Cupra Terramar]], [[Golf GTD Mk8]], [[Golf GTD Mk8.5]], [[Golf GTI Mk8]], [[Golf GTI Mk8.5]], [[Golf Mk8 1.5 TSI]], [[Golf Mk8 2.0 TDI]], [[Golf GTE Mk8]], [[Octavia IV RS]], [[Octavia IV RS iV]], [[Octavia IV RS TDI]], [[Passat B9 2.0 TSI]], [[Superb IV 2.0 TDI]], [[Tiguan Mk3 eTSI]]

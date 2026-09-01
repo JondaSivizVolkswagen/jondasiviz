@@ -63,6 +63,24 @@
       ]
     },
     {
+      "id": "citigo",
+      "nombre": "Citigo",
+      "alias": [
+        "citigo",
+        "skoda citigo"
+      ],
+      "chasis": "NSF",
+      "motor": "EA211",
+      "motorDetalle": "1.0 MPI/TSI 60-75 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2011,
+        2020
+      ]
+    },
+    {
       "id": "corrado-vr6",
       "nombre": "Corrado VR6",
       "alias": [
@@ -79,6 +97,195 @@
       "anios": [
         1991,
         1995
+      ]
+    },
+    {
+      "id": "cupra-ateca",
+      "nombre": "Cupra Ateca",
+      "alias": [
+        "ateca cupra",
+        "cupra ateca 300"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 300 CV, 4Drive",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg"
+      ],
+      "anios": [
+        2018,
+        2024
+      ]
+    },
+    {
+      "id": "cupra-formentor-vz",
+      "nombre": "Cupra Formentor VZ",
+      "alias": [
+        "formentor vz",
+        "formentor 310"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 245-310 CV",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "cupra-formentor-vz5",
+      "nombre": "Cupra Formentor VZ5",
+      "alias": [
+        "formentor vz5",
+        "vz5"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA855",
+      "motorDetalle": "2.5 TFSI cinco cilindros 390 CV",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "frenos-grandes",
+        "gpf"
+      ],
+      "anios": [
+        2021,
+        2022
+      ]
+    },
+    {
+      "id": "cupra-leon-kl",
+      "nombre": "Cupra León KL",
+      "alias": [
+        "cupra leon",
+        "leon kl cupra",
+        "cupra leon 300"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 245-310 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "vaq",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "cupra-leon-kl-ehybrid",
+      "nombre": "Cupra León eHybrid",
+      "alias": [
+        "cupra leon ehybrid",
+        "leon phev"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA211-PHEV",
+      "motorDetalle": "1.4 TSI híbrido enchufable, 245-272 CV de sistema",
+      "traccion": "delantera",
+      "propulsion": "phev",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "cupra-terramar",
+      "nombre": "Cupra Terramar",
+      "alias": [
+        "terramar"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 204-265 CV",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2024,
+        2026
+      ]
+    },
+    {
+      "id": "fabia-nw-15-tsi",
+      "nombre": "Fabia NW 1.5 TSI",
+      "alias": [
+        "fabia 2021",
+        "fabia nw"
+      ],
+      "chasis": "MQB-A0",
+      "motor": "EA211-evo",
+      "motorDetalle": "1.5 TSI evo 150 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "gpf",
+        "act"
+      ],
+      "anios": [
+        2021,
+        2026
+      ]
+    },
+    {
+      "id": "fabia-rs-5j",
+      "nombre": "Fabia RS 5J",
+      "alias": [
+        "fabia rs 1.4 tsi",
+        "fabia 5j rs"
+      ],
+      "chasis": "PQ25",
+      "motor": "EA111",
+      "motorDetalle": "1.4 TSI twincharger 180 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2010,
+        2014
+      ]
+    },
+    {
+      "id": "fabia-rs-6y",
+      "nombre": "Fabia RS 6Y",
+      "alias": [
+        "fabia rs tdi",
+        "fabia 6y rs"
+      ],
+      "chasis": "PQ24",
+      "motor": "TDI",
+      "motorDetalle": "1.9 TDI bomba-inyector 130 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2003,
+        2007
       ]
     },
     {
@@ -964,6 +1171,523 @@
       ]
     },
     {
+      "id": "ibiza-6j-cupra",
+      "nombre": "Ibiza Cupra 6J",
+      "alias": [
+        "ibiza 6j cupra",
+        "ibiza cupra 1.4"
+      ],
+      "chasis": "PQ25",
+      "motor": "EA111",
+      "motorDetalle": "1.4 TSI twincharger 180 CV (CAVE)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2009,
+        2015
+      ]
+    },
+    {
+      "id": "ibiza-6j-cupra-18",
+      "nombre": "Ibiza Cupra 6J 1.8 TSI",
+      "alias": [
+        "ibiza cupra 1.8",
+        "ibiza 6p cupra"
+      ],
+      "chasis": "PQ25",
+      "motor": "EA888-gen3",
+      "motorDetalle": "1.8 TSI 192 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2015,
+        2016
+      ]
+    },
+    {
+      "id": "ibiza-6j-fr",
+      "nombre": "Ibiza FR 6J",
+      "alias": [
+        "ibiza 6j fr",
+        "ibiza fr 1.4 tsi"
+      ],
+      "chasis": "PQ25",
+      "motor": "EA111",
+      "motorDetalle": "1.4 TSI twincharger 150 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2008,
+        2015
+      ]
+    },
+    {
+      "id": "ibiza-6l-cupra",
+      "nombre": "Ibiza Cupra 6L",
+      "alias": [
+        "ibiza 6l cupra",
+        "ibiza cupra 1.8t"
+      ],
+      "chasis": "PQ24",
+      "motor": "1.8T-20v",
+      "motorDetalle": "1.8T 180 CV (BBU)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2004,
+        2008
+      ]
+    },
+    {
+      "id": "ibiza-6l-fr-tdi",
+      "nombre": "Ibiza FR 6L TDI",
+      "alias": [
+        "ibiza 6l fr",
+        "ibiza fr tdi"
+      ],
+      "chasis": "PQ24",
+      "motor": "TDI",
+      "motorDetalle": "1.9 TDI bomba-inyector 160 CV (BPX)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2004,
+        2008
+      ]
+    },
+    {
+      "id": "ibiza-kj-fr",
+      "nombre": "Ibiza FR KJ",
+      "alias": [
+        "ibiza kj",
+        "ibiza 2017 fr",
+        "ibiza 6f fr"
+      ],
+      "chasis": "MQB-A0",
+      "motor": "EA211-evo",
+      "motorDetalle": "1.5 TSI evo 150 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "gpf",
+        "act"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
+      "id": "kamiq-10-tsi",
+      "nombre": "Kamiq 1.0 TSI",
+      "alias": [
+        "kamiq"
+      ],
+      "chasis": "MQB-A0",
+      "motor": "EA211-evo",
+      "motorDetalle": "1.0 TSI 110 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "gpf"
+      ],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
+      "id": "karoq-15-tsi",
+      "nombre": "Karoq 1.5 TSI",
+      "alias": [
+        "karoq"
+      ],
+      "chasis": "MQB",
+      "motor": "EA211-evo",
+      "motorDetalle": "1.5 TSI evo 150 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "gpf",
+        "act"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
+      "id": "kodiaq-rs-bitdi",
+      "nombre": "Kodiaq RS BiTDI",
+      "alias": [
+        "kodiaq rs tdi",
+        "kodiaq bitdi"
+      ],
+      "chasis": "MQB",
+      "motor": "EA288",
+      "motorDetalle": "2.0 BiTDI 240 CV",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "dpf"
+      ],
+      "anios": [
+        2019,
+        2021
+      ]
+    },
+    {
+      "id": "kodiaq-rs-tsi",
+      "nombre": "Kodiaq RS TSI",
+      "alias": [
+        "kodiaq rs",
+        "kodiaq rs 245"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 245 CV",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2021,
+        2024
+      ]
+    },
+    {
+      "id": "leon-1p-cupra",
+      "nombre": "León Cupra 1P",
+      "alias": [
+        "leon 1p cupra",
+        "leon cupra 240"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 240 CV (BWJ)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2006,
+        2012
+      ]
+    },
+    {
+      "id": "leon-1p-cupra-r",
+      "nombre": "León Cupra R 1P",
+      "alias": [
+        "leon cupra r",
+        "cupra r 265"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 265 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "frenos-grandes"
+      ],
+      "anios": [
+        2010,
+        2012
+      ]
+    },
+    {
+      "id": "leon-1p-fr",
+      "nombre": "León FR 1P",
+      "alias": [
+        "leon 1p fr",
+        "leon fr 2.0 tfsi"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 200-211 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2005,
+        2012
+      ]
+    },
+    {
+      "id": "leon-1p-fr-tdi",
+      "nombre": "León FR 1P TDI",
+      "alias": [
+        "leon 1p tdi",
+        "leon fr tdi 170"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA189",
+      "motorDetalle": "2.0 TDI common rail 170 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf"
+      ],
+      "anios": [
+        2006,
+        2012
+      ]
+    },
+    {
+      "id": "leon-5f-cupra-280",
+      "nombre": "León Cupra 5F 280",
+      "alias": [
+        "leon 5f cupra",
+        "cupra 280"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 265-290 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "vaq",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2014,
+        2017
+      ]
+    },
+    {
+      "id": "leon-5f-cupra-300",
+      "nombre": "León Cupra 5F 300",
+      "alias": [
+        "cupra 300",
+        "leon cupra 300"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 300 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "vaq",
+        "dsg"
+      ],
+      "anios": [
+        2017,
+        2020
+      ]
+    },
+    {
+      "id": "leon-5f-cupra-r",
+      "nombre": "León Cupra R 5F",
+      "alias": [
+        "cupra r 5f",
+        "leon cupra r 310"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 310 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "vaq",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2017,
+        2018
+      ]
+    },
+    {
+      "id": "leon-5f-st-cupra-4drive",
+      "nombre": "León ST Cupra 4Drive",
+      "alias": [
+        "cupra st 4drive",
+        "leon st cupra"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 300 CV, 4Drive",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg"
+      ],
+      "anios": [
+        2018,
+        2020
+      ]
+    },
+    {
+      "id": "octavia-ii-rs",
+      "nombre": "Octavia II RS",
+      "alias": [
+        "octavia 2 rs",
+        "octavia rs 200"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 200 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2005,
+        2013
+      ]
+    },
+    {
+      "id": "octavia-ii-rs-tdi",
+      "nombre": "Octavia II RS TDI",
+      "alias": [
+        "octavia 2 rs tdi"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA189",
+      "motorDetalle": "2.0 TDI common rail 170 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf"
+      ],
+      "anios": [
+        2006,
+        2013
+      ]
+    },
+    {
+      "id": "octavia-iii-rs",
+      "nombre": "Octavia III RS",
+      "alias": [
+        "octavia 3 rs",
+        "octavia rs 230"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 220-230 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2013,
+        2019
+      ]
+    },
+    {
+      "id": "octavia-iii-rs-245",
+      "nombre": "Octavia III RS 245",
+      "alias": [
+        "octavia rs 245"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 245 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "vaq",
+        "dsg"
+      ],
+      "anios": [
+        2017,
+        2019
+      ]
+    },
+    {
+      "id": "octavia-iii-rs-tdi",
+      "nombre": "Octavia III RS TDI",
+      "alias": [
+        "octavia 3 rs tdi"
+      ],
+      "chasis": "MQB",
+      "motor": "EA288",
+      "motorDetalle": "2.0 TDI 184 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf"
+      ],
+      "anios": [
+        2013,
+        2019
+      ]
+    },
+    {
+      "id": "octavia-iv-rs",
+      "nombre": "Octavia IV RS",
+      "alias": [
+        "octavia 4 rs",
+        "octavia rs 2020"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 245 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "vaq",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "octavia-iv-rs-iv",
+      "nombre": "Octavia IV RS iV",
+      "alias": [
+        "octavia rs iv",
+        "octavia rs phev"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA211-PHEV",
+      "motorDetalle": "1.4 TSI híbrido enchufable, 245 CV de sistema",
+      "traccion": "delantera",
+      "propulsion": "phev",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2020,
+        2023
+      ]
+    },
+    {
+      "id": "octavia-iv-rs-tdi",
+      "nombre": "Octavia IV RS TDI",
+      "alias": [
+        "octavia 4 rs tdi"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA288-evo",
+      "motorDetalle": "2.0 TDI 200 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf",
+        "scr-adblue"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
       "id": "passat-b6-20-tfsi",
       "nombre": "Passat B6 2.0 TFSI",
       "alias": [
@@ -1206,6 +1930,45 @@
       ]
     },
     {
+      "id": "rapid-14-tsi",
+      "nombre": "Rapid 1.4 TSI",
+      "alias": [
+        "rapid"
+      ],
+      "chasis": "PQ25",
+      "motor": "EA111",
+      "motorDetalle": "1.4 TSI 122 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2012,
+        2019
+      ]
+    },
+    {
+      "id": "scala-15-tsi",
+      "nombre": "Scala 1.5 TSI",
+      "alias": [
+        "scala"
+      ],
+      "chasis": "MQB-A0",
+      "motor": "EA211-evo",
+      "motorDetalle": "1.5 TSI evo 150 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "gpf",
+        "act"
+      ],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
       "id": "scirocco-20-tsi",
       "nombre": "Scirocco 2.0 TSI",
       "alias": [
@@ -1262,6 +2025,108 @@
       "anios": [
         2008,
         2017
+      ]
+    },
+    {
+      "id": "seat-arona-10-tsi",
+      "nombre": "SEAT Arona 1.0 TSI",
+      "alias": [
+        "arona",
+        "arona tsi"
+      ],
+      "chasis": "MQB-A0",
+      "motor": "EA211-evo",
+      "motorDetalle": "1.0 TSI 110 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "gpf"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
+      "id": "superb-ii-20-tsi",
+      "nombre": "Superb II 2.0 TSI",
+      "alias": [
+        "superb 2",
+        "superb ii"
+      ],
+      "chasis": "PQ46",
+      "motor": "EA888-gen2",
+      "motorDetalle": "2.0 TSI 200 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2008,
+        2015
+      ]
+    },
+    {
+      "id": "superb-iii-20-tsi",
+      "nombre": "Superb III 2.0 TSI",
+      "alias": [
+        "superb 3",
+        "superb iii"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 220-280 CV",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg"
+      ],
+      "anios": [
+        2015,
+        2023
+      ]
+    },
+    {
+      "id": "superb-iii-iv",
+      "nombre": "Superb III iV",
+      "alias": [
+        "superb iv",
+        "superb phev"
+      ],
+      "chasis": "MQB",
+      "motor": "EA211-PHEV",
+      "motorDetalle": "1.4 TSI híbrido enchufable, 218 CV de sistema",
+      "traccion": "delantera",
+      "propulsion": "phev",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2019,
+        2023
+      ]
+    },
+    {
+      "id": "superb-iv-20-tdi",
+      "nombre": "Superb IV 2.0 TDI",
+      "alias": [
+        "superb 2024",
+        "superb iv tdi"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA288-evo",
+      "motorDetalle": "2.0 TDI 150-193 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf",
+        "scr-adblue"
+      ],
+      "anios": [
+        2023,
+        2026
       ]
     },
     {

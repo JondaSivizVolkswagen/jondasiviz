@@ -40,6 +40,6 @@ imagen: null
 
 **Requiere** [[Downpipe 3in EA888 gen2 (Milltek - AWE)]], [[Kit de admisión cerrada EA888 gen2 (Forge - Neuspeed)]], [[Kit de cadena de distribución reforzada EA888 gen2 (INA - Febi)]]
 
-**Monta con avisos en (5)** [[Beetle Turbo 5C]], [[Golf GTI Mk6]], [[Golf GTI Edition 35]], [[Passat CC 2.0 TSI]], [[Scirocco 2.0 TSI]]
+**Monta con avisos en (6)** [[Beetle Turbo 5C]], [[Golf GTI Mk6]], [[Golf GTI Edition 35]], [[Passat CC 2.0 TSI]], [[Scirocco 2.0 TSI]], [[Superb II 2.0 TSI]]
 
 > Unos 300 CV. La cadena entra como requisito: el gen2 es conocido por saltarla.

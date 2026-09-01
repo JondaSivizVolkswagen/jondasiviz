@@ -35,6 +35,6 @@ imagen: null
 
 **Marcas** [[Forge]], [[034]]
 
-**Monta en (5)** [[Beetle Turbo 5C]], [[Golf GTI Mk6]], [[Golf GTI Edition 35]], [[Passat CC 2.0 TSI]], [[Scirocco 2.0 TSI]]
+**Monta en (6)** [[Beetle Turbo 5C]], [[Golf GTI Mk6]], [[Golf GTI Edition 35]], [[Passat CC 2.0 TSI]], [[Scirocco 2.0 TSI]], [[Superb II 2.0 TSI]]
 
 > El gen2 consume aceite y ensucia la admisión. Esto le quita hierro.

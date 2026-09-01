@@ -35,6 +35,6 @@ imagen: null
 
 **Marcas** [[Celtic Tuning]], [[Superchips]]
 
-**Monta en (3)** [[Golf GTD Mk6]], [[Passat B7 2.0 TDI]], [[Scirocco 2.0 TDI]]
+**Monta en (5)** [[Golf GTD Mk6]], [[León FR 1P TDI]], [[Octavia II RS TDI]], [[Passat B7 2.0 TDI]], [[Scirocco 2.0 TDI]]
 
 > De 170 a unos 205 CV y bastante par abajo.

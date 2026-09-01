@@ -20,7 +20,7 @@ anios:
 
 Tracción delantera · combustión · 2005-2010
 
-**Piezas que montan (27)**
+**Piezas que montan (33)**
 
 [[Categoría admisión]]: [[Sistema de recogida de aceite (catch can) Forge]], [[Válvula de descarga reforzada (Forge DV+)]], [[Filtro de aire de altas prestaciones (BMC - Pipercross)]], [[Intercooler barra y placa Stage 3 (Airtec - do88) + hard pipes]], [[Intercooler frontal (Forge - Wagner Competition)]], [[Tubo turbo inlet de alto flujo (Forge)]], [[Kit de admisión cerrada (Forge - Neuspeed P-Flo)]]
 
@@ -28,6 +28,14 @@ Tracción delantera · combustión · 2005-2010
 
 [[Categoría escape]]: [[Línea cat-back inox 76 mm (Milltek - Scorpion)]], [[Downpipe descatalizado genérico]], [[Downpipe 3in descatalizado o con cat deportivo (AWE - Milltek)]], [[Escape turbo-back completo inox (Milltek Race)]]
 
+[[Categoría estética]]: [[Suspensión neumática gestionada PQ46 (Air Lift 3P)]], [[Kit estético PQ46 (faldones, difusor, molduras)]]
+
+[[Categoría frenos]]: [[Kit big brake 330 mm PQ46 (Stoptech - HISPEC)]]
+
 [[Categoría gestión]]: [[Reprogramación Stage 1 genérica]], [[Reprogramación Stage 1 de marca (APR - Revo - Unitronic)]], [[Reprogramación Stage 2]], [[Calibración Stage 2+ - archivo K04]], [[Gestión standalone (Syvecs - Emerald)]]
+
+[[Categoría ruedas]]: [[Llantas 19in forjadas PQ46 (BBS - OZ)]]
+
+[[Categoría suspensión]]: [[Coilovers roscados PQ46 (KW V1 - BC Racing)]], [[Casquillos rígidos de subchasis PQ46]]
 
 [[Categoría transmisión]]: [[Embrague de competición + volante aligerado]], [[Embrague reforzado Stage 2 + volante rígido (Sachs - Spec)]], [[Autoblocante de discos - Wavetrac con precarga ajustable]], [[Diferencial autoblocante ATB (Quaife - Peloquin)]], [[Palieres reforzados]], [[Kit de recorrido corto de cambio (034 - Forge)]]
