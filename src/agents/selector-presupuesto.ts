@@ -1,8 +1,10 @@
-// Subagente 2 (offline): a partir de modelo + gama + presupuesto + objetivos,
-// autoselecciona las piezas y comprueba el gasto mínimo recomendado.
+// Subagente 2 (offline): a partir de modelo + presupuesto + objetivos, autoselecciona
+// las piezas y sitúa el resultado en una gama.
 //
-// La matemática de selección la hace el motor determinista (engine/recommend).
-// Este módulo añade la resolución del modelo y el suelo de gasto por gama/objetivos.
+// La gama no se pide al usuario. El dinero disponible es el único techo: el motor
+// mira todas las piezas compatibles con el motor del coche y coge las que caben.
+// Lo que hace este módulo es resolver el modelo y traducir el presupuesto a
+// expectativa de gama, usando la matriz de floors.json como escala de referencia.
 
 import { cargarCatalogo } from "../engine/catalog";
 import { buscarModelo, listarModelos, piezasDeModelo } from "../engine/graph";
@@ -13,20 +15,27 @@ import type { Catalogo, Gama, ModeloVW, Objetivo, Presupuesto } from "../engine/
 export interface EntradaSelector {
   /** Texto libre: id, nombre o alias del modelo. */
   modelo: string;
-  gama: Gama;
   presupuesto: number;
   /** Uno o más objetivos. El suelo de gasto es la suma de los suyos. */
   objetivos: Objetivo[];
 }
 
+/** Gama a la que aspira un presupuesto, y lo que costaría llegar a ella. */
+export interface EscalonGama {
+  gama: Gama;
+  presupuesto: number;
+}
+
 export interface ResultadoSelector {
   modelo: ModeloVW | null;
   presupuesto: Presupuesto | null;
-  /** Gasto mínimo recomendado para esta gama y estos objetivos (suma de suelos). */
+  /** Gasto mínimo para que el proyecto tenga sentido (umbral de gama baja). */
   suelo: number;
   cumpleSuelo: boolean;
-  /** Gama que sí encajaría con el dinero disponible, si la pedida se queda corta. */
-  gamaSugerida: Gama | null;
+  /** Gama a la que da el dinero disponible. null si no llega ni al suelo. */
+  gamaEsperada: Gama | null;
+  /** Siguiente escalón de gama y lo que haría falta. null si ya se está en alta. */
+  siguienteEscalon: EscalonGama | null;
   avisos: string[];
 }
 
@@ -38,16 +47,50 @@ interface ConfigSuelos {
 const GAMAS: Gama[] = ["baja", "media", "alta"];
 
 /**
- * Gasto mínimo recomendado para una combinación de objetivos en una gama.
- * Es la suma de los suelos de cada objetivo: pedir varias cosas a la vez sube
- * el mínimo. Función pura para que la interfaz pueda mostrarlo en vivo.
+ * Dinero a partir del cual una combinación de objetivos llega a una gama. Es la
+ * suma de los umbrales de cada objetivo: pedir varias cosas a la vez sube el listón.
+ * Función pura para que la interfaz lo muestre en vivo.
  */
-export function sueloDe(
+export function umbralGama(
   objetivos: Objetivo[],
   gama: Gama,
   suelosCfg: ConfigSuelos = floorsJson as ConfigSuelos,
 ): number {
   return normalizarObjetivos(objetivos).reduce((s, o) => s + suelosCfg.suelos[o][gama], 0);
+}
+
+/** Gasto mínimo para que el proyecto tenga sentido: el umbral de la gama más baja. */
+export function sueloDe(
+  objetivos: Objetivo[],
+  suelosCfg: ConfigSuelos = floorsJson as ConfigSuelos,
+): number {
+  return umbralGama(objetivos, "baja", suelosCfg);
+}
+
+/** Gama más alta que cubre el presupuesto. null si no llega ni al suelo. */
+export function gamaEsperada(
+  objetivos: Objetivo[],
+  presupuesto: number,
+  suelosCfg: ConfigSuelos = floorsJson as ConfigSuelos,
+): Gama | null {
+  if (normalizarObjetivos(objetivos).length === 0) return null;
+  for (const g of [...GAMAS].reverse()) {
+    if (presupuesto >= umbralGama(objetivos, g, suelosCfg)) return g;
+  }
+  return null;
+}
+
+/** Siguiente escalón de gama y lo que costaría. null si ya se está en la más alta. */
+export function siguienteEscalon(
+  objetivos: Objetivo[],
+  presupuesto: number,
+  suelosCfg: ConfigSuelos = floorsJson as ConfigSuelos,
+): EscalonGama | null {
+  if (normalizarObjetivos(objetivos).length === 0) return null;
+  const actual = gamaEsperada(objetivos, presupuesto, suelosCfg);
+  const siguiente = actual == null ? "baja" : GAMAS[GAMAS.indexOf(actual) + 1];
+  if (!siguiente) return null;
+  return { gama: siguiente, presupuesto: umbralGama(objetivos, siguiente, suelosCfg) };
 }
 
 export interface SelectorPresupuesto {
@@ -60,10 +103,11 @@ export function crearSelector(
   modelos: ModeloVW[] = listarModelos(),
 ): SelectorPresupuesto {
   const seleccionar = (entrada: EntradaSelector): ResultadoSelector => {
-    const { gama } = entrada;
     const objetivos = normalizarObjetivos(entrada.objetivos);
     const presupuesto = Number.isFinite(entrada.presupuesto) ? entrada.presupuesto : 0;
-    const suelo = sueloDe(objetivos, gama, suelosCfg);
+    const suelo = sueloDe(objetivos, suelosCfg);
+    const esperada = gamaEsperada(objetivos, presupuesto, suelosCfg);
+    const escalon = siguienteEscalon(objetivos, presupuesto, suelosCfg);
     const avisos: string[] = [];
 
     const modelo = buscarModelo(entrada.modelo, modelos);
@@ -78,30 +122,18 @@ export function crearSelector(
         presupuesto: null,
         suelo,
         cumpleSuelo: false,
-        gamaSugerida: null,
+        gamaEsperada: null,
+        siguienteEscalon: null,
         avisos,
       };
     }
 
     const cumpleSuelo = objetivos.length > 0 && presupuesto >= suelo;
-    let gamaSugerida: Gama | null = null;
     if (objetivos.length > 0 && !cumpleSuelo) {
-      // Gama más alta cuyo suelo combinado sí cabe en el presupuesto.
-      for (const g of [...GAMAS].reverse()) {
-        if (presupuesto >= sueloDe(objetivos, g, suelosCfg)) {
-          gamaSugerida = g;
-          break;
-        }
-      }
-      const detalle =
-        gamaSugerida && gamaSugerida !== gama
-          ? ` Con ese dinero encaja mejor la gama ${gamaSugerida}.`
-          : gamaSugerida == null
-            ? " Ni siquiera llega al mínimo de gama baja para esto."
-            : "";
       avisos.push(
-        `Para un proyecto de ${nombreObjetivos(objetivos)} en gama ${gama} conviene gastar al menos ` +
-          `${suelo} ${suelosCfg.moneda}. Tienes ${presupuesto} ${suelosCfg.moneda}.${detalle}`,
+        `Para un proyecto de ${nombreObjetivos(objetivos)} conviene contar con al menos ` +
+          `${suelo} ${suelosCfg.moneda}. Tienes ${presupuesto} ${suelosCfg.moneda}, así que la ` +
+          `lista sale corta: te sirve para empezar, no para terminarlo.`,
       );
     }
 
@@ -109,7 +141,7 @@ export function crearSelector(
     const catalogoModelo: Catalogo = { ...catalogo, piezas: compatibles };
 
     const presupuestoRes = generarPresupuesto(
-      { plataforma: modelo.motor, gama, presupuesto, objetivos, modelo: modelo.nombre },
+      { plataforma: modelo.motor, presupuesto, objetivos, modelo: modelo.nombre },
       catalogoModelo,
     );
 
@@ -118,7 +150,8 @@ export function crearSelector(
       presupuesto: presupuestoRes,
       suelo,
       cumpleSuelo,
-      gamaSugerida,
+      gamaEsperada: esperada,
+      siguienteEscalon: escalon,
       avisos: [...avisos, ...presupuestoRes.avisos],
     };
   };

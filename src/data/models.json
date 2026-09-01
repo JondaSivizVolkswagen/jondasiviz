@@ -2,6 +2,29 @@
   "version": "0.1.0",
   "modelos": [
     {
+      "id": "arteon-r",
+      "nombre": "Arteon R",
+      "alias": [
+        "arteon r",
+        "arteon shooting brake r"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888",
+      "motorDetalle": "2.0 TSI 320 CV (EA888 gen3), 4Motion",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "diferencial-trasero",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2020,
+        2024
+      ]
+    },
+    {
       "id": "corrado-vr6",
       "nombre": "Corrado VR6",
       "alias": [
@@ -13,6 +36,8 @@
       "motor": "VR6",
       "motorDetalle": "2.8 / 2.9 VR6 174-190 CV (AAA / ABV)",
       "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
       "anios": [
         1991,
         1995
@@ -31,9 +56,160 @@
       "motor": "TDI",
       "motorDetalle": "2.0 TDI 170 CV (CBBB)",
       "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "dpf"
+      ],
       "anios": [
         2009,
         2013
+      ]
+    },
+    {
+      "id": "golf-gtd-mk8",
+      "nombre": "Golf GTD Mk8",
+      "alias": [
+        "gtd mk8",
+        "golf 8 gtd",
+        "golf viii gtd",
+        "cd1 gtd"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA288-evo",
+      "motorDetalle": "2.0 TDI 200 CV (EA288 evo)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "dpf"
+      ],
+      "anios": [
+        2020,
+        2024
+      ]
+    },
+    {
+      "id": "golf-gtd-mk85",
+      "nombre": "Golf GTD Mk8.5",
+      "alias": [
+        "gtd mk8.5",
+        "gtd mk85",
+        "golf 8.5 gtd",
+        "gtd facelift"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA288-evo",
+      "motorDetalle": "2.0 TDI 200 CV (EA288 evo)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "dpf"
+      ],
+      "anios": [
+        2024,
+        2026
+      ]
+    },
+    {
+      "id": "golf-gti-clubsport-45",
+      "nombre": "Golf GTI Clubsport 45",
+      "alias": [
+        "clubsport 45",
+        "gti clubsport 45",
+        "golf 8 clubsport 45"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 300 CV (EA888 evo4), 45 aniversario",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "vaq",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2021,
+        2021
+      ]
+    },
+    {
+      "id": "golf-gti-clubsport-mk8",
+      "nombre": "Golf GTI Clubsport Mk8",
+      "alias": [
+        "clubsport mk8",
+        "gti clubsport",
+        "golf 8 clubsport"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 300 CV (EA888 evo4)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "vaq",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2020,
+        2024
+      ]
+    },
+    {
+      "id": "golf-gti-clubsport-mk85",
+      "nombre": "Golf GTI Clubsport Mk8.5",
+      "alias": [
+        "clubsport mk8.5",
+        "clubsport mk85",
+        "golf 8.5 clubsport"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 300 CV (EA888 evo4)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "vaq",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2024,
+        2026
+      ]
+    },
+    {
+      "id": "golf-gti-edition-50",
+      "nombre": "Golf GTI Edition 50",
+      "alias": [
+        "edition 50",
+        "gti edition 50",
+        "gti 50 aniversario"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 325 CV (EA888 evo4), el GTI de traccion delantera mas potente de serie",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "vaq",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2025,
+        2026
       ]
     },
     {
@@ -50,6 +226,8 @@
       "motor": "EA113",
       "motorDetalle": "2.0 TFSI 200 CV (BWA / AXX)",
       "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
       "anios": [
         2004,
         2009
@@ -69,9 +247,61 @@
       "motor": "EA888",
       "motorDetalle": "2.0 TSI 220-230 CV (EA888 gen3)",
       "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
       "anios": [
         2013,
         2020
+      ]
+    },
+    {
+      "id": "golf-gti-mk8",
+      "nombre": "Golf GTI Mk8",
+      "alias": [
+        "mk8",
+        "golf 8 gti",
+        "golf viii gti",
+        "gti mk8",
+        "cd1 gti"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 245 CV (EA888 evo4)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2020,
+        2024
+      ]
+    },
+    {
+      "id": "golf-gti-mk85",
+      "nombre": "Golf GTI Mk8.5",
+      "alias": [
+        "mk8.5",
+        "mk85",
+        "golf 8.5 gti",
+        "gti mk8.5",
+        "gti facelift"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 265 CV (EA888 evo4)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2024,
+        2026
       ]
     },
     {
@@ -87,9 +317,84 @@
       "motor": "1.8T-20v",
       "motorDetalle": "1.8 Turbo 20v 150-180 CV (AGU / AUM / AUQ)",
       "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
       "anios": [
         1997,
         2004
+      ]
+    },
+    {
+      "id": "golf-mk7-1-6-tdi",
+      "nombre": "Golf Mk7 1.6 TDI",
+      "alias": [
+        "golf 7 1.6 tdi",
+        "golf mk7 tdi",
+        "mk7 tdi",
+        "1.6 tdi",
+        "golf 7 tdi"
+      ],
+      "chasis": "MQB",
+      "motor": "EA288-16",
+      "motorDetalle": "1.6 TDI 105-115 CV (EA288: CLHA / CRKB / DGTE)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf"
+      ],
+      "anios": [
+        2013,
+        2020
+      ]
+    },
+    {
+      "id": "golf-r-20-years",
+      "nombre": "Golf R 20 Years",
+      "alias": [
+        "r 20 years",
+        "golf r 20 aniversario",
+        "20 years"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 333 CV (EA888 evo4), 4Motion, 20 aniversario",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "diferencial-trasero",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2022,
+        2023
+      ]
+    },
+    {
+      "id": "golf-r-333",
+      "nombre": "Golf R 333 Limited Edition",
+      "alias": [
+        "r 333",
+        "golf r 333",
+        "333 limited edition"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 333 CV (EA888 evo4), 4Motion, 333 unidades",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "diferencial-trasero",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2023,
+        2023
       ]
     },
     {
@@ -105,9 +410,116 @@
       "motor": "EA888",
       "motorDetalle": "2.0 TSI 300-310 CV (EA888 gen3)",
       "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "dsg"
+      ],
       "anios": [
         2014,
         2020
+      ]
+    },
+    {
+      "id": "golf-r-mk8",
+      "nombre": "Golf R Mk8",
+      "alias": [
+        "r mk8",
+        "golf 8 r",
+        "golf viii r",
+        "8r"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 320 CV (EA888 evo4), 4Motion",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "diferencial-trasero",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2021,
+        2024
+      ]
+    },
+    {
+      "id": "golf-r-mk85",
+      "nombre": "Golf R Mk8.5",
+      "alias": [
+        "r mk8.5",
+        "r mk85",
+        "golf 8.5 r",
+        "r facelift"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 333 CV (EA888 evo4), 4Motion",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "diferencial-trasero",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2024,
+        2026
+      ]
+    },
+    {
+      "id": "golf-r-variant-mk8",
+      "nombre": "Golf R Variant Mk8",
+      "alias": [
+        "r variant mk8",
+        "golf 8 r variant",
+        "r familiar mk8"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 320 CV (EA888 evo4), 4Motion, familiar",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "diferencial-trasero",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2021,
+        2024
+      ]
+    },
+    {
+      "id": "golf-r-variant-mk85",
+      "nombre": "Golf R Variant Mk8.5",
+      "alias": [
+        "r variant mk8.5",
+        "r variant mk85",
+        "golf 8.5 r variant"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 333 CV (EA888 evo4), 4Motion, familiar",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "diferencial-trasero",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2024,
+        2026
       ]
     },
     {
@@ -122,6 +534,10 @@
       "motor": "EA888",
       "motorDetalle": "1.8 TSI 192 CV (EA888)",
       "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
       "anios": [
         2015,
         2017
@@ -139,9 +555,58 @@
       "motor": "EA888",
       "motorDetalle": "2.0 TSI 265 CV (EA888 gen2)",
       "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
       "anios": [
         2009,
         2017
+      ]
+    },
+    {
+      "id": "t-roc-r",
+      "nombre": "T-Roc R",
+      "alias": [
+        "troc r",
+        "t roc r",
+        "t-roc r"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888",
+      "motorDetalle": "2.0 TSI 300 CV (EA888 gen3), 4Motion",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2019,
+        2025
+      ]
+    },
+    {
+      "id": "tiguan-r",
+      "nombre": "Tiguan R",
+      "alias": [
+        "tiguan r",
+        "tiguan mk2 r"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888",
+      "motorDetalle": "2.0 TSI 320 CV (EA888 gen3), 4Motion",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "diferencial-trasero",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2021,
+        2024
       ]
     }
   ]

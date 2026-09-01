@@ -11,6 +11,12 @@
         "EA113",
         "EA888"
       ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "baja",
       "precio": {
         "min": 90,
@@ -36,6 +42,12 @@
         "EA113",
         "EA888"
       ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "baja",
       "precio": {
         "min": 70,
@@ -60,8 +72,20 @@
         "EA113",
         "EA888",
         "VR6",
-        "TDI"
+        "TDI",
+        "EA888-evo4",
+        "EA211",
+        "EA211-evo",
+        "EA288",
+        "EA288-evo",
+        "EA288-16"
       ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "baja",
       "precio": {
         "min": 45,
@@ -86,6 +110,12 @@
         "EA113",
         "EA888"
       ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "alta",
       "precio": {
         "min": 620,
@@ -103,6 +133,130 @@
       "grupoExclusivo": "intercooler"
     },
     {
+      "id": "adm-fmic-ea211-media",
+      "nombre": "Intercooler frontal 1.5 TSI (Forge / Wagner / do88)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA211",
+        "EA211-evo"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 450,
+        "estimado": 620,
+        "max": 900
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "intercooler",
+      "stage": "stage2"
+    },
+    {
+      "id": "adm-fmic-ea288-16-media",
+      "nombre": "Intercooler Competition 1.6 TDI (Wagner / Forge)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA288-16"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 480,
+        "estimado": 650,
+        "max": 900
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "intercooler",
+      "stage": "stage2",
+      "nota": "Núcleo un 50 % más voluminoso que el de serie. Con el turbo original ya se agradece en verano."
+    },
+    {
+      "id": "adm-fmic-ea288-media",
+      "nombre": "Intercooler de mayor volumen 2.0 TDI",
+      "categoria": "admision",
+      "plataformas": [
+        "EA288",
+        "EA288-evo"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 430,
+        "estimado": 600,
+        "max": 850
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "intercooler",
+      "stage": "stage2"
+    },
+    {
+      "id": "adm-fmic-evo4-media",
+      "nombre": "Intercooler frontal de altas prestaciones (IE FDS / Wagner / do88)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA888-evo4"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 800,
+        "estimado": 1000,
+        "max": 1350
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "intercooler",
+      "stage": "stage2",
+      "nota": "Clave en circuito: el intercooler de serie del evo4 satura en tandas largas."
+    },
+    {
       "id": "adm-fmic-media",
       "nombre": "Intercooler frontal (Forge / Wagner Competition)",
       "categoria": "admision",
@@ -111,6 +265,12 @@
         "EA113",
         "EA888"
       ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 380,
@@ -128,12 +288,47 @@
       "grupoExclusivo": "intercooler"
     },
     {
+      "id": "adm-inlet-evo4-baja",
+      "nombre": "Turbo inlet y charge pipe de alto flujo",
+      "categoria": "admision",
+      "plataformas": [
+        "EA888-evo4"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 180,
+        "estimado": 280,
+        "max": 450
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 2,
+        "estetica": 0
+      },
+      "impacto": 2,
+      "requiere": [],
+      "stage": "stage2"
+    },
+    {
       "id": "adm-inlet-media",
       "nombre": "Tubo turbo inlet de alto flujo (Forge)",
       "categoria": "admision",
       "plataformas": [
         "EA113"
       ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 90,
@@ -150,6 +345,67 @@
       "requiere": []
     },
     {
+      "id": "adm-intake-ea211-baja",
+      "nombre": "Kit de admisión (Forge / RTMG / Eventuri) 1.0-1.5 TSI",
+      "categoria": "admision",
+      "plataformas": [
+        "EA211",
+        "EA211-evo"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 220,
+        "estimado": 340,
+        "max": 550
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 2,
+        "mas-cv": 3,
+        "estetica": 1
+      },
+      "impacto": 2,
+      "requiere": [],
+      "grupoExclusivo": "admision-filtro",
+      "stage": "stage1"
+    },
+    {
+      "id": "adm-intake-evo4-media",
+      "nombre": "Admisión cerrada de carbono (Eventuri / RacingLine R600 / IE)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA888-evo4"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 450,
+        "estimado": 700,
+        "max": 1100
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 3,
+        "estetica": 2
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "admision-filtro",
+      "stage": "stage2"
+    },
+    {
       "id": "adm-intake-media",
       "nombre": "Kit de admisión cerrada (Forge / Neuspeed P-Flo)",
       "categoria": "admision",
@@ -158,6 +414,12 @@
         "EA113",
         "EA888"
       ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 180,
@@ -175,12 +437,48 @@
       "grupoExclusivo": "admision-filtro"
     },
     {
+      "id": "comb-hpfp-evo4-media",
+      "nombre": "Bomba de alta presión e inyectores reforzados evo4",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA888-evo4"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 700,
+        "estimado": 950,
+        "max": 1300
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "stage": "stage3",
+      "nota": "Obligatorio para E85 y para cualquier turbo mayor."
+    },
+    {
       "id": "comb-inyectores-media",
       "nombre": "Inyectores de mayor caudal + bomba de gasolina en depósito",
       "categoria": "turbo",
       "plataformas": [
         "EA113"
       ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 350,
@@ -197,12 +495,48 @@
       "requiere": []
     },
     {
+      "id": "comb-inyectores-tdi-media",
+      "nombre": "Inyectores de mayor caudal y bomba de alta presión TDI",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA288",
+        "EA288-evo"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 700,
+        "estimado": 950,
+        "max": 1400
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "stage": "stage3"
+    },
+    {
       "id": "comb-stage3-alta",
       "nombre": "Kit de alimentación Stage 3 (rieles, inyectores 1000cc, bomba externa)",
       "categoria": "turbo",
       "plataformas": [
         "EA113"
       ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "alta",
       "precio": {
         "min": 700,
@@ -229,6 +563,18 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 250,
@@ -255,6 +601,20 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "solo-circuito",
+      "traccion": [
+        "delantera"
+      ],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "alta",
       "precio": {
         "min": 400,
@@ -282,6 +642,20 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [
+        "delantera"
+      ],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 200,
@@ -298,6 +672,37 @@
       "requiere": []
     },
     {
+      "id": "esc-catback-ea211-media",
+      "nombre": "Línea cat-back inox (Milltek / Scorpion) 1.0-1.5 TSI",
+      "categoria": "escape",
+      "plataformas": [
+        "EA211",
+        "EA211-evo"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 650,
+        "estimado": 900,
+        "max": 1300
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 2,
+        "mas-cv": 2,
+        "estetica": 3
+      },
+      "impacto": 2,
+      "requiere": [],
+      "stage": "stage1",
+      "nota": "Aquí el motivo real es el sonido, no la potencia."
+    },
+    {
       "id": "esc-catback-media",
       "nombre": "Línea cat-back inox 76 mm (Milltek / Scorpion)",
       "categoria": "escape",
@@ -307,6 +712,12 @@
         "EA888",
         "VR6"
       ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 420,
@@ -331,6 +742,12 @@
         "EA113",
         "EA888"
       ],
+      "chasis": [],
+      "legalidad": "solo-circuito",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "baja",
       "precio": {
         "min": 140,
@@ -348,6 +765,131 @@
       "grupoExclusivo": "downpipe"
     },
     {
+      "id": "esc-dp-ea211-media",
+      "nombre": "Downpipe con cat deportivo 1.5 TSI EVO",
+      "categoria": "escape",
+      "plataformas": [
+        "EA211",
+        "EA211-evo"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 350,
+        "estimado": 480,
+        "max": 700
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "downpipe",
+      "stage": "stage2"
+    },
+    {
+      "id": "esc-dp-ea288-16-media",
+      "nombre": "Downpipe 2.5in sin DPF 1.6 TDI (Darkside Developments)",
+      "categoria": "escape",
+      "plataformas": [
+        "EA288-16"
+      ],
+      "chasis": [],
+      "legalidad": "solo-circuito",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 300,
+        "estimado": 420,
+        "max": 620
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "downpipe",
+      "stage": "stage2",
+      "nota": "Fuera de homologación en la UE. Solo circuito."
+    },
+    {
+      "id": "esc-dp-ea288-media",
+      "nombre": "Downpipe sin DPF 2.0 TDI",
+      "categoria": "escape",
+      "plataformas": [
+        "EA288",
+        "EA288-evo"
+      ],
+      "chasis": [],
+      "legalidad": "solo-circuito",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 380,
+        "estimado": 520,
+        "max": 750
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "downpipe",
+      "stage": "stage2",
+      "nota": "Fuera de homologación en la UE. Solo circuito."
+    },
+    {
+      "id": "esc-dp-evo4-media",
+      "nombre": "Downpipe 3.5\" con cat deportivo 400 cpsi (Unitronic / Scorpion / Milltek)",
+      "categoria": "escape",
+      "plataformas": [
+        "EA888-evo4"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 850,
+        "estimado": 1100,
+        "max": 1450
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "downpipe",
+      "stage": "stage2",
+      "nota": "La versión descatalizada no pasa ITV en la UE. La de cat deportivo sí en casi toda Europa."
+    },
+    {
       "id": "esc-dp-media",
       "nombre": "Downpipe 3\" descatalizado o con cat deportivo (AWE / Milltek)",
       "categoria": "escape",
@@ -356,6 +898,12 @@
         "EA113",
         "EA888"
       ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 320,
@@ -380,6 +928,12 @@
         "EA113",
         "EA888"
       ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "alta",
       "precio": {
         "min": 750,
@@ -397,6 +951,37 @@
       "grupoExclusivo": "downpipe"
     },
     {
+      "id": "esc-turboback-evo4-alta",
+      "nombre": "Escape turbo-back inox con valvulería (Milltek Race / Akrapovic)",
+      "categoria": "escape",
+      "plataformas": [
+        "EA888-evo4"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1800,
+        "estimado": 2400,
+        "max": 3600
+      },
+      "objetivos": {
+        "drift": 1,
+        "drag": 4,
+        "mas-cv": 4,
+        "estetica": 3
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "downpipe",
+      "stage": "stage2",
+      "nota": "Incluye downpipe. El de titanio de Akrapovic se va a los 5.000 €."
+    },
+    {
       "id": "est-airride-alta",
       "nombre": "Suspensión neumática gestionada (Air Lift 3P)",
       "categoria": "estetica",
@@ -406,6 +991,20 @@
         "EA888",
         "VR6",
         "TDI"
+      ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [
+        "dcc"
       ],
       "gama": "alta",
       "precio": {
@@ -434,6 +1033,18 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 500,
@@ -460,6 +1071,20 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MEB",
+        "MQB",
+        "MQB Evo",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "baja",
       "precio": {
         "min": 120,
@@ -486,6 +1111,18 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "baja",
       "precio": {
         "min": 90,
@@ -512,6 +1149,18 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 200,
@@ -536,6 +1185,17 @@
         "EA113",
         "EA888"
       ],
+      "chasis": [
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "alta",
       "precio": {
         "min": 1200,
@@ -561,6 +1221,20 @@
         "EA888",
         "VR6"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [
+        "frenos-grandes"
+      ],
+      "exige": [],
+      "chocaCon": [],
       "gama": "alta",
       "precio": {
         "min": 950,
@@ -578,6 +1252,41 @@
       "grupoExclusivo": "frenos-delanteros"
     },
     {
+      "id": "fren-bbk-mqbevo-alta",
+      "nombre": "Big brake 4/6 pistones 355-380 mm (Brembo GT / AP Racing)",
+      "categoria": "frenos",
+      "plataformas": [
+        "EA888-evo4",
+        "EA288-evo"
+      ],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [
+        "frenos-grandes"
+      ],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 2800,
+        "estimado": 3600,
+        "max": 5200
+      },
+      "objetivos": {
+        "drift": 4,
+        "drag": 3,
+        "mas-cv": 0,
+        "estetica": 3
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "frenos-delanteros",
+      "nota": "Los Clubsport, Edition 50 y R ya montan 357 mm de serie: el salto real es menor de lo que parece."
+    },
+    {
       "id": "fren-discos-media",
       "nombre": "Discos de dos piezas + pastillas racing eje delantero (DBA / Brembo)",
       "categoria": "frenos",
@@ -588,6 +1297,20 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [
+        "frenos-grandes"
+      ],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 280,
@@ -615,6 +1338,20 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MEB",
+        "MQB",
+        "MQB Evo",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "baja",
       "precio": {
         "min": 120,
@@ -641,6 +1378,18 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "baja",
       "precio": {
         "min": 130,
@@ -666,6 +1415,12 @@
         "EA888",
         "TDI"
       ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "baja",
       "precio": {
         "min": 220,
@@ -684,6 +1439,132 @@
       "stage": "stage1"
     },
     {
+      "id": "gestion-stage1-ea211-baja",
+      "nombre": "Reprogramación Stage 1 1.0 y 1.5 TSI (Revo / APR / RTMG)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA211",
+        "EA211-evo"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 350,
+        "estimado": 480,
+        "max": 700
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "remap",
+      "stage": "stage1",
+      "nota": "En el 1.5 TSI EVO son 20 a 40 CV y 35 a 60 Nm más. Exige RON 98."
+    },
+    {
+      "id": "gestion-stage1-ea288-16-baja",
+      "nombre": "Reprogramación Stage 1 1.6 TDI (Celtic Tuning / Superchips / Revo)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA288-16"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 300,
+        "estimado": 420,
+        "max": 600
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "remap",
+      "stage": "stage1",
+      "nota": "De 105 a unos 145 CV y de 250 a 330 Nm. Es lo que mejor relación da en este motor: no toca el postratamiento y se nota en cada adelantamiento."
+    },
+    {
+      "id": "gestion-stage1-ea288-baja",
+      "nombre": "Reprogramación Stage 1 2.0 TDI EA288",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA288",
+        "EA288-evo"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "baja",
+      "precio": {
+        "min": 380,
+        "estimado": 500,
+        "max": 750
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "remap",
+      "stage": "stage1",
+      "nota": "Unos 30 CV más y buen empujón de par abajo. Legal mientras no se toque el postratamiento."
+    },
+    {
+      "id": "gestion-stage1-evo4-media",
+      "nombre": "Reprogramación Stage 1 EA888 evo4 (APR / Unitronic / Revo / IE)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA888-evo4"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 650,
+        "estimado": 800,
+        "max": 1000
+      },
+      "objetivos": {
+        "drift": 1,
+        "drag": 4,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "remap",
+      "stage": "stage1",
+      "nota": "GTI 245 sube a unos 300-310 CV; R 320 a unos 380 CV. Sin hardware."
+    },
+    {
       "id": "gestion-stage1-media",
       "nombre": "Reprogramación Stage 1 de marca (APR / Revo / Unitronic)",
       "categoria": "gestion",
@@ -693,6 +1574,12 @@
         "EA888",
         "TDI"
       ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 380,
@@ -711,6 +1598,179 @@
       "stage": "stage1"
     },
     {
+      "id": "gestion-stage2-e85-evo4-alta",
+      "nombre": "Calibración Stage 2 E85 EA888 evo4 (Unitronic)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA888-evo4"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 950,
+        "estimado": 1150,
+        "max": 1400
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "esc-dp-evo4-media",
+        "adm-intake-evo4-media",
+        "adm-fmic-evo4-media",
+        "comb-hpfp-evo4-media"
+      ],
+      "grupoExclusivo": "remap",
+      "stage": "stage2",
+      "nota": "Hasta 417 CV y 578 Nm con downpipe y E85. Exige tener etanol cerca."
+    },
+    {
+      "id": "gestion-stage2-ea211-media",
+      "nombre": "Reprogramación Stage 2 1.5 TSI EVO",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA211-evo"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 500,
+        "estimado": 680,
+        "max": 900
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [
+        "esc-dp-ea211-media",
+        "adm-intake-ea211-baja"
+      ],
+      "grupoExclusivo": "remap",
+      "stage": "stage2",
+      "nota": "El GPF se colma antes con mapas agresivos. Es el límite práctico del motor sin turbo mayor."
+    },
+    {
+      "id": "gestion-stage2-ea288-16-media",
+      "nombre": "Reprogramación Stage 2 1.6 TDI",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA288-16"
+      ],
+      "chasis": [],
+      "legalidad": "solo-circuito",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 500,
+        "estimado": 650,
+        "max": 900
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [
+        "esc-dp-ea288-16-media",
+        "adm-fmic-ea288-16-media"
+      ],
+      "grupoExclusivo": "remap",
+      "stage": "stage2",
+      "nota": "Alrededor de 155 CV con downpipe e intercooler. Anula EGR y DPF, así que deja el coche fuera de homologación."
+    },
+    {
+      "id": "gestion-stage2-ea288-media",
+      "nombre": "Reprogramación Stage 2 2.0 TDI (~270 CV)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA288",
+        "EA288-evo"
+      ],
+      "chasis": [],
+      "legalidad": "solo-circuito",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 600,
+        "estimado": 780,
+        "max": 1100
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [
+        "esc-dp-ea288-media",
+        "adm-fmic-ea288-media"
+      ],
+      "grupoExclusivo": "remap",
+      "stage": "stage2",
+      "nota": "Techo del EA288 con intercooler, downpipe y EGR anulada. Fuera de homologación en la UE: solo circuito."
+    },
+    {
+      "id": "gestion-stage2-evo4-media",
+      "nombre": "Reprogramación Stage 2 EA888 evo4",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA888-evo4"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 800,
+        "estimado": 950,
+        "max": 1200
+      },
+      "objetivos": {
+        "drift": 1,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "esc-dp-evo4-media",
+        "adm-intake-evo4-media"
+      ],
+      "grupoExclusivo": "remap",
+      "stage": "stage2",
+      "nota": "Necesita downpipe y admisión. Unos 350 CV en GTI y 420 CV en R."
+    },
+    {
       "id": "gestion-stage2-media",
       "nombre": "Reprogramación Stage 2",
       "categoria": "gestion",
@@ -720,6 +1780,12 @@
         "EA888",
         "TDI"
       ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 420,
@@ -746,6 +1812,12 @@
       "plataformas": [
         "EA113"
       ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "alta",
       "precio": {
         "min": 550,
@@ -775,6 +1847,12 @@
         "EA888",
         "VR6"
       ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "alta",
       "precio": {
         "min": 1900,
@@ -802,6 +1880,18 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "baja",
       "precio": {
         "min": 500,
@@ -829,6 +1919,18 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 300,
@@ -839,10 +1941,11 @@
         "drift": 4,
         "drag": 0,
         "mas-cv": 0,
-        "estetica": 1
+        "estetica": 0
       },
       "impacto": 2,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "llantas"
     },
     {
       "id": "rueda-forjada-alta",
@@ -854,6 +1957,18 @@
         "EA888",
         "VR6"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "alta",
       "precio": {
         "min": 1400,
@@ -871,6 +1986,42 @@
       "grupoExclusivo": "llantas"
     },
     {
+      "id": "rueda-forjada-mqbevo-alta",
+      "nombre": "Llantas forjadas 19\" (BBS CI-R / OZ / Neuspeed)",
+      "categoria": "ruedas",
+      "plataformas": [
+        "EA888-evo4",
+        "EA211-evo",
+        "EA288-evo",
+        "EA211-PHEV",
+        "MEB"
+      ],
+      "chasis": [
+        "MEB",
+        "MQB Evo"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1800,
+        "estimado": 2400,
+        "max": 3400
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 4,
+        "mas-cv": 0,
+        "estetica": 5
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "llantas"
+    },
+    {
       "id": "rueda-semislick-media",
       "nombre": "Juego de neumáticos semi-slick (Federal 595RS-RR / Nankang AR-1)",
       "categoria": "ruedas",
@@ -881,6 +2032,20 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MEB",
+        "MQB",
+        "MQB Evo",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 380,
@@ -907,6 +2072,18 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 450,
@@ -934,6 +2111,20 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MEB",
+        "MQB",
+        "MQB Evo",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 300,
@@ -960,6 +2151,20 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MEB",
+        "MQB",
+        "MQB Evo",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "baja",
       "precio": {
         "min": 80,
@@ -986,6 +2191,20 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MEB",
+        "MQB",
+        "MQB Evo",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "alta",
       "precio": {
         "min": 1100,
@@ -999,7 +2218,8 @@
         "estetica": 0
       },
       "impacto": 3,
-      "requiere": []
+      "requiere": [],
+      "grupoExclusivo": "jaula"
     },
     {
       "id": "seg-jaula-media",
@@ -1012,6 +2232,20 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MEB",
+        "MQB",
+        "MQB Evo",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 350,
@@ -1026,6 +2260,7 @@
       },
       "impacto": 2,
       "requiere": [],
+      "grupoExclusivo": "jaula",
       "nota": "Obligatoria en la mayoría de reglamentos de competición."
     },
     {
@@ -1039,6 +2274,18 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "baja",
       "precio": {
         "min": 60,
@@ -1065,6 +2312,18 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "baja",
       "precio": {
         "min": 130,
@@ -1092,6 +2351,18 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 280,
@@ -1116,6 +2387,20 @@
         "EA113",
         "EA888",
         "VR6"
+      ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [
+        "dcc"
       ],
       "gama": "alta",
       "precio": {
@@ -1144,6 +2429,20 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [
+        "dcc"
+      ],
       "gama": "baja",
       "precio": {
         "min": 250,
@@ -1161,6 +2460,38 @@
       "grupoExclusivo": "altura"
     },
     {
+      "id": "susp-coil-meb-alta",
+      "nombre": "Coilovers KW V3 para ID.4 y ID.5",
+      "categoria": "suspension",
+      "plataformas": [
+        "MEB"
+      ],
+      "chasis": [
+        "MEB"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 2100,
+        "estimado": 2600,
+        "max": 3200
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 2,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "altura",
+      "nota": "Compatible con y sin DCC de fábrica."
+    },
+    {
       "id": "susp-coil-media",
       "nombre": "Coilovers roscados (KW V1 / ST X / BC Racing BR)",
       "categoria": "suspension",
@@ -1171,11 +2502,135 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [
+        "dcc"
+      ],
       "gama": "media",
       "precio": {
         "min": 700,
         "estimado": 950,
         "max": 1250
+      },
+      "objetivos": {
+        "drift": 4,
+        "drag": 3,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "altura"
+    },
+    {
+      "id": "susp-coil-mqbevo-alta",
+      "nombre": "Coilovers 3 vías KW V3 / Clubsport para Golf 8 GTI y R",
+      "categoria": "suspension",
+      "plataformas": [
+        "EA888-evo4",
+        "EA211-evo",
+        "EA288-evo",
+        "EA211-PHEV"
+      ],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [
+        "dcc"
+      ],
+      "gama": "alta",
+      "precio": {
+        "min": 1900,
+        "estimado": 2400,
+        "max": 3800
+      },
+      "objetivos": {
+        "drift": 5,
+        "drag": 3,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 5,
+      "requiere": [],
+      "grupoExclusivo": "altura",
+      "nota": "16 clics de extensión y 12 de compresión. La versión Clubsport con torretas ajustables ronda los 3.600 €."
+    },
+    {
+      "id": "susp-coil-mqbevo-dcc-alta",
+      "nombre": "Kit coilover plug and play compatible con DCC (KW)",
+      "categoria": "suspension",
+      "plataformas": [
+        "EA888-evo4",
+        "EA211-evo",
+        "EA288-evo",
+        "EA211-PHEV"
+      ],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [
+        "dcc"
+      ],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 2100,
+        "estimado": 2600,
+        "max": 3200
+      },
+      "objetivos": {
+        "drift": 4,
+        "drag": 3,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "altura",
+      "nota": "Necesario si el coche lleva DCC de serie: mantiene la centralita adaptativa sin dar fallo."
+    },
+    {
+      "id": "susp-coil-mqbevo-media",
+      "nombre": "Coilovers roscados MQB Evo (KW V1 / ST XTA / BC Racing BR)",
+      "categoria": "suspension",
+      "plataformas": [
+        "EA888-evo4",
+        "EA211-evo",
+        "EA288-evo",
+        "EA211-PHEV"
+      ],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [
+        "dcc"
+      ],
+      "gama": "media",
+      "precio": {
+        "min": 900,
+        "estimado": 1250,
+        "max": 1700
       },
       "objetivos": {
         "drift": 4,
@@ -1197,6 +2652,17 @@
         "EA888",
         "TDI"
       ],
+      "chasis": [
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "baja",
       "precio": {
         "min": 40,
@@ -1221,6 +2687,17 @@
         "EA113",
         "EA888"
       ],
+      "chasis": [
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "alta",
       "precio": {
         "min": 650,
@@ -1247,6 +2724,20 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [
+        "A2",
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [
+        "dcc"
+      ],
       "gama": "baja",
       "precio": {
         "min": 150,
@@ -1264,6 +2755,76 @@
       "grupoExclusivo": "altura"
     },
     {
+      "id": "susp-muelles-meb-baja",
+      "nombre": "Muelles de rebaje -30 mm MEB (RacingLine / Eibach / H&R / AST)",
+      "categoria": "suspension",
+      "plataformas": [
+        "MEB"
+      ],
+      "chasis": [
+        "MEB"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [
+        "dcc"
+      ],
+      "gama": "baja",
+      "precio": {
+        "min": 280,
+        "estimado": 380,
+        "max": 520
+      },
+      "objetivos": {
+        "drift": 1,
+        "drag": 1,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 2,
+      "requiere": [],
+      "grupoExclusivo": "altura",
+      "nota": "En un eléctrico hay un efecto secundario real: menos aire por debajo, menos resistencia, algo más de autonomía."
+    },
+    {
+      "id": "susp-muelles-mqbevo-baja",
+      "nombre": "Muelles de rebaje -30 mm MQB Evo (Eibach Pro-Kit / H&R)",
+      "categoria": "suspension",
+      "plataformas": [
+        "EA888-evo4",
+        "EA211-evo",
+        "EA288-evo",
+        "EA211-PHEV"
+      ],
+      "chasis": [
+        "MQB Evo"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [
+        "dcc"
+      ],
+      "gama": "baja",
+      "precio": {
+        "min": 230,
+        "estimado": 310,
+        "max": 420
+      },
+      "objetivos": {
+        "drift": 1,
+        "drag": 1,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 2,
+      "requiere": [],
+      "grupoExclusivo": "altura"
+    },
+    {
       "id": "susp-subframe-media",
       "nombre": "Casquillos rígidos de subchasis y eje trasero (poliuretano/aluminio)",
       "categoria": "suspension",
@@ -1273,6 +2834,17 @@
         "EA888",
         "TDI"
       ],
+      "chasis": [
+        "MQB",
+        "PQ25",
+        "PQ34",
+        "PQ35"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 180,
@@ -1289,6 +2861,37 @@
       "requiere": []
     },
     {
+      "id": "trans-dq381-alta",
+      "nombre": "Embrague DSG DQ381 reforzado + TCU tune",
+      "categoria": "transmision",
+      "plataformas": [
+        "EA888-evo4"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1600,
+        "estimado": 2200,
+        "max": 3000
+      },
+      "objetivos": {
+        "drift": 2,
+        "drag": 5,
+        "mas-cv": 1,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "embrague",
+      "stage": "stage2",
+      "nota": "El DQ381 patina por encima de unos 450 Nm con el software de serie. No es el DQ250 del Mk7."
+    },
+    {
       "id": "trans-embrague-alta",
       "nombre": "Embrague de competición + volante aligerado",
       "categoria": "transmision",
@@ -1297,6 +2900,12 @@
         "EA113",
         "EA888"
       ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "alta",
       "precio": {
         "min": 1000,
@@ -1322,6 +2931,12 @@
         "EA113",
         "EA888"
       ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 450,
@@ -1347,6 +2962,14 @@
         "EA113",
         "EA888"
       ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [
+        "vaq"
+      ],
+      "exige": [],
+      "chocaCon": [],
       "gama": "alta",
       "precio": {
         "min": 950,
@@ -1364,6 +2987,39 @@
       "grupoExclusivo": "diferencial"
     },
     {
+      "id": "trans-lsd-evo4-alta",
+      "nombre": "Autoblocante ATB para GTI Mk8 (Wavetrac / Quaife)",
+      "categoria": "transmision",
+      "plataformas": [
+        "EA888-evo4"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [
+        "vaq",
+        "diferencial-trasero"
+      ],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1200,
+        "estimado": 1500,
+        "max": 1900
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 4,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "diferencial",
+      "nota": "Innecesario en Clubsport, Edition 50 y R: ya traen VAQ o diferencial trasero vectorial."
+    },
+    {
       "id": "trans-lsd-media",
       "nombre": "Diferencial autoblocante ATB (Quaife / Peloquin)",
       "categoria": "transmision",
@@ -1374,6 +3030,14 @@
         "VR6",
         "TDI"
       ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [
+        "vaq"
+      ],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 750,
@@ -1399,6 +3063,12 @@
         "EA113",
         "EA888"
       ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "alta",
       "precio": {
         "min": 400,
@@ -1425,6 +3095,12 @@
         "EA888",
         "VR6"
       ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "baja",
       "precio": {
         "min": 90,
@@ -1447,6 +3123,12 @@
       "plataformas": [
         "EA113"
       ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "alta",
       "precio": {
         "min": 3200,
@@ -1471,12 +3153,162 @@
       "nota": "Pide bloque preparado para fiabilidad a más de 400 CV."
     },
     {
+      "id": "turbo-hibrido-ea211-alta",
+      "nombre": "Turbo híbrido 1.5 TSI EVO 210EVO (MuchBoost)",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA211-evo"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1300,
+        "estimado": 1700,
+        "max": 2200
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [
+        "adm-fmic-ea211-media",
+        "adm-intake-ea211-baja",
+        "esc-dp-ea211-media",
+        "gestion-stage2-ea211-media"
+      ],
+      "grupoExclusivo": "turbo-principal",
+      "stage": "stage3",
+      "nota": "Sobre el turbo VTG de serie. Techo realista alrededor de los 250 CV."
+    },
+    {
+      "id": "turbo-hibrido-ea288-16-alta",
+      "nombre": "Turbo BorgWarner / KKK 165-175 CV para 1.6 TDI CR (Darkside)",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA288-16"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 850,
+        "estimado": 1000,
+        "max": 1350
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [
+        "adm-fmic-ea288-16-media",
+        "esc-dp-ea288-16-media",
+        "gestion-stage2-ea288-16-media"
+      ],
+      "grupoExclusivo": "turbo-principal",
+      "stage": "stage3",
+      "nota": "Montaje directo, sin adaptadores. Techo de 165-175 CV, que es el final del camino de este motor. La reprogramación es obligatoria después de montarlo."
+    },
+    {
+      "id": "turbo-hibrido-ea288-alta",
+      "nombre": "Turbo híbrido EA288 evo2 (MuchBoost) para Golf 8 GTD",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA288-evo"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1500,
+        "estimado": 1900,
+        "max": 2500
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [
+        "adm-fmic-ea288-media",
+        "esc-dp-ea288-media",
+        "gestion-stage2-ea288-media",
+        "comb-inyectores-tdi-media"
+      ],
+      "grupoExclusivo": "turbo-principal",
+      "stage": "stage3",
+      "nota": "Comparte referencia con Passat B8, Arteon, Audi A4 B9 y Skoda Octavia IV."
+    },
+    {
+      "id": "turbo-hibrido-evo4-alta",
+      "nombre": "Turbo híbrido EA888 evo4 (MuchBoost / MACHGRADE 510)",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA888-evo4"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 2100,
+        "estimado": 2700,
+        "max": 3400
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "adm-fmic-evo4-media",
+        "adm-intake-evo4-media",
+        "esc-dp-evo4-media",
+        "comb-hpfp-evo4-media",
+        "gestion-stage2-e85-evo4-alta"
+      ],
+      "grupoExclusivo": "turbo-principal",
+      "stage": "stage3",
+      "nota": "Rueda compresora billet sobre carcasa Continental de origen. Montaje plug and play. 500-550 CV."
+    },
+    {
       "id": "turbo-hpfp-media",
       "nombre": "Kit de bomba de alta presión reforzada (Autotech / APR)",
       "categoria": "turbo",
       "plataformas": [
         "EA113"
       ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "media",
       "precio": {
         "min": 320,
@@ -1500,6 +3332,12 @@
       "plataformas": [
         "EA113"
       ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
       "gama": "alta",
       "precio": {
         "min": 1200,
@@ -1522,6 +3360,42 @@
       ],
       "grupoExclusivo": "turbo-principal",
       "stage": "stage3"
+    },
+    {
+      "id": "turbo-powermax-evo4-alta",
+      "nombre": "Kit Stage 3 Garrett PowerMax GT2260S (Unitronic)",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA888-evo4"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 2700,
+        "estimado": 3200,
+        "max": 4000
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "adm-fmic-evo4-media",
+        "adm-intake-evo4-media",
+        "esc-dp-evo4-media",
+        "comb-hpfp-evo4-media"
+      ],
+      "grupoExclusivo": "turbo-principal",
+      "stage": "stage3",
+      "nota": "Turbo de montaje directo, sin adaptadores. Solo el kit, la calibración va aparte."
     }
   ]
 }

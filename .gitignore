@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# PDFs de prueba generados a mano
+*.pdf
+
+# Estado local de la interfaz de Obsidian (paneles abiertos, no es configuracion compartida)
+vault/.obsidian/workspace.json

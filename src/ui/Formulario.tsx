@@ -1,10 +1,12 @@
-// Formulario de entrada: modelo con autocompletado, gama segmentada, presupuesto
-// y uno o varios objetivos. El gasto mínimo se recalcula al vuelo.
+// Formulario de entrada: modelo con autocompletado, presupuesto y uno o varios
+// objetivos. La gama no se pide: se deduce del dinero y se muestra al vuelo, igual
+// que el gasto mínimo del proyecto.
 
 import type { FormEvent } from "react";
-import type { Gama, ModeloVW, Objetivo } from "../engine/types";
-import { GAMAS, OBJETIVOS } from "./opciones";
+import type { Gama, ModeloVW, Objetivo, Presupuesto } from "../engine/types";
+import { OBJETIVOS } from "./opciones";
 import { Icono } from "./icons";
+import { Requisitos } from "./Requisitos";
 import { euros } from "./format";
 
 interface Props {
@@ -12,14 +14,16 @@ interface Props {
   modeloTexto: string;
   modeloResuelto: ModeloVW | null;
   onModeloTexto: (valor: string) => void;
-  gama: Gama;
-  onGama: (valor: Gama) => void;
   presupuesto: number;
   onPresupuesto: (valor: number) => void;
   objetivos: Objetivo[];
   onAlternarObjetivo: (valor: Objetivo) => void;
-  /** Gasto mínimo recomendado para los objetivos y la gama actuales. */
+  /** Gasto mínimo para que el proyecto tenga sentido. */
   suelo: number;
+  /** Gama a la que da el presupuesto actual. null si no llega ni al suelo. */
+  gamaEsperada: Gama | null;
+/** Cálculo en vivo con lo que hay puesto ahora, para el desglose de abajo. */
+  vistaPrevia: Presupuesto | null;
   onCalcular: () => void;
 }
 
@@ -78,24 +82,10 @@ export function Formulario(p: Props) {
       </div>
 
       <div className="campo">
-        <span className="campo-titulo">Gama de piezas</span>
-        <div className="segmento" role="group" aria-label="Gama de piezas">
-          {GAMAS.map((g) => (
-            <button
-              type="button"
-              key={g.valor}
-              className={"segmento-opcion" + (p.gama === g.valor ? " activa" : "")}
-              aria-pressed={p.gama === g.valor}
-              onClick={() => p.onGama(g.valor)}
-            >
-              {g.etiqueta}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div className="campo">
         <label htmlFor="presupuesto">Presupuesto</label>
+        <p className="campo-ayuda">
+          Es el único techo. Cuanto más pongas, mejores piezas entran en la lista.
+        </p>
         <div className="presupuesto-fila">
           <input
             id="presupuesto"
@@ -110,10 +100,10 @@ export function Formulario(p: Props) {
           <input
             type="range"
             min={500}
-            max={25000}
+            max={30000}
             step={100}
             aria-label="Presupuesto en euros"
-            value={Math.min(25000, Math.max(500, p.presupuesto))}
+            value={Math.min(30000, Math.max(500, p.presupuesto))}
             onChange={(e) => p.onPresupuesto(Number(e.target.value))}
           />
           <span className="valor-euros">{euros(p.presupuesto)}</span>
@@ -147,19 +137,27 @@ export function Formulario(p: Props) {
         <div className={"suelo-vista" + (llegaAlSuelo ? " ok" : sinObjetivos ? "" : " corto")}>
           {sinObjetivos ? (
             <span>Elige al menos un objetivo.</span>
+          ) : llegaAlSuelo ? (
+            <>
+              <span>
+                Con {euros(p.presupuesto)} esto sale un build de gama{" "}
+                <strong>{p.gamaEsperada}</strong>.
+              </span>
+              <span className="suelo-estado">mínimo del proyecto: {euros(p.suelo)}</span>
+            </>
           ) : (
             <>
               <span>
-                Gasto mínimo recomendado: <strong>{euros(p.suelo)}</strong>
+                Un proyecto así pide al menos <strong>{euros(p.suelo)}</strong>.
               </span>
               <span className="suelo-estado">
-                {llegaAlSuelo
-                  ? "tu presupuesto llega"
-                  : `te faltan ${euros(p.suelo - p.presupuesto)}`}
+                te faltan {euros(p.suelo - p.presupuesto)} para que cuadre
               </span>
             </>
           )}
         </div>
+
+        {p.vistaPrevia && <Requisitos plan={p.vistaPrevia} />}
       </div>
 
       <button type="submit" className="btn btn-primario" disabled={sinObjetivos}>

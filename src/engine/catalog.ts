@@ -1,9 +1,47 @@
 // Carga y validación del catálogo de piezas.
 
-import type { Catalogo, Categoria, Gama, Objetivo, Pieza, Plataforma } from "./types";
+import type {
+  Catalogo,
+  Categoria,
+  Chasis,
+  Equipamiento,
+  Gama,
+  Legalidad,
+  Objetivo,
+  Pieza,
+  Plataforma,
+  Traccion,
+} from "./types";
 import catalogoJson from "../data/catalog.json";
 
-const PLATAFORMAS: readonly Plataforma[] = ["1.8T-20v", "EA113", "EA888", "VR6", "TDI"];
+const CHASIS: readonly Chasis[] = ["A2", "PQ25", "PQ34", "PQ35", "MQB", "MQB Evo", "MEB"];
+const LEGALIDADES: readonly Legalidad[] = ["homologable", "requiere-ficha", "solo-circuito"];
+const TRACCIONES: readonly Traccion[] = ["delantera", "total"];
+const EQUIPAMIENTOS: readonly Equipamiento[] = [
+  "dcc",
+  "vaq",
+  "diferencial-trasero",
+  "frenos-grandes",
+  "dsg",
+  "gpf",
+  "dpf",
+];
+
+const PLATAFORMAS: readonly Plataforma[] = [
+  "1.8T-20v",
+  "EA113",
+  "EA888",
+  "VR6",
+  "TDI",
+  "EA888-evo4",
+  "EA211",
+  "EA211-evo",
+  "EA211-PHEV",
+  "EA288",
+  "EA288-evo",
+  "EA288-16",
+  "MEB",
+];
 const GAMAS: readonly Gama[] = ["baja", "media", "alta"];
 const OBJETIVOS: readonly Objetivo[] = ["drift", "drag", "mas-cv", "estetica"];
 const CATEGORIAS: readonly Categoria[] = [
@@ -53,6 +91,33 @@ export function validarCatalogo(catalogo: Catalogo): string[] {
     } else {
       for (const p of pieza.plataformas) {
         if (!PLATAFORMAS.includes(p)) problemas.push(`Pieza ${ref}: plataforma desconocida "${p}"`);
+      }
+    }
+
+    if (!Array.isArray(pieza.chasis)) {
+      problemas.push(`Pieza ${ref}: "chasis" debe ser una lista`);
+    } else {
+      for (const c of pieza.chasis) {
+        if (!CHASIS.includes(c)) problemas.push(`Pieza ${ref}: chasis desconocido "${c}"`);
+      }
+    }
+    if (!LEGALIDADES.includes(pieza.legalidad)) {
+      problemas.push(`Pieza ${ref}: legalidad desconocida "${pieza.legalidad}"`);
+    }
+    for (const [campo, valores, validos] of [
+      ["traccion", pieza.traccion, TRACCIONES],
+      ["sustituye", pieza.sustituye, EQUIPAMIENTOS],
+      ["exige", pieza.exige, EQUIPAMIENTOS],
+      ["chocaCon", pieza.chocaCon, EQUIPAMIENTOS],
+    ] as const) {
+      if (!Array.isArray(valores)) {
+        problemas.push(`Pieza ${ref}: "${campo}" debe ser una lista`);
+        continue;
+      }
+      for (const v of valores) {
+        if (!(validos as readonly string[]).includes(v)) {
+          problemas.push(`Pieza ${ref}: valor desconocido en "${campo}": "${v}"`);
+        }
       }
     }
 

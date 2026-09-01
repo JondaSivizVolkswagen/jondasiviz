@@ -1,17 +1,34 @@
 // Resultado del cálculo: cabecera, barra de gasto, avisos y piezas por categoría.
 
+import { useState } from "react";
 import type { ResultadoSelector } from "../agents";
-import type { Gama } from "../engine/types";
 import { NOMBRE_CATEGORIA, NOMBRE_OBJETIVO } from "../engine/recommend";
+import { descargarPdf } from "../export/pdf";
 import { euros } from "./format";
 
 interface Props {
   resultado: ResultadoSelector;
-  onProbarGama: (gama: Gama) => void;
+  onProbarPresupuesto: (presupuesto: number) => void;
 }
 
-export function Resultado({ resultado, onProbarGama }: Props) {
-  const { modelo, presupuesto, cumpleSuelo, gamaSugerida, avisos } = resultado;
+export function Resultado({ resultado, onProbarPresupuesto }: Props) {
+  const { modelo, presupuesto, cumpleSuelo, siguienteEscalon, avisos } = resultado;
+  const [generando, setGenerando] = useState(false);
+  const [falloPdf, setFalloPdf] = useState(false);
+
+  // pdfmake llega por import() dinámico, así que la primera descarga tarda un poco.
+  const bajarPdf = async () => {
+    if (!modelo || !presupuesto) return;
+    setGenerando(true);
+    setFalloPdf(false);
+    try {
+      await descargarPdf({ modelo, plan: presupuesto, siguienteEscalon, avisos });
+    } catch {
+      setFalloPdf(true);
+    } finally {
+      setGenerando(false);
+    }
+  };
 
   if (!modelo || !presupuesto) {
     return (
@@ -41,12 +58,28 @@ export function Resultado({ resultado, onProbarGama }: Props) {
           {modelo.motorDetalle} · chasis {modelo.chasis}
         </p>
         <div className="chips">
-          <span className="chip">Gama {pet.gama}</span>
           <span className="chip">{euros(tope)}</span>
+          {presupuesto.gamaResultante && (
+            <span className="chip chip-gama">Build de gama {presupuesto.gamaResultante}</span>
+          )}
           <span className="chip">
             {pet.objetivos.length > 1 ? "Objetivos" : "Objetivo"}{" "}
             {pet.objetivos.map((o) => NOMBRE_OBJETIVO[o]).join(" + ")}
           </span>
+        </div>
+
+        <div className="resultado-acciones">
+          <button
+            type="button"
+            className="btn btn-fantasma btn-sm"
+            onClick={bajarPdf}
+            disabled={generando}
+          >
+            {generando ? "Preparando el PDF…" : "Descargar en PDF"}
+          </button>
+          {falloPdf && (
+            <span className="aviso-linea">No se pudo generar el PDF. Vuelve a intentarlo.</span>
+          )}
         </div>
       </header>
 
@@ -65,13 +98,13 @@ export function Resultado({ resultado, onProbarGama }: Props) {
       {!cumpleSuelo && (
         <div className="aviso-suelo">
           <p>{avisos[0]}</p>
-          {gamaSugerida && gamaSugerida !== pet.gama && (
+          {siguienteEscalon && (
             <button
               type="button"
               className="btn btn-fantasma btn-sm"
-              onClick={() => onProbarGama(gamaSugerida)}
+              onClick={() => onProbarPresupuesto(siguienteEscalon.presupuesto)}
             >
-              Probar en gama {gamaSugerida}
+              Ver qué sale con {euros(siguienteEscalon.presupuesto)}
             </button>
           )}
         </div>
@@ -99,6 +132,9 @@ export function Resultado({ resultado, onProbarGama }: Props) {
                     <div className="linea-texto">
                       <span className="linea-nombre">
                         {linea.pieza.nombre}
+                        <span className={`etiqueta etiqueta-${linea.pieza.gama}`}>
+                          {linea.pieza.gama}
+                        </span>
                         {linea.motivo === "dependencia" && (
                           <span className="etiqueta">dependencia</span>
                         )}
@@ -119,6 +155,22 @@ export function Resultado({ resultado, onProbarGama }: Props) {
         </p>
       )}
 
+      {cumpleSuelo && siguienteEscalon && (
+        <div className="escalon">
+          <p>
+            Con {euros(siguienteEscalon.presupuesto)} esto pasaría a ser un build de gama{" "}
+            {siguienteEscalon.gama}.
+          </p>
+          <button
+            type="button"
+            className="btn btn-fantasma btn-sm"
+            onClick={() => onProbarPresupuesto(siguienteEscalon.presupuesto)}
+          >
+            Probarlo
+          </button>
+        </div>
+      )}
+
       {presupuesto.siguientesMejoras.length > 0 && (
         <div className="tarjeta mejoras">
           <h3>Siguientes mejoras si subes el presupuesto</h3>
@@ -127,7 +179,10 @@ export function Resultado({ resultado, onProbarGama }: Props) {
               <li key={mejora.pieza.id}>
                 <div className="linea-texto">
                   <span className="linea-nombre">{mejora.pieza.nombre}</span>
-                  <span className="linea-nota">{NOMBRE_CATEGORIA[mejora.pieza.categoria]}</span>
+                  <span className="linea-nota">
+                    {NOMBRE_CATEGORIA[mejora.pieza.categoria]}
+                    {mejora.sustituye && ` · en lugar de ${mejora.sustituye.nombre}`}
+                  </span>
                 </div>
                 <div className="mejora-cifras">
                   <span className="linea-precio">{euros(mejora.precio)}</span>

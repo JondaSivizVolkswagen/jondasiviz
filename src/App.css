@@ -141,6 +141,101 @@
   color: var(--accent);
 }
 
+/* Desglose en vivo de lo que pide el proyecto, bajo los objetivos */
+.requisitos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 16px 18px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+
+.requisitos-titulo {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.requisitos-ok {
+  color: var(--text-muted);
+}
+
+.requisitos-corto {
+  color: var(--accent);
+}
+
+.requisitos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.requisitos-lista li {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 8rem) minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+.requisitos-lista li:first-child {
+  border-top: 0;
+}
+
+.requisitos-marca {
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--accent);
+}
+
+.requisitos-lista li.no-entra .requisitos-marca {
+  color: var(--text-muted);
+}
+
+.requisitos-nombre {
+  font-weight: 500;
+  color: var(--text);
+  text-transform: capitalize;
+}
+
+.requisitos-pieza,
+.requisitos-precio {
+  color: var(--text-muted);
+}
+
+.requisitos-pieza {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.requisitos-precio {
+  white-space: nowrap;
+}
+
+.requisitos-lista li.no-entra .requisitos-nombre {
+  color: var(--text-muted);
+}
+
+.requisitos-pie {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 620px) {
+  .requisitos-lista li {
+    grid-template-columns: 16px minmax(0, 1fr) auto;
+  }
+
+  .requisitos-pieza {
+    display: none;
+  }
+}
+
 .entrada {
   width: 100%;
   padding: 10px 12px;
@@ -443,6 +538,14 @@ input[type="range"]:focus-visible {
   text-transform: capitalize;
 }
 
+.resultado-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
 .barra-bloque {
   display: flex;
   flex-direction: column;
@@ -623,6 +726,40 @@ input[type="range"]:focus-visible {
   background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: 4px;
+}
+
+/*
+ * La lista mezcla gamas a propósito, así que cada línea lleva la suya. Solo se
+ * destaca la alta: es la que explica por qué el presupuesto se va.
+ */
+.etiqueta-alta {
+  color: var(--accent);
+  background: var(--accent-suave);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+
+.chip-gama {
+  color: var(--accent);
+  background: var(--accent-suave);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+
+/* Invitación a subir de gama cuando el proyecto ya cuadra */
+.escalon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--r-md);
+}
+
+.escalon p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
 
 /* Siguientes mejoras */

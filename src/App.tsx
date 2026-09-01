@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
 import { buscarModelo, listarModelos } from "./engine/graph";
-import { crearSelector, sueloDe } from "./agents";
+import { crearSelector, gamaEsperada, sueloDe } from "./agents";
 import type { ResultadoSelector } from "./agents";
-import type { Gama, Objetivo } from "./engine/types";
+import type { Objetivo } from "./engine/types";
 import { useTema } from "./ui/theme";
 import { Icono } from "./ui/icons";
 import { Formulario } from "./ui/Formulario";
@@ -16,7 +16,6 @@ function App() {
   const { oscuro, alternar } = useTema();
 
   const [modeloTexto, setModeloTexto] = useState("Golf GTI Mk5");
-  const [gama, setGama] = useState<Gama>("media");
   const [presupuesto, setPresupuesto] = useState(4000);
   const [objetivos, setObjetivos] = useState<Objetivo[]>(["drag"]);
   const [resultado, setResultado] = useState<ResultadoSelector | null>(null);
@@ -26,9 +25,16 @@ function App() {
     [modeloTexto, modelos],
   );
 
-  const calcular = (conGama: Gama = gama) => {
+  // El desglose del formulario se recalcula solo: es el mismo cálculo que el botón,
+  // sale en milisegundos con 59 piezas y así ves qué pide el proyecto antes de pulsar.
+  const vistaPrevia = useMemo(
+    () => selector.seleccionar({ modelo: modeloTexto, presupuesto, objetivos }).presupuesto,
+    [selector, modeloTexto, presupuesto, objetivos],
+  );
+
+  const calcular = (conPresupuesto: number = presupuesto) => {
     setResultado(
-      selector.seleccionar({ modelo: modeloTexto, gama: conGama, presupuesto, objetivos }),
+      selector.seleccionar({ modelo: modeloTexto, presupuesto: conPresupuesto, objetivos }),
     );
   };
 
@@ -36,11 +42,10 @@ function App() {
     setObjetivos((prev) => (prev.includes(o) ? prev.filter((x) => x !== o) : [...prev, o]));
   };
 
-  const sueloVista = sueloDe(objetivos, gama);
-
-  const probarGama = (nueva: Gama) => {
-    setGama(nueva);
-    calcular(nueva);
+  // Recalcular con otro dinero: el botón de "subir a gama X" del resultado.
+  const probarPresupuesto = (nuevo: number) => {
+    setPresupuesto(nuevo);
+    calcular(nuevo);
   };
 
   return (
@@ -63,9 +68,9 @@ function App() {
         <div className="intro">
           <h1>Planifica tu build sin pasarte del presupuesto</h1>
           <p>
-            Elige el modelo, la gama de piezas, cuánto quieres gastar y para qué es el coche. Te
-            devolvemos una lista de piezas con precio estimado, ordenada por lo que más pesa en ese
-            objetivo.
+            Elige el modelo, cuánto quieres gastar y para qué es el coche. Te devolvemos una lista
+            de piezas con precio estimado, ordenada por lo que más pesa en ese objetivo. La gama no
+            la eliges tú: la marca el dinero que pones.
           </p>
         </div>
 
@@ -74,17 +79,17 @@ function App() {
           modeloTexto={modeloTexto}
           modeloResuelto={modeloResuelto}
           onModeloTexto={setModeloTexto}
-          gama={gama}
-          onGama={setGama}
           presupuesto={presupuesto}
           onPresupuesto={setPresupuesto}
           objetivos={objetivos}
           onAlternarObjetivo={alternarObjetivo}
-          suelo={sueloVista}
+          suelo={sueloDe(objetivos)}
+          gamaEsperada={gamaEsperada(objetivos, presupuesto)}
+          vistaPrevia={vistaPrevia}
           onCalcular={() => calcular()}
         />
 
-        {resultado && <Resultado resultado={resultado} onProbarGama={probarGama} />}
+        {resultado && <Resultado resultado={resultado} onProbarPresupuesto={probarPresupuesto} />}
         {resultado?.modelo && <PiezasCompatibles modelo={resultado.modelo} />}
       </main>
     </div>
