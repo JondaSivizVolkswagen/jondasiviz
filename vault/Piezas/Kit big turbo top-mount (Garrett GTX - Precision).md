@@ -21,10 +21,26 @@ requiere:
   - gestion-standalone-alta
 plataformas:
   - EA113
+chasis: []
+legalidad: requiere-ficha
+traccion: []
+sustituye: []
+exige: []
+chocaCon: []
 grupoExclusivo: turbo-principal
 stage: stage3
 nota: Pide bloque preparado para fiabilidad a más de 400 CV.
 imagen: null
 ---
 
-Compatible con [[EA113]].
+[[Categoría turbo]] · gama alta · requiere reforma de ficha técnica · stage3 · [[Grupo turbo-principal]]
+
+**Motor** [[EA113]]
+
+**Marcas** [[Garrett]]
+
+**Requiere** [[Intercooler barra y placa Stage 3 (Airtec - do88) + hard pipes]], [[Escape turbo-back completo inox (Milltek Race)]], [[Kit de alimentación Stage 3 (rieles, inyectores 1000cc, bomba externa)]], [[Gestión standalone (Syvecs - Emerald)]]
+
+**Monta con avisos en (14)** [[Audi A3 8P 2.0 TFSI]], [[Audi S3 8P]], [[Audi TT 8J 2.0 TFSI]], [[Audi TTS 8J]], [[Golf GTI Mk5]], [[Golf GTI Edition 30]], [[Golf GTI Pirelli]], [[Golf R Mk6]], [[León Cupra 1P]], [[León Cupra R 1P]], [[León FR 1P]], [[Octavia II RS]], [[Passat B6 2.0 TFSI]], [[Scirocco R]]
+
+> Pide bloque preparado para fiabilidad a más de 400 CV.

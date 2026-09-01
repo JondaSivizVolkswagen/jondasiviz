@@ -245,18 +245,24 @@ Con varios objetivos se combinan sin repetir.
 
 ## 7. Datos
 
-### Modelos (`src/data/models.json`, 8)
+### Modelos (`src/data/models.json`, 187)
 
-Golf GTI Mk5 (EA113, PQ35) · Golf GTI Mk7 (EA888, MQB) · Golf R Mk7 (EA888, MQB, tracción total) ·
-Scirocco R (EA888, PQ35) · Polo GTI 6C (EA888, PQ25) · Golf Mk4 1.8T (1.8T-20v, PQ34) ·
-Corrado VR6 (VR6, A2) · Golf GTD Mk6 (TDI, PQ35).
+Veinte años del grupo Volkswagen, de 2006 a 2026: Volkswagen, SEAT, Cupra, Škoda y Audi.
+El mapa completo, con el porqué de cada plataforma, está en
+`INVESTIGACION_GRUPO_VW_20_ANIOS.md`.
 
-Cada modelo enlaza con una **plataforma de motor** (`1.8T-20v` | `EA113` | `EA888` | `VR6` | `TDI`),
-que es lo que conecta con las piezas. Solo el **Mk5 / EA113** tiene catálogo profundo por ahora;
-el resto se apoya en las piezas de chasis (suspensión, frenos, ruedas, seguridad, estética) que
-sirven a varias plataformas.
+Cada modelo enlaza con **dos** cosas, y esa es la clave de que 187 coches no necesiten
+187 catálogos:
 
-### Catálogo (`src/data/catalog.json`, 59 piezas, v0.2.0)
+- una **plataforma de motor** (26), que conecta con admisión, escape, turbo y gestión;
+- un **chasis** (16), que conecta con suspensión, frenos, dirección, ruedas, seguridad y
+  estética.
+
+Un Golf 8 GTI, un Cupra León, un Octavia RS y un Audi S3 8Y son el mismo `EA888-evo4`
+sobre el mismo `MQB Evo`: comparten casi todo el catálogo. Por eso los modelos crecieron
+×7 y las piezas solo ×2,5.
+
+### Catálogo (`src/data/catalog.json`, 243 piezas, v0.2.0)
 
 Cada pieza:
 
@@ -479,23 +485,49 @@ Decisiones que conviene no deshacer sin motivo:
    anterior se borró. Si se hubiera dejado, la siguiente pantalla que se le pidiese a Claude
    Code habría vuelto al estilo claro.
 
+- **(i) a (p): sustitución dentro del grupo y el grupo VW entero** — el motor deja de
+  bloquear un grupo exclusivo para siempre: si una pieza aporta más que la que lo ocupa,
+  la sustituye y recupera su dinero, aunque la saliente hubiera entrado como dependencia.
+  El turbo-back releva al downpipe que exige el K04. Lo que no cabe se ofrece como cambio,
+  con `sustituye` y el `falta` ya descontado el reembolso.
+
+  Con eso resuelto, los datos pasan de 26 a **187 modelos** y de 98 a **243 piezas**:
+  Volkswagen, SEAT, Cupra, Škoda y Audi de 2006 a 2026, en siete fases. Chasis de 7 a 16,
+  plataformas de motor de 13 a 26, `EA888` partido en gen2 y gen3, `Traccion` con
+  `trasera` (el ID.3 y el Born son de propulsión trasera), `Propulsion` con `mhev` y ocho
+  valores nuevos de `Equipamiento` para poder decirle a un RS6 que sus cerámicos ya son
+  mejores que el big brake que se le iba a ofrecer.
+
+  Tres arreglos de motor que salieron por el camino:
+
+  - El catálogo exigía plataforma de motor a **toda** pieza, imposible de cumplir para
+    unos coilovers, que no miran si el coche es TSI o TDI. Ahora vale motor o chasis.
+  - `generarPresupuesto` armaba el pool solo por motor, así que las piezas que van por
+    chasis no llegaban a ningún presupuesto: un Golf 8 pedía drift y salía sin dirección.
+  - La reserva del paso de esenciales apartaba dinero para categorías que la propia pieza
+    elegida dejaba sin opciones, y con el techo justo salía un plan distinto al de dinero
+    infinito. Se calcula por candidata y mirando qué grupos bloquea.
+
+  106 tests, typecheck, lint y build en verde.
+
 ### Pendientes
 
-1. **Sustitución de gama en dependencias fijadas**: ahora si el downpipe entra como
-   dependencia del K04, el turbo-back (que lo incluye) solo aparece como "mejora
-   siguiente". Permitir que una pieza de gama superior sustituya a una inferior ya
-   elegida y recupere el presupuesto. `mejorDelGrupo` resuelve el caso del relleno,
-   pero no el de una dependencia que ya está fijada por el paso de esenciales.
-2. **Fase 3b** — Guardar builds (localStorage o archivo) y exportar a CSV. El PDF ya
+1. **Fase 3b** — Guardar builds (localStorage o archivo) y exportar a CSV. El PDF ya
    está hecho.
-3. **Fase 4** — Empaquetar el escritorio con Tauri (requiere instalar Rust), build
-   web, y conectar el botón de descarga de la landing.
-4. **Poblar más modelos** en el vault (Mk7, Golf R, etc.) con piezas y compatibilidades
-   reales.
-5. **Capa de embeddings** (la parte "neuronal") sobre los datos ya poblados.
-6. **Opción con API de LLM** para los subagentes, cuando se decida salir del modo
+2. **Fase 4** — Empaquetar el escritorio con Tauri, build web, y conectar el botón de
+   descarga de la landing.
+3. **Capa de embeddings** (la parte "neuronal") sobre los datos ya poblados. Ahora tiene
+   sustrato de verdad: 187 modelos y 243 piezas con su matriz de compatibilidad.
+4. **Opción con API de LLM** para los subagentes, cuando se decida salir del modo
    100% offline.
-7. Afinar más la matriz `floors.json` y los pesos por objetivo del catálogo con uso real.
+5. Afinar la matriz `floors.json` y los pesos por objetivo con uso real. Se calibró con
+   un Mk5 de 2005 y se queda corta para los V8 de Audi, donde un Stage 1 son 1.800 €.
+6. **Catálogo corto en las plataformas nuevas**: MLB, MLB Evo, PL71, PPE y J1 tienen
+   entre cinco y siete piezas de chasis cada una. Es honesto para PPE y J1, donde el
+   mercado casi no existe, pero MLB y MLB Evo suman 34 coches y merecen más.
+7. **Decisiones abiertas** de `INVESTIGACION_GRUPO_VW_20_ANIOS.md`: el Audi R8, el SEAT
+   Exeo y el Q8 e-tron se dejaron fuera, y el Golf VI R y el Scirocco R se asignaron a
+   `EA113` a falta de confirmación de taller.
 
 ---
 

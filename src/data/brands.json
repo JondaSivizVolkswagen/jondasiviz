@@ -2,41 +2,123 @@
   "version": "0.1.0",
   "_comment": "Nivel de marca por defecto y bandas de precio por categoria, para inferir la gama de una pieza cuando no viene declarada.",
   "marcas": {
-    "raceland": "baja",
-    "fk": "baja",
-    "ta technix": "baja",
-    "ta-technix": "baja",
-    "jom": "baja",
-    "generico": "baja",
-    "replica": "baja",
-    "bc racing": "media",
-    "kw v1": "media",
+    "034": "media",
+    "abt": "alta",
+    "air lift": "alta",
     "airtec": "media",
-    "forge": "media",
-    "racingline": "media",
-    "quaife": "media",
-    "wagner": "media",
-    "sachs": "media",
-    "kw clubsport": "alta",
-    "ohlins": "alta",
-    "wavetrac": "alta",
-    "syvecs": "alta",
-    "maxxecu": "alta",
-    "sadev": "alta",
+    "akrapovic": "alta",
+    "ap racing": "alta",
+    "apr": "media",
+    "ast": "alta",
+    "autotech": "media",
+    "bbs": "alta",
+    "bc racing": "media",
+    "bilstein": "alta",
+    "borgwarner": "alta",
+    "bosch": "media",
     "brembo gt": "alta",
-    "bbs": "alta"
+    "capristo": "alta",
+    "celtic tuning": "media",
+    "continental": "media",
+    "darkside": "media",
+    "dba": "media",
+    "do88": "alta",
+    "eibach": "media",
+    "eventuri": "alta",
+    "febi": "media",
+    "federal": "baja",
+    "fk": "baja",
+    "forge": "media",
+    "garrett": "alta",
+    "generico": "baja",
+    "h&r": "media",
+    "hispec": "media",
+    "hpa": "media",
+    "ina": "media",
+    "integrated engineering": "media",
+    "jom": "baja",
+    "kkk": "alta",
+    "kw clubsport": "alta",
+    "kw v1": "media",
+    "loba": "alta",
+    "machgrade": "alta",
+    "maxxecu": "alta",
+    "michelin": "alta",
+    "milltek": "media",
+    "mtm": "alta",
+    "muchboost": "alta",
+    "nankang": "baja",
+    "neuspeed": "media",
+    "ohlins": "alta",
+    "oz": "alta",
+    "powerflex": "media",
+    "quaife": "media",
+    "raceland": "baja",
+    "racingline": "media",
+    "replica": "baja",
+    "revo": "media",
+    "rtmg": "media",
+    "sachs": "media",
+    "sadev": "alta",
+    "scorpion": "media",
+    "setrab": "media",
+    "stoptech": "media",
+    "superchips": "media",
+    "superpro": "media",
+    "syvecs": "alta",
+    "ta technix": "baja",
+    "team dynamics": "media",
+    "tte": "alta",
+    "unitronic": "media",
+    "vwr": "media",
+    "wagner": "media",
+    "wavetrac": "alta",
+    "whiteline": "media"
   },
   "bandasPrecio": {
-    "admision": { "baja": 250, "media": 550 },
-    "escape": { "baja": 300, "media": 700 },
-    "turbo": { "baja": 500, "media": 1500 },
-    "gestion": { "baja": 450, "media": 1000 },
-    "suspension": { "baja": 450, "media": 1400 },
-    "transmision": { "baja": 500, "media": 1200 },
-    "frenos": { "baja": 250, "media": 700 },
-    "direccion": { "baja": 250, "media": 500 },
-    "seguridad": { "baja": 200, "media": 700 },
-    "ruedas": { "baja": 450, "media": 1200 },
-    "estetica": { "baja": 300, "media": 1000 }
+    "admision": {
+      "baja": 250,
+      "media": 550
+    },
+    "escape": {
+      "baja": 300,
+      "media": 700
+    },
+    "turbo": {
+      "baja": 500,
+      "media": 1500
+    },
+    "gestion": {
+      "baja": 450,
+      "media": 1000
+    },
+    "suspension": {
+      "baja": 450,
+      "media": 1400
+    },
+    "transmision": {
+      "baja": 500,
+      "media": 1200
+    },
+    "frenos": {
+      "baja": 250,
+      "media": 700
+    },
+    "direccion": {
+      "baja": 250,
+      "media": 500
+    },
+    "seguridad": {
+      "baja": 200,
+      "media": 700
+    },
+    "ruedas": {
+      "baja": 450,
+      "media": 1200
+    },
+    "estetica": {
+      "baja": 300,
+      "media": 1000
+    }
   }
 }

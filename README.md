@@ -49,8 +49,8 @@ src/
     clasificador-gama.ts    Reparte las piezas de un modelo en baja / media / alta.
     selector-presupuesto.ts Resuelve el modelo, delega en el motor y busca el siguiente escalón.
   data/             Generado desde el vault. No editar a mano.
-    catalog.json       npm run vault:ingest
-    models.json        npm run vault:ingest
+    catalog.json       243 piezas. npm run vault:ingest
+    models.json        187 modelos del grupo VW. npm run vault:ingest
     brands.json        Config a mano: niveles de marca y bandas de precio.
     floors.json        Config a mano: escala de presupuestos a probar por objetivo.
   ingest/
@@ -97,7 +97,10 @@ Dada una petición (modelo, presupuesto, objetivos):
    la pieza pertenece a un grupo exclusivo, sube a la de más aporte del grupo que
    quepa, para que sobrar dinero no acabe en la versión barata.
 5. Nunca monta dos piezas del mismo `grupoExclusivo` (dos intercoolers, coilovers
-   y air ride, remap y standalone, etc.), ni las sugiere como mejora.
+   y air ride, remap y standalone, etc.). Lo que sí hace es cambiarlas: si una pieza
+   aporta más que la que ocupa su grupo, la reemplaza y recupera su dinero, aunque la
+   que sale hubiera entrado como dependencia de otra. Una mejora que releva a una pieza
+   montada dice a cuál, y pide solo la diferencia.
 6. Avisa de las categorías prioritarias que se quedan fuera, mirando la selección
    final y no el paso de esenciales, para que el aviso no pueda contradecir a la lista.
 7. Devuelve las líneas agrupadas por categoría, total, sobrante, la gama resultante,

@@ -1,9 +1,85 @@
 // Carga y validación del catálogo de piezas.
 
-import type { Catalogo, Categoria, Gama, Objetivo, Pieza, Plataforma } from "./types";
+import type {
+  Catalogo,
+  Categoria,
+  Chasis,
+  Equipamiento,
+  Gama,
+  Legalidad,
+  Objetivo,
+  Pieza,
+  Plataforma,
+  Traccion,
+} from "./types";
 import catalogoJson from "../data/catalog.json";
 
-const PLATAFORMAS: readonly Plataforma[] = ["1.8T-20v", "EA113", "EA888", "VR6", "TDI"];
+const CHASIS: readonly Chasis[] = [
+  "A2",
+  "PQ24",
+  "PQ25",
+  "PQ34",
+  "PQ35",
+  "PQ46",
+  "NSF",
+  "MQB",
+  "MQB-A0",
+  "MQB Evo",
+  "MLB",
+  "MLB Evo",
+  "PL71",
+  "MEB",
+  "PPE",
+  "J1",
+];
+const LEGALIDADES: readonly Legalidad[] = ["homologable", "requiere-ficha", "solo-circuito"];
+const TRACCIONES: readonly Traccion[] = ["delantera", "trasera", "total"];
+const EQUIPAMIENTOS: readonly Equipamiento[] = [
+  "dcc",
+  "vaq",
+  "diferencial-trasero",
+  "frenos-grandes",
+  "dsg",
+  "gpf",
+  "dpf",
+  "magnetic-ride",
+  "haldex",
+  "torsen",
+  "act",
+  "scr-adblue",
+  "hibridacion-48v",
+  "suspension-neumatica",
+  "frenos-ceramicos",
+];
+
+const PLATAFORMAS: readonly Plataforma[] = [
+  "1.8T-20v",
+  "EA113",
+  "VR6",
+  "TDI",
+  "EA888-gen2",
+  "EA888-gen3",
+  "EA888-evo4",
+  "EA211",
+  "EA211-evo",
+  "EA211-PHEV",
+  "EA288",
+  "EA288-evo",
+  "EA288-16",
+  "EA111",
+  "EA855",
+  "EA837",
+  "EA839",
+  "EA825",
+  "V8-FSI",
+  "EA189",
+  "EA189-16",
+  "EA897",
+  "EA824",
+  "MEB",
+  "PPE",
+  "J1",
+];
 const GAMAS: readonly Gama[] = ["baja", "media", "alta"];
 const OBJETIVOS: readonly Objetivo[] = ["drift", "drag", "mas-cv", "estetica"];
 const CATEGORIAS: readonly Categoria[] = [
@@ -48,11 +124,45 @@ export function validarCatalogo(catalogo: Catalogo): string[] {
     if (!GAMAS.includes(pieza.gama)) {
       problemas.push(`Pieza ${ref}: gama desconocida "${pieza.gama}"`);
     }
-    if (!Array.isArray(pieza.plataformas) || pieza.plataformas.length === 0) {
-      problemas.push(`Pieza ${ref}: sin plataformas`);
-    } else {
+    // Una pieza tiene que decir dónde monta, pero vale cualquiera de las dos vías: por
+    // plataforma de motor si cuelga del motor, o por chasis si cuelga del coche. Exigir
+    // siempre plataforma es de cuando el campo `chasis` no existía, y obligaba a listar
+    // motores que la pieza ni mira: unos coilovers no dependen de si es TSI o TDI.
+    const sinMotor = !Array.isArray(pieza.plataformas) || pieza.plataformas.length === 0;
+    const sinChasis = !Array.isArray(pieza.chasis) || pieza.chasis.length === 0;
+    if (sinMotor && sinChasis) {
+      problemas.push(`Pieza ${ref}: no dice dónde monta, ni plataformas ni chasis`);
+    }
+    if (!sinMotor) {
       for (const p of pieza.plataformas) {
         if (!PLATAFORMAS.includes(p)) problemas.push(`Pieza ${ref}: plataforma desconocida "${p}"`);
+      }
+    }
+
+    if (!Array.isArray(pieza.chasis)) {
+      problemas.push(`Pieza ${ref}: "chasis" debe ser una lista`);
+    } else {
+      for (const c of pieza.chasis) {
+        if (!CHASIS.includes(c)) problemas.push(`Pieza ${ref}: chasis desconocido "${c}"`);
+      }
+    }
+    if (!LEGALIDADES.includes(pieza.legalidad)) {
+      problemas.push(`Pieza ${ref}: legalidad desconocida "${pieza.legalidad}"`);
+    }
+    for (const [campo, valores, validos] of [
+      ["traccion", pieza.traccion, TRACCIONES],
+      ["sustituye", pieza.sustituye, EQUIPAMIENTOS],
+      ["exige", pieza.exige, EQUIPAMIENTOS],
+      ["chocaCon", pieza.chocaCon, EQUIPAMIENTOS],
+    ] as const) {
+      if (!Array.isArray(valores)) {
+        problemas.push(`Pieza ${ref}: "${campo}" debe ser una lista`);
+        continue;
+      }
+      for (const v of valores) {
+        if (!(validos as readonly string[]).includes(v)) {
+          problemas.push(`Pieza ${ref}: valor desconocido en "${campo}": "${v}"`);
+        }
       }
     }
 

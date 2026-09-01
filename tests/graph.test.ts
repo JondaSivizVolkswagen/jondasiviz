@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { buscarModelo, listarModelos, piezasDeModelo } from "../src/engine/graph";
 import { cargarCatalogo } from "../src/engine/catalog";
+import { encaja } from "../src/engine/compat";
 
 describe("grafo de modelos", () => {
   it("lista los modelos incluidos", () => {
@@ -26,10 +27,15 @@ describe("grafo de modelos", () => {
     }
   });
 
-  it("las piezas del Mk5 son todas compatibles con EA113", () => {
+  it("las piezas del Mk5 le encajan, por motor o por chasis", () => {
+    // Las de motor van por EA113 y las de chasis por PQ35. Exigir la plataforma a
+    // todas dejaba fuera a unos coilovers, que no miran si el coche es TSI o TDI.
     const mk5 = buscarModelo("mk5")!;
     for (const pieza of piezasDeModelo(mk5, cargarCatalogo())) {
-      expect(pieza.plataformas).toContain("EA113");
+      expect(encaja(pieza, mk5)).toBe(true);
+      const porMotor = pieza.plataformas.includes("EA113");
+      const porChasis = pieza.chasis.includes("PQ35");
+      expect(porMotor || porChasis).toBe(true);
     }
   });
 });

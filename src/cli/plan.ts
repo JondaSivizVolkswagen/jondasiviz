@@ -125,7 +125,8 @@ if (plan.siguientesMejoras.length > 0) {
   console.log("\nSiguientes mejoras si subes el presupuesto:");
   for (const m of plan.siguientesMejoras) {
     const falta = m.falta > 0 ? `faltan ${eur(m.falta)}` : "ya te lo puedes permitir";
-    console.log(`  ${m.pieza.nombre} — ${eur(m.precio)} (${falta})`);
+    const cambio = m.sustituye ? ` [en lugar de ${m.sustituye.nombre}]` : "";
+    console.log(`  ${m.pieza.nombre} — ${eur(m.precio)} (${falta})${cambio}`);
   }
 }
 

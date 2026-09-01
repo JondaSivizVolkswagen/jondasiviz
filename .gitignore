@@ -26,6 +26,8 @@ dist-ssr
 # PDFs de prueba generados a mano
 *.pdf
 
+# Estado local de la interfaz de Obsidian (paneles abiertos, no es configuracion compartida)
+vault/.obsidian/workspace.json
 # Exportación a Cypher de la bóveda: se regenera con build-neo4j.mjs
 boveda-vw/.generador/salida/
 

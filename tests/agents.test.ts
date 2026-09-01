@@ -232,8 +232,10 @@ describe("selector de presupuesto", () => {
           lista(modelo.id, techo, objetivos),
         );
 
-        // El tramo de la barra tiene sentido: el techo queda por encima del mínimo.
-        expect(techo, etiqueta).toBeGreaterThan(
+        // El tramo de la barra tiene sentido: el techo nunca queda por debajo del
+        // mínimo. Se permite que coincidan porque en un coche con catálogo mínimo
+        // -un A6 e-tron para drag no tiene más que neumáticos- son la misma cifra.
+        expect(techo, etiqueta).toBeGreaterThanOrEqual(
           selector.seleccionar({ modelo: modelo.id, presupuesto: techo, objetivos }).minimo,
         );
       }

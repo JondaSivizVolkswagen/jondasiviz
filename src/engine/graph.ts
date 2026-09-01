@@ -3,6 +3,7 @@
 // sin cambiar esta interfaz.
 
 import { cargarCatalogo } from "./catalog";
+import { encaja } from "./compat";
 import modelosJson from "../data/models.json";
 import type { Catalogo, CatalogoModelos, ModeloVW, Pieza } from "./types";
 
@@ -49,12 +50,13 @@ export function buscarModelo(texto: string, modelos: ModeloVW[] = listarModelos(
 }
 
 /**
- * Piezas del catálogo que encajan en un modelo. Ahora mismo se resuelve por la
- * plataforma de motor del modelo; deja hueco para excepciones por modelo concreto.
+ * Piezas del catálogo que encajan en un modelo: las de motor por plataforma de
+ * motor, las de chasis por plataforma de chasis. El predicado vive en `compat.ts`
+ * para que la recomendación y el sondeo de compatibilidad no puedan discrepar.
  */
 export function piezasDeModelo(
   modelo: ModeloVW,
   catalogo: Catalogo = cargarCatalogo(),
 ): Pieza[] {
-  return catalogo.piezas.filter((p) => p.plataformas.includes(modelo.motor));
+  return catalogo.piezas.filter((p) => encaja(p, modelo));
 }

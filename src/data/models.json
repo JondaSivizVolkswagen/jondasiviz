@@ -2,6 +2,1469 @@
   "version": "0.1.0",
   "modelos": [
     {
+      "id": "arteon-20-tsi",
+      "nombre": "Arteon 2.0 TSI",
+      "alias": [
+        "arteon tsi",
+        "arteon 280"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 190-280 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2017,
+        2024
+      ]
+    },
+    {
+      "id": "arteon-r",
+      "nombre": "Arteon R",
+      "alias": [
+        "arteon r",
+        "arteon shooting brake r"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 320 CV (EA888 gen3), 4Motion",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "diferencial-trasero",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2020,
+        2024
+      ]
+    },
+    {
+      "id": "audi-a1-8x",
+      "nombre": "Audi A1 8X",
+      "alias": [
+        "a1 8x",
+        "audi a1"
+      ],
+      "chasis": "PQ25",
+      "motor": "EA111",
+      "motorDetalle": "1.2-1.4 TFSI 86-185 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2010,
+        2018
+      ]
+    },
+    {
+      "id": "audi-a1-gb",
+      "nombre": "Audi A1 GB 40 TFSI",
+      "alias": [
+        "a1 gb",
+        "a1 40 tfsi",
+        "audi a1 2019"
+      ],
+      "chasis": "MQB-A0",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 200-207 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2018,
+        2026
+      ]
+    },
+    {
+      "id": "audi-a3-8p-tdi",
+      "nombre": "Audi A3 8P 2.0 TDI",
+      "alias": [
+        "a3 8p tdi"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA189",
+      "motorDetalle": "2.0 TDI common rail 140-170 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf"
+      ],
+      "anios": [
+        2008,
+        2012
+      ]
+    },
+    {
+      "id": "audi-a3-8p-tfsi",
+      "nombre": "Audi A3 8P 2.0 TFSI",
+      "alias": [
+        "a3 8p",
+        "a3 2.0 tfsi"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 200 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2004,
+        2012
+      ]
+    },
+    {
+      "id": "audi-a3-8v-tsi",
+      "nombre": "Audi A3 8V 2.0 TSI",
+      "alias": [
+        "a3 8v",
+        "a3 2.0 tsi"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 190 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2012,
+        2020
+      ]
+    },
+    {
+      "id": "audi-a3-8y",
+      "nombre": "Audi A3 8Y",
+      "alias": [
+        "a3 8y",
+        "audi a3 2020"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "1.5-2.0 TFSI 150-204 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "gpf",
+        "act"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "audi-a3-etron-8v",
+      "nombre": "Audi A3 e-tron 8V",
+      "alias": [
+        "a3 etron",
+        "a3 e-tron"
+      ],
+      "chasis": "MQB",
+      "motor": "EA211-PHEV",
+      "motorDetalle": "1.4 TFSI híbrido enchufable, 204 CV de sistema",
+      "traccion": "delantera",
+      "propulsion": "phev",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2014,
+        2020
+      ]
+    },
+    {
+      "id": "audi-a4-b8",
+      "nombre": "Audi A4 B8 2.0 TFSI",
+      "alias": [
+        "a4 b8",
+        "a4 2.0 tfsi"
+      ],
+      "chasis": "MLB",
+      "motor": "EA888-gen2",
+      "motorDetalle": "1.8-2.0 TFSI 160-211 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2007,
+        2015
+      ]
+    },
+    {
+      "id": "audi-a4-b8-tdi",
+      "nombre": "Audi A4 B8 2.0 TDI",
+      "alias": [
+        "a4 b8 tdi"
+      ],
+      "chasis": "MLB",
+      "motor": "EA189",
+      "motorDetalle": "2.0 TDI common rail 143-177 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf"
+      ],
+      "anios": [
+        2008,
+        2015
+      ]
+    },
+    {
+      "id": "audi-a4-b9",
+      "nombre": "Audi A4 B9 2.0 TFSI",
+      "alias": [
+        "a4 b9",
+        "a4 2016"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 190-252 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen"
+      ],
+      "anios": [
+        2015,
+        2026
+      ]
+    },
+    {
+      "id": "audi-a4-b9-tdi",
+      "nombre": "Audi A4 B9 2.0 TDI",
+      "alias": [
+        "a4 b9 tdi"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA288",
+      "motorDetalle": "2.0 TDI 150-190 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf",
+        "scr-adblue"
+      ],
+      "anios": [
+        2015,
+        2026
+      ]
+    },
+    {
+      "id": "audi-a5-8t",
+      "nombre": "Audi A5 8T 2.0 TFSI",
+      "alias": [
+        "a5 8t",
+        "a5 2.0 tfsi"
+      ],
+      "chasis": "MLB",
+      "motor": "EA888-gen2",
+      "motorDetalle": "2.0 TFSI 180-211 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2007,
+        2016
+      ]
+    },
+    {
+      "id": "audi-a5-f5",
+      "nombre": "Audi A5 F5",
+      "alias": [
+        "a5 f5",
+        "a5 2016"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 190-252 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen"
+      ],
+      "anios": [
+        2016,
+        2026
+      ]
+    },
+    {
+      "id": "audi-a6-c7",
+      "nombre": "Audi A6 C7",
+      "alias": [
+        "a6 c7",
+        "a6 2011"
+      ],
+      "chasis": "MLB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 190-252 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2011,
+        2018
+      ]
+    },
+    {
+      "id": "audi-a6-c7-tdi",
+      "nombre": "Audi A6 C7 3.0 TDI",
+      "alias": [
+        "a6 c7 tdi",
+        "a6 3.0 tdi"
+      ],
+      "chasis": "MLB",
+      "motor": "EA897",
+      "motorDetalle": "3.0 TDI V6 204-326 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "dpf"
+      ],
+      "anios": [
+        2011,
+        2018
+      ]
+    },
+    {
+      "id": "audi-a6-c8",
+      "nombre": "Audi A6 C8",
+      "alias": [
+        "a6 c8",
+        "a6 2018"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA839",
+      "motorDetalle": "3.0 TFSI 340 CV con 48 V, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2018,
+        2026
+      ]
+    },
+    {
+      "id": "audi-a6-etron",
+      "nombre": "Audi A6 e-tron",
+      "alias": [
+        "a6 etron",
+        "a6 e-tron"
+      ],
+      "chasis": "PPE",
+      "motor": "PPE",
+      "motorDetalle": "286-503 CV, arquitectura de 800 V",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [
+        "dcc"
+      ],
+      "anios": [
+        2024,
+        2026
+      ]
+    },
+    {
+      "id": "audi-a8-d5",
+      "nombre": "Audi A8 D5",
+      "alias": [
+        "a8 d5",
+        "a8 2017"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA839",
+      "motorDetalle": "3.0 TFSI 340 CV con 48 V, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
+      "id": "audi-etron-gt",
+      "nombre": "Audi e-tron GT",
+      "alias": [
+        "etron gt",
+        "e-tron gt"
+      ],
+      "chasis": "J1",
+      "motor": "J1",
+      "motorDetalle": "476-530 CV, arquitectura de 800 V",
+      "traccion": "total",
+      "propulsion": "bev",
+      "equipamiento": [
+        "suspension-neumatica",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2021,
+        2026
+      ]
+    },
+    {
+      "id": "audi-q2",
+      "nombre": "Audi Q2",
+      "alias": [
+        "q2",
+        "audi q2"
+      ],
+      "chasis": "MQB",
+      "motor": "EA211-evo",
+      "motorDetalle": "1.5 TFSI 150 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "gpf",
+        "act"
+      ],
+      "anios": [
+        2016,
+        2024
+      ]
+    },
+    {
+      "id": "audi-q3-8u",
+      "nombre": "Audi Q3 8U",
+      "alias": [
+        "q3 8u",
+        "audi q3 2011"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 170-220 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg"
+      ],
+      "anios": [
+        2011,
+        2018
+      ]
+    },
+    {
+      "id": "audi-q3-f3",
+      "nombre": "Audi Q3 F3",
+      "alias": [
+        "q3 f3",
+        "audi q3 2018"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "1.5-2.0 TFSI 150-245 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2018,
+        2026
+      ]
+    },
+    {
+      "id": "audi-q4-etron",
+      "nombre": "Audi Q4 e-tron",
+      "alias": [
+        "q4 etron",
+        "q4 e-tron"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "170-340 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2021,
+        2026
+      ]
+    },
+    {
+      "id": "audi-q5-8r",
+      "nombre": "Audi Q5 8R",
+      "alias": [
+        "q5 8r",
+        "q5 2008"
+      ],
+      "chasis": "MLB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 180-225 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen"
+      ],
+      "anios": [
+        2008,
+        2017
+      ]
+    },
+    {
+      "id": "audi-q5-fy",
+      "nombre": "Audi Q5 FY",
+      "alias": [
+        "q5 fy",
+        "q5 2017"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 190-265 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
+      "id": "audi-q6-etron",
+      "nombre": "Audi Q6 e-tron",
+      "alias": [
+        "q6 etron",
+        "q6 e-tron"
+      ],
+      "chasis": "PPE",
+      "motor": "PPE",
+      "motorDetalle": "306-517 CV, arquitectura de 800 V",
+      "traccion": "total",
+      "propulsion": "bev",
+      "equipamiento": [
+        "dcc"
+      ],
+      "anios": [
+        2024,
+        2026
+      ]
+    },
+    {
+      "id": "audi-q7-4l",
+      "nombre": "Audi Q7 4L",
+      "alias": [
+        "q7 4l",
+        "q7 2005"
+      ],
+      "chasis": "PL71",
+      "motor": "EA897",
+      "motorDetalle": "3.0 TDI V6 233-245 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "dpf"
+      ],
+      "anios": [
+        2005,
+        2015
+      ]
+    },
+    {
+      "id": "audi-q7-4l-42fsi",
+      "nombre": "Audi Q7 4L 4.2 FSI",
+      "alias": [
+        "q7 4.2",
+        "q7 v8"
+      ],
+      "chasis": "PL71",
+      "motor": "V8-FSI",
+      "motorDetalle": "4.2 FSI V8 atmosférico 350 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica"
+      ],
+      "anios": [
+        2006,
+        2010
+      ]
+    },
+    {
+      "id": "audi-q7-4m",
+      "nombre": "Audi Q7 4M",
+      "alias": [
+        "q7 4m",
+        "q7 2015"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA897",
+      "motorDetalle": "3.0 TDI V6 231-286 CV con 48 V, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "hibridacion-48v",
+        "dpf",
+        "scr-adblue"
+      ],
+      "anios": [
+        2015,
+        2026
+      ]
+    },
+    {
+      "id": "audi-q8",
+      "nombre": "Audi Q8",
+      "alias": [
+        "q8",
+        "audi q8"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA897",
+      "motorDetalle": "3.0 TDI V6 231-286 CV con 48 V, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "hibridacion-48v",
+        "dpf",
+        "scr-adblue"
+      ],
+      "anios": [
+        2018,
+        2026
+      ]
+    },
+    {
+      "id": "audi-rs-etron-gt",
+      "nombre": "Audi RS e-tron GT",
+      "alias": [
+        "rs etron gt",
+        "rs e-tron gt"
+      ],
+      "chasis": "J1",
+      "motor": "J1",
+      "motorDetalle": "598-646 CV, arquitectura de 800 V",
+      "traccion": "total",
+      "propulsion": "bev",
+      "equipamiento": [
+        "suspension-neumatica",
+        "frenos-ceramicos"
+      ],
+      "anios": [
+        2021,
+        2026
+      ]
+    },
+    {
+      "id": "audi-rs3-8p",
+      "nombre": "Audi RS3 8P",
+      "alias": [
+        "rs3 8p",
+        "rs3 340"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA855",
+      "motorDetalle": "2.5 TFSI 340 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2011,
+        2012
+      ]
+    },
+    {
+      "id": "audi-rs3-8v",
+      "nombre": "Audi RS3 8V",
+      "alias": [
+        "rs3 8v",
+        "rs3 400"
+      ],
+      "chasis": "MQB",
+      "motor": "EA855",
+      "motorDetalle": "2.5 TFSI 367-400 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "frenos-grandes",
+        "magnetic-ride"
+      ],
+      "anios": [
+        2015,
+        2020
+      ]
+    },
+    {
+      "id": "audi-rs3-8y",
+      "nombre": "Audi RS3 8Y",
+      "alias": [
+        "rs3 8y",
+        "rs3 2021"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA855",
+      "motorDetalle": "2.5 TFSI 400 CV, quattro con reparto vectorial",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "diferencial-trasero",
+        "frenos-grandes",
+        "gpf"
+      ],
+      "anios": [
+        2021,
+        2026
+      ]
+    },
+    {
+      "id": "audi-rs4-b8",
+      "nombre": "Audi RS4 B8",
+      "alias": [
+        "rs4 b8",
+        "rs4 4.2"
+      ],
+      "chasis": "MLB",
+      "motor": "V8-FSI",
+      "motorDetalle": "4.2 FSI V8 atmosférico 450 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "dsg",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2012,
+        2016
+      ]
+    },
+    {
+      "id": "audi-rs4-b9",
+      "nombre": "Audi RS4 B9",
+      "alias": [
+        "rs4 b9",
+        "rs4 2.9"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA839",
+      "motorDetalle": "2.9 TFSI V6 biturbo 450 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "dsg",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
+      "id": "audi-rs5-8t",
+      "nombre": "Audi RS5 8T",
+      "alias": [
+        "rs5 8t",
+        "rs5 4.2"
+      ],
+      "chasis": "MLB",
+      "motor": "V8-FSI",
+      "motorDetalle": "4.2 FSI V8 atmosférico 450 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "dsg",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2010,
+        2016
+      ]
+    },
+    {
+      "id": "audi-rs5-f5",
+      "nombre": "Audi RS5 F5",
+      "alias": [
+        "rs5 f5",
+        "rs5 2.9"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA839",
+      "motorDetalle": "2.9 TFSI V6 biturbo 450 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "dsg",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
+      "id": "audi-rs6-c7",
+      "nombre": "Audi RS6 C7",
+      "alias": [
+        "rs6 c7",
+        "rs6 560"
+      ],
+      "chasis": "MLB",
+      "motor": "EA825",
+      "motorDetalle": "4.0 TFSI V8 biturbo 560-605 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "frenos-ceramicos"
+      ],
+      "anios": [
+        2013,
+        2018
+      ]
+    },
+    {
+      "id": "audi-rs6-c8",
+      "nombre": "Audi RS6 C8",
+      "alias": [
+        "rs6 c8",
+        "rs6 600",
+        "rs6 avant"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA825",
+      "motorDetalle": "4.0 TFSI V8 biturbo 600 CV con 48 V, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "frenos-ceramicos",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
+      "id": "audi-rs7-4g",
+      "nombre": "Audi RS7 4G",
+      "alias": [
+        "rs7 4g",
+        "rs7 605"
+      ],
+      "chasis": "MLB",
+      "motor": "EA825",
+      "motorDetalle": "4.0 TFSI V8 biturbo 560-605 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "frenos-ceramicos"
+      ],
+      "anios": [
+        2013,
+        2018
+      ]
+    },
+    {
+      "id": "audi-rs7-4k",
+      "nombre": "Audi RS7 4K",
+      "alias": [
+        "rs7 4k",
+        "rs7 600"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA825",
+      "motorDetalle": "4.0 TFSI V8 biturbo 600 CV con 48 V, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "frenos-ceramicos",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
+      "id": "audi-rsq3-8u",
+      "nombre": "Audi RS Q3 8U",
+      "alias": [
+        "rs q3 8u",
+        "rsq3 340"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA855",
+      "motorDetalle": "2.5 TFSI 310-340 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2013,
+        2018
+      ]
+    },
+    {
+      "id": "audi-rsq3-f3",
+      "nombre": "Audi RS Q3 F3",
+      "alias": [
+        "rs q3 f3",
+        "rsq3 400"
+      ],
+      "chasis": "MQB",
+      "motor": "EA855",
+      "motorDetalle": "2.5 TFSI 400 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "frenos-grandes",
+        "gpf"
+      ],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
+      "id": "audi-rsq8",
+      "nombre": "Audi RS Q8",
+      "alias": [
+        "rs q8",
+        "rsq8 600"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA825",
+      "motorDetalle": "4.0 TFSI V8 biturbo 600 CV, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "frenos-ceramicos",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
+      "id": "audi-s1-8x",
+      "nombre": "Audi S1 8X",
+      "alias": [
+        "s1",
+        "audi s1 quattro"
+      ],
+      "chasis": "PQ25",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 231 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2014,
+        2018
+      ]
+    },
+    {
+      "id": "audi-s3-8p",
+      "nombre": "Audi S3 8P",
+      "alias": [
+        "s3 8p",
+        "audi s3 265"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 265 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg"
+      ],
+      "anios": [
+        2006,
+        2012
+      ]
+    },
+    {
+      "id": "audi-s3-8v",
+      "nombre": "Audi S3 8V",
+      "alias": [
+        "s3 8v",
+        "audi s3 300"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 300-310 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "magnetic-ride"
+      ],
+      "anios": [
+        2013,
+        2020
+      ]
+    },
+    {
+      "id": "audi-s3-8y",
+      "nombre": "Audi S3 8Y",
+      "alias": [
+        "s3 8y",
+        "audi s3 333"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TFSI 310-333 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "vaq",
+        "gpf"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "audi-s4-b8",
+      "nombre": "Audi S4 B8",
+      "alias": [
+        "s4 b8",
+        "s4 3.0 tfsi"
+      ],
+      "chasis": "MLB",
+      "motor": "EA837",
+      "motorDetalle": "3.0 TFSI con compresor 333 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "dsg"
+      ],
+      "anios": [
+        2008,
+        2016
+      ]
+    },
+    {
+      "id": "audi-s4-b9",
+      "nombre": "Audi S4 B9",
+      "alias": [
+        "s4 b9",
+        "s4 354"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA839",
+      "motorDetalle": "3.0 TFSI turbo 354 CV, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "dsg",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2016,
+        2026
+      ]
+    },
+    {
+      "id": "audi-s5-8t",
+      "nombre": "Audi S5 8T 4.2 FSI",
+      "alias": [
+        "s5 8t",
+        "s5 4.2"
+      ],
+      "chasis": "MLB",
+      "motor": "V8-FSI",
+      "motorDetalle": "4.2 FSI V8 atmosférico 354 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen"
+      ],
+      "anios": [
+        2007,
+        2011
+      ]
+    },
+    {
+      "id": "audi-s6-c7",
+      "nombre": "Audi S6 C7",
+      "alias": [
+        "s6 c7",
+        "s6 4.0"
+      ],
+      "chasis": "MLB",
+      "motor": "EA825",
+      "motorDetalle": "4.0 TFSI V8 biturbo 420 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "dsg"
+      ],
+      "anios": [
+        2012,
+        2018
+      ]
+    },
+    {
+      "id": "audi-s6-c8-tdi",
+      "nombre": "Audi S6 C8 TDI",
+      "alias": [
+        "s6 c8",
+        "s6 tdi"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA897",
+      "motorDetalle": "3.0 TDI V6 349 CV con 48 V, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "hibridacion-48v",
+        "dpf",
+        "scr-adblue"
+      ],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
+      "id": "audi-sq5-8r",
+      "nombre": "Audi SQ5 8R TDI",
+      "alias": [
+        "sq5 8r",
+        "sq5 bitdi"
+      ],
+      "chasis": "MLB",
+      "motor": "EA897",
+      "motorDetalle": "3.0 BiTDI V6 313 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "dpf"
+      ],
+      "anios": [
+        2012,
+        2017
+      ]
+    },
+    {
+      "id": "audi-sq5-fy",
+      "nombre": "Audi SQ5 FY",
+      "alias": [
+        "sq5 fy",
+        "sq5 354"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA839",
+      "motorDetalle": "3.0 TFSI 354 CV con 48 V, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
+      "id": "audi-sq7-tdi",
+      "nombre": "Audi SQ7 TDI",
+      "alias": [
+        "sq7 tdi",
+        "sq7 435"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA824",
+      "motorDetalle": "4.0 TDI V8 435 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "frenos-grandes",
+        "dpf",
+        "scr-adblue"
+      ],
+      "anios": [
+        2016,
+        2020
+      ]
+    },
+    {
+      "id": "audi-sq7-tfsi",
+      "nombre": "Audi SQ7 TFSI",
+      "alias": [
+        "sq7 tfsi",
+        "sq7 507"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA825",
+      "motorDetalle": "4.0 TFSI V8 biturbo 507 CV, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "frenos-grandes",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "audi-sq8",
+      "nombre": "Audi SQ8",
+      "alias": [
+        "sq8",
+        "sq8 507"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA825",
+      "motorDetalle": "4.0 TFSI V8 biturbo 507 CV, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "frenos-grandes",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "audi-tt-8j",
+      "nombre": "Audi TT 8J 2.0 TFSI",
+      "alias": [
+        "tt 8j",
+        "audi tt 2.0 tfsi"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 200-211 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2006,
+        2014
+      ]
+    },
+    {
+      "id": "audi-tt-8s",
+      "nombre": "Audi TT 8S 2.0 TFSI",
+      "alias": [
+        "tt 8s",
+        "audi tt 2015"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 180-230 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2014,
+        2023
+      ]
+    },
+    {
+      "id": "audi-ttrs-8j",
+      "nombre": "Audi TT RS 8J",
+      "alias": [
+        "tt rs 8j",
+        "ttrs 340"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA855",
+      "motorDetalle": "2.5 TFSI 340-360 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2009,
+        2014
+      ]
+    },
+    {
+      "id": "audi-ttrs-8s",
+      "nombre": "Audi TT RS 8S",
+      "alias": [
+        "tt rs 8s",
+        "ttrs 400"
+      ],
+      "chasis": "MQB",
+      "motor": "EA855",
+      "motorDetalle": "2.5 TFSI 400 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2016,
+        2023
+      ]
+    },
+    {
+      "id": "audi-tts-8j",
+      "nombre": "Audi TTS 8J",
+      "alias": [
+        "tts 8j",
+        "audi tts 272"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 272 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "magnetic-ride"
+      ],
+      "anios": [
+        2008,
+        2014
+      ]
+    },
+    {
+      "id": "audi-tts-8s",
+      "nombre": "Audi TTS 8S",
+      "alias": [
+        "tts 8s",
+        "audi tts 310"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 310 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "magnetic-ride"
+      ],
+      "anios": [
+        2014,
+        2023
+      ]
+    },
+    {
+      "id": "beetle-turbo",
+      "nombre": "Beetle Turbo 5C",
+      "alias": [
+        "beetle turbo",
+        "escarabajo turbo"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA888-gen2",
+      "motorDetalle": "2.0 TSI 200-220 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2011,
+        2019
+      ]
+    },
+    {
+      "id": "citigo",
+      "nombre": "Citigo",
+      "alias": [
+        "citigo",
+        "skoda citigo"
+      ],
+      "chasis": "NSF",
+      "motor": "EA211",
+      "motorDetalle": "1.0 MPI/TSI 60-75 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2011,
+        2020
+      ]
+    },
+    {
       "id": "corrado-vr6",
       "nombre": "Corrado VR6",
       "alias": [
@@ -13,9 +1476,235 @@
       "motor": "VR6",
       "motorDetalle": "2.8 / 2.9 VR6 174-190 CV (AAA / ABV)",
       "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
       "anios": [
         1991,
         1995
+      ]
+    },
+    {
+      "id": "cupra-ateca",
+      "nombre": "Cupra Ateca",
+      "alias": [
+        "ateca cupra",
+        "cupra ateca 300"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 300 CV, 4Drive",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg"
+      ],
+      "anios": [
+        2018,
+        2024
+      ]
+    },
+    {
+      "id": "cupra-born",
+      "nombre": "Cupra Born",
+      "alias": [
+        "born",
+        "cupra born"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "204-326 CV, motor trasero",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2021,
+        2026
+      ]
+    },
+    {
+      "id": "cupra-formentor-vz",
+      "nombre": "Cupra Formentor VZ",
+      "alias": [
+        "formentor vz",
+        "formentor 310"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 245-310 CV",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "cupra-formentor-vz5",
+      "nombre": "Cupra Formentor VZ5",
+      "alias": [
+        "formentor vz5",
+        "vz5"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA855",
+      "motorDetalle": "2.5 TFSI cinco cilindros 390 CV",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "frenos-grandes",
+        "gpf"
+      ],
+      "anios": [
+        2021,
+        2022
+      ]
+    },
+    {
+      "id": "cupra-leon-kl",
+      "nombre": "Cupra León KL",
+      "alias": [
+        "cupra leon",
+        "leon kl cupra",
+        "cupra leon 300"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 245-310 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "vaq",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "cupra-leon-kl-ehybrid",
+      "nombre": "Cupra León eHybrid",
+      "alias": [
+        "cupra leon ehybrid",
+        "leon phev"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA211-PHEV",
+      "motorDetalle": "1.4 TSI híbrido enchufable, 245-272 CV de sistema",
+      "traccion": "delantera",
+      "propulsion": "phev",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "cupra-tavascan",
+      "nombre": "Cupra Tavascan",
+      "alias": [
+        "tavascan"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "286-340 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2024,
+        2026
+      ]
+    },
+    {
+      "id": "cupra-terramar",
+      "nombre": "Cupra Terramar",
+      "alias": [
+        "terramar"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 204-265 CV",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2024,
+        2026
+      ]
+    },
+    {
+      "id": "fabia-nw-15-tsi",
+      "nombre": "Fabia NW 1.5 TSI",
+      "alias": [
+        "fabia 2021",
+        "fabia nw"
+      ],
+      "chasis": "MQB-A0",
+      "motor": "EA211-evo",
+      "motorDetalle": "1.5 TSI evo 150 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "gpf",
+        "act"
+      ],
+      "anios": [
+        2021,
+        2026
+      ]
+    },
+    {
+      "id": "fabia-rs-5j",
+      "nombre": "Fabia RS 5J",
+      "alias": [
+        "fabia rs 1.4 tsi",
+        "fabia 5j rs"
+      ],
+      "chasis": "PQ25",
+      "motor": "EA111",
+      "motorDetalle": "1.4 TSI twincharger 180 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2010,
+        2014
+      ]
+    },
+    {
+      "id": "fabia-rs-6y",
+      "nombre": "Fabia RS 6Y",
+      "alias": [
+        "fabia rs tdi",
+        "fabia 6y rs"
+      ],
+      "chasis": "PQ24",
+      "motor": "TDI",
+      "motorDetalle": "1.9 TDI bomba-inyector 130 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2003,
+        2007
       ]
     },
     {
@@ -28,12 +1717,163 @@
         "5k gtd"
       ],
       "chasis": "PQ35",
-      "motor": "TDI",
-      "motorDetalle": "2.0 TDI 170 CV (CBBB)",
+      "motor": "EA189",
+      "motorDetalle": "2.0 TDI common rail 170 CV (CBBB, EA189)",
       "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "dpf"
+      ],
       "anios": [
         2009,
         2013
+      ]
+    },
+    {
+      "id": "golf-gtd-mk8",
+      "nombre": "Golf GTD Mk8",
+      "alias": [
+        "gtd mk8",
+        "golf 8 gtd",
+        "golf viii gtd",
+        "cd1 gtd"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA288-evo",
+      "motorDetalle": "2.0 TDI 200 CV (EA288 evo)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "dpf"
+      ],
+      "anios": [
+        2020,
+        2024
+      ]
+    },
+    {
+      "id": "golf-gtd-mk85",
+      "nombre": "Golf GTD Mk8.5",
+      "alias": [
+        "gtd mk8.5",
+        "gtd mk85",
+        "golf 8.5 gtd",
+        "gtd facelift"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA288-evo",
+      "motorDetalle": "2.0 TDI 200 CV (EA288 evo)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "dpf"
+      ],
+      "anios": [
+        2024,
+        2026
+      ]
+    },
+    {
+      "id": "golf-gti-clubsport-45",
+      "nombre": "Golf GTI Clubsport 45",
+      "alias": [
+        "clubsport 45",
+        "gti clubsport 45",
+        "golf 8 clubsport 45"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 300 CV (EA888 evo4), 45 aniversario",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "vaq",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2021,
+        2021
+      ]
+    },
+    {
+      "id": "golf-gti-clubsport-mk8",
+      "nombre": "Golf GTI Clubsport Mk8",
+      "alias": [
+        "clubsport mk8",
+        "gti clubsport",
+        "golf 8 clubsport"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 300 CV (EA888 evo4)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "vaq",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2020,
+        2024
+      ]
+    },
+    {
+      "id": "golf-gti-clubsport-mk85",
+      "nombre": "Golf GTI Clubsport Mk8.5",
+      "alias": [
+        "clubsport mk8.5",
+        "clubsport mk85",
+        "golf 8.5 clubsport"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 300 CV (EA888 evo4)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "vaq",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2024,
+        2026
+      ]
+    },
+    {
+      "id": "golf-gti-edition-50",
+      "nombre": "Golf GTI Edition 50",
+      "alias": [
+        "edition 50",
+        "gti edition 50",
+        "gti 50 aniversario"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 325 CV (EA888 evo4), el GTI de traccion delantera mas potente de serie",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "vaq",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2025,
+        2026
       ]
     },
     {
@@ -50,6 +1890,8 @@
       "motor": "EA113",
       "motorDetalle": "2.0 TFSI 200 CV (BWA / AXX)",
       "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
       "anios": [
         2004,
         2009
@@ -66,12 +1908,85 @@
         "gti mk7"
       ],
       "chasis": "MQB",
-      "motor": "EA888",
+      "motor": "EA888-gen3",
       "motorDetalle": "2.0 TSI 220-230 CV (EA888 gen3)",
       "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
       "anios": [
         2013,
         2020
+      ]
+    },
+    {
+      "id": "golf-gti-mk8",
+      "nombre": "Golf GTI Mk8",
+      "alias": [
+        "mk8",
+        "golf 8 gti",
+        "golf viii gti",
+        "gti mk8",
+        "cd1 gti"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 245 CV (EA888 evo4)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2020,
+        2024
+      ]
+    },
+    {
+      "id": "golf-gti-mk85",
+      "nombre": "Golf GTI Mk8.5",
+      "alias": [
+        "mk8.5",
+        "mk85",
+        "golf 8.5 gti",
+        "gti mk8.5",
+        "gti facelift"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 265 CV (EA888 evo4)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2024,
+        2026
+      ]
+    },
+    {
+      "id": "golf-iv-r32",
+      "nombre": "Golf IV R32",
+      "alias": [
+        "r32 mk4",
+        "golf 4 r32"
+      ],
+      "chasis": "PQ34",
+      "motor": "VR6",
+      "motorDetalle": "3.2 VR6 241 CV, 4Motion",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg"
+      ],
+      "anios": [
+        2002,
+        2004
       ]
     },
     {
@@ -87,9 +2002,84 @@
       "motor": "1.8T-20v",
       "motorDetalle": "1.8 Turbo 20v 150-180 CV (AGU / AUM / AUQ)",
       "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
       "anios": [
         1997,
         2004
+      ]
+    },
+    {
+      "id": "golf-mk7-1-6-tdi",
+      "nombre": "Golf Mk7 1.6 TDI",
+      "alias": [
+        "golf 7 1.6 tdi",
+        "golf mk7 tdi",
+        "mk7 tdi",
+        "1.6 tdi",
+        "golf 7 tdi"
+      ],
+      "chasis": "MQB",
+      "motor": "EA288-16",
+      "motorDetalle": "1.6 TDI 105-115 CV (EA288: CLHA / CRKB / DGTE)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf"
+      ],
+      "anios": [
+        2013,
+        2020
+      ]
+    },
+    {
+      "id": "golf-r-20-years",
+      "nombre": "Golf R 20 Years",
+      "alias": [
+        "r 20 years",
+        "golf r 20 aniversario",
+        "20 years"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 333 CV (EA888 evo4), 4Motion, 20 aniversario",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "diferencial-trasero",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2022,
+        2023
+      ]
+    },
+    {
+      "id": "golf-r-333",
+      "nombre": "Golf R 333 Limited Edition",
+      "alias": [
+        "r 333",
+        "golf r 333",
+        "333 limited edition"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 333 CV (EA888 evo4), 4Motion, 333 unidades",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "diferencial-trasero",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2023,
+        2023
       ]
     },
     {
@@ -102,12 +2092,1239 @@
         "golf 7 r"
       ],
       "chasis": "MQB",
-      "motor": "EA888",
+      "motor": "EA888-gen3",
       "motorDetalle": "2.0 TSI 300-310 CV (EA888 gen3)",
       "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "dsg"
+      ],
       "anios": [
         2014,
         2020
+      ]
+    },
+    {
+      "id": "golf-r-mk8",
+      "nombre": "Golf R Mk8",
+      "alias": [
+        "r mk8",
+        "golf 8 r",
+        "golf viii r",
+        "8r"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 320 CV (EA888 evo4), 4Motion",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "diferencial-trasero",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2021,
+        2024
+      ]
+    },
+    {
+      "id": "golf-r-mk85",
+      "nombre": "Golf R Mk8.5",
+      "alias": [
+        "r mk8.5",
+        "r mk85",
+        "golf 8.5 r",
+        "r facelift"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 333 CV (EA888 evo4), 4Motion",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "diferencial-trasero",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2024,
+        2026
+      ]
+    },
+    {
+      "id": "golf-r-variant-mk8",
+      "nombre": "Golf R Variant Mk8",
+      "alias": [
+        "r variant mk8",
+        "golf 8 r variant",
+        "r familiar mk8"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 320 CV (EA888 evo4), 4Motion, familiar",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "diferencial-trasero",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2021,
+        2024
+      ]
+    },
+    {
+      "id": "golf-r-variant-mk85",
+      "nombre": "Golf R Variant Mk8.5",
+      "alias": [
+        "r variant mk8.5",
+        "r variant mk85",
+        "golf 8.5 r variant"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 333 CV (EA888 evo4), 4Motion, familiar",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "diferencial-trasero",
+        "frenos-grandes",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2024,
+        2026
+      ]
+    },
+    {
+      "id": "golf-v-gt-sport",
+      "nombre": "Golf V GT Sport",
+      "alias": [
+        "gt sport",
+        "golf 5 gt"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA111",
+      "motorDetalle": "1.4 TSI twincharger 170 CV (BLG)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2007,
+        2008
+      ]
+    },
+    {
+      "id": "golf-v-gt-tdi",
+      "nombre": "Golf V GT TDI",
+      "alias": [
+        "golf 5 gt tdi",
+        "gt tdi 170"
+      ],
+      "chasis": "PQ35",
+      "motor": "TDI",
+      "motorDetalle": "2.0 TDI bomba-inyector 170 CV (BMN)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf"
+      ],
+      "anios": [
+        2006,
+        2008
+      ]
+    },
+    {
+      "id": "golf-v-gti-ed30",
+      "nombre": "Golf GTI Edition 30",
+      "alias": [
+        "edition 30",
+        "gti ed30",
+        "mk5 ed30"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 230 CV (BYD)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2006,
+        2008
+      ]
+    },
+    {
+      "id": "golf-v-gti-pirelli",
+      "nombre": "Golf GTI Pirelli",
+      "alias": [
+        "gti pirelli",
+        "mk5 pirelli"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 230 CV (BYD)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2007,
+        2008
+      ]
+    },
+    {
+      "id": "golf-v-r32",
+      "nombre": "Golf V R32",
+      "alias": [
+        "r32 mk5",
+        "golf 5 r32"
+      ],
+      "chasis": "PQ35",
+      "motor": "VR6",
+      "motorDetalle": "3.2 VR6 250 CV, 4Motion",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg"
+      ],
+      "anios": [
+        2005,
+        2008
+      ]
+    },
+    {
+      "id": "golf-vi-gti",
+      "nombre": "Golf GTI Mk6",
+      "alias": [
+        "mk6 gti",
+        "golf 6 gti",
+        "gti mk6"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA888-gen2",
+      "motorDetalle": "2.0 TSI 210 CV (CCZB)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2009,
+        2013
+      ]
+    },
+    {
+      "id": "golf-vi-gti-ed35",
+      "nombre": "Golf GTI Edition 35",
+      "alias": [
+        "edition 35",
+        "gti ed35"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA888-gen2",
+      "motorDetalle": "2.0 TSI 235 CV (CDLC)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2011,
+        2013
+      ]
+    },
+    {
+      "id": "golf-vi-gti-performance",
+      "nombre": "Golf GTI Mk7 Performance",
+      "alias": [
+        "gti performance",
+        "mk7 performance"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 230 CV (CHHB)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "vaq"
+      ],
+      "anios": [
+        2014,
+        2017
+      ]
+    },
+    {
+      "id": "golf-vi-r",
+      "nombre": "Golf R Mk6",
+      "alias": [
+        "mk6 r",
+        "golf 6 r",
+        "r mk6"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TSI 270 CV (CDLA, bloque EA113 con K04), 4Motion",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg"
+      ],
+      "anios": [
+        2009,
+        2013
+      ]
+    },
+    {
+      "id": "golf-vii-clubsport",
+      "nombre": "Golf GTI Clubsport Mk7",
+      "alias": [
+        "clubsport mk7",
+        "gti clubsport 7"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 265 CV, 290 en overboost",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "vaq"
+      ],
+      "anios": [
+        2016,
+        2017
+      ]
+    },
+    {
+      "id": "golf-vii-clubsport-s",
+      "nombre": "Golf GTI Clubsport S",
+      "alias": [
+        "clubsport s",
+        "cs s"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 310 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "vaq",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2016,
+        2016
+      ]
+    },
+    {
+      "id": "golf-vii-gtd",
+      "nombre": "Golf GTD Mk7",
+      "alias": [
+        "gtd mk7",
+        "golf 7 gtd"
+      ],
+      "chasis": "MQB",
+      "motor": "EA288",
+      "motorDetalle": "2.0 TDI 184 CV (CUNA)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf"
+      ],
+      "anios": [
+        2013,
+        2020
+      ]
+    },
+    {
+      "id": "golf-vii-gte",
+      "nombre": "Golf GTE Mk7",
+      "alias": [
+        "gte mk7",
+        "golf 7 gte"
+      ],
+      "chasis": "MQB",
+      "motor": "EA211-PHEV",
+      "motorDetalle": "1.4 TSI híbrido enchufable, 204 CV de sistema",
+      "traccion": "delantera",
+      "propulsion": "phev",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2014,
+        2020
+      ]
+    },
+    {
+      "id": "golf-vii-r-variant",
+      "nombre": "Golf R Variant Mk7",
+      "alias": [
+        "r variant mk7",
+        "golf 7 r variant"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 300 CV, 4Motion",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg"
+      ],
+      "anios": [
+        2015,
+        2020
+      ]
+    },
+    {
+      "id": "golf-vii5-gti-performance",
+      "nombre": "Golf GTI Mk7.5 Performance",
+      "alias": [
+        "mk7.5 gti",
+        "gti 7.5"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 245 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "vaq"
+      ],
+      "anios": [
+        2017,
+        2020
+      ]
+    },
+    {
+      "id": "golf-vii5-gti-tcr",
+      "nombre": "Golf GTI TCR",
+      "alias": [
+        "gti tcr",
+        "tcr mk7"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 290 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "vaq",
+        "frenos-grandes",
+        "gpf"
+      ],
+      "anios": [
+        2019,
+        2020
+      ]
+    },
+    {
+      "id": "golf-viii-15-tsi",
+      "nombre": "Golf Mk8 1.5 TSI",
+      "alias": [
+        "golf 8 1.5",
+        "golf 8 tsi"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA211-evo",
+      "motorDetalle": "1.5 TSI evo 130-150 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "gpf",
+        "act"
+      ],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
+      "id": "golf-viii-20-tdi",
+      "nombre": "Golf Mk8 2.0 TDI",
+      "alias": [
+        "golf 8 tdi",
+        "golf 8 2.0 tdi"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA288-evo",
+      "motorDetalle": "2.0 TDI evo 115-150 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf",
+        "scr-adblue"
+      ],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
+      "id": "golf-viii-gte",
+      "nombre": "Golf GTE Mk8",
+      "alias": [
+        "gte mk8",
+        "golf 8 gte"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA211-PHEV",
+      "motorDetalle": "1.4 TSI híbrido enchufable, 245 CV de sistema",
+      "traccion": "delantera",
+      "propulsion": "phev",
+      "equipamiento": [
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "ibiza-6j-cupra",
+      "nombre": "Ibiza Cupra 6J",
+      "alias": [
+        "ibiza 6j cupra",
+        "ibiza cupra 1.4"
+      ],
+      "chasis": "PQ25",
+      "motor": "EA111",
+      "motorDetalle": "1.4 TSI twincharger 180 CV (CAVE)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2009,
+        2015
+      ]
+    },
+    {
+      "id": "ibiza-6j-cupra-18",
+      "nombre": "Ibiza Cupra 6J 1.8 TSI",
+      "alias": [
+        "ibiza cupra 1.8",
+        "ibiza 6p cupra"
+      ],
+      "chasis": "PQ25",
+      "motor": "EA888-gen3",
+      "motorDetalle": "1.8 TSI 192 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2015,
+        2016
+      ]
+    },
+    {
+      "id": "ibiza-6j-fr",
+      "nombre": "Ibiza FR 6J",
+      "alias": [
+        "ibiza 6j fr",
+        "ibiza fr 1.4 tsi"
+      ],
+      "chasis": "PQ25",
+      "motor": "EA111",
+      "motorDetalle": "1.4 TSI twincharger 150 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2008,
+        2015
+      ]
+    },
+    {
+      "id": "ibiza-6l-cupra",
+      "nombre": "Ibiza Cupra 6L",
+      "alias": [
+        "ibiza 6l cupra",
+        "ibiza cupra 1.8t"
+      ],
+      "chasis": "PQ24",
+      "motor": "1.8T-20v",
+      "motorDetalle": "1.8T 180 CV (BBU)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2004,
+        2008
+      ]
+    },
+    {
+      "id": "ibiza-6l-fr-tdi",
+      "nombre": "Ibiza FR 6L TDI",
+      "alias": [
+        "ibiza 6l fr",
+        "ibiza fr tdi"
+      ],
+      "chasis": "PQ24",
+      "motor": "TDI",
+      "motorDetalle": "1.9 TDI bomba-inyector 160 CV (BPX)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2004,
+        2008
+      ]
+    },
+    {
+      "id": "ibiza-kj-fr",
+      "nombre": "Ibiza FR KJ",
+      "alias": [
+        "ibiza kj",
+        "ibiza 2017 fr",
+        "ibiza 6f fr"
+      ],
+      "chasis": "MQB-A0",
+      "motor": "EA211-evo",
+      "motorDetalle": "1.5 TSI evo 150 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "gpf",
+        "act"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
+      "id": "kamiq-10-tsi",
+      "nombre": "Kamiq 1.0 TSI",
+      "alias": [
+        "kamiq"
+      ],
+      "chasis": "MQB-A0",
+      "motor": "EA211-evo",
+      "motorDetalle": "1.0 TSI 110 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "gpf"
+      ],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
+      "id": "karoq-15-tsi",
+      "nombre": "Karoq 1.5 TSI",
+      "alias": [
+        "karoq"
+      ],
+      "chasis": "MQB",
+      "motor": "EA211-evo",
+      "motorDetalle": "1.5 TSI evo 150 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "gpf",
+        "act"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
+      "id": "kodiaq-rs-bitdi",
+      "nombre": "Kodiaq RS BiTDI",
+      "alias": [
+        "kodiaq rs tdi",
+        "kodiaq bitdi"
+      ],
+      "chasis": "MQB",
+      "motor": "EA288",
+      "motorDetalle": "2.0 BiTDI 240 CV",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "dpf"
+      ],
+      "anios": [
+        2019,
+        2021
+      ]
+    },
+    {
+      "id": "kodiaq-rs-tsi",
+      "nombre": "Kodiaq RS TSI",
+      "alias": [
+        "kodiaq rs",
+        "kodiaq rs 245"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 245 CV",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2021,
+        2024
+      ]
+    },
+    {
+      "id": "leon-1p-cupra",
+      "nombre": "León Cupra 1P",
+      "alias": [
+        "leon 1p cupra",
+        "leon cupra 240"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 240 CV (BWJ)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2006,
+        2012
+      ]
+    },
+    {
+      "id": "leon-1p-cupra-r",
+      "nombre": "León Cupra R 1P",
+      "alias": [
+        "leon cupra r",
+        "cupra r 265"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 265 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "frenos-grandes"
+      ],
+      "anios": [
+        2010,
+        2012
+      ]
+    },
+    {
+      "id": "leon-1p-fr",
+      "nombre": "León FR 1P",
+      "alias": [
+        "leon 1p fr",
+        "leon fr 2.0 tfsi"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 200-211 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2005,
+        2012
+      ]
+    },
+    {
+      "id": "leon-1p-fr-tdi",
+      "nombre": "León FR 1P TDI",
+      "alias": [
+        "leon 1p tdi",
+        "leon fr tdi 170"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA189",
+      "motorDetalle": "2.0 TDI common rail 170 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf"
+      ],
+      "anios": [
+        2006,
+        2012
+      ]
+    },
+    {
+      "id": "leon-5f-cupra-280",
+      "nombre": "León Cupra 5F 280",
+      "alias": [
+        "leon 5f cupra",
+        "cupra 280"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 265-290 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "vaq",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2014,
+        2017
+      ]
+    },
+    {
+      "id": "leon-5f-cupra-300",
+      "nombre": "León Cupra 5F 300",
+      "alias": [
+        "cupra 300",
+        "leon cupra 300"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 300 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "vaq",
+        "dsg"
+      ],
+      "anios": [
+        2017,
+        2020
+      ]
+    },
+    {
+      "id": "leon-5f-cupra-r",
+      "nombre": "León Cupra R 5F",
+      "alias": [
+        "cupra r 5f",
+        "leon cupra r 310"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 310 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "vaq",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2017,
+        2018
+      ]
+    },
+    {
+      "id": "leon-5f-st-cupra-4drive",
+      "nombre": "León ST Cupra 4Drive",
+      "alias": [
+        "cupra st 4drive",
+        "leon st cupra"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 300 CV, 4Drive",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg"
+      ],
+      "anios": [
+        2018,
+        2020
+      ]
+    },
+    {
+      "id": "octavia-ii-rs",
+      "nombre": "Octavia II RS",
+      "alias": [
+        "octavia 2 rs",
+        "octavia rs 200"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 200 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2005,
+        2013
+      ]
+    },
+    {
+      "id": "octavia-ii-rs-tdi",
+      "nombre": "Octavia II RS TDI",
+      "alias": [
+        "octavia 2 rs tdi"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA189",
+      "motorDetalle": "2.0 TDI common rail 170 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf"
+      ],
+      "anios": [
+        2006,
+        2013
+      ]
+    },
+    {
+      "id": "octavia-iii-rs",
+      "nombre": "Octavia III RS",
+      "alias": [
+        "octavia 3 rs",
+        "octavia rs 230"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 220-230 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2013,
+        2019
+      ]
+    },
+    {
+      "id": "octavia-iii-rs-245",
+      "nombre": "Octavia III RS 245",
+      "alias": [
+        "octavia rs 245"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 245 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "vaq",
+        "dsg"
+      ],
+      "anios": [
+        2017,
+        2019
+      ]
+    },
+    {
+      "id": "octavia-iii-rs-tdi",
+      "nombre": "Octavia III RS TDI",
+      "alias": [
+        "octavia 3 rs tdi"
+      ],
+      "chasis": "MQB",
+      "motor": "EA288",
+      "motorDetalle": "2.0 TDI 184 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf"
+      ],
+      "anios": [
+        2013,
+        2019
+      ]
+    },
+    {
+      "id": "octavia-iv-rs",
+      "nombre": "Octavia IV RS",
+      "alias": [
+        "octavia 4 rs",
+        "octavia rs 2020"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 245 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "vaq",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "octavia-iv-rs-iv",
+      "nombre": "Octavia IV RS iV",
+      "alias": [
+        "octavia rs iv",
+        "octavia rs phev"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA211-PHEV",
+      "motorDetalle": "1.4 TSI híbrido enchufable, 245 CV de sistema",
+      "traccion": "delantera",
+      "propulsion": "phev",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2020,
+        2023
+      ]
+    },
+    {
+      "id": "octavia-iv-rs-tdi",
+      "nombre": "Octavia IV RS TDI",
+      "alias": [
+        "octavia 4 rs tdi"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA288-evo",
+      "motorDetalle": "2.0 TDI 200 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf",
+        "scr-adblue"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "passat-b6-20-tfsi",
+      "nombre": "Passat B6 2.0 TFSI",
+      "alias": [
+        "passat b6",
+        "passat 2.0 tfsi"
+      ],
+      "chasis": "PQ46",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TFSI 200 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2005,
+        2010
+      ]
+    },
+    {
+      "id": "passat-b7-20-tdi",
+      "nombre": "Passat B7 2.0 TDI",
+      "alias": [
+        "passat b7",
+        "passat b7 tdi"
+      ],
+      "chasis": "PQ46",
+      "motor": "EA189",
+      "motorDetalle": "2.0 TDI common rail 140-170 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf"
+      ],
+      "anios": [
+        2010,
+        2015
+      ]
+    },
+    {
+      "id": "passat-b8-20-tsi",
+      "nombre": "Passat B8 2.0 TSI",
+      "alias": [
+        "passat b8",
+        "passat b8 tsi"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 220-280 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2014,
+        2022
+      ]
+    },
+    {
+      "id": "passat-b8-gte",
+      "nombre": "Passat GTE B8",
+      "alias": [
+        "passat gte",
+        "gte passat"
+      ],
+      "chasis": "MQB",
+      "motor": "EA211-PHEV",
+      "motorDetalle": "1.4 TSI híbrido enchufable, 218 CV de sistema",
+      "traccion": "delantera",
+      "propulsion": "phev",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2015,
+        2022
+      ]
+    },
+    {
+      "id": "passat-b9-20-tsi",
+      "nombre": "Passat B9 2.0 TSI",
+      "alias": [
+        "passat b9",
+        "passat 2024"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 204-265 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2023,
+        2026
+      ]
+    },
+    {
+      "id": "passat-cc-20-tsi",
+      "nombre": "Passat CC 2.0 TSI",
+      "alias": [
+        "passat cc",
+        "cc 2.0 tsi"
+      ],
+      "chasis": "PQ46",
+      "motor": "EA888-gen2",
+      "motorDetalle": "2.0 TSI 210 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2008,
+        2016
+      ]
+    },
+    {
+      "id": "passat-r36",
+      "nombre": "Passat R36",
+      "alias": [
+        "r36",
+        "passat r36"
+      ],
+      "chasis": "PQ46",
+      "motor": "VR6",
+      "motorDetalle": "3.6 VR6 300 CV, 4Motion",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg"
+      ],
+      "anios": [
+        2007,
+        2010
+      ]
+    },
+    {
+      "id": "polo-6r-gti",
+      "nombre": "Polo GTI 6R",
+      "alias": [
+        "polo 6r gti",
+        "6r gti"
+      ],
+      "chasis": "PQ25",
+      "motor": "EA111",
+      "motorDetalle": "1.4 TSI twincharger 180 CV (CAVE)",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2010,
+        2014
+      ]
+    },
+    {
+      "id": "polo-9n-gti",
+      "nombre": "Polo GTI 9N",
+      "alias": [
+        "polo 9n gti",
+        "9n gti",
+        "polo gti cup"
+      ],
+      "chasis": "PQ24",
+      "motor": "1.8T-20v",
+      "motorDetalle": "1.8T 150 CV, 180 CV en la Cup Edition",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2006,
+        2009
+      ]
+    },
+    {
+      "id": "polo-aw-10-tsi",
+      "nombre": "Polo AW 1.0 TSI",
+      "alias": [
+        "polo aw",
+        "polo 1.0 tsi"
+      ],
+      "chasis": "MQB-A0",
+      "motor": "EA211-evo",
+      "motorDetalle": "1.0 TSI 95-115 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "gpf"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
+      "id": "polo-aw-gti",
+      "nombre": "Polo GTI AW",
+      "alias": [
+        "polo aw gti",
+        "polo gti 2018",
+        "aw gti"
+      ],
+      "chasis": "MQB-A0",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 200-207 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2018,
+        2026
       ]
     },
     {
@@ -119,11 +3336,72 @@
         "polo 1.8"
       ],
       "chasis": "PQ25",
-      "motor": "EA888",
-      "motorDetalle": "1.8 TSI 192 CV (EA888)",
+      "motor": "EA888-gen3",
+      "motorDetalle": "1.8 TSI 192 CV (EA888 gen3)",
       "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
       "anios": [
         2015,
+        2017
+      ]
+    },
+    {
+      "id": "rapid-14-tsi",
+      "nombre": "Rapid 1.4 TSI",
+      "alias": [
+        "rapid"
+      ],
+      "chasis": "PQ25",
+      "motor": "EA111",
+      "motorDetalle": "1.4 TSI 122 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2012,
+        2019
+      ]
+    },
+    {
+      "id": "scala-15-tsi",
+      "nombre": "Scala 1.5 TSI",
+      "alias": [
+        "scala"
+      ],
+      "chasis": "MQB-A0",
+      "motor": "EA211-evo",
+      "motorDetalle": "1.5 TSI evo 150 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "gpf",
+        "act"
+      ],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
+      "id": "scirocco-20-tsi",
+      "nombre": "Scirocco 2.0 TSI",
+      "alias": [
+        "scirocco tsi",
+        "scirocco gt"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA888-gen2",
+      "motorDetalle": "2.0 TSI 200-210 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2008,
         2017
       ]
     },
@@ -136,12 +3414,500 @@
         "scirocco 2.0"
       ],
       "chasis": "PQ35",
-      "motor": "EA888",
-      "motorDetalle": "2.0 TSI 265 CV (EA888 gen2)",
+      "motor": "EA113",
+      "motorDetalle": "2.0 TSI 265 CV (CDLA, bloque EA113 con K04)",
       "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
       "anios": [
         2009,
         2017
+      ]
+    },
+    {
+      "id": "scirocco-tdi",
+      "nombre": "Scirocco 2.0 TDI",
+      "alias": [
+        "scirocco tdi",
+        "scirocco diesel"
+      ],
+      "chasis": "PQ35",
+      "motor": "EA189",
+      "motorDetalle": "2.0 TDI common rail 140-170 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf"
+      ],
+      "anios": [
+        2008,
+        2017
+      ]
+    },
+    {
+      "id": "seat-arona-10-tsi",
+      "nombre": "SEAT Arona 1.0 TSI",
+      "alias": [
+        "arona",
+        "arona tsi"
+      ],
+      "chasis": "MQB-A0",
+      "motor": "EA211-evo",
+      "motorDetalle": "1.0 TSI 110 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "gpf"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
+      "id": "skoda-elroq",
+      "nombre": "Škoda Elroq",
+      "alias": [
+        "elroq"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "170-299 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2024,
+        2026
+      ]
+    },
+    {
+      "id": "skoda-enyaq",
+      "nombre": "Škoda Enyaq",
+      "alias": [
+        "enyaq"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "179-286 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2021,
+        2026
+      ]
+    },
+    {
+      "id": "skoda-enyaq-rs",
+      "nombre": "Škoda Enyaq RS",
+      "alias": [
+        "enyaq rs",
+        "enyaq vrs"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "299-340 CV",
+      "traccion": "total",
+      "propulsion": "bev",
+      "equipamiento": [
+        "frenos-grandes"
+      ],
+      "anios": [
+        2022,
+        2026
+      ]
+    },
+    {
+      "id": "superb-ii-20-tsi",
+      "nombre": "Superb II 2.0 TSI",
+      "alias": [
+        "superb 2",
+        "superb ii"
+      ],
+      "chasis": "PQ46",
+      "motor": "EA888-gen2",
+      "motorDetalle": "2.0 TSI 200 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2008,
+        2015
+      ]
+    },
+    {
+      "id": "superb-iii-20-tsi",
+      "nombre": "Superb III 2.0 TSI",
+      "alias": [
+        "superb 3",
+        "superb iii"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 220-280 CV",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg"
+      ],
+      "anios": [
+        2015,
+        2023
+      ]
+    },
+    {
+      "id": "superb-iii-iv",
+      "nombre": "Superb III iV",
+      "alias": [
+        "superb iv",
+        "superb phev"
+      ],
+      "chasis": "MQB",
+      "motor": "EA211-PHEV",
+      "motorDetalle": "1.4 TSI híbrido enchufable, 218 CV de sistema",
+      "traccion": "delantera",
+      "propulsion": "phev",
+      "equipamiento": [
+        "dsg"
+      ],
+      "anios": [
+        2019,
+        2023
+      ]
+    },
+    {
+      "id": "superb-iv-20-tdi",
+      "nombre": "Superb IV 2.0 TDI",
+      "alias": [
+        "superb 2024",
+        "superb iv tdi"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA288-evo",
+      "motorDetalle": "2.0 TDI 150-193 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf",
+        "scr-adblue"
+      ],
+      "anios": [
+        2023,
+        2026
+      ]
+    },
+    {
+      "id": "t-roc-15-tsi",
+      "nombre": "T-Roc 1.5 TSI",
+      "alias": [
+        "t-roc tsi",
+        "troc 1.5"
+      ],
+      "chasis": "MQB",
+      "motor": "EA211-evo",
+      "motorDetalle": "1.5 TSI evo 150 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "gpf",
+        "act"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
+      "id": "t-roc-r",
+      "nombre": "T-Roc R",
+      "alias": [
+        "troc r",
+        "t roc r",
+        "t-roc r"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 300 CV (EA888 gen3), 4Motion",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2019,
+        2025
+      ]
+    },
+    {
+      "id": "tiguan-20-tsi",
+      "nombre": "Tiguan 2.0 TSI",
+      "alias": [
+        "tiguan tsi",
+        "tiguan ad"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 190-245 CV, 4Motion",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "haldex",
+        "dsg"
+      ],
+      "anios": [
+        2016,
+        2023
+      ]
+    },
+    {
+      "id": "tiguan-mk3-etsi",
+      "nombre": "Tiguan Mk3 eTSI",
+      "alias": [
+        "tiguan mk3",
+        "tiguan 2024"
+      ],
+      "chasis": "MQB Evo",
+      "motor": "EA888-evo4",
+      "motorDetalle": "2.0 TSI 204 CV con hibridación ligera de 48 V",
+      "traccion": "delantera",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "dsg",
+        "gpf",
+        "act",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2024,
+        2026
+      ]
+    },
+    {
+      "id": "tiguan-r",
+      "nombre": "Tiguan R",
+      "alias": [
+        "tiguan r",
+        "tiguan mk2 r"
+      ],
+      "chasis": "MQB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TSI 320 CV (EA888 gen3), 4Motion",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dcc",
+        "diferencial-trasero",
+        "dsg",
+        "gpf"
+      ],
+      "anios": [
+        2021,
+        2024
+      ]
+    },
+    {
+      "id": "touareg-7p-30-tdi",
+      "nombre": "Touareg 7P 3.0 TDI",
+      "alias": [
+        "touareg 7p",
+        "touareg 3.0 tdi"
+      ],
+      "chasis": "PL71",
+      "motor": "EA897",
+      "motorDetalle": "3.0 TDI V6 245 CV",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "dpf"
+      ],
+      "anios": [
+        2010,
+        2018
+      ]
+    },
+    {
+      "id": "touareg-cr-30-tdi",
+      "nombre": "Touareg CR 3.0 TDI",
+      "alias": [
+        "touareg cr",
+        "touareg 2018"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA897",
+      "motorDetalle": "3.0 TDI V6 231-286 CV con 48 V",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "dcc",
+        "dpf",
+        "scr-adblue",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2018,
+        2026
+      ]
+    },
+    {
+      "id": "up-gti",
+      "nombre": "up! GTI",
+      "alias": [
+        "up gti",
+        "up! gti"
+      ],
+      "chasis": "NSF",
+      "motor": "EA211",
+      "motorDetalle": "1.0 TSI 115 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2018,
+        2023
+      ]
+    },
+    {
+      "id": "vw-id-buzz",
+      "nombre": "Volkswagen ID.Buzz",
+      "alias": [
+        "id buzz",
+        "id.buzz",
+        "buzz"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "204-340 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2022,
+        2026
+      ]
+    },
+    {
+      "id": "vw-id3",
+      "nombre": "Volkswagen ID.3",
+      "alias": [
+        "id3",
+        "id.3"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "Motor trasero 148-231 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
+      "id": "vw-id3-gtx",
+      "nombre": "Volkswagen ID.3 GTX",
+      "alias": [
+        "id3 gtx",
+        "id.3 gtx"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "Motor trasero 286-326 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [
+        "frenos-grandes"
+      ],
+      "anios": [
+        2023,
+        2026
+      ]
+    },
+    {
+      "id": "vw-id4",
+      "nombre": "Volkswagen ID.4",
+      "alias": [
+        "id4",
+        "id.4"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "170-286 CV, trasera o 4Motion",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "vw-id4-gtx",
+      "nombre": "Volkswagen ID.4 GTX",
+      "alias": [
+        "id4 gtx",
+        "id.4 gtx"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "299-340 CV, 4Motion",
+      "traccion": "total",
+      "propulsion": "bev",
+      "equipamiento": [
+        "frenos-grandes"
+      ],
+      "anios": [
+        2021,
+        2026
+      ]
+    },
+    {
+      "id": "vw-id5",
+      "nombre": "Volkswagen ID.5",
+      "alias": [
+        "id5",
+        "id.5"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "174-340 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [],
+      "anios": [
+        2021,
+        2026
+      ]
+    },
+    {
+      "id": "vw-id7",
+      "nombre": "Volkswagen ID.7",
+      "alias": [
+        "id7",
+        "id.7"
+      ],
+      "chasis": "MEB",
+      "motor": "MEB",
+      "motorDetalle": "286-340 CV",
+      "traccion": "trasera",
+      "propulsion": "bev",
+      "equipamiento": [
+        "dcc"
+      ],
+      "anios": [
+        2023,
+        2026
       ]
     }
   ]

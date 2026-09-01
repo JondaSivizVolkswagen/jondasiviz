@@ -113,6 +113,7 @@ export function crearSelector(
       const prueba = generarPresupuesto(
         {
           plataforma: modelo.motor,
+          chasis: modelo.chasis,
           presupuesto: dinero,
           objetivos,
           modelo: modelo.nombre,
@@ -154,12 +155,19 @@ export function crearSelector(
     // Solo se pasan al motor las elecciones que siguen valiendo para este coche y estos
     // objetivos: al cambiar de modelo, lo elegido para el anterior deja de aplicar sin
     // tener que borrarlo, y vuelve solo si se vuelve a ese coche.
-    const grupos = gruposElegibles(catalogoModelo, modelo.motor, objetivos);
+    const grupos = gruposElegibles(catalogoModelo, modelo.motor, objetivos, modelo.chasis);
     const elegibles = new Set(grupos.flatMap((g) => g.piezas.map((p) => p.id)));
     const elecciones = (entrada.elecciones ?? []).filter((id) => elegibles.has(id));
 
     const plan = generarPresupuesto(
-      { plataforma: modelo.motor, presupuesto, objetivos, modelo: modelo.nombre, elecciones },
+      {
+        plataforma: modelo.motor,
+        chasis: modelo.chasis,
+        presupuesto,
+        objetivos,
+        modelo: modelo.nombre,
+        elecciones,
+      },
       catalogoModelo,
     );
 
@@ -176,7 +184,7 @@ export function crearSelector(
         catalogoModelo,
         elecciones,
       ),
-      techoUtil: techoUtil(catalogoModelo, modelo.motor, objetivos, elecciones),
+      techoUtil: techoUtil(catalogoModelo, modelo.motor, objetivos, elecciones, modelo.chasis),
       grupos,
       avisos: plan.avisos,
     };

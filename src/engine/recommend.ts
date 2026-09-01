@@ -9,6 +9,7 @@ import { euros } from "./format";
 import type {
   Catalogo,
   Categoria,
+  Chasis,
   Gama,
   GrupoElegible,
   LineaPresupuesto,
@@ -151,8 +152,56 @@ function categoriasEsenciales(objetivos: Objetivo[]): Categoria[] {
   return salida;
 }
 
-export function piezasCompatibles(catalogo: Catalogo, plataforma: Plataforma): Pieza[] {
-  return catalogo.piezas.filter((p) => p.plataformas.includes(plataforma));
+/**
+ * Piezas que puede montar un coche. Las de motor se resuelven por plataforma y las de
+ * chasis por chasis, la misma regla que usa `encaja` en `compat.ts`.
+ *
+ * El chasis es opcional porque la petición puede venir sin modelo resuelto, pero
+ * cuando falta se pierden todas las piezas que solo declaran chasis: suspensión,
+ * frenos, dirección, ruedas, seguridad y estética de las plataformas modernas.
+ */
+export function piezasCompatibles(
+  catalogo: Catalogo,
+  plataforma: Plataforma,
+  chasis?: Chasis,
+): Pieza[] {
+  return catalogo.piezas.filter((p) => {
+    if (p.chasis.length > 0) return chasis !== undefined && p.chasis.includes(chasis);
+    return p.plataformas.includes(plataforma);
+  });
+}
+
+/** Si la pieza depende, directa o en cadena, de la otra. */
+function dependeDe(pieza: Pieza, id: string, porId: Map<string, Pieza>): boolean {
+  const vistos = new Set<string>([pieza.id]);
+  const rec = (p: Pieza): boolean =>
+    p.requiere.some((dep) => {
+      if (dep === id) return true;
+      if (vistos.has(dep)) return false;
+      vistos.add(dep);
+      const siguiente = porId.get(dep);
+      return siguiente ? rec(siguiente) : false;
+    });
+  return rec(pieza);
+}
+
+/**
+ * Si una dependencia está cubierta por el plan. Vale su propio id, y vale también otra
+ * pieza del mismo grupo exclusivo: son la misma función, y el motor monta solo una.
+ * Es la misma regla que usa `compat.ts` al contar lo que arrastra una pieza, y la que
+ * hace legal sustituir el downpipe que exige el turbo por un turbo-back que lo incluye.
+ */
+export function dependenciaCubierta(
+  dep: string,
+  montadas: Pieza[],
+  porId: Map<string, Pieza>,
+): boolean {
+  if (montadas.some((m) => m.id === dep)) return true;
+  const pieza = porId.get(dep);
+  return (
+    pieza?.grupoExclusivo !== undefined &&
+    montadas.some((m) => m.grupoExclusivo === pieza.grupoExclusivo)
+  );
 }
 
 /**
@@ -184,12 +233,13 @@ export function gruposElegibles(
   catalogo: Catalogo,
   plataforma: Plataforma,
   objetivos: Objetivo[],
+  chasis?: Chasis,
 ): GrupoElegible[] {
   const activos = normalizarObjetivos(objetivos);
   if (activos.length === 0) return [];
 
   const porGrupo = new Map<string, Pieza[]>();
-  for (const pieza of piezasCompatibles(catalogo, plataforma)) {
+  for (const pieza of piezasCompatibles(catalogo, plataforma, chasis)) {
     if (!pieza.grupoExclusivo || peso(pieza, activos) <= 0) continue;
     const suyas = porGrupo.get(pieza.grupoExclusivo);
     if (suyas) suyas.push(pieza);
@@ -234,11 +284,19 @@ export function gamaDeLineas(lineas: LineaPresupuesto[]): Gama | null {
  */
 function crearSeleccion(porId: Map<string, Pieza>, presupuesto: number) {
   const elegidas = new Map<string, MotivoLinea>();
-  const gruposUsados = new Set<string>();
+  // Grupo exclusivo -> id de la pieza que lo ocupa. Guardar el id, y no solo que el
+  // grupo está pillado, es lo que permite sustituir a esa pieza por una mejor.
+  const ocupantes = new Map<string, string>();
   let gastado = 0;
 
   const grupoLibre = (pieza: Pieza): boolean =>
-    !pieza.grupoExclusivo || !gruposUsados.has(pieza.grupoExclusivo);
+    !pieza.grupoExclusivo || !ocupantes.has(pieza.grupoExclusivo);
+
+  /** La pieza que hoy cumple la función de esta otra, si el grupo está ocupado. */
+  const ocupanteDe = (pieza: Pieza): Pieza | null => {
+    const id = pieza.grupoExclusivo ? ocupantes.get(pieza.grupoExclusivo) : undefined;
+    return id ? (porId.get(id) ?? null) : null;
+  };
 
   // Devuelve el paquete (dependencias primero, pieza al final) y su coste,
   // contando solo lo que aún no está elegido. null si falta alguna dependencia.
@@ -256,7 +314,7 @@ function crearSeleccion(porId: Map<string, Pieza>, presupuesto: number) {
         falta = true;
         return;
       }
-      if (!esRaiz && p.grupoExclusivo && gruposUsados.has(p.grupoExclusivo)) return;
+      if (!esRaiz && p.grupoExclusivo && ocupantes.has(p.grupoExclusivo)) return;
       vistos.add(id);
       for (const dep of p.requiere) rec(dep, false);
       orden.push(id);
@@ -272,19 +330,38 @@ function crearSeleccion(porId: Map<string, Pieza>, presupuesto: number) {
       if (elegidas.has(id)) return;
       const pieza = porId.get(id)!;
       elegidas.set(id, i === orden.length - 1 ? motivoFinal : "dependencia");
-      if (pieza.grupoExclusivo) gruposUsados.add(pieza.grupoExclusivo);
+      if (pieza.grupoExclusivo) ocupantes.set(pieza.grupoExclusivo, id);
       gastado += pieza.precio.estimado;
     });
   };
 
+  // Saca una pieza del plan y devuelve su dinero. Solo la usa la sustitución, que
+  // mete acto seguido otra pieza del mismo grupo, así que el hueco no queda abierto.
+  const quitar = (pieza: Pieza): MotivoLinea => {
+    const motivo = elegidas.get(pieza.id) ?? "valor";
+    elegidas.delete(pieza.id);
+    if (pieza.grupoExclusivo && ocupantes.get(pieza.grupoExclusivo) === pieza.id) {
+      ocupantes.delete(pieza.grupoExclusivo);
+    }
+    gastado -= pieza.precio.estimado;
+    return motivo;
+  };
+
   const cabe = (coste: number): boolean => gastado + coste <= presupuesto;
+
+  /** Si cabe un paquete contando con lo que devuelve la pieza a la que sustituye. */
+  const cabeSustituyendo = (coste: number, saliente: Pieza): boolean =>
+    gastado - saliente.precio.estimado + coste <= presupuesto;
 
   return {
     elegidas,
     grupoLibre,
+    ocupanteDe,
     paqueteDe,
     añadirPaquete,
+    quitar,
     cabe,
+    cabeSustituyendo,
     total: () => gastado,
   };
 }
@@ -377,14 +454,23 @@ export function generarPresupuesto(
     return armarResultado(peticion, [], catalogo, presupuesto, avisos);
   }
 
-  const pool = piezasCompatibles(catalogo, peticion.plataforma);
+  const pool = piezasCompatibles(catalogo, peticion.plataforma, peticion.chasis);
   if (pool.length === 0) {
     avisos.push(`Todavía no hay piezas en el catálogo para ${peticion.plataforma}.`);
     return armarResultado(peticion, [], catalogo, presupuesto, avisos);
   }
 
   const porId = new Map(catalogo.piezas.map((p) => [p.id, p] as const));
-  const { elegidas, grupoLibre, paqueteDe, añadirPaquete, cabe } = crearSeleccion(
+  const {
+    elegidas,
+    grupoLibre,
+    ocupanteDe,
+    paqueteDe,
+    añadirPaquete,
+    quitar,
+    cabe,
+    cabeSustituyendo,
+  } = crearSeleccion(
     porId,
     presupuesto,
   );
@@ -444,11 +530,12 @@ export function generarPresupuesto(
    * Lo más barato que cuesta cubrir una categoría ahora mismo, con sus dependencias y
    * descontando lo que ya está elegido. null si el catálogo no puede servirla.
    */
-  const costeMinimoDe = (categoria: Categoria): number | null => {
+  const costeMinimoDe = (categoria: Categoria, bloqueados?: Set<string>): number | null => {
     let minimo: number | null = null;
     for (const p of pool) {
       if (p.categoria !== categoria || peso(p, objetivos) <= 0) continue;
       if (elegidas.has(p.id) || !grupoLibre(p)) continue;
+      if (bloqueados && p.grupoExclusivo && bloqueados.has(p.grupoExclusivo)) continue;
       const paquete = paqueteDe(p);
       if (paquete && (minimo === null || paquete.coste < minimo)) minimo = paquete.coste;
     }
@@ -484,16 +571,32 @@ export function generarPresupuesto(
           a.id.localeCompare(b.id),
       );
 
-    const reserva = esencialesServibles
-      .slice(i + 1)
-      .filter((c) => !yaCubierta(c))
-      .reduce((s, c) => s + (costeMinimoDe(c) ?? 0), 0);
+    const pendientes = esencialesServibles.slice(i + 1).filter((c) => !yaCubierta(c));
 
-    const elegir = (margen: number): boolean => {
+    /**
+     * Lo que hay que reservar para las categorías de detrás si se coge este paquete.
+     *
+     * Se calcula por candidata y no una vez, porque la propia elección cambia lo que
+     * queda por cubrir: si el air ride ocupa el grupo de la altura, la suspensión ya no
+     * tiene nada que montar y reservarle dinero es apartarlo para nada. Ese euro de más
+     * hacía que con el techo justo saliera un plan distinto al de dinero infinito.
+     */
+    const reservaTras = (paquete: { orden: string[] }): number => {
+      const bloqueados = new Set(
+        paquete.orden
+          .map((id) => porId.get(id)!.grupoExclusivo)
+          .filter((g): g is string => g != null),
+      );
+      return pendientes.reduce((s, c) => s + (costeMinimoDe(c, bloqueados) ?? 0), 0);
+    };
+
+    const elegir = (conReserva: boolean): boolean => {
       for (const pieza of candidatas) {
         if (!grupoLibre(pieza)) continue;
         const paquete = paqueteDe(pieza);
-        if (paquete && cabe(paquete.coste + margen)) {
+        if (!paquete) continue;
+        const margen = conReserva ? reservaTras(paquete) : 0;
+        if (cabe(paquete.coste + margen)) {
           añadirPaquete(paquete.orden, "esencial");
           return true;
         }
@@ -501,10 +604,32 @@ export function generarPresupuesto(
       return false;
     };
 
-    // Si ni la opción más barata cabe respetando la reserva, el presupuesto no da para
-    // el proyecto entero. Se cubre esta categoría y se sigue: más vale devolver algo
-    // coherente y avisar de lo que falta que devolver una lista vacía.
-    if (!elegir(reserva)) elegir(0);
+    /**
+     * Cuando ni respetando la reserva cabe nada, se cubre la categoría por lo más
+     * barato en vez de por lo que más aporta.
+     *
+     * Con la reserva satisfecha manda el aporte técnico, que es lo que se quiere. Pero
+     * si no cabe, seguir cogiendo la pieza de más aporte se lleva por delante a las
+     * categorías que vienen detrás: un Audi Q2 con el mínimo justo para "mas-cv" se
+     * gastaba el presupuesto en el Stage 2, que arrastra downpipe y admisión, y se
+     * quedaba sin turbo, que es la categoría por la que existe ese objetivo.
+     */
+    const elegirBarata = (): boolean => {
+      const porCoste = candidatas
+        .map((pieza) => ({ pieza, paquete: paqueteDe(pieza) }))
+        .filter((c): c is { pieza: Pieza; paquete: { orden: string[]; coste: number } } =>
+          c.paquete !== null,
+        )
+        .sort((a, b) => a.paquete.coste - b.paquete.coste || a.pieza.id.localeCompare(b.pieza.id));
+      for (const { pieza, paquete } of porCoste) {
+        if (!grupoLibre(pieza) || !cabe(paquete.coste)) continue;
+        añadirPaquete(paquete.orden, "esencial");
+        return true;
+      }
+      return false;
+    };
+
+    if (!elegir(true)) elegirBarata();
   }
 
   // Paso 2: rellenar con lo que más aporta por euro mientras quede dinero.
@@ -518,8 +643,44 @@ export function generarPresupuesto(
         a.id.localeCompare(b.id),
     );
 
+  // Una pieza de un grupo ocupado no puede sumarse al plan: haría el mismo trabajo que
+  // la que ya está montada. Pero sí puede ocupar su sitio, devolviendo su dinero, si
+  // aporta más a los objetivos y la diferencia cabe. Sin esto la primera pieza que pilla
+  // el grupo lo bloquea para siempre, aunque sobre presupuesto: el downpipe que entra
+  // como dependencia del K04 dejaba fuera al turbo-back, que lo incluye y aporta más.
+  const sustituirEnGrupo = (entrante: Pieza): void => {
+    const saliente = ocupanteDe(entrante);
+    if (!saliente || valor(entrante, objetivos) <= valor(saliente, objetivos)) return;
+    // Una pieza que el comprador ha elegido a mano no se la quita el motor.
+    if (elegidas.get(saliente.id) === "elegida") return;
+    // El sustituto cubre por grupo lo que otras piezas exigen del saliente; lo que no
+    // puede es necesitar al saliente él mismo.
+    if (dependeDe(entrante, saliente.id, porId)) return;
+
+    // Cambiar de categoría dentro del grupo (pasar de un rebaje estético a unos
+    // coilovers, por ejemplo) no puede dejar sin cubrir la categoría del saliente.
+    const categoriaSigueCubierta =
+      entrante.categoria === saliente.categoria ||
+      [...elegidas.keys()].some(
+        (id) => id !== saliente.id && porId.get(id)!.categoria === saliente.categoria,
+      );
+    if (!categoriaSigueCubierta) return;
+
+    const paquete = paqueteDe(entrante);
+    if (!paquete || !cabeSustituyendo(paquete.coste, saliente)) return;
+
+    // El sustituto hereda el papel del saliente cuando cubre su misma categoría: si el
+    // downpipe estaba ahí por ser dependencia del turbo, el turbo-back lo sigue estando.
+    const motivo = quitar(saliente);
+    añadirPaquete(paquete.orden, entrante.categoria === saliente.categoria ? motivo : "valor");
+  };
+
   for (const candidata of relleno) {
-    if (elegidas.has(candidata.id) || !grupoLibre(candidata)) continue;
+    if (elegidas.has(candidata.id)) continue;
+    if (!grupoLibre(candidata)) {
+      sustituirEnGrupo(candidata);
+      continue;
+    }
     const pieza = mejorDelGrupo(candidata);
     const paquete = paqueteDe(pieza);
     if (paquete && cabe(paquete.coste)) añadirPaquete(paquete.orden, "valor");
@@ -571,7 +732,7 @@ function armarResultado(
   const objetivos = normalizarObjetivos(peticion.objetivos);
   const porId = new Map(catalogo.piezas.map((p) => [p.id, p] as const));
   const minimos = minimosEsenciales(
-    piezasCompatibles(catalogo, peticion.plataforma),
+    piezasCompatibles(catalogo, peticion.plataforma, peticion.chasis),
     porId,
     objetivos,
     peticion.elecciones ?? [],
@@ -605,20 +766,34 @@ function calcularMejoras(
   restante: number,
 ): MejoraSugerida[] {
   const yaElegidas = new Set(lineas.map((l) => l.pieza.id));
-  // Una pieza que cumple la misma función que otra ya montada no es una mejora que
-  // puedas sumar al presupuesto: habría que sustituir. Fuera de la lista.
-  const gruposOcupados = new Set(
-    lineas.map((l) => l.pieza.grupoExclusivo).filter((g): g is string => g != null),
+  const montadas = lineas.map((l) => l.pieza);
+  const porId = new Map(catalogo.piezas.map((p) => [p.id, p] as const));
+  const porGrupo = new Map(
+    montadas.filter((p) => p.grupoExclusivo).map((p) => [p.grupoExclusivo!, p] as const),
   );
   const objetivos = normalizarObjetivos(peticion.objetivos);
   if (objetivos.length === 0) return [];
 
-  const candidatas = piezasCompatibles(catalogo, peticion.plataforma)
+  // Una pieza que cumple la misma función que otra ya montada no se suma al plan: se
+  // cambia por ella. Entra en la lista si aporta más, y entonces lo que hay que reunir
+  // es la diferencia, porque la que sale devuelve su dinero.
+  const sustituible = (p: Pieza): Pieza | null => {
+    const montada = p.grupoExclusivo ? porGrupo.get(p.grupoExclusivo) : undefined;
+    if (!montada) return null;
+    if (valor(p, objetivos) <= valor(montada, objetivos)) return null;
+    if (dependeDe(p, montada.id, porId)) return null;
+    const categoriaSigueCubierta =
+      p.categoria === montada.categoria ||
+      montadas.some((m) => m.id !== montada.id && m.categoria === montada.categoria);
+    return categoriaSigueCubierta ? montada : null;
+  };
+
+  const candidatas = piezasCompatibles(catalogo, peticion.plataforma, peticion.chasis)
     .filter(
       (p) =>
         !yaElegidas.has(p.id) &&
         peso(p, objetivos) > 0 &&
-        (!p.grupoExclusivo || !gruposOcupados.has(p.grupoExclusivo)),
+        (!p.grupoExclusivo || !porGrupo.has(p.grupoExclusivo) || sustituible(p) !== null),
     )
     .sort(
       (a, b) =>
@@ -638,10 +813,12 @@ function calcularMejoras(
       if (gruposSugeridos.has(pieza.grupoExclusivo)) continue;
       gruposSugeridos.add(pieza.grupoExclusivo);
     }
+    const sustituye = sustituible(pieza);
     mejoras.push({
       pieza,
       precio: pieza.precio.estimado,
-      falta: Math.max(0, pieza.precio.estimado - restante),
+      falta: Math.max(0, pieza.precio.estimado - (sustituye?.precio.estimado ?? 0) - restante),
+      sustituye: sustituye ?? undefined,
     });
   }
   return mejoras;
@@ -717,13 +894,14 @@ export function techoUtil(
   plataforma: Plataforma,
   objetivos: Objetivo[],
   elecciones: string[] = [],
+  chasis?: Chasis,
 ): number {
-  const pool = piezasCompatibles(catalogo, plataforma);
+  const pool = piezasCompatibles(catalogo, plataforma, chasis);
   if (pool.length === 0 || normalizarObjetivos(objetivos).length === 0) return 0;
 
   const sinLimite = pool.reduce((s, p) => s + p.precio.estimado, 0);
   return generarPresupuesto(
-    { plataforma, presupuesto: sinLimite, objetivos, elecciones },
+    { plataforma, chasis, presupuesto: sinLimite, objetivos, elecciones },
     catalogo,
   ).total;
 }
