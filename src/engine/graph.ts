@@ -13,6 +13,11 @@ export function cargarModelos(): CatalogoModelos {
   return cacheModelos;
 }
 
+/** Sustituye los modelos por los que sirve la API. Ver `usarCatalogo`. */
+export function usarModelos(modelos: CatalogoModelos): void {
+  if (modelos.modelos?.length > 0) cacheModelos = modelos;
+}
+
 export function listarModelos(): ModeloVW[] {
   return cargarModelos().modelos;
 }

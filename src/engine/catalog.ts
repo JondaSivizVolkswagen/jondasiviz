@@ -117,6 +117,18 @@ function detectarCiclos(piezas: Pieza[]): string[] {
 
 let cache: Catalogo | null = null;
 
+/**
+ * Sustituye el catálogo por otro, validándolo igual que el de casa. Es lo que usa la
+ * web para trabajar con el que sirve la API desde la base de datos, en vez del JSON
+ * empaquetado. Si el catálogo que llega no es válido, se rechaza y se sigue con el de
+ * casa: mejor datos viejos que un catálogo roto.
+ */
+export function usarCatalogo(catalogo: Catalogo): void {
+  const problemas = validarCatalogo(catalogo);
+  if (problemas.length > 0) throw new CatalogoInvalidoError(problemas);
+  cache = catalogo;
+}
+
 /** Devuelve el catálogo incluido en la app, validado. Lanza si algo no cuadra. */
 export function cargarCatalogo(): Catalogo {
   if (cache) return cache;

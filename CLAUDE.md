@@ -6,6 +6,11 @@ en el dinero, con desglose por categoría, total, sobrante y siguientes mejoras.
 
 Web en `/` (landing) y `/herramienta.html` (el planner). Escritorio con Tauri.
 
+Hay además una capa de servidor: SQLite con el catálogo y una API que lo sirve y recibe
+los webhooks de GitHub. **`ARQUITECTURA.md` explica cómo levantarla y cómo comprobar cada
+pieza.** La web tira de la API si está viva y del JSON empaquetado si no, porque la app
+de escritorio va sin servidor.
+
 **Antes de tocar nada de fondo, lee `PROYECTO.md`.** Es el dossier completo: decisiones
 tomadas y por qué se descartó lo demás, arquitectura, cómo funciona el motor y qué queda
 pendiente. Evita rehacer discusiones ya cerradas.
@@ -88,6 +93,8 @@ clara del sistema entero costaba más de lo que aportaba.
 ```bash
 npm install
 npm run dev              # web en http://localhost:5173
+npm run api              # API + base de datos en http://localhost:3001
+npm run db:sembrar       # JSON -> SQLite   (--ver para mirar sin tocar)
 npm test                 # Vitest
 npm run typecheck        # tsc -b --noEmit
 npm run lint             # oxlint
@@ -125,6 +132,8 @@ etiqueta `v*`. Para compilar en local hace falta Rust y las Build Tools de Micro
 
 ```
 vault/          Fuente de verdad de los datos (notas de Obsidian con frontmatter).
+src/db/         Esquema SQLite, siembra desde los JSON y consultas.
+src/api/        API HTTP y webhook de GitHub. Usa el motor, no lo reimplementa.
 boveda-vw/      Bóveda de consulta de modelos Volkswagen. No es el vault del planner.
 src/engine/     Motor: tipos, catálogo, grafo modelo->motor->piezas, recomendación.
 src/agents/     Clasificador de gama y selector de presupuesto (deterministas).

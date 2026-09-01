@@ -10,6 +10,17 @@ import { defineConfig } from 'vite'
 // carga React, así que quien solo abre la portada no se descarga el bundle de la app.
 export default defineConfig({
   plugins: [react()],
+  server: {
+    // La API corre aparte, en el 3001. Sin este puente el navegador tendría que llamarla
+    // por su puerto y toparse con CORS; así la web pide /api/... a su propio origen y
+    // Vite lo reenvía. En producción de eso se encarga el servidor que tenga delante.
+    proxy: {
+      '/api': {
+        target: process.env.JONDA_API ?? 'http://localhost:3001',
+        changeOrigin: true,
+      },
+    },
+  },
   build: {
     rollupOptions: {
       input: {
