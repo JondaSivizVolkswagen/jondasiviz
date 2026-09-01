@@ -6,8 +6,8 @@
 // A quien lo monta (App.tsx) le toca no renderizarlo mientras no está abierto: así cada
 // apertura arranca de cero, sin un "Borrar la cuenta" a medias de la vez anterior.
 
-import { useMemo, useState } from "react";
-import type { FormEvent } from "react";
+import { useId, useMemo, useRef, useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 import { listarModelos } from "../engine/graph";
 import { useCuenta } from "../cuenta/useCuenta";
 import {
@@ -18,10 +18,15 @@ import {
   RUTA_MIS_DATOS,
 } from "../cuenta/api";
 import { abrirEnNavegador, enEscritorio } from "./entorno";
+import { Avatar } from "./Avatar";
+import { FotoInvalida, prepararFoto } from "./imagen";
+import { Icono } from "./icons";
 import { Modal } from "./Modal";
 import { SelectorCoche } from "./SelectorCoche";
 
 const CONFIRMACION_BORRADO = "BORRAR";
+const LARGO_CIUDAD = 60;
+const LARGO_SOBRE_MI = 280;
 
 function fecha(iso: string | null | undefined): string {
   if (!iso) return "todavía no ha vuelto";
@@ -47,9 +52,20 @@ export function PerfilModal() {
 
   const [nombre, setNombre] = useState(perfil?.nombre ?? "");
   const [coche, setCoche] = useState(perfil?.coche ?? "");
+  const [ciudad, setCiudad] = useState(perfil?.ciudad ?? "");
+  const [sobreMi, setSobreMi] = useState(perfil?.sobreMi ?? "");
   const [guardando, setGuardando] = useState(false);
   const [avisoDatos, setAvisoDatos] = useState<string | null>(null);
   const [errorDatos, setErrorDatos] = useState<string | null>(null);
+
+  // La foto se guarda al momento de elegirla, aparte del resto del formulario: así un
+  // "Guardar cambios" en nombre o ciudad nunca manda de rebote una imagen a medio
+  // preparar, y quitar la foto es un botón, no un campo que vaciar a mano.
+  const idFoto = useId();
+  const inputFotoRef = useRef<HTMLInputElement>(null);
+  const [foto, setFoto] = useState(perfil?.foto ?? "");
+  const [subiendoFoto, setSubiendoFoto] = useState(false);
+  const [errorFoto, setErrorFoto] = useState<string | null>(null);
 
   const [actual, setActual] = useState("");
   const [nueva, setNueva] = useState("");
@@ -75,7 +91,12 @@ export function PerfilModal() {
     setGuardando(true);
     setErrorDatos(null);
     setAvisoDatos(null);
-    const resultado = await actualizarPerfil({ nombre: nombre.trim(), coche });
+    const resultado = await actualizarPerfil({
+      nombre: nombre.trim(),
+      coche,
+      ciudad: ciudad.trim(),
+      sobreMi: sobreMi.trim(),
+    });
     setGuardando(false);
     if (!resultado.ok) {
       setErrorDatos(resultado.error);
@@ -83,6 +104,44 @@ export function PerfilModal() {
     }
     await refrescar();
     setAvisoDatos("Guardado.");
+  };
+
+  const elegirFoto = (e: ChangeEvent<HTMLInputElement>) => {
+    const archivo = e.target.files?.[0];
+    e.target.value = "";
+    if (archivo) void subirFoto(archivo);
+  };
+
+  const subirFoto = async (archivo: File) => {
+    setSubiendoFoto(true);
+    setErrorFoto(null);
+    try {
+      const lista = await prepararFoto(archivo);
+      const resultado = await actualizarPerfil({ foto: lista });
+      if (!resultado.ok) {
+        setErrorFoto(resultado.error);
+        return;
+      }
+      setFoto(lista);
+      await refrescar();
+    } catch (error) {
+      setErrorFoto(error instanceof FotoInvalida ? error.message : "No se pudo preparar la foto.");
+    } finally {
+      setSubiendoFoto(false);
+    }
+  };
+
+  const quitarFoto = async () => {
+    setSubiendoFoto(true);
+    setErrorFoto(null);
+    const resultado = await actualizarPerfil({ foto: "" });
+    setSubiendoFoto(false);
+    if (!resultado.ok) {
+      setErrorFoto(resultado.error);
+      return;
+    }
+    setFoto("");
+    await refrescar();
   };
 
   const enviarContrasena = async (e: FormEvent) => {
@@ -155,6 +214,39 @@ export function PerfilModal() {
         <section className="perfil-seccion">
           <p className="eyebrow">Datos</p>
 
+          <div className="perfil-foto-fila">
+            <Avatar nombre={nombre} foto={foto} className="perfil-avatar" />
+            <div className="perfil-foto-acciones">
+              <input
+                ref={inputFotoRef}
+                id={idFoto}
+                type="file"
+                accept="image/png,image/jpeg,image/webp"
+                hidden
+                onChange={elegirFoto}
+              />
+              <button
+                type="button"
+                className="btn btn-sm"
+                onClick={() => inputFotoRef.current?.click()}
+                disabled={subiendoFoto}
+              >
+                <Icono nombre="camara" />
+                <span>{subiendoFoto ? "Un momento…" : foto ? "Cambiar foto" : "Subir foto"}</span>
+              </button>
+              {foto && (
+                <button type="button" className="enlace" onClick={() => void quitarFoto()} disabled={subiendoFoto}>
+                  Quitar foto
+                </button>
+              )}
+              {errorFoto && (
+                <p className="campo-error" role="alert">
+                  {errorFoto}
+                </p>
+              )}
+            </div>
+          </div>
+
           <form className="form-acceso" onSubmit={(e) => void guardarDatos(e)} noValidate>
             <div className="campo-acceso">
               <span>Correo</span>
@@ -178,6 +270,35 @@ export function PerfilModal() {
             <label className="campo-acceso" htmlFor="perfil-coche">
               <span>Tu coche</span>
               <SelectorCoche id="perfil-coche" modelos={modelos} valor={coche} onValor={setCoche} />
+            </label>
+
+            <label className="campo-acceso" htmlFor="perfil-ciudad">
+              <span>Ciudad</span>
+              <input
+                id="perfil-ciudad"
+                className="entrada"
+                type="text"
+                autoComplete="address-level2"
+                maxLength={LARGO_CIUDAD}
+                value={ciudad}
+                onChange={(e) => setCiudad(e.target.value)}
+                placeholder="Desde dónde te preparas el coche"
+              />
+            </label>
+
+            <label className="campo-acceso" htmlFor="perfil-sobre-mi">
+              <span>Sobre mí</span>
+              <textarea
+                id="perfil-sobre-mi"
+                className="entrada"
+                maxLength={LARGO_SOBRE_MI}
+                value={sobreMi}
+                onChange={(e) => setSobreMi(e.target.value)}
+                placeholder="Lo que quieras contar del coche o del proyecto"
+              />
+              <span className="campo-contador">
+                {sobreMi.length}/{LARGO_SOBRE_MI}
+              </span>
             </label>
 
             <p className="campo-ayuda">

@@ -39,6 +39,18 @@ const TRAZOS = {
       <path d="M8 11V7a4 4 0 0 1 8 0v4" />
     </>
   ),
+  persona: (
+    <>
+      <circle cx="12" cy="8" r="3.4" />
+      <path d="M5 20c1.4-4.2 4-6 7-6s5.6 1.8 7 6" />
+    </>
+  ),
+  camara: (
+    <>
+      <path d="M4 8h2.5l1.3-2h8.4l1.3 2H20a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" />
+      <circle cx="12" cy="13.5" r="3.2" />
+    </>
+  ),
 } satisfies Record<string, ReactNode>;
 
 export type NombreIcono = keyof typeof TRAZOS;

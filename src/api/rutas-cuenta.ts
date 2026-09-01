@@ -180,9 +180,15 @@ export async function manejarCuenta(
     const datos = await cuerpoJson(peticion, respuesta, ctx);
     if (!datos) return true;
 
+    // Solo se toca lo que venga en la petición: mandar el nombre no puede borrarle la
+    // foto sin querer.
+    const texto = (v: unknown) => (v === undefined ? undefined : String(v));
     const guardado = await guardarPerfil(base, usuario.id, {
-      nombre: datos.nombre === undefined ? undefined : String(datos.nombre),
-      coche: datos.coche === undefined ? undefined : String(datos.coche),
+      nombre: texto(datos.nombre),
+      coche: texto(datos.coche),
+      ciudad: texto(datos.ciudad),
+      sobreMi: texto(datos.sobreMi),
+      foto: texto(datos.foto),
     });
     if (!guardado.ok) {
       responder(respuesta, 400, { error: guardado.motivo });
@@ -388,8 +394,28 @@ export async function manejarCuenta(
       return true;
     }
 
+    // Aquí no se cobra nada, así que sin una comprobación esto sería un botón que
+    // regala la suscripción a cualquiera que abra la web. Se exige el código de acceso,
+    // que es la única forma de entrar sin pagar y vive fuera del repositorio.
+    if (!hayCodigo()) {
+      responder(respuesta, 404, {
+        error: "No disponible: este servidor no tiene código de acceso configurado.",
+      });
+      return true;
+    }
+
+    const datos = await cuerpoJson(peticion, respuesta, ctx);
+    if (!datos) return true;
+
+    if (!codigoCorrecto(String(datos.codigo ?? ""))) {
+      console.warn(`Código de acceso incorrecto para ${usuario.correo}.`);
+      responder(respuesta, 401, { error: "Ese código no es correcto." });
+      return true;
+    }
+
     const renueva = new Date(Date.now() + 30 * 86400_000).toISOString();
-    await anotarSuscripcion(base, usuario.id, "activa", "simulada", `simulada_${usuario.id}`, renueva);
+    await anotarSuscripcion(base, usuario.id, "activa", "codigo", `codigo_${usuario.id}`, renueva);
+    console.log(`Suscripción abierta con código de acceso para ${usuario.correo}.`);
     responder(respuesta, 200, { ...(await accesoResumido(base, usuario.id)), simulado: true });
     return true;
   }

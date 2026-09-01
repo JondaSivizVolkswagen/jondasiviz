@@ -14,11 +14,27 @@
   gap: 10px;
 }
 
-.cuenta-correo {
-  border: none;
-  background: none;
-  padding: 0;
+/* El botón entero de la cuenta: avatar más correo. Antes solo el correo era pulsable y
+   no se leía como un botón; ahora el marco y el fondo al pasar el ratón lo dejan claro
+   sin que haga falta buscarlo. */
+.cuenta-btn {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 4px 12px 4px 4px;
+  border: 1px solid var(--linea);
+  border-radius: var(--r);
+  background: transparent;
   cursor: pointer;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.cuenta-btn:hover {
+  border-color: var(--linea-fuerte);
+  background: var(--panel-2);
+}
+
+.cuenta-correo {
   font-family: var(--mono);
   font-size: 10.5px;
   letter-spacing: 0.05em;
@@ -27,11 +43,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  transition: color 0.25s;
-}
-
-.cuenta-correo:hover {
-  color: var(--rojo-vivo);
 }
 
 .plan-pill {
@@ -44,6 +55,52 @@
   .cuenta-correo {
     display: none;
   }
+}
+
+/* ================================ avatar ================================= */
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  flex: none;
+  border-radius: var(--r);
+  border: 1px solid var(--linea);
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-iniciales {
+  background: var(--panel-2);
+  color: var(--texto);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+
+.avatar-icono {
+  background: var(--panel-2);
+  color: var(--tenue);
+}
+
+.avatar-icono svg {
+  width: 15px;
+  height: 15px;
+}
+
+.perfil-avatar {
+  width: 56px;
+  height: 56px;
+}
+
+.perfil-avatar.avatar-iniciales {
+  font-size: 20px;
+}
+
+.perfil-avatar.avatar-icono svg {
+  width: 24px;
+  height: 24px;
 }
 
 /* ================================= modal ================================= */
@@ -240,6 +297,39 @@
   color: var(--texto-2);
 }
 
+.perfil-foto-fila {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.perfil-foto-acciones {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.perfil-foto-acciones .campo-error {
+  flex-basis: 100%;
+}
+
+textarea.entrada {
+  min-height: 90px;
+  line-height: 1.55;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.campo-contador {
+  align-self: flex-end;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--apagado);
+  font-variant-numeric: tabular-nums;
+}
+
 .perfil-ok {
   font-size: 12.5px;
   color: var(--verde);
@@ -373,13 +463,15 @@
   flex: none;
 }
 
-.suscripcion-gratis {
+.suscripcion-gratis,
+.suscripcion-codigo {
   margin-bottom: 22px;
   border-top: 1px solid var(--linea);
   padding-top: 14px;
 }
 
-.suscripcion-gratis summary {
+.suscripcion-gratis summary,
+.suscripcion-codigo summary {
   list-style: none;
   cursor: pointer;
   font-family: var(--mono);
@@ -390,11 +482,13 @@
   transition: color 0.25s;
 }
 
-.suscripcion-gratis summary:hover {
+.suscripcion-gratis summary:hover,
+.suscripcion-codigo summary:hover {
   color: var(--texto);
 }
 
-.suscripcion-gratis summary::-webkit-details-marker {
+.suscripcion-gratis summary::-webkit-details-marker,
+.suscripcion-codigo summary::-webkit-details-marker {
   display: none;
 }
 
@@ -421,6 +515,25 @@
   width: 5px;
   height: 1px;
   background: var(--apagado);
+}
+
+.suscripcion-codigo-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.suscripcion-codigo-form .entrada {
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+}
+
+.suscripcion-codigo-form .btn {
+  flex: none;
+}
+
+.suscripcion-codigo .campo-error {
+  margin-top: 10px;
 }
 
 .suscripcion-activa {
@@ -619,6 +732,10 @@
   margin-bottom: 24px;
 }
 
+.pago-tarjeta .campo-acceso {
+  margin-bottom: 22px;
+}
+
 .pago-acciones {
   display: flex;
   flex-direction: column;
@@ -641,4 +758,12 @@
 
 .pago-estado.ok {
   color: var(--verde);
+}
+
+/* ============================ cuenta en la portada ========================= */
+
+/* El hueco donde se monta el avatar dentro de .nav-links (portada, HTML plano). Sin
+   caja propia: se comporta como si el botón estuviera directamente en la barra. */
+#cuenta-nav {
+  display: contents;
 }

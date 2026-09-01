@@ -28,6 +28,10 @@ export interface Perfil {
   correo: string;
   nombre: string;
   coche: string;
+  ciudad: string;
+  sobreMi: string;
+  /** Data URI de la foto (webp o jpeg, recortada y reducida en el navegador), o "". */
+  foto: string;
   alta: string;
   visto: string | null;
 }
@@ -88,6 +92,16 @@ export interface CancelacionSuscripcion {
 
 export interface CuentaBorrada {
   borrada: true;
+}
+
+/** Lo que devuelve el código de acceso al abrir el plan completo sin pasar por el pago. */
+export interface CodigoActivado {
+  abierta: true;
+  plan: Plan;
+  limites: Limites;
+  suscripcion: Suscripcion;
+  planesHoy: number;
+  precio: Precio;
 }
 
 /** Ruta de descarga de los datos personales. La respuesta ya trae la cabecera para que
@@ -218,18 +232,47 @@ export async function abrirCheckout(): Promise<Resultado<{ url: string; simulado
 }
 
 /** Confirma la suscripción por la pasarela simulada. Solo existe cuando no hay Stripe. */
-export async function confirmarSimulada(): Promise<Resultado<Acceso>> {
-  const resultado = await peticion<Parameters<typeof normalizar>[0]>(
-    "/api/suscripcion/simulada/confirmar",
-    { metodo: "POST", espera: ESPERA_ENVIO },
-  );
-  if (!resultado.ok) return resultado;
-  return { ok: true, datos: normalizar(resultado.datos) };
+export interface ConfirmacionSimulada {
+  plan: Plan;
+  limites: Limites;
+  suscripcion: Suscripcion;
+  planesHoy: number;
+  precio: Precio;
+  simulado: true;
 }
 
-/** Cambia nombre y coche. Lo que no se manda no se toca. */
+/**
+ * Confirma la suscripción por la pasarela simulada. Exige el código de acceso: sin
+ * cobro de por medio, sin él cualquiera que llegara a esta pantalla se llevaría la
+ * herramienta completa gratis.
+ */
+export async function confirmarSimulada(codigo: string): Promise<Resultado<ConfirmacionSimulada>> {
+  return peticion<ConfirmacionSimulada>("/api/suscripcion/simulada/confirmar", {
+    metodo: "POST",
+    cuerpo: { codigo },
+    espera: ESPERA_ENVIO,
+  });
+}
+
+/**
+ * El código de acceso: abre el plan completo al instante, sin pasar por ningún pago.
+ * Pensado para pruebas y demostraciones, no para saltarse el cobro a escondidas: queda
+ * anotado en la suscripción con proveedor "codigo".
+ *
+ * 404 cuando este servidor no tiene ningún código configurado: en ese caso la opción ni
+ * se enseña, ver `SuscripcionModal`.
+ */
+export async function activarConCodigo(codigo: string): Promise<Resultado<CodigoActivado>> {
+  return peticion<CodigoActivado>("/api/suscripcion/codigo", {
+    metodo: "POST",
+    cuerpo: { codigo },
+    espera: ESPERA_ENVIO,
+  });
+}
+
+/** Cambia los datos del perfil. Lo que no se manda no se toca: PATCH parcial de verdad. */
 export async function actualizarPerfil(
-  cambios: { nombre?: string; coche?: string },
+  cambios: { nombre?: string; coche?: string; ciudad?: string; sobreMi?: string; foto?: string },
 ): Promise<Resultado<RespuestaPerfil>> {
   return peticion<RespuestaPerfil>("/api/auth/perfil", {
     metodo: "PATCH",

@@ -14,6 +14,7 @@ import { motivoObjetivos } from "./cuenta/gating";
 import { AccesoModal } from "./ui/AccesoModal";
 import { SuscripcionModal } from "./ui/SuscripcionModal";
 import { PerfilModal } from "./ui/PerfilModal";
+import { CuentaBarra } from "./ui/CuentaBarra";
 import "./App.css";
 import "./ui/cuenta.css";
 
@@ -31,9 +32,7 @@ function App() {
     plan: planCuenta,
     limites,
     cargando: cargandoCuenta,
-    abrirAcceso,
     abrirSuscripcion,
-    abrirPerfil,
     salir,
   } = cuenta;
 
@@ -152,38 +151,23 @@ function App() {
         </a>
 
         <div className="barra-acciones">
-          {/* Mientras no se sabe si hay sesión no se enseña nada de cuenta: mejor un hueco
-              en blanco medio segundo que un "Entrar" que luego se convierte en el correo. */}
-          {!cargandoCuenta && (
-            <div className="cuenta-barra">
-              {usuario ? (
-                <>
-                  <button
-                    type="button"
-                    className="cuenta-correo"
-                    title="Ver tu perfil"
-                    onClick={() => abrirPerfil()}
-                  >
-                    {usuario.correo}
-                  </button>
-                  <button
-                    type="button"
-                    className={"chip plan-pill" + (planCuenta === "taller" ? " chip-gama" : "")}
-                    onClick={() => planCuenta === "gratis" && abrirSuscripcion(null)}
-                  >
-                    {planCuenta === "taller" ? "Taller" : "Gratis"}
-                  </button>
-                  <button type="button" className="btn btn-sm" onClick={() => void salir()}>
-                    <span>Cerrar sesión</span>
-                  </button>
-                </>
-              ) : (
-                <button type="button" className="btn btn-sm" onClick={() => abrirAcceso("entrar")}>
-                  <span>Entrar</span>
+          <div className="cuenta-barra">
+            <CuentaBarra />
+            {usuario && (
+              <>
+                <button
+                  type="button"
+                  className={"chip plan-pill" + (planCuenta === "taller" ? " chip-gama" : "")}
+                  onClick={() => planCuenta === "gratis" && abrirSuscripcion(null)}
+                >
+                  {planCuenta === "taller" ? "Taller" : "Gratis"}
                 </button>
-              )}
-            </div>
-          )}
+                <button type="button" className="btn btn-sm" onClick={() => void salir()}>
+                  <span>Cerrar sesión</span>
+                </button>
+              </>
+            )}
+          </div>
 
           {/* La portada es la misma en la web y en la app, asi que el destino tambien.
               Lo unico que cambia es que en el programa se puede salir, y en una web no. */}

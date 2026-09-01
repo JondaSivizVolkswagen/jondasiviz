@@ -140,7 +140,15 @@ CREATE TABLE IF NOT EXISTS usuario (
   -- coincidir y el planner tira del que venga por defecto.
   coche    TEXT NOT NULL DEFAULT '',
   -- Cuándo entró por última vez, para poder enseñárselo en su perfil.
-  visto    TEXT
+  visto    TEXT,
+  -- Su foto, como data URI ya reducida por el navegador antes de mandarla. Va en la
+  -- base y no en disco a propósito: son unas decenas de kilobytes, y así una foto no
+  -- se queda huérfana cuando se borra la cuenta ni hay que montar almacenamiento
+  -- aparte para el día que la API viva en un servidor.
+  foto     TEXT NOT NULL DEFAULT '',
+  ciudad   TEXT NOT NULL DEFAULT '',
+  -- Dos líneas suyas: en qué anda, qué se está montando.
+  sobre_mi TEXT NOT NULL DEFAULT ''
 );
 
 -- El correo se busca siempre en minúsculas, para que Ana@x.com y ana@x.com sean la

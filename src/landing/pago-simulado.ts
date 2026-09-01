@@ -15,7 +15,8 @@ function arrancar() {
   const boton = document.querySelector<HTMLButtonElement>("[data-confirmar]");
   const estado = document.querySelector<HTMLElement>("[data-estado]");
   const acciones = document.querySelector<HTMLElement>("[data-acciones]");
-  if (!boton || !estado || !acciones) return;
+  const codigo = document.querySelector<HTMLInputElement>("[data-codigo]");
+  if (!boton || !estado || !acciones || !codigo) return;
 
   const ponEstado = (texto: string, clase: "" | "ok" | "error") => {
     estado.textContent = texto;
@@ -27,14 +28,14 @@ function arrancar() {
   });
 
   async function confirmar() {
-    if (!boton || !estado || !acciones) return;
+    if (!boton || !estado || !acciones || !codigo) return;
     boton.disabled = true;
     const texto = boton.querySelector("span");
     const original = texto?.textContent ?? "";
     if (texto) texto.textContent = "Confirmando…";
     ponEstado("", "");
 
-    const resultado = await confirmarSimulada();
+    const resultado = await confirmarSimulada(codigo.value.trim());
 
     if (resultado.ok) {
       ponEstado("Listo. Ya eres del taller.", "ok");
@@ -52,11 +53,14 @@ function arrancar() {
       return;
     }
 
-    if (resultado.codigo === 401) {
-      ponEstado("No hay sesión abierta en este navegador. Entra en la herramienta y repite el pago.", "error");
-    } else {
-      ponEstado(resultado.error, "error");
-    }
+    // Sin sesión abierta en este navegador, el 401 aquí no distingue de un código malo:
+    // se manda el mensaje de la API tal cual, ya dice cuál es el problema.
+    ponEstado(
+      resultado.codigo === 401 && !codigo.value.trim()
+        ? "Hace falta el código de acceso, o entra en la herramienta y repite el pago si ya tenías sesión."
+        : resultado.error,
+      "error",
+    );
 
     if (texto) texto.textContent = original;
     boton.disabled = false;

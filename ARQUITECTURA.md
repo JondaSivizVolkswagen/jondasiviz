@@ -66,6 +66,13 @@ JONDA_DB_TOKEN=el-token \
 npm run api
 ```
 
+**Las columnas que se añaden después van en `src/db/migraciones.ts`.** `CREATE TABLE IF
+NOT EXISTS` crea la tabla que falta, pero no toca la que ya está: una base que se creó con
+un esquema anterior se quedaría sin la columna nueva. En local eso no se nota, porque se
+borra el fichero y a correr; en Turso hay cuentas de gente dentro. Las migraciones se
+aplican solas al abrir la base y volver a lanzarlas no rompe nada, porque antes se mira
+qué columnas hay.
+
 El esquema, las consultas y los tests son exactamente los mismos en los dos casos, así que
 no hay una versión "de verdad" y otra de mentira que puedan separarse. Toda la capa es
 asíncrona aunque en local no haga falta, porque contra Turso cada consulta es una petición
@@ -265,13 +272,23 @@ mandar al usuario. Hay dos pasarelas y la que se usa depende de si hay claves:
   poder probar el flujo en cualquier ordenador. Con Stripe configurado, esa puerta
   devuelve 404: si no, sería la forma de suscribirse gratis.
 
+**El código maestro.** `POST /api/suscripcion/codigo` abre el plan completo al instante,
+sin pasar por ninguna pasarela. Sirve para enseñar la aplicación sin montar una tarjeta de
+prueba. El código vive en `JONDA_CODIGO_MAESTRO`, nunca escrito en el fuente: este
+repositorio es público. Si la variable está vacía la puerta no existe y la ruta devuelve
+404, y entonces la interfaz ni enseña el campo. Quien entra así queda anotado con proveedor
+`codigo`, así que en la base se distingue de quien pagó. La pasarela simulada exige el
+mismo código, porque sin cobro de por medio sería un botón que regala la herramienta a
+cualquiera que llegue a esa pantalla.
+
 ```bash
 # el ciclo entero con la pasarela simulada
 curl -X POST http://localhost:3001/api/auth/registro -H "Content-Type: application/json" \
   -d '{"correo":"prueba@jondasiviz.es","contrasena":"contrasena-larga"}'
 
 curl -X POST http://localhost:3001/api/suscripcion/checkout -H "Authorization: Bearer $TOKEN"
-curl -X POST http://localhost:3001/api/suscripcion/simulada/confirmar -H "Authorization: Bearer $TOKEN"
+# la pasarela simulada pide el código maestro, igual que /api/suscripcion/codigo
+curl -X POST http://localhost:3001/api/suscripcion/simulada/confirmar   -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json"   -d '{"codigo":"'"$JONDA_CODIGO_MAESTRO"'"}'
 ```
 
 **Para cobrar de verdad** hacen falta tres variables de entorno y nada de código:

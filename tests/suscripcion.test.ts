@@ -8,7 +8,7 @@ import { createHmac } from "node:crypto";
 import type { Server } from "node:http";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { crearServidor } from "../src/api/servidor.ts";
-import { registrar } from "../src/auth/cuentas.ts";
+import { abrirSesion, registrar } from "../src/auth/cuentas.ts";
 import { cargarCatalogo } from "../src/engine/catalog.ts";
 import { cargarModelos } from "../src/engine/graph.ts";
 import { sembrar } from "../src/db/sembrar.ts";
@@ -179,6 +179,37 @@ describe("la API cobra de verdad", () => {
     await apuntarPlan(base, otra.usuario.id);
     await apuntarPlan(base, otra.usuario.id);
     expect((await accesoDe(base, otra.usuario.id)).planesHoy).toBe(2);
+  });
+
+  it("la pasarela simulada no regala la suscripción sin el código", async () => {
+    // Sin esto sería un botón que abre la herramienta entera a cualquiera que pase por
+    // la web. Es el agujero más caro que puede tener esto.
+    const otra = await registrar(base, "gorron@jondasiviz.es", "contrasena-larga");
+    if (!otra.ok) throw new Error("no se registró");
+    const sesion = await abrirSesion(base, otra.usuario.id);
+
+    const sinCodigo = await fetch(`${raiz}/api/suscripcion/simulada/confirmar`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${sesion.token}`,
+      },
+      body: JSON.stringify({}),
+    });
+    // 401 si hay código configurado, 404 si no lo hay. Lo que nunca puede es dar 200.
+    expect(sinCodigo.status).not.toBe(200);
+    expect((await accesoDe(base, otra.usuario.id)).plan).toBe("gratis");
+
+    const inventado = await fetch(`${raiz}/api/suscripcion/codigo`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${sesion.token}`,
+      },
+      body: JSON.stringify({ codigo: "me-lo-invento" }),
+    });
+    expect(inventado.status).not.toBe(200);
+    expect((await accesoDe(base, otra.usuario.id)).plan).toBe("gratis");
   });
 
   it("el webhook de pago rechaza una firma que no cuadra", async () => {

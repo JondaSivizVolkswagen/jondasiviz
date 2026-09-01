@@ -3,8 +3,9 @@
 // por qué ha llegado, no como un anuncio suelto.
 
 import { useEffect, useState } from "react";
+import type { FormEvent } from "react";
 import { useCuenta } from "../cuenta/useCuenta";
-import { abrirCheckout } from "../cuenta/api";
+import { abrirCheckout, activarConCodigo } from "../cuenta/api";
 import { abrirEnNavegador, enEscritorio } from "./entorno";
 import { Icono } from "./icons";
 import { Modal } from "./Modal";
@@ -39,6 +40,14 @@ export function SuscripcionModal() {
   const [procesando, setProcesando] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [esperandoPago, setEsperandoPago] = useState(false);
+
+  // El código de acceso es para pruebas y demostraciones, una segunda vía junto al
+  // botón de pagar. Si el servidor no tiene ninguno configurado, un intento devuelve
+  // 404 y el bloque desaparece: no tiene sentido anunciar una puerta que no existe.
+  const [codigo, setCodigo] = useState("");
+  const [activando, setActivando] = useState(false);
+  const [errorCodigo, setErrorCodigo] = useState<string | null>(null);
+  const [codigoOculto, setCodigoOculto] = useState(false);
 
   // Al volver del navegador a la app de escritorio se comprueba sola, sin que haya que
   // pulsar nada: basta con devolverle el foco a la ventana.
@@ -78,6 +87,26 @@ export function SuscripcionModal() {
     setProcesando(true);
     await refrescar();
     setProcesando(false);
+  };
+
+  const activarCodigo = async (e: FormEvent) => {
+    e.preventDefault();
+    setActivando(true);
+    setErrorCodigo(null);
+    const resultado = await activarConCodigo(codigo.trim());
+    setActivando(false);
+
+    if (!resultado.ok) {
+      if (resultado.codigo === 404) {
+        setCodigoOculto(true);
+        return;
+      }
+      setErrorCodigo(resultado.error);
+      return;
+    }
+
+    await refrescar();
+    cerrarModal();
   };
 
   return (
@@ -129,6 +158,30 @@ export function SuscripcionModal() {
         <p className="campo-error campo-error-general" role="alert">
           {error}
         </p>
+      )}
+
+      {!yaSuscrito && !esperandoPago && !codigoOculto && (
+        <details className="suscripcion-codigo">
+          <summary>¿Tienes un código de acceso?</summary>
+          <form className="suscripcion-codigo-form" onSubmit={(e) => void activarCodigo(e)} noValidate>
+            <input
+              className="entrada"
+              type="text"
+              autoComplete="off"
+              placeholder="Código de acceso"
+              value={codigo}
+              onChange={(e) => setCodigo(e.target.value)}
+            />
+            <button type="submit" className="btn btn-sm" disabled={activando || !codigo.trim()}>
+              <span>{activando ? "Comprobando…" : "Activar"}</span>
+            </button>
+          </form>
+          {errorCodigo && (
+            <p className="campo-error" role="alert">
+              {errorCodigo}
+            </p>
+          )}
+        </details>
       )}
     </Modal>
   );

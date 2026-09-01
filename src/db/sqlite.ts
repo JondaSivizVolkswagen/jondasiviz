@@ -21,6 +21,7 @@ import { createClient, type Client, type InArgs } from "@libsql/client";
 import { mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { ESQUEMA } from "./esquema.ts";
+import { aplicarMigraciones } from "./migraciones.ts";
 
 /** Dónde vive la base por defecto, cuando no se dice otra cosa. */
 export const RUTA_BD = process.env.JONDA_DB ?? resolve(process.cwd(), "datos/jondasiviz.db");
@@ -69,6 +70,13 @@ export async function abrirBase(url?: string): Promise<BaseDatos> {
   for (const sentencia of ESQUEMA.split(";")) {
     const limpia = sentencia.trim();
     if (limpia) await base.ejecutar(limpia);
+  }
+
+  // Lo de arriba crea lo que falta, pero no toca una tabla que ya existía. Las columnas
+  // añadidas después se ponen al día aquí, o una base vieja se queda sin ellas.
+  const migradas = await aplicarMigraciones(base);
+  if (migradas.length > 0) {
+    console.log(`Base al día: añadidas ${migradas.join(", ")}.`);
   }
 
   return base;

@@ -12,6 +12,10 @@ import { cifrar, comprobar, problemaCon } from "./contrasenas.ts";
 export interface CamposEditables {
   nombre?: string;
   coche?: string;
+  ciudad?: string;
+  sobreMi?: string;
+  /** Data URI de la foto, o cadena vacía para quitarla. */
+  foto?: string;
 }
 
 export interface Perfil {
@@ -19,15 +23,43 @@ export interface Perfil {
   correo: string;
   nombre: string;
   coche: string;
+  ciudad: string;
+  sobreMi: string;
+  foto: string;
   alta: string;
   visto: string | null;
 }
 
 const LARGO_NOMBRE = 60;
+const LARGO_CIUDAD = 60;
+const LARGO_SOBRE_MI = 280;
+
+/**
+ * Tope de la foto. La reduce el navegador antes de mandarla, así que con esto sobra de
+ * largo para un cuadrado de 256 píxeles. El límite está aquí igualmente porque nunca se
+ * confía en lo que manda el cliente: sin él, cualquiera podría llenar la base subiendo
+ * imágenes enormes.
+ */
+const MAXIMO_FOTO = 256 * 1024;
+
+const FORMATOS_FOTO = /^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/;
+
+/** Motivo por el que una foto no vale, o null si vale. */
+function problemaConFoto(foto: string): string | null {
+  if (foto === "") return null; // quitarla siempre vale
+  if (!FORMATOS_FOTO.test(foto)) {
+    return "La foto tiene que ser PNG, JPEG o WEBP.";
+  }
+  if (foto.length > MAXIMO_FOTO) {
+    return "La foto pesa demasiado. Prueba con una más pequeña.";
+  }
+  return null;
+}
 
 export async function leerPerfil(base: BaseDatos, usuarioId: string): Promise<Perfil | null> {
   return base.uno<Perfil>(
-    "SELECT id, correo, nombre, coche, alta, visto FROM usuario WHERE id = ?",
+    `SELECT id, correo, nombre, coche, ciudad, sobre_mi AS sobreMi, foto, alta, visto
+       FROM usuario WHERE id = ?`,
     [usuarioId],
   );
 }
@@ -44,17 +76,27 @@ export async function guardarPerfil(
 
   const nombre = (cambios.nombre ?? perfil.nombre).trim();
   const coche = (cambios.coche ?? perfil.coche).trim();
+  const ciudad = (cambios.ciudad ?? perfil.ciudad).trim();
+  const sobreMi = (cambios.sobreMi ?? perfil.sobreMi).trim();
+  const foto = cambios.foto ?? perfil.foto;
 
   if (nombre.length > LARGO_NOMBRE) {
     return { ok: false, motivo: `El nombre no puede pasar de ${LARGO_NOMBRE} caracteres.` };
   }
+  if (ciudad.length > LARGO_CIUDAD) {
+    return { ok: false, motivo: `La ciudad no puede pasar de ${LARGO_CIUDAD} caracteres.` };
+  }
+  if (sobreMi.length > LARGO_SOBRE_MI) {
+    return { ok: false, motivo: `El texto no puede pasar de ${LARGO_SOBRE_MI} caracteres.` };
+  }
+  const problemaFoto = problemaConFoto(foto);
+  if (problemaFoto) return { ok: false, motivo: problemaFoto };
 
-  await base.ejecutar("UPDATE usuario SET nombre = ?, coche = ? WHERE id = ?", [
-    nombre,
-    coche,
-    usuarioId,
-  ]);
-  return { ok: true, perfil: { ...perfil, nombre, coche } };
+  await base.ejecutar(
+    "UPDATE usuario SET nombre = ?, coche = ?, ciudad = ?, sobre_mi = ?, foto = ? WHERE id = ?",
+    [nombre, coche, ciudad, sobreMi, foto, usuarioId],
+  );
+  return { ok: true, perfil: { ...perfil, nombre, coche, ciudad, sobreMi, foto } };
 }
 
 /** Deja constancia de la última vez que entró. */
