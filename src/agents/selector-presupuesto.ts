@@ -141,7 +141,7 @@ export function crearSelector(
     const catalogoModelo: Catalogo = { ...catalogo, piezas: compatibles };
 
     const presupuestoRes = generarPresupuesto(
-      { plataforma: modelo.motor, presupuesto, objetivos, modelo: modelo.nombre },
+      { plataforma: modelo.motor, chasis: modelo.chasis, presupuesto, objetivos, modelo: modelo.nombre },
       catalogoModelo,
     );
 

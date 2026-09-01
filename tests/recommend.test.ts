@@ -4,8 +4,11 @@ import { dependenciaCubierta, generarPresupuesto } from "../src/engine/recommend
 import type { PeticionPresupuesto, Presupuesto } from "../src/engine/types";
 import { catalogo, pieza } from "./helpers";
 
+// El Mk5: motor EA113 sobre chasis PQ35. Los dos hacen falta, porque las piezas de
+// suspensión, frenos y dirección se resuelven por chasis y no por motor.
 const base: PeticionPresupuesto = {
   plataforma: "EA113",
+  chasis: "PQ35",
   presupuesto: 4000,
   objetivos: ["drag"],
 };
@@ -45,9 +48,31 @@ describe("generarPresupuesto con el catálogo real", () => {
     expect(categorias.has("estetica")).toBe(true); // esencial de estética
   });
 
-  it("solo incluye piezas compatibles con la plataforma", () => {
+  it("solo incluye piezas que le encajan, por motor o por chasis", () => {
     const res = generarPresupuesto({ ...base, presupuesto: 15000 });
-    for (const linea of res.lineas) expect(linea.pieza.plataformas).toContain("EA113");
+    for (const linea of res.lineas) {
+      const porMotor = linea.pieza.plataformas.includes("EA113");
+      const porChasis = linea.pieza.chasis.includes("PQ35");
+      expect(porMotor || porChasis).toBe(true);
+    }
+  });
+
+  it("sin chasis en la petición se pierden las piezas que van por chasis", () => {
+    // Un Golf 8: casi toda su suspensión y dirección se declaran por MQB Evo, así que
+    // sin el chasis el plan sale cojo. Es el fallo que dejaba a un Golf 8 sin dirección.
+    const conChasis = generarPresupuesto({
+      plataforma: "EA888-evo4", chasis: "MQB Evo", presupuesto: 12000, objetivos: ["drift"],
+    });
+    const sinChasis = generarPresupuesto({
+      plataforma: "EA888-evo4", presupuesto: 12000, objetivos: ["drift"],
+    });
+    const categorias = (p: Presupuesto) => new Set(p.porCategoria.map((g) => g.categoria));
+    expect(categorias(conChasis).has("direccion")).toBe(true);
+    expect(categorias(sinChasis).has("direccion")).toBe(false);
+    const soloChasis = (p: Presupuesto) =>
+      p.lineas.filter((l) => l.pieza.chasis.length > 0 && l.pieza.plataformas.length === 0);
+    expect(soloChasis(conChasis).length).toBeGreaterThan(0);
+    expect(soloChasis(sinChasis)).toHaveLength(0);
   });
 
   it("sin filtro de gama, un presupuesto amplio mezcla gamas y el build sale alta", () => {

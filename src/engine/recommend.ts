@@ -9,6 +9,7 @@ import { euros } from "./format";
 import type {
   Catalogo,
   Categoria,
+  Chasis,
   Gama,
   LineaPresupuesto,
   MejoraSugerida,
@@ -107,8 +108,23 @@ function categoriasEsenciales(objetivos: Objetivo[]): Categoria[] {
   return salida;
 }
 
-export function piezasCompatibles(catalogo: Catalogo, plataforma: Plataforma): Pieza[] {
-  return catalogo.piezas.filter((p) => p.plataformas.includes(plataforma));
+/**
+ * Piezas que puede montar un coche. Las de motor se resuelven por plataforma y las de
+ * chasis por chasis, la misma regla que usa `encaja` en `compat.ts`.
+ *
+ * El chasis es opcional porque la petición puede venir sin modelo resuelto, pero
+ * cuando falta se pierden todas las piezas que solo declaran chasis: suspensión,
+ * frenos, dirección, ruedas, seguridad y estética de las plataformas modernas.
+ */
+export function piezasCompatibles(
+  catalogo: Catalogo,
+  plataforma: Plataforma,
+  chasis?: Chasis,
+): Pieza[] {
+  return catalogo.piezas.filter((p) => {
+    if (p.chasis.length > 0) return chasis !== undefined && p.chasis.includes(chasis);
+    return p.plataformas.includes(plataforma);
+  });
 }
 
 /** Si la pieza depende, directa o en cadena, de la otra. */
@@ -313,7 +329,7 @@ export function generarPresupuesto(
     return armarResultado(peticion, [], catalogo, presupuesto, avisos);
   }
 
-  const pool = piezasCompatibles(catalogo, peticion.plataforma);
+  const pool = piezasCompatibles(catalogo, peticion.plataforma, peticion.chasis);
   if (pool.length === 0) {
     avisos.push(`Todavía no hay piezas en el catálogo para ${peticion.plataforma}.`);
     return armarResultado(peticion, [], catalogo, presupuesto, avisos);
@@ -478,7 +494,7 @@ function armarResultado(
   const objetivos = normalizarObjetivos(peticion.objetivos);
   const porId = new Map(catalogo.piezas.map((p) => [p.id, p] as const));
   const minimos = minimosEsenciales(
-    piezasCompatibles(catalogo, peticion.plataforma),
+    piezasCompatibles(catalogo, peticion.plataforma, peticion.chasis),
     porId,
     objetivos,
   );
@@ -533,7 +549,7 @@ function calcularMejoras(
     return categoriaSigueCubierta ? montada : null;
   };
 
-  const candidatas = piezasCompatibles(catalogo, peticion.plataforma)
+  const candidatas = piezasCompatibles(catalogo, peticion.plataforma, peticion.chasis)
     .filter(
       (p) =>
         !yaElegidas.has(p.id) &&

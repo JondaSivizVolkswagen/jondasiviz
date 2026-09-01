@@ -201,6 +201,11 @@ export interface GruposPorGama {
 
 export interface PeticionPresupuesto {
   plataforma: Plataforma;
+  /**
+   * Chasis del coche. Sin él, el presupuesto pierde todas las piezas que solo declaran
+   * chasis, que son casi toda la suspensión, los frenos y la dirección modernos.
+   */
+  chasis?: Chasis;
   presupuesto: number;
   /** Uno o más objetivos del proyecto. Sus pesos se suman al puntuar las piezas. */
   objetivos: Objetivo[];
