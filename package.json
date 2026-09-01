@@ -18,7 +18,9 @@
     "vault:ingest": "tsx src/ingest/run.ts ingest",
     "tauri": "tauri",
     "escritorio:dev": "tauri dev",
-    "escritorio:build": "tauri build"
+    "escritorio:build": "tauri build",
+    "api": "tsx src/api/run.ts",
+    "db:sembrar": "tsx src/db/run.ts"
   },
   "dependencies": {
     "pdfmake": "^0.3.11",

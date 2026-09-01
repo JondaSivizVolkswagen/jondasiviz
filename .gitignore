@@ -36,3 +36,6 @@ boveda-vw/.obsidian/graph.json
 
 # Notas diarias que crea Obsidian al abrir la bóveda
 boveda-vw/20??-??-??.md
+
+# Base de datos generada: se siembra con `npm run db:sembrar`.
+datos/
