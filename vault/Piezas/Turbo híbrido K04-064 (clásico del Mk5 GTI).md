@@ -22,9 +22,22 @@ requiere:
   - gestion-stage2plus-alta
 plataformas:
   - EA113
+chasis: []
+legalidad: requiere-ficha
+traccion: []
+sustituye: []
+exige: []
+chocaCon: []
 grupoExclusivo: turbo-principal
 stage: stage3
 nota: null
+imagen: null
 ---
 
-Compatible con [[EA113]].
+[[Categoría turbo]] · gama alta · requiere reforma de ficha técnica · stage3 · [[Grupo turbo-principal]]
+
+**Motor** [[EA113]]
+
+**Requiere** [[Intercooler frontal (Forge - Wagner Competition)]], [[Kit de admisión cerrada (Forge - Neuspeed P-Flo)]], [[Downpipe 3in descatalizado o con cat deportivo (AWE - Milltek)]], [[Kit de bomba de alta presión reforzada (Autotech - APR)]], [[Calibración Stage 2+ - archivo K04]]
+
+**Monta con avisos en (1)** [[Golf GTI Mk5]]

@@ -17,9 +17,22 @@ impacto: 2
 requiere: []
 plataformas:
   - EA113
+chasis: []
+legalidad: homologable
+traccion: []
+sustituye: []
+exige: []
+chocaCon: []
 grupoExclusivo: null
 stage: null
 nota: null
+imagen: null
 ---
 
-Compatible con [[EA113]].
+[[Categoría admisión]] · gama media · homologable
+
+**Motor** [[EA113]]
+
+**Marcas** [[Forge]]
+
+**Monta en (1)** [[Golf GTI Mk5]]

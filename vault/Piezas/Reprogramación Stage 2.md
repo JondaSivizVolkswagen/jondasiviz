@@ -21,9 +21,22 @@ plataformas:
   - EA113
   - EA888
   - TDI
+chasis: []
+legalidad: requiere-ficha
+traccion: []
+sustituye: []
+exige: []
+chocaCon: []
 grupoExclusivo: remap
 stage: stage2
 nota: null
+imagen: null
 ---
 
-Compatible con [[1.8T-20v]], [[EA113]], [[EA888]], [[TDI]].
+[[Categoría gestión]] · gama media · requiere reforma de ficha técnica · stage2 · [[Grupo remap]]
+
+**Motor** [[1.8T-20v]], [[EA113]], [[EA888]], [[TDI]]
+
+**Requiere** [[Downpipe 3in descatalizado o con cat deportivo (AWE - Milltek)]]
+
+**Monta con avisos en (9)** [[Arteon R]], [[Golf GTI Mk5]], [[Golf GTI Mk7]], [[Golf Mk4 1.8T]], [[Golf R Mk7]], [[Polo GTI 6C]], [[Scirocco R]], [[T-Roc R]], [[Tiguan R]]

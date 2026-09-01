@@ -18,9 +18,22 @@ requiere:
   - adm-fmic-media
 plataformas:
   - EA113
+chasis: []
+legalidad: requiere-ficha
+traccion: []
+sustituye: []
+exige: []
+chocaCon: []
 grupoExclusivo: remap
 stage: stage3
 nota: null
+imagen: null
 ---
 
-Compatible con [[EA113]].
+[[Categoría gestión]] · gama alta · requiere reforma de ficha técnica · stage3 · [[Grupo remap]]
+
+**Motor** [[EA113]]
+
+**Requiere** [[Intercooler frontal (Forge - Wagner Competition)]]
+
+**Monta con avisos en (1)** [[Golf GTI Mk5]]

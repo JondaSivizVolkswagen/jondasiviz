@@ -17,9 +17,24 @@ impacto: 3
 requiere: []
 plataformas:
   - EA113
+chasis: []
+legalidad: homologable
+traccion: []
+sustituye: []
+exige: []
+chocaCon: []
 grupoExclusivo: null
 stage: null
 nota: En el EA113 la HPFP es de leva. Necesaria para Stage 2+ y para el K04.
+imagen: null
 ---
 
-Compatible con [[EA113]].
+[[Categoría turbo]] · gama media · homologable
+
+**Motor** [[EA113]]
+
+**Marcas** [[Apr]]
+
+**Monta en (1)** [[Golf GTI Mk5]]
+
+> En el EA113 la HPFP es de leva. Necesaria para Stage 2+ y para el K04.

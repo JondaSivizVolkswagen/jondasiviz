@@ -1,0 +1,46 @@
+---
+tipo: pieza
+id: rueda-forjada-mqbevo-alta
+nombre: Llantas forjadas 19" (BBS CI-R / OZ / Neuspeed)
+categoria: ruedas
+gama: alta
+precio:
+  min: 1800
+  estimado: 2400
+  max: 3400
+objetivos:
+  drift: 3
+  drag: 4
+  mas-cv: 0
+  estetica: 5
+impacto: 4
+requiere: []
+plataformas:
+  - EA888-evo4
+  - EA211-evo
+  - EA288-evo
+  - EA211-PHEV
+  - MEB
+chasis:
+  - MEB
+  - MQB Evo
+legalidad: requiere-ficha
+traccion: []
+sustituye: []
+exige: []
+chocaCon: []
+grupoExclusivo: llantas
+stage: null
+nota: null
+imagen: null
+---
+
+[[Categoría ruedas]] · gama alta · requiere reforma de ficha técnica · [[Grupo llantas]]
+
+**Motor** [[EA888-evo4]], [[EA211-evo]], [[EA288-evo]], [[EA211-PHEV]], [[MEB]]
+
+**Chasis** [[Chasis MEB]], [[Chasis MQB Evo]]
+
+**Marcas** [[Neuspeed]], [[Bbs]], [[Oz]]
+
+**Monta con avisos en (14)** [[Golf GTD Mk8]], [[Golf GTD Mk8.5]], [[Golf GTI Clubsport 45]], [[Golf GTI Clubsport Mk8]], [[Golf GTI Clubsport Mk8.5]], [[Golf GTI Edition 50]], [[Golf GTI Mk8]], [[Golf GTI Mk8.5]], [[Golf R 20 Years]], [[Golf R 333 Limited Edition]], [[Golf R Mk8]], [[Golf R Mk8.5]], [[Golf R Variant Mk8]], [[Golf R Variant Mk8.5]]

@@ -18,9 +18,22 @@ requiere: []
 plataformas:
   - EA113
   - EA888
+chasis: []
+legalidad: requiere-ficha
+traccion: []
+sustituye: []
+exige: []
+chocaCon: []
 grupoExclusivo: downpipe
 stage: null
 nota: null
+imagen: null
 ---
 
-Compatible con [[EA113]], [[EA888]].
+[[Categoría escape]] · gama alta · requiere reforma de ficha técnica · [[Grupo downpipe]]
+
+**Motor** [[EA113]], [[EA888]]
+
+**Marcas** [[Milltek]]
+
+**Monta con avisos en (8)** [[Arteon R]], [[Golf GTI Mk5]], [[Golf GTI Mk7]], [[Golf R Mk7]], [[Polo GTI 6C]], [[Scirocco R]], [[T-Roc R]], [[Tiguan R]]

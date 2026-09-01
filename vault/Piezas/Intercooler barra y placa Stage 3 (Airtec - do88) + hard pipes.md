@@ -18,9 +18,22 @@ requiere: []
 plataformas:
   - EA113
   - EA888
+chasis: []
+legalidad: homologable
+traccion: []
+sustituye: []
+exige: []
+chocaCon: []
 grupoExclusivo: intercooler
 stage: null
 nota: null
+imagen: null
 ---
 
-Compatible con [[EA113]], [[EA888]].
+[[Categoría admisión]] · gama alta · homologable · [[Grupo intercooler]]
+
+**Motor** [[EA113]], [[EA888]]
+
+**Marcas** [[Airtec]], [[Do88]]
+
+**Monta en (8)** [[Arteon R]], [[Golf GTI Mk5]], [[Golf GTI Mk7]], [[Golf R Mk7]], [[Polo GTI 6C]], [[Scirocco R]], [[T-Roc R]], [[Tiguan R]]
