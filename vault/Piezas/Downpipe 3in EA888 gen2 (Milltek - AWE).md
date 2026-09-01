@@ -35,4 +35,4 @@ imagen: null
 
 **Marcas** [[Milltek]]
 
-**Monta con avisos en (6)** [[Beetle Turbo 5C]], [[Golf GTI Mk6]], [[Golf GTI Edition 35]], [[Passat CC 2.0 TSI]], [[Scirocco 2.0 TSI]], [[Superb II 2.0 TSI]]
+**Monta con avisos en (8)** [[Audi A4 B8 2.0 TFSI]], [[Audi A5 8T 2.0 TFSI]], [[Beetle Turbo 5C]], [[Golf GTI Mk6]], [[Golf GTI Edition 35]], [[Passat CC 2.0 TSI]], [[Scirocco 2.0 TSI]], [[Superb II 2.0 TSI]]

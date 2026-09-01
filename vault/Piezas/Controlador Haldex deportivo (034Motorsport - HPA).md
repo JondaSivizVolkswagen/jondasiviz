@@ -44,6 +44,6 @@ imagen: null
 
 **Monta en (24)** [[Audi Q3 8U]], [[Audi RS3 8P]], [[Audi RS3 8V]], [[Audi RS3 8Y]], [[Audi RS Q3 8U]], [[Audi RS Q3 F3]], [[Audi S1 8X]], [[Audi S3 8P]], [[Audi S3 8V]], [[Audi S3 8Y]], [[Audi TT RS 8J]], [[Audi TT RS 8S]], [[Audi TTS 8J]], [[Audi TTS 8S]], [[Cupra Ateca]], [[Cupra Formentor VZ]], [[Cupra Formentor VZ5]], [[Cupra Terramar]], [[Golf R Mk6]], [[Golf R Variant Mk7]], [[Kodiaq RS TSI]], [[León ST Cupra 4Drive]], [[Superb III 2.0 TSI]], [[Tiguan 2.0 TSI]]
 
-**Monta con avisos en (10)** [[Arteon R]], [[Golf R 20 Years]], [[Golf R 333 Limited Edition]], [[Golf R Mk7]], [[Golf R Mk8]], [[Golf R Mk8.5]], [[Golf R Variant Mk8]], [[Golf R Variant Mk8.5]], [[T-Roc R]], [[Tiguan R]]
+**Monta con avisos en (12)** [[Arteon R]], [[Audi Q5 8R]], [[Audi Q5 FY]], [[Golf R 20 Years]], [[Golf R 333 Limited Edition]], [[Golf R Mk7]], [[Golf R Mk8]], [[Golf R Mk8.5]], [[Golf R Variant Mk8]], [[Golf R Variant Mk8.5]], [[T-Roc R]], [[Tiguan R]]
 
 > Adelanta el reparto al eje trasero. Se nota en salida y en apoyo, no en potencia.

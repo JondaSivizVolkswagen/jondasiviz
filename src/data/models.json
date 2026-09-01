@@ -186,6 +186,204 @@
       ]
     },
     {
+      "id": "audi-a4-b8",
+      "nombre": "Audi A4 B8 2.0 TFSI",
+      "alias": [
+        "a4 b8",
+        "a4 2.0 tfsi"
+      ],
+      "chasis": "MLB",
+      "motor": "EA888-gen2",
+      "motorDetalle": "1.8-2.0 TFSI 160-211 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2007,
+        2015
+      ]
+    },
+    {
+      "id": "audi-a4-b8-tdi",
+      "nombre": "Audi A4 B8 2.0 TDI",
+      "alias": [
+        "a4 b8 tdi"
+      ],
+      "chasis": "MLB",
+      "motor": "EA189",
+      "motorDetalle": "2.0 TDI common rail 143-177 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf"
+      ],
+      "anios": [
+        2008,
+        2015
+      ]
+    },
+    {
+      "id": "audi-a4-b9",
+      "nombre": "Audi A4 B9 2.0 TFSI",
+      "alias": [
+        "a4 b9",
+        "a4 2016"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 190-252 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen"
+      ],
+      "anios": [
+        2015,
+        2026
+      ]
+    },
+    {
+      "id": "audi-a4-b9-tdi",
+      "nombre": "Audi A4 B9 2.0 TDI",
+      "alias": [
+        "a4 b9 tdi"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA288",
+      "motorDetalle": "2.0 TDI 150-190 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "dpf",
+        "scr-adblue"
+      ],
+      "anios": [
+        2015,
+        2026
+      ]
+    },
+    {
+      "id": "audi-a5-8t",
+      "nombre": "Audi A5 8T 2.0 TFSI",
+      "alias": [
+        "a5 8t",
+        "a5 2.0 tfsi"
+      ],
+      "chasis": "MLB",
+      "motor": "EA888-gen2",
+      "motorDetalle": "2.0 TFSI 180-211 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2007,
+        2016
+      ]
+    },
+    {
+      "id": "audi-a5-f5",
+      "nombre": "Audi A5 F5",
+      "alias": [
+        "a5 f5",
+        "a5 2016"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 190-252 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen"
+      ],
+      "anios": [
+        2016,
+        2026
+      ]
+    },
+    {
+      "id": "audi-a6-c7",
+      "nombre": "Audi A6 C7",
+      "alias": [
+        "a6 c7",
+        "a6 2011"
+      ],
+      "chasis": "MLB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 190-252 CV",
+      "traccion": "delantera",
+      "propulsion": "combustion",
+      "equipamiento": [],
+      "anios": [
+        2011,
+        2018
+      ]
+    },
+    {
+      "id": "audi-a6-c7-tdi",
+      "nombre": "Audi A6 C7 3.0 TDI",
+      "alias": [
+        "a6 c7 tdi",
+        "a6 3.0 tdi"
+      ],
+      "chasis": "MLB",
+      "motor": "EA897",
+      "motorDetalle": "3.0 TDI V6 204-326 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "dpf"
+      ],
+      "anios": [
+        2011,
+        2018
+      ]
+    },
+    {
+      "id": "audi-a6-c8",
+      "nombre": "Audi A6 C8",
+      "alias": [
+        "a6 c8",
+        "a6 2018"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA839",
+      "motorDetalle": "3.0 TFSI 340 CV con 48 V, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2018,
+        2026
+      ]
+    },
+    {
+      "id": "audi-a8-d5",
+      "nombre": "Audi A8 D5",
+      "alias": [
+        "a8 d5",
+        "a8 2017"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA839",
+      "motorDetalle": "3.0 TFSI 340 CV con 48 V, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
       "id": "audi-q2",
       "nombre": "Audi Q2",
       "alias": [
@@ -242,6 +440,137 @@
       "equipamiento": [
         "dsg",
         "gpf"
+      ],
+      "anios": [
+        2018,
+        2026
+      ]
+    },
+    {
+      "id": "audi-q5-8r",
+      "nombre": "Audi Q5 8R",
+      "alias": [
+        "q5 8r",
+        "q5 2008"
+      ],
+      "chasis": "MLB",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 180-225 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen"
+      ],
+      "anios": [
+        2008,
+        2017
+      ]
+    },
+    {
+      "id": "audi-q5-fy",
+      "nombre": "Audi Q5 FY",
+      "alias": [
+        "q5 fy",
+        "q5 2017"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA888-gen3",
+      "motorDetalle": "2.0 TFSI 190-265 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
+      "id": "audi-q7-4l",
+      "nombre": "Audi Q7 4L",
+      "alias": [
+        "q7 4l",
+        "q7 2005"
+      ],
+      "chasis": "PL71",
+      "motor": "EA897",
+      "motorDetalle": "3.0 TDI V6 233-245 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "dpf"
+      ],
+      "anios": [
+        2005,
+        2015
+      ]
+    },
+    {
+      "id": "audi-q7-4l-42fsi",
+      "nombre": "Audi Q7 4L 4.2 FSI",
+      "alias": [
+        "q7 4.2",
+        "q7 v8"
+      ],
+      "chasis": "PL71",
+      "motor": "V8-FSI",
+      "motorDetalle": "4.2 FSI V8 atmosférico 350 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica"
+      ],
+      "anios": [
+        2006,
+        2010
+      ]
+    },
+    {
+      "id": "audi-q7-4m",
+      "nombre": "Audi Q7 4M",
+      "alias": [
+        "q7 4m",
+        "q7 2015"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA897",
+      "motorDetalle": "3.0 TDI V6 231-286 CV con 48 V, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "hibridacion-48v",
+        "dpf",
+        "scr-adblue"
+      ],
+      "anios": [
+        2015,
+        2026
+      ]
+    },
+    {
+      "id": "audi-q8",
+      "nombre": "Audi Q8",
+      "alias": [
+        "q8",
+        "audi q8"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA897",
+      "motorDetalle": "3.0 TDI V6 231-286 CV con 48 V, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "hibridacion-48v",
+        "dpf",
+        "scr-adblue"
       ],
       "anios": [
         2018,
@@ -318,6 +647,185 @@
       ]
     },
     {
+      "id": "audi-rs4-b8",
+      "nombre": "Audi RS4 B8",
+      "alias": [
+        "rs4 b8",
+        "rs4 4.2"
+      ],
+      "chasis": "MLB",
+      "motor": "V8-FSI",
+      "motorDetalle": "4.2 FSI V8 atmosférico 450 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "dsg",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2012,
+        2016
+      ]
+    },
+    {
+      "id": "audi-rs4-b9",
+      "nombre": "Audi RS4 B9",
+      "alias": [
+        "rs4 b9",
+        "rs4 2.9"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA839",
+      "motorDetalle": "2.9 TFSI V6 biturbo 450 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "dsg",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
+      "id": "audi-rs5-8t",
+      "nombre": "Audi RS5 8T",
+      "alias": [
+        "rs5 8t",
+        "rs5 4.2"
+      ],
+      "chasis": "MLB",
+      "motor": "V8-FSI",
+      "motorDetalle": "4.2 FSI V8 atmosférico 450 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "dsg",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2010,
+        2016
+      ]
+    },
+    {
+      "id": "audi-rs5-f5",
+      "nombre": "Audi RS5 F5",
+      "alias": [
+        "rs5 f5",
+        "rs5 2.9"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA839",
+      "motorDetalle": "2.9 TFSI V6 biturbo 450 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "dsg",
+        "frenos-grandes"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
+      "id": "audi-rs6-c7",
+      "nombre": "Audi RS6 C7",
+      "alias": [
+        "rs6 c7",
+        "rs6 560"
+      ],
+      "chasis": "MLB",
+      "motor": "EA825",
+      "motorDetalle": "4.0 TFSI V8 biturbo 560-605 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "frenos-ceramicos"
+      ],
+      "anios": [
+        2013,
+        2018
+      ]
+    },
+    {
+      "id": "audi-rs6-c8",
+      "nombre": "Audi RS6 C8",
+      "alias": [
+        "rs6 c8",
+        "rs6 600",
+        "rs6 avant"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA825",
+      "motorDetalle": "4.0 TFSI V8 biturbo 600 CV con 48 V, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "frenos-ceramicos",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
+      "id": "audi-rs7-4g",
+      "nombre": "Audi RS7 4G",
+      "alias": [
+        "rs7 4g",
+        "rs7 605"
+      ],
+      "chasis": "MLB",
+      "motor": "EA825",
+      "motorDetalle": "4.0 TFSI V8 biturbo 560-605 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "frenos-ceramicos"
+      ],
+      "anios": [
+        2013,
+        2018
+      ]
+    },
+    {
+      "id": "audi-rs7-4k",
+      "nombre": "Audi RS7 4K",
+      "alias": [
+        "rs7 4k",
+        "rs7 600"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA825",
+      "motorDetalle": "4.0 TFSI V8 biturbo 600 CV con 48 V, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "frenos-ceramicos",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
       "id": "audi-rsq3-8u",
       "nombre": "Audi RS Q3 8U",
       "alias": [
@@ -356,6 +864,29 @@
         "dsg",
         "frenos-grandes",
         "gpf"
+      ],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
+      "id": "audi-rsq8",
+      "nombre": "Audi RS Q8",
+      "alias": [
+        "rs q8",
+        "rsq8 600"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA825",
+      "motorDetalle": "4.0 TFSI V8 biturbo 600 CV, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "frenos-ceramicos",
+        "hibridacion-48v"
       ],
       "anios": [
         2019,
@@ -443,6 +974,226 @@
         "dsg",
         "vaq",
         "gpf"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "audi-s4-b8",
+      "nombre": "Audi S4 B8",
+      "alias": [
+        "s4 b8",
+        "s4 3.0 tfsi"
+      ],
+      "chasis": "MLB",
+      "motor": "EA837",
+      "motorDetalle": "3.0 TFSI con compresor 333 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "dsg"
+      ],
+      "anios": [
+        2008,
+        2016
+      ]
+    },
+    {
+      "id": "audi-s4-b9",
+      "nombre": "Audi S4 B9",
+      "alias": [
+        "s4 b9",
+        "s4 354"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA839",
+      "motorDetalle": "3.0 TFSI turbo 354 CV, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "dsg",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2016,
+        2026
+      ]
+    },
+    {
+      "id": "audi-s5-8t",
+      "nombre": "Audi S5 8T 4.2 FSI",
+      "alias": [
+        "s5 8t",
+        "s5 4.2"
+      ],
+      "chasis": "MLB",
+      "motor": "V8-FSI",
+      "motorDetalle": "4.2 FSI V8 atmosférico 354 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen"
+      ],
+      "anios": [
+        2007,
+        2011
+      ]
+    },
+    {
+      "id": "audi-s6-c7",
+      "nombre": "Audi S6 C7",
+      "alias": [
+        "s6 c7",
+        "s6 4.0"
+      ],
+      "chasis": "MLB",
+      "motor": "EA825",
+      "motorDetalle": "4.0 TFSI V8 biturbo 420 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "dsg"
+      ],
+      "anios": [
+        2012,
+        2018
+      ]
+    },
+    {
+      "id": "audi-s6-c8-tdi",
+      "nombre": "Audi S6 C8 TDI",
+      "alias": [
+        "s6 c8",
+        "s6 tdi"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA897",
+      "motorDetalle": "3.0 TDI V6 349 CV con 48 V, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "hibridacion-48v",
+        "dpf",
+        "scr-adblue"
+      ],
+      "anios": [
+        2019,
+        2026
+      ]
+    },
+    {
+      "id": "audi-sq5-8r",
+      "nombre": "Audi SQ5 8R TDI",
+      "alias": [
+        "sq5 8r",
+        "sq5 bitdi"
+      ],
+      "chasis": "MLB",
+      "motor": "EA897",
+      "motorDetalle": "3.0 BiTDI V6 313 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "dpf"
+      ],
+      "anios": [
+        2012,
+        2017
+      ]
+    },
+    {
+      "id": "audi-sq5-fy",
+      "nombre": "Audi SQ5 FY",
+      "alias": [
+        "sq5 fy",
+        "sq5 354"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA839",
+      "motorDetalle": "3.0 TFSI 354 CV con 48 V, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2017,
+        2026
+      ]
+    },
+    {
+      "id": "audi-sq7-tdi",
+      "nombre": "Audi SQ7 TDI",
+      "alias": [
+        "sq7 tdi",
+        "sq7 435"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA824",
+      "motorDetalle": "4.0 TDI V8 435 CV, quattro",
+      "traccion": "total",
+      "propulsion": "combustion",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "frenos-grandes",
+        "dpf",
+        "scr-adblue"
+      ],
+      "anios": [
+        2016,
+        2020
+      ]
+    },
+    {
+      "id": "audi-sq7-tfsi",
+      "nombre": "Audi SQ7 TFSI",
+      "alias": [
+        "sq7 tfsi",
+        "sq7 507"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA825",
+      "motorDetalle": "4.0 TFSI V8 biturbo 507 CV, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "frenos-grandes",
+        "hibridacion-48v"
+      ],
+      "anios": [
+        2020,
+        2026
+      ]
+    },
+    {
+      "id": "audi-sq8",
+      "nombre": "Audi SQ8",
+      "alias": [
+        "sq8",
+        "sq8 507"
+      ],
+      "chasis": "MLB Evo",
+      "motor": "EA825",
+      "motorDetalle": "4.0 TFSI V8 biturbo 507 CV, quattro",
+      "traccion": "total",
+      "propulsion": "mhev",
+      "equipamiento": [
+        "torsen",
+        "suspension-neumatica",
+        "frenos-grandes",
+        "hibridacion-48v"
       ],
       "anios": [
         2020,

@@ -5,4 +5,4 @@ nombre: Whiteline
 
 Marca de recambios.
 
-**Piezas (1)** [[Barra estabilizadora trasera regulable (Whiteline - H&R)]]
+**Piezas (2)** [[Barra estabilizadora trasera regulable (Whiteline - H&R)]], [[Barras estabilizadoras regulables MLB (H&R - Whiteline)]]

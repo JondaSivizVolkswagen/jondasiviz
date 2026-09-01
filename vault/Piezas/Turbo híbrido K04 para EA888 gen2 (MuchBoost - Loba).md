@@ -42,6 +42,6 @@ imagen: null
 
 **Requiere** [[Intercooler frontal EA888 gen2 (Forge - Wagner)]], [[Kit de admisión cerrada EA888 gen2 (Forge - Neuspeed)]], [[Downpipe 3in EA888 gen2 (Milltek - AWE)]], [[Bomba de alta presión reforzada EA888 gen2 (Autotech - APR)]], [[Reprogramación Stage 2 EA888 gen2 (APR - Integrated Engineering)]]
 
-**Monta con avisos en (6)** [[Beetle Turbo 5C]], [[Golf GTI Mk6]], [[Golf GTI Edition 35]], [[Passat CC 2.0 TSI]], [[Scirocco 2.0 TSI]], [[Superb II 2.0 TSI]]
+**Monta con avisos en (8)** [[Audi A4 B8 2.0 TFSI]], [[Audi A5 8T 2.0 TFSI]], [[Beetle Turbo 5C]], [[Golf GTI Mk6]], [[Golf GTI Edition 35]], [[Passat CC 2.0 TSI]], [[Scirocco 2.0 TSI]], [[Superb II 2.0 TSI]]
 
 > Unos 350 CV. Es el salto grande del Golf VI GTI y del Passat CC.

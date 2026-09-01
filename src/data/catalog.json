@@ -145,6 +145,35 @@
       "grupoExclusivo": "admision-filtro"
     },
     {
+      "id": "adm-filtro-v8fsi-media",
+      "nombre": "Filtros de alto flujo 4.2 FSI (BMC / Pipercross)",
+      "categoria": "admision",
+      "plataformas": [
+        "V8-FSI"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 220,
+        "estimado": 300,
+        "max": 400
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 1,
+        "estetica": 1
+      },
+      "impacto": 2,
+      "requiere": [],
+      "grupoExclusivo": "admision-filtro"
+    },
+    {
       "id": "adm-fmic-alta",
       "nombre": "Intercooler barra y placa Stage 3 (Airtec / do88) + hard pipes",
       "categoria": "admision",
@@ -506,6 +535,95 @@
       "grupoExclusivo": "intercooler"
     },
     {
+      "id": "adm-fmic-tdi-v6-media",
+      "nombre": "Intercooler de mayor volumen V6 TDI (Wagner)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA897",
+        "EA824"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 700,
+        "estimado": 900,
+        "max": 1200
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 3,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "intercooler"
+    },
+    {
+      "id": "adm-fmic-v6-alta",
+      "nombre": "Intercooler agua-aire de alta capacidad V6 (Wagner / do88)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA837",
+        "EA839"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1100,
+        "estimado": 1400,
+        "max": 1850
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "intercooler"
+    },
+    {
+      "id": "adm-fmic-v8-alta",
+      "nombre": "Intercoolers de alta capacidad V8 (Wagner / do88)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA825"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1900,
+        "estimado": 2400,
+        "max": 3200
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [],
+      "grupoExclusivo": "intercooler"
+    },
+    {
       "id": "adm-inlet-evo4-baja",
       "nombre": "Turbo inlet y charge pipe de alto flujo",
       "categoria": "admision",
@@ -800,6 +918,66 @@
       "grupoExclusivo": "admision-filtro"
     },
     {
+      "id": "adm-intake-v6-alta",
+      "nombre": "Admisión de carbono V6 (Eventuri / 034Motorsport)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA839",
+        "EA837"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 950,
+        "estimado": 1200,
+        "max": 1600
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 3,
+        "estetica": 3
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "admision-filtro"
+    },
+    {
+      "id": "adm-intake-v8-alta",
+      "nombre": "Admisión de carbono V8 (Eventuri)",
+      "categoria": "admision",
+      "plataformas": [
+        "EA825",
+        "V8-FSI"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1500,
+        "estimado": 1900,
+        "max": 2500
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 3,
+        "estetica": 4
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "admision-filtro"
+    },
+    {
       "id": "comb-hpfp-evo4-media",
       "nombre": "Bomba de alta presión e inyectores reforzados evo4",
       "categoria": "turbo",
@@ -948,6 +1126,62 @@
       "objetivos": {
         "drift": 5,
         "drag": 0,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": []
+    },
+    {
+      "id": "dir-brazos-mlb-alta",
+      "nombre": "Brazos ajustables y rótulas MLB (034Motorsport)",
+      "categoria": "direccion",
+      "plataformas": [],
+      "chasis": [
+        "MLB"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 700,
+        "estimado": 900,
+        "max": 1200
+      },
+      "objetivos": {
+        "drift": 4,
+        "drag": 2,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": []
+    },
+    {
+      "id": "dir-brazos-mlbevo-alta",
+      "nombre": "Brazos y rótulas uniball MLB Evo (034Motorsport)",
+      "categoria": "direccion",
+      "plataformas": [],
+      "chasis": [
+        "MLB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 880,
+        "estimado": 1100,
+        "max": 1450
+      },
+      "objetivos": {
+        "drift": 4,
+        "drag": 2,
         "mas-cv": 0,
         "estetica": 0
       },
@@ -1272,6 +1506,36 @@
       },
       "impacto": 2,
       "requiere": []
+    },
+    {
+      "id": "esc-colectores-v8fsi-alta",
+      "nombre": "Colectores de alto flujo y cat deportivos 4.2 FSI",
+      "categoria": "escape",
+      "plataformas": [
+        "V8-FSI"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 2400,
+        "estimado": 3000,
+        "max": 4000
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 3,
+        "estetica": 3
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "downpipe",
+      "nota": "En el atmosférico es donde de verdad se gana: unos 35 CV y otro sonido."
     },
     {
       "id": "esc-decat-baja",
@@ -1643,6 +1907,97 @@
       "grupoExclusivo": "downpipe"
     },
     {
+      "id": "esc-dp-tdi-v6-alta",
+      "nombre": "Downpipes sin DPF 3.0 TDI (Darkside / Milltek)",
+      "categoria": "escape",
+      "plataformas": [
+        "EA897",
+        "EA824"
+      ],
+      "chasis": [],
+      "legalidad": "solo-circuito",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [
+        "scr-adblue"
+      ],
+      "gama": "alta",
+      "precio": {
+        "min": 1250,
+        "estimado": 1600,
+        "max": 2100
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "downpipe"
+    },
+    {
+      "id": "esc-dp-v6-alta",
+      "nombre": "Downpipes con cat deportivo V6 (Milltek / Capristo)",
+      "categoria": "escape",
+      "plataformas": [
+        "EA839",
+        "EA837"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1500,
+        "estimado": 1900,
+        "max": 2500
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "downpipe"
+    },
+    {
+      "id": "esc-dp-v8-alta",
+      "nombre": "Downpipes deportivos V8 biturbo (Milltek / Capristo)",
+      "categoria": "escape",
+      "plataformas": [
+        "EA825"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 2200,
+        "estimado": 2800,
+        "max": 3700
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 4,
+        "estetica": 2
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "downpipe"
+    },
+    {
       "id": "esc-turboback-alta",
       "nombre": "Escape turbo-back completo inox (Milltek Race)",
       "categoria": "escape",
@@ -1732,6 +2087,35 @@
       "impacto": 4,
       "requiere": [],
       "grupoExclusivo": "downpipe"
+    },
+    {
+      "id": "esc-valvular-v8-alta",
+      "nombre": "Escape valvular completo V8 (Akrapovic / Capristo)",
+      "categoria": "escape",
+      "plataformas": [
+        "EA825",
+        "V8-FSI"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 5200,
+        "estimado": 6500,
+        "max": 8500
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 2,
+        "estetica": 5
+      },
+      "impacto": 3,
+      "requiere": []
     },
     {
       "id": "est-airride-alta",
@@ -1846,6 +2230,62 @@
       "requiere": []
     },
     {
+      "id": "est-bodykit-mlb-alta",
+      "nombre": "Difusor, faldones y labio de carbono MLB",
+      "categoria": "estetica",
+      "plataformas": [],
+      "chasis": [
+        "MLB"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 950,
+        "estimado": 1200,
+        "max": 1600
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 5
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
+      "id": "est-bodykit-mlbevo-alta",
+      "nombre": "Kit de carrocería MLB Evo (ABT / Capristo)",
+      "categoria": "estetica",
+      "plataformas": [],
+      "chasis": [
+        "MLB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1450,
+        "estimado": 1800,
+        "max": 2400
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 5
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
       "id": "est-bodykit-mqba0-media",
       "nombre": "Kit estético MQB-A0 (faldones, difusor, alerón)",
       "categoria": "estetica",
@@ -1891,6 +2331,34 @@
         "min": 340,
         "estimado": 450,
         "max": 600
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 2,
+      "requiere": []
+    },
+    {
+      "id": "est-bodykit-pl71-media",
+      "nombre": "Kit todoterreno PL71 (protecciones, barras, faros)",
+      "categoria": "estetica",
+      "plataformas": [],
+      "chasis": [
+        "PL71"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 950,
+        "estimado": 1200,
+        "max": 1600
       },
       "objetivos": {
         "drift": 0,
@@ -2186,6 +2654,70 @@
       "grupoExclusivo": "frenos-delanteros"
     },
     {
+      "id": "fren-bbk-mlb-alta",
+      "nombre": "Big brake 356 mm MLB (Brembo GT)",
+      "categoria": "frenos",
+      "plataformas": [],
+      "chasis": [
+        "MLB"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [
+        "frenos-grandes",
+        "frenos-ceramicos"
+      ],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 2600,
+        "estimado": 3200,
+        "max": 4200
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 4,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [],
+      "grupoExclusivo": "frenos-delanteros"
+    },
+    {
+      "id": "fren-bbk-mlbevo-alta",
+      "nombre": "Big brake 380 mm MLB Evo (AP Racing / Brembo)",
+      "categoria": "frenos",
+      "plataformas": [],
+      "chasis": [
+        "MLB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [
+        "frenos-grandes",
+        "frenos-ceramicos"
+      ],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 3700,
+        "estimado": 4500,
+        "max": 5900
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 4,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [],
+      "grupoExclusivo": "frenos-delanteros"
+    },
+    {
       "id": "fren-bbk-mqba0-alta",
       "nombre": "Kit big brake 330 mm MQB-A0 (Stoptech / HISPEC)",
       "categoria": "frenos",
@@ -2350,6 +2882,34 @@
         "estetica": 0
       },
       "impacto": 3,
+      "requiere": []
+    },
+    {
+      "id": "fren-discos-pl71-media",
+      "nombre": "Discos y pastillas de altas prestaciones PL71",
+      "categoria": "frenos",
+      "plataformas": [],
+      "chasis": [
+        "PL71"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 700,
+        "estimado": 900,
+        "max": 1200
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 3,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 4,
       "requiere": []
     },
     {
@@ -2720,6 +3280,130 @@
       "nota": "Unos 30 CV más y buen empujón de par abajo. Legal mientras no se toque el postratamiento."
     },
     {
+      "id": "gestion-stage1-ea824-alta",
+      "nombre": "Reprogramación 4.0 TDI V8 (MTM / ABT)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA824"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1600,
+        "estimado": 2000,
+        "max": 2600
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "remap",
+      "stage": "stage1",
+      "nota": "Del SQ7: de 435 a unos 520 CV y más de 1.000 Nm."
+    },
+    {
+      "id": "gestion-stage1-ea825-alta",
+      "nombre": "Reprogramación Stage 1 4.0 TFSI V8 (APR / MTM / ABT)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA825"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1450,
+        "estimado": 1800,
+        "max": 2400
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "remap",
+      "stage": "stage1",
+      "nota": "Un RS6 C8 pasa de 600 a unos 700 CV."
+    },
+    {
+      "id": "gestion-stage1-ea837-alta",
+      "nombre": "Reprogramación Stage 1 3.0 TFSI (APR / MTM / ABT)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA837"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 900,
+        "estimado": 1100,
+        "max": 1450
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "remap",
+      "stage": "stage1",
+      "nota": "De 333 a unos 400 CV."
+    },
+    {
+      "id": "gestion-stage1-ea839-alta",
+      "nombre": "Reprogramación Stage 1 3.0 y 2.9 TFSI (APR / MTM / ABT)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA839"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 950,
+        "estimado": 1200,
+        "max": 1550
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "remap",
+      "stage": "stage1",
+      "nota": "Un RS4 B9 pasa de 450 a unos 520 CV."
+    },
+    {
       "id": "gestion-stage1-ea855-alta",
       "nombre": "Reprogramación Stage 1 2.5 TFSI (APR / Unitronic / MTM)",
       "categoria": "gestion",
@@ -2749,6 +3433,37 @@
       "grupoExclusivo": "remap",
       "stage": "stage1",
       "nota": "De 400 a unos 470 CV sin tocar hierro."
+    },
+    {
+      "id": "gestion-stage1-ea897-media",
+      "nombre": "Reprogramación Stage 1 3.0 TDI (Celtic Tuning / MTM / ABT)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA897"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 720,
+        "estimado": 900,
+        "max": 1200
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "remap",
+      "stage": "stage1",
+      "nota": "Unos 60 CV y mucho par. El V6 TDI responde muy bien."
     },
     {
       "id": "gestion-stage1-evo4-media",
@@ -2885,6 +3600,37 @@
       "requiere": [],
       "grupoExclusivo": "remap",
       "stage": "stage1"
+    },
+    {
+      "id": "gestion-stage1-v8fsi-media",
+      "nombre": "Reprogramación 4.2 FSI atmosférico (MTM / ABT)",
+      "categoria": "gestion",
+      "plataformas": [
+        "V8-FSI"
+      ],
+      "chasis": [],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 900,
+        "estimado": 1150,
+        "max": 1500
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 2,
+        "mas-cv": 2,
+        "estetica": 0
+      },
+      "impacto": 2,
+      "requiere": [],
+      "grupoExclusivo": "remap",
+      "stage": "stage1",
+      "nota": "Sin turbo no hay milagro: unos 20 CV. En un atmosférico el dinero rinde más en escape y peso."
     },
     {
       "id": "gestion-stage2-e85-evo4-alta",
@@ -3092,6 +3838,105 @@
       "nota": "Techo del EA288 con intercooler, downpipe y EGR anulada. Fuera de homologación en la UE: solo circuito."
     },
     {
+      "id": "gestion-stage2-ea825-alta",
+      "nombre": "Reprogramación Stage 2 4.0 TFSI V8 (APR / MTM)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA825"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 2100,
+        "estimado": 2600,
+        "max": 3400
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "esc-dp-v8-alta",
+        "adm-fmic-v8-alta"
+      ],
+      "grupoExclusivo": "remap",
+      "stage": "stage2"
+    },
+    {
+      "id": "gestion-stage2-ea837-alta",
+      "nombre": "Reprogramación Stage 2 3.0 TFSI (APR / MTM)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA837"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1200,
+        "estimado": 1500,
+        "max": 1950
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "turbo-polea-ea837-media",
+        "adm-fmic-v6-alta"
+      ],
+      "grupoExclusivo": "remap",
+      "stage": "stage2"
+    },
+    {
+      "id": "gestion-stage2-ea839-alta",
+      "nombre": "Reprogramación Stage 2 3.0 y 2.9 TFSI (APR / MTM)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA839"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1350,
+        "estimado": 1700,
+        "max": 2200
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "esc-dp-v6-alta",
+        "adm-fmic-v6-alta"
+      ],
+      "grupoExclusivo": "remap",
+      "stage": "stage2"
+    },
+    {
       "id": "gestion-stage2-ea855-alta",
       "nombre": "Reprogramación Stage 2 2.5 TFSI (APR / MTM / ABT)",
       "categoria": "gestion",
@@ -3120,6 +3965,38 @@
       "requiere": [
         "esc-dp-ea855-alta",
         "adm-intake-ea855-alta"
+      ],
+      "grupoExclusivo": "remap",
+      "stage": "stage2"
+    },
+    {
+      "id": "gestion-stage2-ea897-alta",
+      "nombre": "Reprogramación Stage 2 3.0 TDI (MTM / Darkside)",
+      "categoria": "gestion",
+      "plataformas": [
+        "EA897"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1100,
+        "estimado": 1400,
+        "max": 1850
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 5,
+        "mas-cv": 5,
+        "estetica": 0
+      },
+      "impacto": 5,
+      "requiere": [
+        "esc-dp-tdi-v6-alta"
       ],
       "grupoExclusivo": "remap",
       "stage": "stage2"
@@ -3551,6 +4428,64 @@
       "grupoExclusivo": "llantas"
     },
     {
+      "id": "rueda-mlb-alta",
+      "nombre": "Llantas forjadas 19in MLB (BBS / OZ)",
+      "categoria": "ruedas",
+      "plataformas": [],
+      "chasis": [
+        "MLB"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 2100,
+        "estimado": 2600,
+        "max": 3400
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 2,
+        "mas-cv": 0,
+        "estetica": 5
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "llantas"
+    },
+    {
+      "id": "rueda-mlbevo-alta",
+      "nombre": "Llantas forjadas 20in MLB Evo (BBS / OZ / ABT)",
+      "categoria": "ruedas",
+      "plataformas": [],
+      "chasis": [
+        "MLB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 2600,
+        "estimado": 3200,
+        "max": 4200
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 2,
+        "mas-cv": 0,
+        "estetica": 5
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "llantas"
+    },
+    {
       "id": "rueda-mqba0-media",
       "nombre": "Llantas 18in y neumáticos deportivos MQB-A0",
       "categoria": "ruedas",
@@ -3597,6 +4532,35 @@
         "min": 620,
         "estimado": 800,
         "max": 1050
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 3,
+      "requiere": [],
+      "grupoExclusivo": "llantas"
+    },
+    {
+      "id": "rueda-pl71-media",
+      "nombre": "Llantas 18in y neumáticos all-terrain PL71",
+      "categoria": "ruedas",
+      "plataformas": [],
+      "chasis": [
+        "PL71"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 1400,
+        "estimado": 1800,
+        "max": 2400
       },
       "objetivos": {
         "drift": 0,
@@ -3786,6 +4750,35 @@
         "estetica": 2
       },
       "impacto": 2,
+      "requiere": []
+    },
+    {
+      "id": "seg-baquet-mlb-alta",
+      "nombre": "Baquets y arneses MLB",
+      "categoria": "seguridad",
+      "plataformas": [],
+      "chasis": [
+        "MLB",
+        "MLB Evo"
+      ],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1100,
+        "estimado": 1400,
+        "max": 1850
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 2
+      },
+      "impacto": 3,
       "requiere": []
     },
     {
@@ -4052,6 +5045,34 @@
       "nota": "Reduce el subviraje del tren delantero, muy efectivo por poco dinero."
     },
     {
+      "id": "susp-barras-mlb-media",
+      "nombre": "Barras estabilizadoras regulables MLB (H&R / Whiteline)",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "MLB"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 330,
+        "estimado": 420,
+        "max": 560
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 2,
+        "mas-cv": 0,
+        "estetica": 0
+      },
+      "impacto": 3,
+      "requiere": []
+    },
+    {
       "id": "susp-brazos-media",
       "nombre": "Brazos ajustables + silentblocks de poliuretano (Powerflex / SuperPro)",
       "categoria": "suspension",
@@ -4284,6 +5305,68 @@
       "grupoExclusivo": "altura"
     },
     {
+      "id": "susp-coil-mlb-alta",
+      "nombre": "Coilovers 3 vías MLB (KW V3 / Bilstein B16)",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "MLB"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [
+        "suspension-neumatica"
+      ],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1900,
+        "estimado": 2400,
+        "max": 3100
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 3,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 5,
+      "requiere": [],
+      "grupoExclusivo": "altura"
+    },
+    {
+      "id": "susp-coil-mlbevo-alta",
+      "nombre": "Coilovers 3 vías MLB Evo (KW V3 / H&R)",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "MLB Evo"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [
+        "suspension-neumatica"
+      ],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 2100,
+        "estimado": 2600,
+        "max": 3400
+      },
+      "objetivos": {
+        "drift": 3,
+        "drag": 3,
+        "mas-cv": 0,
+        "estetica": 4
+      },
+      "impacto": 5,
+      "requiere": [],
+      "grupoExclusivo": "altura"
+    },
+    {
       "id": "susp-coil-mqba0-media",
       "nombre": "Coilovers roscados MQB-A0 (KW V1 / ST XTA / BC Racing)",
       "categoria": "suspension",
@@ -4508,6 +5591,41 @@
       "impacto": 4,
       "requiere": [],
       "grupoExclusivo": "altura"
+    },
+    {
+      "id": "susp-conversion-neumatica-alta",
+      "nombre": "Conversión de suspensión neumática a rosca MLB Evo",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "MLB Evo",
+        "PL71"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [
+        "suspension-neumatica"
+      ],
+      "exige": [
+        "suspension-neumatica"
+      ],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1500,
+        "estimado": 1900,
+        "max": 2500
+      },
+      "objetivos": {
+        "drift": 2,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 3
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "altura",
+      "nota": "Cambia fiabilidad por confort. Quien la monta suele venir de un fuelle reventado."
     },
     {
       "id": "susp-dogbone-baja",
@@ -4783,6 +5901,37 @@
         "estetica": 3
       },
       "impacto": 2,
+      "requiere": [],
+      "grupoExclusivo": "altura"
+    },
+    {
+      "id": "susp-muelles-pl71-alta",
+      "nombre": "Muelles y amortiguadores reforzados PL71",
+      "categoria": "suspension",
+      "plataformas": [],
+      "chasis": [
+        "PL71"
+      ],
+      "legalidad": "homologable",
+      "traccion": [],
+      "sustituye": [
+        "suspension-neumatica"
+      ],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "alta",
+      "precio": {
+        "min": 1400,
+        "estimado": 1800,
+        "max": 2400
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 0,
+        "mas-cv": 0,
+        "estetica": 2
+      },
+      "impacto": 4,
       "requiere": [],
       "grupoExclusivo": "altura"
     },
@@ -5913,6 +7062,36 @@
       "requiere": [],
       "grupoExclusivo": "polea-compresor",
       "nota": "Solo tiene sentido con el compresor volumétrico del twincharger, no en los 1.4 TSI de un turbo."
+    },
+    {
+      "id": "turbo-polea-ea837-media",
+      "nombre": "Polea de compresor reducida 3.0 TFSI (034Motorsport / APR)",
+      "categoria": "turbo",
+      "plataformas": [
+        "EA837"
+      ],
+      "chasis": [],
+      "legalidad": "requiere-ficha",
+      "traccion": [],
+      "sustituye": [],
+      "exige": [],
+      "chocaCon": [],
+      "gama": "media",
+      "precio": {
+        "min": 440,
+        "estimado": 550,
+        "max": 720
+      },
+      "objetivos": {
+        "drift": 0,
+        "drag": 4,
+        "mas-cv": 4,
+        "estetica": 0
+      },
+      "impacto": 4,
+      "requiere": [],
+      "grupoExclusivo": "polea-compresor",
+      "nota": "Sube presión del compresor. Es la mejora clásica del S4 B8 y da unos 30 CV."
     },
     {
       "id": "turbo-powermax-evo4-alta",
