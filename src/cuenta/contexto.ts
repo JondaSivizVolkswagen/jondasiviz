@@ -19,6 +19,11 @@ export interface EstadoCuenta {
   plan: Plan;
   limites: Limites;
   suscripcion: Suscripcion | null;
+  /**
+   * Presupuestos generados hoy. Del servidor cuando hay sesión, porque es quien los
+   * apunta, y del contador de `localStorage` cuando no la hay, que es cuando cuenta el
+   * navegador.
+   */
   planesHoy: number;
   precio: Precio;
 }
@@ -32,6 +37,12 @@ export interface ValorCuenta extends EstadoCuenta {
   ): Promise<string | null>;
   salir(): Promise<void>;
   refrescar(): Promise<void>;
+  /**
+   * Deja el contador de presupuestos del día en este número. Lo llama quien genera uno,
+   * con lo que haya contestado quien lo haya contado, para que el perfil no se quede con
+   * el número que había al cargar la página.
+   */
+  fijarPlanesHoy(planesHoy: number): void;
   modal: Modal;
   abrirAcceso(modo?: "entrar" | "registro", aviso?: string): void;
   abrirSuscripcion(motivo?: string | null): void;

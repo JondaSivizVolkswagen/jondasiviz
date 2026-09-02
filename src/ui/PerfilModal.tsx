@@ -224,6 +224,14 @@ export function PerfilModal() {
   const suscrito = plan === "taller";
   const renueva = suscripcion?.renueva ?? null;
 
+  // Sin tope no hay cuenta que llevar, así que no se habla de números. Quien decide es
+  // el límite, no el nombre del plan: si algún día hay un plan intermedio con tope, esta
+  // frase sigue diciendo la verdad sola.
+  const conTopeDiario = Number.isFinite(limites.planesPorDia);
+  const usoDelDia = conTopeDiario
+    ? `Hoy llevas ${planesHoy} de ${limites.planesPorDia} presupuestos.`
+    : "Presupuestos sin límite al día.";
+
   return (
     <Modal eyebrow="Cuenta" titulo="Tu perfil" onCerrar={cerrarModal} ancho="grande">
       <div className="perfil">
@@ -347,7 +355,7 @@ export function PerfilModal() {
                 ? renueva
                   ? `Se renueva el ${fecha(renueva)}.`
                   : "No se va a renovar."
-                : `Hoy llevas ${planesHoy} de ${limites.planesPorDia} presupuestos.`}
+                : usoDelDia}
             </span>
           </div>
 

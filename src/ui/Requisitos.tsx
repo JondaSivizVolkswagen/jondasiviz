@@ -1,5 +1,5 @@
-// Desglose en vivo de lo que pide el proyecto: cuánto cuesta cubrir lo esencial por
-// lo mínimo, y qué categorías entran y cuáles no con el dinero de ahora.
+// Desglose de lo que pide el proyecto: cuánto cuesta cubrir lo esencial por lo mínimo, y
+// qué categorías entran y cuáles no con el dinero del presupuesto generado.
 
 import type { Presupuesto } from "../engine/types";
 import { NOMBRE_CATEGORIA, fraseMinimo } from "../engine/recommend";

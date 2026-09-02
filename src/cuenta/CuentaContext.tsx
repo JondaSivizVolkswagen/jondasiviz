@@ -12,6 +12,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { entrarCuenta, quienSoy, registrarCuenta, salirCuenta, type Acceso } from "./api";
 import { LIMITES, PRECIO } from "../suscripcion/planes";
+import { planesHoyLocal } from "./tope-local";
 import { CuentaContexto, type EstadoCuenta, type Modal, type ValorCuenta } from "./contexto";
 
 const ANONIMO: EstadoCuenta = {
@@ -26,6 +27,15 @@ const ANONIMO: EstadoCuenta = {
   precio: PRECIO,
 };
 
+/**
+ * Sin cuenta, el contador del día es el de este navegador: el servidor no apunta nada de
+ * quien no ha entrado porque no tiene a quién apuntárselo, así que su número es siempre
+ * cero y enseñarlo sería mentir en el perfil.
+ */
+function anonimo(): EstadoCuenta {
+  return { ...ANONIMO, planesHoy: planesHoyLocal() };
+}
+
 function deAcceso(acceso: Acceso): EstadoCuenta {
   return {
     cargando: false,
@@ -35,20 +45,20 @@ function deAcceso(acceso: Acceso): EstadoCuenta {
     plan: acceso.plan,
     limites: acceso.limites,
     suscripcion: acceso.suscripcion,
-    planesHoy: acceso.planesHoy,
+    planesHoy: acceso.usuario ? acceso.planesHoy : planesHoyLocal(),
     precio: acceso.precio,
   };
 }
 
 export function CuentaProvider({ children }: { children: ReactNode }) {
-  const [estado, setEstado] = useState<EstadoCuenta>(ANONIMO);
+  const [estado, setEstado] = useState<EstadoCuenta>(anonimo);
   const [modal, setModal] = useState<Modal>(null);
   const montado = useRef(true);
 
   const refrescar = useCallback(async () => {
     const acceso = await quienSoy();
     if (!montado.current) return;
-    setEstado(acceso ? deAcceso(acceso) : { ...ANONIMO, cargando: false, disponibleApi: false });
+    setEstado(acceso ? deAcceso(acceso) : { ...anonimo(), cargando: false, disponibleApi: false });
   }, []);
 
   useEffect(() => {
@@ -81,8 +91,13 @@ export function CuentaProvider({ children }: { children: ReactNode }) {
   const salir = useCallback(async () => {
     await salirCuenta();
     if (!montado.current) return;
-    setEstado({ ...ANONIMO, cargando: false, disponibleApi: estado.disponibleApi });
+    // Al salir, el que cuenta vuelve a ser el navegador, así que el contador también.
+    setEstado({ ...anonimo(), cargando: false, disponibleApi: estado.disponibleApi });
   }, [estado.disponibleApi]);
+
+  const fijarPlanesHoy = useCallback((planesHoy: number) => {
+    setEstado((previo) => (previo.planesHoy === planesHoy ? previo : { ...previo, planesHoy }));
+  }, []);
 
   const valor = useMemo<ValorCuenta>(
     () => ({
@@ -91,13 +106,14 @@ export function CuentaProvider({ children }: { children: ReactNode }) {
       registrar,
       salir,
       refrescar,
+      fijarPlanesHoy,
       modal,
       abrirAcceso: (modo = "entrar", aviso) => setModal({ tipo: "acceso", modo, aviso }),
       abrirSuscripcion: (motivo = null) => setModal({ tipo: "suscripcion", motivo }),
       abrirPerfil: () => setModal({ tipo: "perfil" }),
       cerrarModal: () => setModal(null),
     }),
-    [estado, entrar, registrar, salir, refrescar, modal],
+    [estado, entrar, registrar, salir, refrescar, fijarPlanesHoy, modal],
   );
 
   return <CuentaContexto.Provider value={valor}>{children}</CuentaContexto.Provider>;

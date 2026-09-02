@@ -7,7 +7,7 @@ import type { Server } from "node:http";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { crearServidor } from "../src/api/servidor.ts";
 import { cargarCatalogo } from "../src/engine/catalog.ts";
-import { cargarModelos } from "../src/engine/graph.ts";
+import { cargarModelos, piezasDeModelo } from "../src/engine/graph.ts";
 import { generarPresupuesto } from "../src/engine/recommend.ts";
 import { sembrar } from "../src/db/sembrar.ts";
 import { abrirBase } from "../src/db/sqlite.ts";
@@ -76,23 +76,36 @@ describe("API", () => {
   });
 
   it("calcula el mismo plan que el motor local", async () => {
-    const modelo = cargarModelos().modelos.find((m) => m.id === "golf-gti-mk5")!;
+    // Con un modelo de plataforma moderna, que es donde se nota: casi la mitad del
+    // catálogo va por chasis y no por motor, así que una ruta que se dejara el chasis
+    // devolvería otra lista completamente distinta.
+    const modelo = cargarModelos().modelos.find((m) => m.id === "arteon-20-tsi")!;
     const respuesta = await fetch(`${raiz}/api/plan`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       // Por debajo del techo del plan gratuito: aquí se compara el motor, no los límites.
-      body: JSON.stringify({ modelo: modelo.id, presupuesto: 2500, objetivos: ["drag"] }),
+      body: JSON.stringify({ modelo: modelo.id, presupuesto: 2500, objetivos: ["drift"] }),
     });
     expect(respuesta.status).toBe(200);
     const porApi = await respuesta.json();
 
-    const enCasa = generarPresupuesto({
-      plataforma: modelo.motor,
-      presupuesto: 2500,
-      objetivos: ["drag"],
-      modelo: modelo.nombre,
-      elecciones: [],
-    });
+    // Igual que lo arma la interfaz: con el chasis del coche y con el catálogo ya
+    // filtrado por lo que ese coche puede montar.
+    const catalogo = cargarCatalogo();
+    const enCasa = generarPresupuesto(
+      {
+        plataforma: modelo.motor,
+        chasis: modelo.chasis,
+        presupuesto: 2500,
+        objetivos: ["drift"],
+        modelo: modelo.nombre,
+        elecciones: [],
+      },
+      { ...catalogo, piezas: piezasDeModelo(modelo, catalogo) },
+    );
+
+    // Y no es una lista de cuatro cosas: si esto se queda corto, el filtrado se ha roto.
+    expect(enCasa.lineas.length).toBeGreaterThan(4);
 
     // Es la garantía de que la API no reimplementa reglas: mismo motor, mismo resultado.
     expect(porApi.total).toBe(enCasa.total);

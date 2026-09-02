@@ -31,7 +31,7 @@ import { sembrar } from "../db/sembrar.ts";
 import type { BaseDatos } from "../db/sqlite.ts";
 import { pideResiembra, verificarFirma } from "./webhook.ts";
 import { manejarCuenta, usuarioDePeticion } from "./rutas-cuenta.ts";
-import { accesoDe, apuntarPlan } from "../suscripcion/estado.ts";
+import { accesoDe, apuntarPlan, planesHoy } from "../suscripcion/estado.ts";
 import { LIMITES, PRECIO, puedePedirPlan } from "../suscripcion/planes.ts";
 import { configurar as configurarPasarela } from "../suscripcion/pasarela.ts";
 
@@ -180,7 +180,13 @@ async function manejar(
     const cuerpo = await leerCuerpo(peticion, respuesta);
     if (cuerpo === null) return;
 
-    let datos: { modelo?: string; presupuesto?: number; objetivos?: string[]; elecciones?: string[] };
+    let datos: {
+      modelo?: string;
+      presupuesto?: number;
+      objetivos?: string[];
+      elecciones?: string[];
+      soloComprobar?: boolean;
+    };
     try {
       datos = JSON.parse(cuerpo.toString("utf8"));
     } catch {
@@ -238,23 +244,60 @@ async function manejar(
         plan: acceso.plan,
         necesitaSuscripcion: true,
         precio: PRECIO,
+        // El que se ha quedado sin presupuestos hoy también tiene que ver el contador
+        // lleno en su perfil, no el número con el que cargó la página.
+        planesHoy: usuario ? acceso.planesHoy : null,
       });
       return;
     }
 
+    // El chasis va con la petición, y el catálogo entra ya filtrado por el coche. Sin
+    // eso el motor arma el pool solo por plataforma y se deja fuera todas las piezas que
+    // van por chasis (suspensión, frenos, dirección, ruedas, seguridad): un Arteon que
+    // pedía drift salía de aquí con un catch can y unos palieres, y por el motor del
+    // navegador sale con la geometría, los frenos y las ruedas. Es el mismo fallo que se
+    // arregló dentro de `generarPresupuesto` y que esta ruta seguía teniendo por su lado.
     const peticionPlan: PeticionPresupuesto = {
       plataforma: modelo.motor,
+      chasis: modelo.chasis,
       presupuesto,
       objetivos,
       modelo: modelo.nombre,
       elecciones,
     };
 
+    // Preguntar si algo cabe no es generarlo. La descarga del PDF pasa por aquí para
+    // comprobar el límite sobre un presupuesto que ya existe, y apuntárselo le quitaría
+    // uno de los del día por mirar.
+    if (datos.soloComprobar) {
+      responder(respuesta, 200, {
+        comprobado: true,
+        plan: acceso.plan,
+        planesHoy: usuario ? acceso.planesHoy : null,
+      });
+      return;
+    }
+
     if (usuario) await apuntarPlan(base, usuario.id);
+
+    // Cuántos van hoy, releído después de apuntar. Va en la respuesta para que la
+    // interfaz enseñe el número del servidor y no uno que ella deduzca sumando uno por
+    // su cuenta, que es como se acaban teniendo dos contadores distintos en pantalla.
+    //
+    // null cuando no hay sesión: ahí no se ha apuntado nada porque no hay a quién, así
+    // que el servidor no tiene ningún número que dar y lo lleva el navegador.
+    const usadosHoy = usuario ? await planesHoy(base, usuario.id) : null;
 
     // El catálogo se le pasa desde la base: la regla de negocio no se toca, solo cambia
     // de dónde vienen los datos.
-    responder(respuesta, 200, generarPresupuesto(peticionPlan, await leerCatalogo(base)));
+    const catalogoPlan = await leerCatalogo(base);
+    responder(respuesta, 200, {
+      ...generarPresupuesto(peticionPlan, {
+        ...catalogoPlan,
+        piezas: piezasDeModelo(modelo, catalogoPlan),
+      }),
+      planesHoy: usadosHoy,
+    });
     return;
   }
 

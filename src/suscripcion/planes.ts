@@ -69,6 +69,19 @@ export function limitesDe(estado: EstadoSuscripcion): Limites {
   return LIMITES[planDe(estado)];
 }
 
+/**
+ * El día al que se le apuntan los presupuestos, en formato AAAA-MM-DD y en horario
+ * universal, para que el corte sea el mismo para todos.
+ *
+ * Vive aquí, pegado a `planesPorDia`, porque lo preguntan los dos lados: el servidor
+ * para la tabla `uso_diario` y el navegador para el contador que lleva cuando no hay
+ * servidor al que preguntar. Con dos versiones de esta línea, un ordenador de Madrid y
+ * su propio navegador cambiarían de día con dos horas de diferencia.
+ */
+export function diaDeUso(fecha: Date = new Date()): string {
+  return fecha.toISOString().slice(0, 10);
+}
+
 export type Veredicto = { permitido: true } | { permitido: false; motivo: string };
 
 /** Si una petición de plan cabe en los límites de quien la pide. */

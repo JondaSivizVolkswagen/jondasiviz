@@ -1,4 +1,9 @@
 // Resultado del cálculo: cabecera, telemetría de gasto, avisos y piezas por categoría.
+//
+// Lo que se pinta aquí es el presupuesto generado, no el de lo que hay puesto ahora en
+// los controles: se genera al pulsar y se queda hasta la siguiente vez. Por eso los
+// botones de esta hoja que tocan el presupuesto dicen lo que hacen (mover la cifra) y no
+// prometen una lista nueva: la lista la trae el botón de generar.
 
 import { useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
@@ -185,7 +190,7 @@ export function Resultado({ resultado, onProbarPresupuesto }: Props) {
               className="btn btn-sm"
               onClick={() => onProbarPresupuesto(siguienteEscalon.presupuesto)}
             >
-              <span>Ver qué sale con {euros(siguienteEscalon.presupuesto)}</span>
+              <span>Subir a {euros(siguienteEscalon.presupuesto)}</span>
             </button>
           )}
         </div>
@@ -257,7 +262,7 @@ export function Resultado({ resultado, onProbarPresupuesto }: Props) {
             className="btn btn-sm"
             onClick={() => onProbarPresupuesto(siguienteEscalon.presupuesto)}
           >
-            <span>Probarlo</span>
+            <span>Poner esa cifra</span>
           </button>
         </div>
       )}

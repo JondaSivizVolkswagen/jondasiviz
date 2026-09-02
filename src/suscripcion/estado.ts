@@ -6,7 +6,7 @@
 
 import type { BaseDatos } from "../db/sqlite.ts";
 import type { EstadoSuscripcion, Plan } from "./planes.ts";
-import { limitesDe, planDe, type Limites } from "./planes.ts";
+import { diaDeUso, limitesDe, planDe, type Limites } from "./planes.ts";
 
 export interface Suscripcion {
   estado: EstadoSuscripcion;
@@ -93,7 +93,7 @@ export async function usuarioPorReferencia(
 export async function planesHoy(base: BaseDatos, usuarioId: string): Promise<number> {
   const fila = await base.uno<{ planes: number }>(
     "SELECT planes FROM uso_diario WHERE usuario_id = ? AND dia = ?",
-    [usuarioId, hoy()],
+    [usuarioId, diaDeUso()],
   );
   return Number(fila?.planes ?? 0);
 }
@@ -102,11 +102,7 @@ export async function apuntarPlan(base: BaseDatos, usuarioId: string): Promise<v
   await base.ejecutar(
     `INSERT INTO uso_diario (usuario_id, dia, planes) VALUES (?, ?, 1)
      ON CONFLICT(usuario_id, dia) DO UPDATE SET planes = planes + 1`,
-    [usuarioId, hoy()],
+    [usuarioId, diaDeUso()],
   );
 }
 
-/** El día en formato AAAA-MM-DD, en horario universal para que el corte sea el mismo para todos. */
-function hoy(): string {
-  return new Date().toISOString().slice(0, 10);
-}

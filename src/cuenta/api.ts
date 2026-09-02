@@ -113,7 +113,10 @@ export interface CodigoActivado {
 /** Ruta de descarga de los datos personales. */
 export const RUTA_MIS_DATOS = "/api/auth/mis-datos";
 
-export type Resultado<T> = { ok: true; datos: T } | { ok: false; error: string; codigo?: number };
+export type Resultado<T> =
+  | { ok: true; datos: T }
+  /** `datos` trae el cuerpo del error tal cual vino, para lo que no cabe en `error`. */
+  | { ok: false; error: string; codigo?: number; datos?: unknown };
 
 function token(): string | null {
   try {
@@ -163,7 +166,7 @@ async function peticion<T>(
       const error = (datos && typeof datos === "object" && "error" in datos
         ? String((datos as { error: unknown }).error)
         : null) ?? `La API respondió ${respuesta.status}.`;
-      return { ok: false, error, codigo: respuesta.status };
+      return { ok: false, error, codigo: respuesta.status, datos };
     }
     return { ok: true, datos: datos as T };
   } catch {
@@ -171,6 +174,23 @@ async function peticion<T>(
     // aquí, y para quien llama da igual el motivo.
     return { ok: false, error: "No se pudo hablar con el servidor." };
   }
+}
+
+/**
+ * Al revés que `sinInfinitos` del servidor: JSON no sabe escribir Infinity, así que "sin
+ * tope" llega como -1 en los presupuestos por día y como null en el dinero. Se deshace
+ * aquí, en el borde, para que `puedePedirPlan` se comporte igual en el navegador que en
+ * la API. Sin esto, a un suscriptor con la API caída el contador de aquí le diría que ya
+ * ha llegado a su tope, porque cualquier número es mayor o igual que -1.
+ */
+export function conInfinitos(limites: Limites): Limites {
+  const sinTope = (valor: number | null | undefined) =>
+    valor === null || valor === undefined || valor < 0 ? Infinity : valor;
+  return {
+    ...limites,
+    presupuestoMaximo: sinTope(limites.presupuestoMaximo),
+    planesPorDia: sinTope(limites.planesPorDia),
+  };
 }
 
 function normalizar(cruda: {
@@ -188,7 +208,7 @@ function normalizar(cruda: {
     usuario: cruda.usuario,
     perfil: cruda.perfil ?? null,
     plan: cruda.plan,
-    limites: cruda.limites,
+    limites: conInfinitos(cruda.limites),
     suscripcion: cruda.suscripcion ?? null,
     planesHoy: cruda.planesHoy ?? 0,
     precio: cruda.precio,
@@ -355,16 +375,47 @@ export async function borrarCuenta(contrasena: string): Promise<Resultado<Cuenta
 }
 
 /**
- * Comprueba en el servidor si el plan que se está pidiendo cabe en los límites de la
- * cuenta. No se usa para calcular el presupuesto (eso lo hace el motor en el navegador,
- * al instante): es la comprobación de verdad, la que no se puede saltar abriendo las
- * herramientas del navegador.
+ * Lo único que la interfaz mira de la respuesta de `/api/plan`: el plan lo calcula el
+ * motor de aquí. `planesHoy` es null cuando no hay sesión, porque entonces el servidor no
+ * apunta nada y el contador lo lleva el navegador.
  */
-export async function comprobarLimite(peticionPlan: {
+export interface RespuestaPlan {
+  planesHoy: number | null;
+}
+
+export interface PeticionPlan {
   modelo: string;
   presupuesto: number;
   objetivos: string[];
   elecciones: string[];
-}): Promise<Resultado<unknown>> {
+}
+
+/**
+ * Pide un presupuesto al servidor. Es el que cuenta: si hay sesión, el servidor lo apunta
+ * en el uso del día y con el siguiente que no quepa contesta 402.
+ *
+ * El plan que se enseña lo sigue calculando el motor del navegador, que es el mismo
+ * código con el chasis del coche puesto. Lo que se busca aquí es la comprobación y el
+ * apunte, que son cosa del servidor y no se pueden saltar abriendo las herramientas del
+ * navegador.
+ */
+export async function pedirPresupuesto(
+  peticionPlan: PeticionPlan,
+): Promise<Resultado<RespuestaPlan>> {
   return peticion("/api/plan", { metodo: "POST", cuerpo: peticionPlan, espera: ESPERA_ENVIO });
+}
+
+/**
+ * Pregunta si el plan cabe en los límites de la cuenta, sin que cuente como un
+ * presupuesto más del día. Lo usa la descarga del PDF, que no genera nada nuevo: sin el
+ * `soloComprobar` cada PDF se comía uno de los presupuestos del día.
+ */
+export async function comprobarLimite(
+  peticionPlan: PeticionPlan,
+): Promise<Resultado<RespuestaPlan>> {
+  return peticion("/api/plan", {
+    metodo: "POST",
+    cuerpo: { ...peticionPlan, soloComprobar: true },
+    espera: ESPERA_ENVIO,
+  });
 }

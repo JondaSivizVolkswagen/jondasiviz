@@ -26,5 +26,17 @@ export function motivoElecciones(limites: Limites): string | null {
   return veredicto.permitido ? null : veredicto.motivo;
 }
 
+/**
+ * Motivo por el que un presupuesto más no cabe hoy en el plan, o null si cabe.
+ *
+ * Es la misma frase que devuelve el 402 de `/api/plan`, porque sale de la misma
+ * función. Importa cuando corta el contador del navegador y no el servidor: quien lo lee
+ * no tiene por qué notar quién ha contado.
+ */
+export function motivoPlanesPorDia(limites: Limites, planesHoy: number): string | null {
+  const veredicto = puedePedirPlan(limites, { objetivos: [], elecciones: [] }, planesHoy);
+  return veredicto.permitido ? null : veredicto.motivo;
+}
+
 /** Exportar a PDF no forma parte de una petición de plan, así que no sale de puedePedirPlan. */
 export const MOTIVO_PDF = "Descargar en PDF es de la suscripción.";

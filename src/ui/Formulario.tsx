@@ -1,15 +1,17 @@
 // Formulario de entrada: modelo en un desplegable agrupado por motor, presupuesto con
-// suelo en el mínimo del proyecto, y uno o varios objetivos. La gama no se pide: se
-// deduce del dinero y se muestra al vuelo, igual que el mínimo.
+// suelo en el mínimo del proyecto, uno o varios objetivos, y el botón que genera.
+//
+// Aquí no se enseña nada del plan, ni siquiera la gama que saldría. Del mínimo y del
+// techo útil sí se vive, pero como extremos de la barra: son el recorrido del control,
+// no el resultado. Lo que sale del motor se lee al otro lado, después de pulsar.
 
 import { useMemo } from "react";
 import type { FormEvent } from "react";
-import type { GrupoElegible, ModeloVW, Objetivo, Presupuesto } from "../engine/types";
+import type { GrupoElegible, ModeloVW, Objetivo } from "../engine/types";
 import {
   NOMBRE_OBJETIVO,
   alternarObjetivo as aplicarObjetivo,
   enConflictoCon,
-  fraseRiesgo,
 } from "../engine/recommend";
 import type { Limites } from "../cuenta/api";
 import { OBJETIVOS } from "./opciones";
@@ -43,10 +45,10 @@ interface Props {
   objetivos: Objetivo[];
   onAlternarObjetivo: (valor: Objetivo) => void;
   /**
-   * Cálculo en vivo con lo que hay puesto ahora. De aquí salen la gama y el mínimo del
-   * proyecto, para que el formulario y el resultado no puedan decir cifras distintas.
+   * Lo que cuesta el proyecto por lo mínimo, según el catálogo de este coche. Es el
+   * suelo de la barra, no un resultado: sale del motor y se recalcula al vuelo.
    */
-  vistaPrevia: Presupuesto | null;
+  minimo: number;
   /** Dinero a partir del cual poner más ya no cambia la lista. 0 si no aplica. */
   techoUtil: number;
   /** Partes con varias alternativas para este coche y estos objetivos. */
@@ -57,13 +59,29 @@ interface Props {
   onLimpiarElecciones: () => void;
   /** Qué deja hacer el plan de la cuenta. Gratis por defecto para quien no ha entrado. */
   limites: Limites;
+  onGenerar: () => void;
+  /** Mientras se le pregunta al servidor si este presupuesto cabe en el plan. */
+  generando: boolean;
+  /** Si ya hay un presupuesto generado en pantalla. */
+  hayPlan: boolean;
+  /** Si ese presupuesto es de una configuración anterior a la que hay puesta ahora. */
+  obsoleto: boolean;
+  /** Lo que falló al generar y no es cosa del plan de la cuenta. */
+  falloGenerar: string | null;
 }
 
 export function Formulario(p: Props) {
-  // No hay botón de calcular: el plan se rehace solo con cada cambio. El formulario
-  // sigue siendo un <form> por semántica y por el `noValidate`, pero enviarlo con Enter
-  // no tiene que recargar la página.
-  const enviar = (e: FormEvent) => e.preventDefault();
+  const sinObjetivos = p.objetivos.length === 0;
+  // Con el presupuesto ya generado y nada tocado desde entonces no hay nada que generar,
+  // y volver a pulsar solo gastaría uno de los del día.
+  const puedeGenerar = !sinObjetivos && !p.generando && (!p.hayPlan || p.obsoleto);
+
+  // Enviar el formulario es generar. Se sigue interceptando el submit para que Enter en
+  // una casilla haga lo que se espera en vez de recargar la página.
+  const enviar = (e: FormEvent) => {
+    e.preventDefault();
+    if (puedeGenerar) p.onGenerar();
+  };
 
   // El desplegable se agrupa por plataforma de motor. Con ocho modelos ya ayuda, y la
   // lista va a crecer: así el que busca su coche no lee ocho decenas de nombres seguidos.
@@ -77,12 +95,9 @@ export function Formulario(p: Props) {
     return [...grupos].sort(([a], [b]) => a.localeCompare(b));
   }, [p.modelos]);
 
-  const sinObjetivos = p.objetivos.length === 0;
-  const gama = p.vistaPrevia?.gamaResultante ?? null;
-
   // El mínimo lo pone el motor con el catálogo de este coche, así que la barra se
   // reajusta sola en cuanto se añada un modelo nuevo al vault. Nada cableado aquí.
-  const minimo = p.vistaPrevia?.minimoEsencial ?? 0;
+  const { minimo } = p;
   const suelo = Math.ceil((minimo > 0 ? minimo : SUELO_LIBRE) / PASO) * PASO;
 
   // El techo tampoco es un número inventado: es lo que cuesta el build más completo que
@@ -92,10 +107,21 @@ export function Formulario(p: Props) {
   const techoCoche = Math.ceil(p.techoUtil / PASO) * PASO;
   const techo = techoCoche > suelo ? techoCoche : Math.max(TECHO_LIBRE, suelo + PASO);
 
-  const llegaAlMinimo = !sinObjetivos && p.presupuesto >= minimo;
+  // Una sola frase que dice en qué punto está el presupuesto. El punto de color va con
+  // ella: apagado mientras no hay nada, verde cuando lo de arriba y lo de al lado
+  // coinciden, ámbar cuando se ha tocado algo desde entonces.
+  const estadoPlan = sinObjetivos
+    ? { tono: "", frase: "Marca al menos un objetivo para poder generarlo." }
+    : p.generando
+      ? { tono: "", frase: "Preguntando si cabe en tu plan." }
+      : !p.hayPlan
+        ? { tono: "", frase: "Todavía no has generado ningún presupuesto." }
+        : p.obsoleto
+          ? { tono: " cambia", frase: "Has cambiado algo desde el último presupuesto." }
+          : { tono: " ok", frase: "El presupuesto está al día con lo que hay puesto." };
+
   const porDebajo = minimo > 0 && p.presupuesto < minimo;
   const porEncima = p.techoUtil > 0 && p.presupuesto > p.techoUtil;
-  const riesgo = p.vistaPrevia ? fraseRiesgo(p.vistaPrevia) : null;
 
   return (
     // noValidate: el navegador validaba el `step` de la casilla y al escribir 9021
@@ -202,8 +228,8 @@ export function Formulario(p: Props) {
         {porDebajo && (
           <div className="aviso aviso-rojo" role="alert">
             <p>
-              {riesgo ?? `Con ${euros(p.presupuesto)} el proyecto se queda a medias.`}{" "}
-              El mínimo para hacerlo entero son <strong>{euros(minimo)}</strong>.
+              Con {euros(p.presupuesto)} el proyecto se queda a medias. El mínimo para
+              hacerlo entero son <strong>{euros(minimo)}</strong>.
             </p>
             <button type="button" className="btn btn-sm" onClick={() => p.onPresupuesto(minimo)}>
               <span>Subir a {euros(minimo)}</span>
@@ -292,19 +318,6 @@ export function Formulario(p: Props) {
           )}
         </p>
 
-        {/* Solo la gama del build. El mínimo lo cuenta Requisitos, junto al plan. */}
-        <div className={"lectura" + (sinObjetivos ? "" : llegaAlMinimo ? " ok" : " corto")}>
-          {sinObjetivos ? (
-            <span>Marca al menos un objetivo.</span>
-          ) : gama ? (
-            <span>
-              Con {euros(p.presupuesto)} sale un build de gama <strong>{gama}</strong>
-            </span>
-          ) : (
-            <span>Con {euros(p.presupuesto)} todavía no entra ninguna pieza.</span>
-          )}
-        </div>
-
         <Elecciones
           grupos={p.grupos}
           elecciones={p.elecciones}
@@ -314,11 +327,32 @@ export function Formulario(p: Props) {
         />
       </div>
 
-      {/* En pantalla ancha el plan está al lado y esto sobra. En móvil queda debajo de
-          todo el formulario, así que hace falta un empujón para llegar. */}
-      <a className="btn btn-rojo ir-al-plan" href="#plan">
-        <span>Ver el presupuesto</span>
-      </a>
+      {/* Cierre del formulario. Se queda pegado al borde inferior mientras se toca
+          cualquier cosa de arriba: el formulario es más alto que muchas pantallas y un
+          botón que hay que ir a buscar con el scroll no se pulsa. */}
+      <div className="bloque bloque-generar">
+        <button type="submit" className="btn btn-rojo generar" disabled={!puedeGenerar}>
+          <span>{p.generando ? "Calculando…" : "Generar presupuesto"}</span>
+        </button>
+
+        <p className={"lectura" + estadoPlan.tono} role="status">
+          <span>{estadoPlan.frase}</span>
+        </p>
+
+        {p.falloGenerar && (
+          <p className="aviso-linea" role="alert">
+            {p.falloGenerar}
+          </p>
+        )}
+
+        {/* En pantalla ancha el plan está al lado y esto sobra. En móvil queda debajo de
+            todo el formulario, así que hace falta un empujón para llegar. */}
+        {p.hayPlan && (
+          <a className="btn btn-sm ir-al-plan" href="#plan">
+            <span>Ver el presupuesto</span>
+          </a>
+        )}
+      </div>
     </form>
   );
 }

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
 import { useCuenta } from "../cuenta/useCuenta";
 import { abrirCheckout, activarConCodigo } from "../cuenta/api";
+import { LIMITES } from "../suscripcion/planes";
 import { abrirEnNavegador, enEscritorio } from "./entorno";
 import { Icono } from "./icons";
 import { Modal } from "./Modal";
@@ -22,10 +23,12 @@ function precioExacto(centimos: number): string {
   });
 }
 
+// El número de presupuestos no se escribe aquí: es el mismo que aplica la API cuando
+// corta, así que sale de `LIMITES` y no puede quedarse desfasado.
 const RASGOS_GRATIS = [
   "Un objetivo por presupuesto",
   "El motor elige todas las piezas",
-  "5 presupuestos al día",
+  `${LIMITES.gratis.planesPorDia} presupuestos al día`,
 ];
 
 const RASGOS_TALLER = [

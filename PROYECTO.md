@@ -510,6 +510,50 @@ Decisiones que conviene no deshacer sin motivo:
 
   106 tests, typecheck, lint y build en verde.
 
+- **(q) Botón de generar y tope diario de verdad** — el plan se calculaba en vivo con
+  cada cambio, así que no existía ningún momento al que llamar "se ha generado un
+  presupuesto" y `planesPorDia` era código muerto: el servidor sabía contar y nadie le
+  pedía nada. Ahora la columna del plan no enseña nada hasta pulsar **Generar
+  presupuesto**, y el desglose en vivo que había bajo los objetivos se va con ella (si se
+  queda, el botón no sirve de nada).
+
+  El motor sigue corriendo con cada cambio, pero solo para los controles: el recorrido de
+  la barra (del mínimo al techo útil) y las partes que se pueden fijar a mano. Un control
+  que no sabe dibujarse hasta que pulsas un botón es un fallo, no una funcionalidad.
+
+  Al pulsar, quien cuenta es el servidor: `POST /api/plan` comprueba los límites, apunta
+  el presupuesto en `uso_diario` y contesta 402 con su motivo, que abre la suscripción.
+  Sin API, o sin sesión (que es cuando el servidor no tiene a quién apuntárselo), cuenta
+  el navegador en `localStorage` con el mismo tope y la misma frase, sacada de
+  `puedePedirPlan`, y con el mismo corte de día en horario universal (`diaDeUso`, ahora
+  compartido). Eso se salta borrando los datos del navegador y se sabe: frena el uso
+  normal, el que no se salta nadie es el del servidor.
+
+  Lo generado no se borra al tocar nada, se queda marcado como de la configuración
+  anterior, que era el motivo original de calcular en vivo. Y `/api/plan` acepta
+  `soloComprobar`: la descarga del PDF pasa por ahí para comprobar el límite y se estaba
+  comiendo uno de los cinco presupuestos del día por mirar.
+
+  El contador del perfil ("Hoy llevas X de 5 presupuestos") se movía solo al recargar,
+  porque `planesHoy` se pedía una vez al arrancar con `/api/auth/yo` y se quedaba ahí. Y
+  sin sesión enseñaba cero mientras el que contaba era `localStorage`. Ahora `/api/plan`
+  devuelve el `planesHoy` ya apuntado (null cuando no hay sesión, que es cuando no ha
+  apuntado nada), `apuntarGeneracion` lo pasa hacia arriba junto con quién lo cuenta, y
+  el contexto lo fija sin pedir la cuenta otra vez. Con la suscripción no se habla de
+  números, y los límites que llegan del servidor con -1 y null (JSON no sabe escribir
+  Infinity) se deshacen al entrar: si no, a un suscriptor con la API caída el contador de
+  aquí le habría dicho que ya llegó a su tope.
+
+  Por el camino salió un fallo viejo de la ruta: `/api/plan` no le pasaba el chasis al
+  motor ni le filtraba el catálogo por el coche, así que armaba el pool solo por
+  plataforma. Un Arteon pidiendo drift con 2.500 € salía de la API con un catch can y
+  unos palieres, y del motor del navegador sale con geometría, frenos, dirección, ruedas
+  y seguridad. Es el mismo fallo que se arregló dentro de `generarPresupuesto` en la
+  tanda anterior y que esta ruta seguía teniendo por su cuenta. El test que compara la
+  API con el motor pasa a hacerlo con un modelo MQB, que es donde se nota.
+
+  174 tests, typecheck, lint y build en verde.
+
 ### Pendientes
 
 1. **Fase 3b** — Guardar builds (localStorage o archivo) y exportar a CSV. El PDF ya
