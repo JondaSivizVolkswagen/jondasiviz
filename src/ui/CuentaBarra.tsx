@@ -21,16 +21,31 @@ export function CuentaBarra() {
     );
   }
 
+  // El nombre que se puso en el perfil, no el correo. El correo es con lo que entras,
+  // no como te llamas, y verlo entero ahí arriba no le dice nada a nadie.
+  //
+  // Sin nombre no se pinta texto ninguno: queda el avatar solo, igual que ese avatar ya
+  // cae al icono de persona cuando no hay ni foto ni iniciales. Antes que enseñar el
+  // trozo del correo anterior a la arroba, que sigue siendo el correo y encima parece
+  // que se cortó a medias. El nombre se pone en el registro o después, en el perfil.
+  const nombre = perfil?.nombre?.trim();
+
   return (
     <button
       type="button"
       className="cuenta-btn"
       title="Ver tu perfil"
-      aria-label={`Abrir el perfil de ${usuario.correo}`}
+      // El correo sigue aquí siempre, se vea o no en pantalla: es el dato que distingue
+      // una cuenta de otra, y quien navega a oídas lo necesita para saber en cuál está.
+      aria-label={
+        nombre
+          ? `Abrir el perfil de ${nombre}, ${usuario.correo}`
+          : `Abrir el perfil de ${usuario.correo}`
+      }
       onClick={() => abrirPerfil()}
     >
       <Avatar nombre={perfil?.nombre} foto={perfil?.foto} />
-      <span className="cuenta-correo">{usuario.correo}</span>
+      {nombre && <span className="cuenta-nombre">{nombre}</span>}
     </button>
   );
 }

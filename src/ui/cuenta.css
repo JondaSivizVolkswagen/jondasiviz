@@ -34,7 +34,13 @@
   background: var(--panel-2);
 }
 
-.cuenta-correo {
+/* Un perfil sin nombre no tiene texto que enseñar y el botón se queda solo con el
+   avatar. El mismo margen por los cuatro lados, o queda descuadrado hacia la derecha. */
+.cuenta-btn:not(:has(.cuenta-nombre)) {
+  padding: 4px;
+}
+
+.cuenta-nombre {
   font-family: var(--mono);
   font-size: 10.5px;
   letter-spacing: 0.05em;
@@ -52,8 +58,14 @@
 }
 
 @media (max-width: 640px) {
-  .cuenta-correo {
+  .cuenta-nombre {
     display: none;
+  }
+
+  /* Aquí el nombre lo esconde el CSS, así que el span sigue en el sitio y el selector
+     de arriba no llega. Se iguala el margen igualmente. */
+  .cuenta-btn {
+    padding: 4px;
   }
 }
 
