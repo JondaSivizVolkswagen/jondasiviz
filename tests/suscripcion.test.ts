@@ -123,7 +123,7 @@ describe("la API cobra de verdad", () => {
     expect(respuesta.status).toBe(402);
     const datos = await respuesta.json();
     expect(datos.necesitaSuscripcion).toBe(true);
-    expect(datos.precio.centimos).toBe(499);
+    expect(datos.precio.centimos).toBe(999);
   });
 
   it("sin pagar, no deja fijar piezas a mano", async () => {

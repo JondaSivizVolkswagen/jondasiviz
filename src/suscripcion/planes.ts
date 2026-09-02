@@ -49,7 +49,7 @@ export const LIMITES: Record<Plan, Limites> = {
 
 /** Lo que cuesta la suscripción, en céntimos, y cada cuánto se cobra. */
 export const PRECIO = {
-  centimos: 499,
+  centimos: 999,
   moneda: "eur",
   periodo: "mes",
 } as const;

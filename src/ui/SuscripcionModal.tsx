@@ -14,7 +14,7 @@ import { Modal } from "./Modal";
 /**
  * `euros()` (en `src/engine/format.ts`) redondea al entero: hecho para precios
  * orientativos de piezas, no para un cobro con céntimos exactos como este. Aquí hace
- * falta la cifra completa, 4,99 € y no 5 €.
+ * falta la cifra completa, 9,99 € y no 10 €.
  */
 function precioExacto(centimos: number): string {
   return (centimos / 100).toLocaleString("es-ES", {

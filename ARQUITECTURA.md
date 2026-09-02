@@ -220,7 +220,7 @@ entorno.
 ## 4. Cuentas y suscripción
 
 **Qué es.** Registro con correo y contraseña, sesiones, y una suscripción mensual de
-4,99 € que abre la herramienta entera. Sin ella se puede usar, pero recortada.
+9,99 € que abre la herramienta entera. Sin ella se puede usar, pero recortada.
 
 | | Gratis | Suscrito |
 |---|---|---|
