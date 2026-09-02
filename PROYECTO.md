@@ -557,24 +557,30 @@ coma, de `drift|drag|mas-cv|estetica`.
 ## 10. Estado de git
 
 - Local: `C:\Users\alexa\Desktop\JondaSiviz`, rama `main`.
-- Remoto: **https://github.com/JondaSivizVolkswagen/jondasiviz** (privado), cuenta de
-  GitHub `JondaSivizVolkswagen`. `origin/main` al día.
+- Remoto: **https://github.com/JondaSivizVolkswagen/jondasiviz**, cuenta de GitHub
+  `JondaSivizVolkswagen`.
 
-Commits (de más nuevo a más viejo):
+**El repositorio es público, y conviene que siga siéndolo.** Hay tres cosas colgando de
+eso: SignPath Foundation solo firma proyectos de código abierto, las Actions son
+ilimitadas en repositorios públicos (en privado, una sola release se come unos cien
+minutos de la cuota porque las de macOS se cobran a diez veces), y sobre todo el botón
+de descarga de la portada, que no es un enlace fijo: `src/landing/descarga.ts` pregunta a
+la API pública de GitHub cuál es la última release y qué binario le toca a cada sistema.
+Esa llamada va sin identificar desde el navegador de quien visita la web, así que en
+privado GitHub respondería 404 a todo el mundo y no hay arreglo cómodo, porque un token
+metido en el JavaScript de la web se lo lleva quien abra el inspector.
 
-```
-chore: backup portable de la config de Claude Code (~/.claude)
-docs: PROYECTO.md, dossier completo para retomar sin contexto previo
-docs: README con objetivos multiples y suelo combinado
-Objetivos multiples + suelo de gasto combinado
-docs: README al dia (Fase 2, 40 tests, grupoExclusivo)
-(c) Exclusion mutua por grupo + afinado de pesos y suelos
-(b) Fase 2: interfaz React
-(a) Catalogo real y profundo del Mk5 / EA113
-Fase 1.5: red relacional en Obsidian + parser de ingesta
-Capa relacional por modelo + subagentes offline
-Fase 0 y 1: esqueleto y motor de presupuestos
-```
+Que sea público no expone nada: `.env` está en `.gitignore` desde el primer commit y
+nunca ha entrado en el histórico. El código de acceso de la suscripción vive en
+`JONDA_CODIGO_MAESTRO` precisamente porque cualquiera puede leer el fuente.
+
+Ojo con no confundir dos cosas: el techo del plan gratuito se aplica hoy en el navegador,
+así que se puede saltar tenga el repositorio la visibilidad que tenga. Eso se arregla
+calculando el plan en el servidor, no escondiendo el código.
+
+La lista de commits que había aquí se quedó desfasada a los pocos días y no se vuelve a
+poner: el histórico ya lo cuenta mejor `git log --oneline`, y los mensajes de este
+repositorio explican el porqué de cada cambio, no solo el qué.
 
 Trabajo normal: `git add -A && git commit -m "..." && git push`.
 

@@ -45,3 +45,6 @@ datos/
 # Credenciales locales: nunca se suben.
 .env
 .env.local
+
+# Worktrees que crea Claude Code. El contenido acaba en una rama, no aquí.
+.claude/worktrees/
